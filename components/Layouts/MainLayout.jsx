@@ -6,7 +6,7 @@ import Sidebar from "../Navigations/Sidebar";
 const MainLayout = (props) => {
   return (
     <>
-      <main className="flex max-h-screen overflow-y-auto bg-slate-200 dark:bg-slate-900 dark:text-white">
+      <main className="flex bg-slate-200 dark:bg-slate-900 dark:text-white">
         <Sidebar />
         <Image
           alt=""
@@ -15,7 +15,14 @@ const MainLayout = (props) => {
           height={400}
           className="fixed -z-0 -left-80"
         />
-        <section className="flex-col w-full max-h-screen overflow-y-auto py-2 px-8 bg-slate-200 dark:bg-slate-900 bg-opacity-50 backdrop-blur-lg z-10">
+        <Image
+          alt=""
+          src={"/logo itk png.png"}
+          width={800}
+          height={600}
+          className="fixed -z-0 left-1/3"
+        />
+        <section className="flex flex-col w-full max-h-screen overflow-y-auto py-4 px-8 bg-slate-200 dark:bg-slate-900 text-slate-900 dark:text-white bg-opacity-50 backdrop-blur-2xl dark:bg-opacity-50 dark:backdrop-blur-2xl  z-10">
           {/* <Nav /> */}
           {props.children}
         </section>

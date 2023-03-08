@@ -2,12 +2,14 @@ import React from "react";
 
 const Table = ({ columns, data }) => {
   return (
-    <section className="z-10 overflow-x-auto w-full rounded-xl shadow-2xl dark:shadow-blue-700">
+    <section className="z-10 overflow-x-auto w-full rounded-xl shadow-lg dark:shadow-blue-700">
       <table className="w-full table-auto text-left">
         <thead>
           <tr className="bg-white dark:bg-slate-800 uppercase text-xs">
             {columns.map((column) => (
-              <th className="p-2 first:pl-4 last:pr-4">{column.title}</th>
+              <th key={column.title} className="p-2 first:pl-4 last:pr-4">
+                {column.title}
+              </th>
             ))}
           </tr>
         </thead>
@@ -20,7 +22,11 @@ const Table = ({ columns, data }) => {
               {columns.map((column, index) => {
                 let toShown = item[column.key];
                 if (column.render) toShown = column.render(item, index);
-                return <td className="p-2 first:pl-4 last:pr-4">{toShown}</td>;
+                return (
+                  <td key={index} className="p-2 first:pl-4 last:pr-4">
+                    {toShown}
+                  </td>
+                );
               })}
             </tr>
           ))}

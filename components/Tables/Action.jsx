@@ -10,7 +10,7 @@ const Action = ({ param, action }) => {
           className="relative flex justify-center p-1 text-red-500 rounded-xl text-sm group"
         >
           <i className="fi-rr-trash"></i>
-          <span className="absolute bottom-full bg-white shadow-md px-2 text-xs rounded-xl hidden group-hover:flex">
+          <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
             Delete
           </span>
         </button>
@@ -19,7 +19,7 @@ const Action = ({ param, action }) => {
           className="relative flex justify-center p-1 text-purple-500 rounded-xl text-sm group"
         >
           <i className="fi-rr-pencil"></i>
-          <span className="absolute bottom-full bg-white shadow-md px-2 text-xs rounded-xl hidden group-hover:flex">
+          <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
             Edit
           </span>
         </button>
@@ -28,7 +28,7 @@ const Action = ({ param, action }) => {
           className="relative flex justify-center p-1 text-green-500 rounded-xl text-sm group"
         >
           <i className="fi-rr-info"></i>
-          <span className="absolute bottom-full bg-white shadow-md px-2 text-xs rounded-xl hidden group-hover:flex">
+          <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
             Detail
           </span>
         </button>
@@ -37,7 +37,7 @@ const Action = ({ param, action }) => {
           className="relative flex justify-center p-1 text-blue-500 rounded-xl text-sm group"
         >
           <i className="fi-rr-document"></i>
-          <span className="absolute bottom-full bg-white shadow-md px-2 text-xs rounded-xl hidden group-hover:flex">
+          <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
             Tambah dokumen
           </span>
         </button>

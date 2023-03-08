@@ -1,43 +1,58 @@
-import React, { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-function Dropdown({ options, selectedOption, onSelectedOptionChange }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const ref = useRef();
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [ref]);
-
-  const handleOptionClick = (option) => {
-    onSelectedOptionChange(option);
-    setIsOpen(false);
+const Dropdown = ({ index, isActive, onClick, subItem, title, icon }) => {
+  const router = useRouter();
+  const handleDropdownClick = () => {
+    onClick(index);
   };
 
   return (
-    <div className="dropdown" ref={ref}>
-      <div className="dropdown-toggle" onClick={() => setIsOpen(!isOpen)}>
-        {selectedOption}
-      </div>
-      {isOpen && (
-        <ul className="dropdown-menu">
-          {options.map((option) => (
-            <li key={option} onClick={() => handleOptionClick(option)}>
-              {option}
-            </li>
+    <div
+      className={`relative flex flex-col group w-full transition-all ease-in-out duration-300`}
+    >
+      <button
+        className={`relative flex items-center gap-2 p-2 w-full shadow-2xl rounded-lg z-10 group-hover:bg-blue-700 group-hover:shadow-2xl group-hover:shadow-blue-800 group-hover:text-white group-hover:scale-105 duration-200 ease-in-out ${
+          isActive
+            ? `bg-blue-700 shadow-blue-800 text-white`
+            : `bg-white dark:bg-slate-800`
+        } `}
+        onClick={handleDropdownClick}
+      >
+        <div className="w-8 h-8 rounded-md flex items-center justify-center group-hover:shadow-xl">
+          <i className={icon}></i>
+        </div>
+        {title}
+        {subItem && (
+          <i
+            className={`${
+              isActive ? `fi-rr-angle-small-up` : `fi-rr-angle-small-down`
+            } ml-auto`}
+          ></i>
+        )}
+      </button>
+
+      <ul
+        className={`px-2 text-left flex flex-col overflow-hidden w-full transition-all ease-in-out duration-300 ${
+          isActive ? `h-full` : `h-0`
+        }`}
+      >
+        {subItem &&
+          subItem.map((item) => (
+            <Link
+              className={`last:rounded-b-lg  hover:bg-blue-700 hover:text-white hover:pl-4 p-2 duration-200 ease-in-out ${
+                item.link === router.pathname
+                  ? `bg-blue-700 text-white`
+                  : `bg-white dark:bg-slate-800`
+              }`}
+              href={item.link}
+            >
+              {item.title}
+            </Link>
           ))}
-        </ul>
-      )}
+      </ul>
     </div>
   );
-}
+};
 
 export default Dropdown;

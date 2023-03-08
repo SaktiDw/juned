@@ -42,6 +42,7 @@ const SidebarItem = (props) => {
       >
         {props.subitem?.map((item) => (
           <Link
+            key={item.link}
             href={item.link}
             className={`last:rounded-b-lg  hover:bg-blue-700 hover:text-white hover:pl-4 p-2 duration-200 ease-in-out ${
               item.link === router.pathname
