@@ -1,4 +1,4 @@
-import { fetchUser } from '@/helper/api/users'
+import { fetchUser } from '@/helper/api/api'
 import { isError, useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
