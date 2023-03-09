@@ -13,24 +13,37 @@ const Table = ({ columns, data }) => {
             ))}
           </tr>
         </thead>
-        <tbody>
-          {data?.map((item) => (
+        {data.length > 0 ? (
+          <tbody>
+            {data?.map((item) => (
+              <tr
+                className="bg-white odd:bg-blue-50 hover:bg-blue-100 dark:bg-slate-800 dark:odd:bg-slate-900 dark:hover:bg-slate-700"
+                key={item.id}
+              >
+                {columns.map((column, index) => {
+                  let toShown = item[column.key];
+                  if (column.render) toShown = column.render(item, index);
+                  return (
+                    <td key={index} className="p-2 first:pl-4 last:pr-4">
+                      {toShown}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        ) : (
+          <tbody>
             <tr
               className="bg-white odd:bg-blue-50 hover:bg-blue-100 dark:bg-slate-800 dark:odd:bg-slate-900 dark:hover:bg-slate-700"
-              key={item.id}
+              key={0}
             >
-              {columns.map((column, index) => {
-                let toShown = item[column.key];
-                if (column.render) toShown = column.render(item, index);
-                return (
-                  <td key={index} className="p-2 first:pl-4 last:pr-4">
-                    {toShown}
-                  </td>
-                );
-              })}
+              <td colSpan={columns.length} className="p-2 w-full text-center">
+                No Data
+              </td>
             </tr>
-          ))}
-        </tbody>
+          </tbody>
+        )}
       </table>
     </section>
   );

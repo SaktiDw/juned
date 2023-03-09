@@ -53,10 +53,18 @@ const Sidebar = () => {
               title: "Data Pribadi",
               active: true,
             },
-            { link: "/", title: "Inpassing", active: false },
-            { link: "/", title: "Jabatan Fungsional", active: false },
-            { link: "/", title: "Kepangkatan", active: false },
-            { link: "/", title: "Penempatan", active: false },
+            { link: "/profile/inpassing", title: "Inpassing", active: false },
+            {
+              link: "/profile/jabatan-fungsional",
+              title: "Jabatan Fungsional",
+              active: false,
+            },
+            {
+              link: "/profile/kepangkatan",
+              title: "Kepangkatan",
+              active: false,
+            },
+            { link: "/profile/penempatan", title: "Penempatan", active: false },
           ]}
         />
         <Dropdown

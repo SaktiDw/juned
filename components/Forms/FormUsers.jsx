@@ -2,7 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 import { Input } from "..";
 import * as yup from "yup";
-import { createUser } from "@/helper/api/users";
+import { createUser } from "@/helper/api/api";
 
 const schema = yup.object().shape({
   name: yup.string().required(),

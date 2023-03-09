@@ -22,7 +22,7 @@ const CardDataPribadi = ({ title, children, data }) => {
                   {item.title}
                 </span>
                 <span className="text-xl font-bold leading-tight">
-                  {item.text}
+                  {(item.text ||= "tidak ada")}
                 </span>
               </div>
             ))}
