@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { Inter, Open_Sans } from "@next/font/google";
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { deleteUser, fetchUsers } from "@/helper/api/users";
+import { deleteUser, fetchUsers } from "@/helper/api/api";
 import {
   Action,
   Dropdown,
