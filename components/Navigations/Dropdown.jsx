@@ -33,7 +33,7 @@ const Dropdown = ({ index, isActive, onClick, subItem, title, icon }) => {
       </button>
 
       <ul
-        className={`px-2 text-left flex flex-col overflow-hidden w-full transition-all ease-in-out duration-300 ${
+        className={`px-2 text-left flex flex-col overflow-hidden w-full transition-all ease-in-out duration-400 ${
           isActive ? `h-full` : `h-0`
         }`}
       >

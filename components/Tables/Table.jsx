@@ -2,7 +2,7 @@ import React from "react";
 
 const Table = ({ columns, data }) => {
   return (
-    <section className="z-10 overflow-x-auto w-full rounded-xl shadow-lg dark:shadow-blue-700">
+    <section className="z-10 overflow-x-auto w-full rounded-lg shadow-lg dark:shadow-blue-700">
       <table className="w-full table-auto text-left">
         <thead>
           <tr className="bg-white dark:bg-slate-800 uppercase text-xs">
@@ -13,11 +13,11 @@ const Table = ({ columns, data }) => {
             ))}
           </tr>
         </thead>
-        {data.length > 0 ? (
+        {data?.length > 0 ? (
           <tbody>
             {data?.map((item) => (
               <tr
-                className="bg-white odd:bg-blue-50 hover:bg-blue-100 dark:bg-slate-800 dark:odd:bg-slate-900 dark:hover:bg-slate-700"
+                className=" bg-white odd:bg-blue-50 hover:bg-blue-100 dark:bg-slate-800 dark:odd:bg-slate-900 dark:hover:bg-slate-700"
                 key={item.id}
               >
                 {columns.map((column, index) => {
@@ -35,7 +35,7 @@ const Table = ({ columns, data }) => {
         ) : (
           <tbody>
             <tr
-              className="bg-white odd:bg-blue-50 hover:bg-blue-100 dark:bg-slate-800 dark:odd:bg-slate-900 dark:hover:bg-slate-700"
+              className="leading-relaxed bg-white odd:bg-blue-50 hover:bg-blue-100 dark:bg-slate-800 dark:odd:bg-slate-900 dark:hover:bg-slate-700"
               key={0}
             >
               <td colSpan={columns.length} className="p-2 w-full text-center">

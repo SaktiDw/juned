@@ -1,48 +1,49 @@
 import { Action, MainLayout, Table } from "@/components";
-import { fetchListInpassing } from "@/helper/api/api";
+import { fetchListPenempatan } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
-const inpassing = () => {
+const Penempatan = () => {
   const {
-    data: inpassing,
+    data: penempatan,
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["inpassing"],
-    queryFn: () => fetchListInpassing(),
+    queryKey: ["penempatan"],
+    queryFn: () => fetchListPenempatan(),
   });
-
   return (
     <MainLayout>
       <div className="flex flex-col gap-2 dark:text-white w-full h-full">
         <span className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
-          Inpassing
+          Penempatan
         </span>
-        <button className="flex items-center justify-center gap-2 py-2 px-4 bg-blue-700 rounded-md shadow-xl w-32 text-white">
-          <i className="fi-rr-plus"></i> Tambah
-        </button>
+
         <Table
           columns={[
             { key: "id", title: "No." },
-            { key: "pangkat_golongan", title: "Pangkat/Golongan" },
-            { key: "sk", title: "Nomor SK" },
-            { key: "tanggal_sk", title: "Tanggal SK" },
+            ,
+            { key: "status", title: "Status" },
+            { key: "ikatan_kerja", title: "Ikatan Kerja" },
+            { key: "jenjang_pendidikan", title: "Jenjang Pendidikan" },
+            { key: "unit", title: "Unit" },
+            { key: "perguruan_tinggi", title: "Perguruan Tinggi" },
             {
               key: "terhitung_mulai_tanggal",
               title: "Terhitung Mulai Tanggal",
             },
+            { key: "tanggal_keluar", title: "Tanggal Keluar" },
             {
               key: "id",
               title: "Action",
               render: (val) => <Action param={val} />,
             },
           ]}
-          data={inpassing?.data}
+          data={penempatan?.data}
         />
       </div>
     </MainLayout>
   );
 };
 
-export default inpassing;
+export default Penempatan;

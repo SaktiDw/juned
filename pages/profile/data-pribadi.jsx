@@ -9,32 +9,35 @@ import {
 } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
 const DataPribadi = () => {
+  const router = useRouter();
+  const id = "a0a07ef9-1a61-46d2-b00b-ea4d580e714a";
   const { data: alamat } = useQuery({
     queryKey: ["alamat"],
-    queryFn: async () => await fetchAlamat(),
+    queryFn: async () => await fetchAlamat(id),
   });
   const { data: profil } = useQuery({
     queryKey: ["profil"],
-    queryFn: async () => await fetchProfil(),
+    queryFn: async () => await fetchProfil(id),
   });
   const { data: kependudukan } = useQuery({
     queryKey: ["kependudukan"],
-    queryFn: async () => await fetchKependudukan(),
+    queryFn: async () => await fetchKependudukan(id),
   });
   const { data: lain } = useQuery({
     queryKey: ["lain"],
-    queryFn: async () => await fetchLainLain(),
+    queryFn: async () => await fetchLainLain(id),
   });
   const { data: keluarga } = useQuery({
     queryKey: ["keluarga"],
-    queryFn: async () => await fetchKeluarga(),
+    queryFn: async () => await fetchKeluarga(id),
   });
   const { data: kepegawaian } = useQuery({
     queryKey: ["kepegawaian"],
-    queryFn: async () => await fetchKepegawaian(),
+    queryFn: async () => await fetchKepegawaian(id),
   });
 
   return (
@@ -44,15 +47,17 @@ const DataPribadi = () => {
           <CardDataPribadi
             title={"profile"}
             data={[
-              { title: "Nama", text: profil?.data.nama },
-              { title: "Jenis Kelamin", text: profil?.data.jenis_kelamin },
-              { title: "NIDN", text: profil?.data.nidn },
+              { title: "Nama", text: profil?.data[0].pegawai.nama_sdm },
+              { title: "Jenis Kelamin", text: profil?.data[0].jenis_kelamin },
+              { title: "NIDN", text: profil?.data[0].pegawai.nidn },
               {
                 title: "Tempat, tanggal lahir",
                 text:
-                  profil?.data.tempat_lahir + ", " + profil?.data.tanggal_lahir,
+                  profil?.data[0].tempat_lahir +
+                  ", " +
+                  profil?.data[0].tanggal_lahir,
               },
-              { title: "Ibu Kandung", text: profil?.data.nama_ibu_kandung },
+              { title: "Ibu Kandung", text: profil?.data[0].nama_ibu_kandung },
             ]}
           >
             <div className="relative w-full h-[300px]">
@@ -67,47 +72,56 @@ const DataPribadi = () => {
           <CardDataPribadi
             title={"Alamat dan kontak"}
             data={[
-              { title: "Email", text: alamat?.data.email },
-              { title: "Alamat", text: alamat?.data.alamat },
-              { title: "RT", text: alamat?.data.rt },
-              { title: "RW", text: alamat?.data.rw },
-              { title: "Dusun", text: alamat?.data.dusun },
-              { title: "Desa/Kelurahan", text: alamat?.data.kelurahan },
-              { title: "Kota/Kabupaten", text: alamat?.data.id_kota_kabupaten },
-              { title: "Provinsi", text: alamat?.data.id_kota_kabupaten },
-              { title: "Kode Pos", text: alamat?.data.kode_pos },
-              { title: "No. Telepon Rumah", text: alamat?.data.telpon_rumah },
-              { title: "No. HP", text: alamat?.data.telpon_hp },
+              { title: "Email", text: alamat?.data[0].email },
+              { title: "Alamat", text: alamat?.data[0].alamat },
+              { title: "RT", text: alamat?.data[0].rt },
+              { title: "RW", text: alamat?.data[0].rw },
+              { title: "Dusun", text: alamat?.data[0].dusun },
+              { title: "Desa/Kelurahan", text: alamat?.data[0].kelurahan },
+              {
+                title: "Kota/Kabupaten",
+                text: alamat?.data[0].id_kota_kabupaten,
+              },
+              { title: "Provinsi", text: alamat?.data[0].id_kota_kabupaten },
+              { title: "Kode Pos", text: alamat?.data[0].kode_pos },
+              {
+                title: "No. Telepon Rumah",
+                text: alamat?.data[0].telpon_rumah,
+              },
+              { title: "No. HP", text: alamat?.data[0].telpon_hp },
             ]}
           />
           <CardDataPribadi
             title={"kepegawaian"}
             data={[
-              { title: "Program Studi", text: kepegawaian?.data.program_studi },
-              { title: "NIP (khusus PNS)", text: kepegawaian?.data.nip },
+              {
+                title: "Program Studi",
+                text: kepegawaian?.data[0].program_studi,
+              },
+              { title: "NIP (khusus PNS)", text: kepegawaian?.data[0].nip },
               {
                 title: "Status Kepegawaian",
-                text: kepegawaian?.data.status_kepegawaian,
+                text: kepegawaian?.data[0].status_kepegawaian,
               },
               {
                 title: "Status Keaktifan",
-                text: kepegawaian?.data.status_keaktifan,
+                text: kepegawaian?.data[0].status_keaktifan,
               },
-              { title: "Nomor SK CPNS", text: kepegawaian?.data.sk_cpns },
+              { title: "Nomor SK CPNS", text: kepegawaian?.data[0].sk_cpns },
               {
                 title: "SK CPNS Terhitung Mulai Tanggal",
-                text: kepegawaian?.data.tanggal_sk_cpns,
+                text: kepegawaian?.data[0].tanggal_sk_cpns,
               },
-              { title: "Nomor SK TMMD", text: kepegawaian?.data.sk_tmmd },
+              { title: "Nomor SK TMMD", text: kepegawaian?.data[0].sk_tmmd },
               {
                 title: "Tanggal Mulai Menjadi Dosen (TMMD)",
-                text: kepegawaian?.data.tanggal_sk_tmmd,
+                text: kepegawaian?.data[0].tanggal_sk_tmmd,
               },
               {
                 title: "Pangkat/Golongan",
-                text: kepegawaian?.data.pangkat_golongan,
+                text: kepegawaian?.data[0].pangkat_golongan,
               },
-              { title: "Sumber Gaji", text: kepegawaian?.data.sumber_gaji },
+              { title: "Sumber Gaji", text: kepegawaian?.data[0].sumber_gaji },
             ]}
           />
         </div>

@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "4c79d8c0-cec6-4c2e-9101-628e573eb7b9",
+    "colId": "8ded7190-88df-4d74-a306-e672b783bd12",
+    "containerId": "9277b519-1db0-40b7-a308-9441de3258ec",
+    "name": "/data-pribadi/alamat/id_sdm",
+    "url": "/data-pribadi/alamat/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2023-03-16T12:08:47.795Z",
+    "modified": "2023-03-16T12:11:10.838Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "4742c274-4c86-410f-8f3a-2636b5e5beeb",
+    "colId": "8ded7190-88df-4d74-a306-e672b783bd12",
+    "containerId": "9277b519-1db0-40b7-a308-9441de3258ec",
+    "name": "/data-pribadi/profil/id_sdm",
+    "url": "/data-pribadi/profil/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2023-03-16T12:11:02.635Z",
+    "modified": "2023-03-16T12:11:02.635Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  }
+]

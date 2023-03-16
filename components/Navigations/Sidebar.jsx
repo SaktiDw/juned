@@ -1,7 +1,8 @@
-import useToggle from "@/helper/hooks/useToggle";
+import { DarkModeContext } from "@/helper/context/DarkModeContext";
+import useDarkMode from "@/helper/hooks/useDarkMode";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Dropdown, SidebarItem } from "..";
 
 const Sidebar = () => {
@@ -30,6 +31,8 @@ const Sidebar = () => {
     };
   }, []);
 
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+
   return (
     <>
       <aside
@@ -39,6 +42,9 @@ const Sidebar = () => {
         <Image alt="" src={"/logo itk png.png"} width={300} height={200} />
         <h1>Sistem Informasi</h1>
         <h1>Sister</h1>
+        <span>
+          {router.pathname} {router.pathname === "profile/[*]" ?? "red"}
+        </span>
         <Dropdown
           index={1}
           isActive={activeDropdown === 1}
@@ -117,7 +123,18 @@ const Sidebar = () => {
             { link: "/", title: "Jabatan Struktural", active: false },
           ]}
         />
-        <div className="w-full p-2 mt-auto bg-blue-500">Tegar Pal</div>
+        <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-blue-800 bg-blue-700 dark:bg-opacity-80 backdrop-blur-lg animate-bounce">
+          <button onClick={() => null}>
+            <i className="fi-rr-user"></i> Tegar Pal
+          </button>
+          <button
+            className="flex gap-2 items-center"
+            onClick={() => toggleDarkMode()}
+          >
+            <i className={darkMode ? "fi-rr-moon" : "fi-rr-sun"}></i>
+            {darkMode ? "Dark" : "Light"}
+          </button>
+        </div>
       </aside>
     </>
   );

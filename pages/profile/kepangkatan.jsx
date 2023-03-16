@@ -1,22 +1,22 @@
 import { Action, MainLayout, Table } from "@/components";
-import { fetchListJabatanFungsional } from "@/helper/api/api";
+import { fetchListKepangkatan } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
-const JabatanFungsional = () => {
+const Kepangkatan = () => {
   const {
-    data: jabatan_fungsional,
+    data: Kepangkatan,
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["jabatan_fungsional"],
-    queryFn: () => fetchListJabatanFungsional(),
+    queryKey: ["Kepangkatan"],
+    queryFn: () => fetchListKepangkatan(),
   });
   return (
     <MainLayout>
       <div className="flex flex-col gap-2 dark:text-white w-full h-full">
         <span className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
-          Riwayat Jabatan Fungsional
+          Riwayat Golongan/Pangkat
         </span>
         <div className="flex justify-between">
           <button className="flex items-center justify-center gap-2 py-2 px-4 bg-blue-700 rounded-md shadow-xl  text-white">
@@ -29,7 +29,7 @@ const JabatanFungsional = () => {
         <Table
           columns={[
             { key: "id", title: "No." },
-            { key: "jabatan_fungsional", title: "Jabatan Fungsional" },
+            ,
             { key: "sk", title: "Nomor SK" },
             {
               key: "terhitung_mulai_tanggal",
@@ -41,11 +41,11 @@ const JabatanFungsional = () => {
               render: (val) => <Action param={val} />,
             },
           ]}
-          data={jabatan_fungsional?.data}
+          data={Kepangkatan?.data}
         />
       </div>
     </MainLayout>
   );
 };
 
-export default JabatanFungsional;
+export default Kepangkatan;

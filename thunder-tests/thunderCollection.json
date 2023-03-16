@@ -1,0 +1,33 @@
+[
+  {
+    "_id": "8ded7190-88df-4d74-a306-e672b783bd12",
+    "colName": "Juned",
+    "created": "2023-03-16T12:07:34.145Z",
+    "sortNum": 10000,
+    "folders": [
+      {
+        "_id": "9277b519-1db0-40b7-a308-9441de3258ec",
+        "name": "data-pribadi",
+        "containerId": "",
+        "created": "2023-03-16T12:08:18.852Z",
+        "sortNum": 10000
+      }
+    ],
+    "settings": {
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": "9|BV92PyNSWZl7ZT2Jr5Hqe5Xa0X0GZMeuJDzJAWtI"
+      },
+      "tests": [],
+      "options": {
+        "baseUrl": "https://api-gerbangna.itk.ac.id/api"
+      }
+    }
+  }
+]
