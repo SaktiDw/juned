@@ -1,6 +1,7 @@
 import { CardDataPribadi, MainLayout } from "@/components";
 import {
   fetchAlamat,
+  fetchBidangIlmu,
   fetchKeluarga,
   fetchKepegawaian,
   fetchKependudukan,
@@ -14,7 +15,8 @@ import React from "react";
 
 const DataPribadi = () => {
   const router = useRouter();
-  const id = "a0a07ef9-1a61-46d2-b00b-ea4d580e714a";
+  // const id = "a0a07ef9-1a61-46d2-b00b-ea4d580e714a";
+  const id = "";
   const { data: alamat } = useQuery({
     queryKey: ["alamat"],
     queryFn: async () => await fetchAlamat(id),
@@ -38,6 +40,10 @@ const DataPribadi = () => {
   const { data: kepegawaian } = useQuery({
     queryKey: ["kepegawaian"],
     queryFn: async () => await fetchKepegawaian(id),
+  });
+  const { data: bidangIlmu } = useQuery({
+    queryKey: ["bidangIlmu"],
+    queryFn: async () => await fetchBidangIlmu(id),
   });
 
   return (
@@ -80,15 +86,15 @@ const DataPribadi = () => {
               { title: "Desa/Kelurahan", text: alamat?.data[0].kelurahan },
               {
                 title: "Kota/Kabupaten",
-                text: alamat?.data[0].id_kota_kabupaten,
+                text: alamat?.data[0].wilayah.nama,
               },
               { title: "Provinsi", text: alamat?.data[0].id_kota_kabupaten },
               { title: "Kode Pos", text: alamat?.data[0].kode_pos },
               {
                 title: "No. Telepon Rumah",
-                text: alamat?.data[0].telpon_rumah,
+                text: alamat?.data[0].telepon_rumah,
               },
-              { title: "No. HP", text: alamat?.data[0].telpon_hp },
+              { title: "No. HP", text: alamat?.data[0].telepon_hp },
             ]}
           />
           <CardDataPribadi
@@ -98,7 +104,10 @@ const DataPribadi = () => {
                 title: "Program Studi",
                 text: kepegawaian?.data[0]?.program_studi,
               },
-              { title: "NIP (khusus PNS)", text: kepegawaian?.data[0]?.nip },
+              {
+                title: "NIP (khusus PNS)",
+                text: kepegawaian?.data[0]?.pegawai.nip,
+              },
               {
                 title: "Status Kepegawaian",
                 text: kepegawaian?.data[0]?.status_kepegawaian,
@@ -115,13 +124,16 @@ const DataPribadi = () => {
               { title: "Nomor SK TMMD", text: kepegawaian?.data[0]?.sk_tmmd },
               {
                 title: "Tanggal Mulai Menjadi Dosen (TMMD)",
-                text: kepegawaian?.data[0]?.tanggal_sk_tmmd,
+                text: kepegawaian?.data[0]?.tmmd,
               },
               {
                 title: "Pangkat/Golongan",
                 text: kepegawaian?.data[0]?.pangkat_golongan,
               },
-              { title: "Sumber Gaji", text: kepegawaian?.data[0]?.sumber_gaji },
+              {
+                title: "Sumber Gaji",
+                text: kepegawaian?.data[0]?.sumbergaji.nama,
+              },
             ]}
           />
         </div>
@@ -129,20 +141,20 @@ const DataPribadi = () => {
           <CardDataPribadi
             title={"kependudukan"}
             data={[
-              { title: "Nik", text: kependudukan?.data.nik },
-              { title: "Agama", text: kependudukan?.data.agama },
+              { title: "Nik", text: kependudukan?.data[0]?.nik },
+              { title: "Agama", text: kependudukan?.data[0]?.agama.nama },
               {
                 title: "Kewarganegaraan",
-                text: kependudukan?.data.kewarganegaraan,
+                text: kependudukan?.data[0]?.negara.nama,
               },
             ]}
           />
           <CardDataPribadi
             title={"Lain-lain"}
             data={[
-              { title: "NPWP", text: lain?.data.npwp },
-              { title: "Nama Wajib Pajak", text: lain?.data.nama_npwp },
-              { title: "SINTA ID", text: lain?.data.sinta_id },
+              { title: "NPWP", text: lain?.data?.npwp },
+              { title: "Nama Wajib Pajak", text: lain?.data?.nama_wp },
+              { title: "SINTA ID", text: lain?.data?.sinta_id }, // no data,
             ]}
           />
         </div>
@@ -150,16 +162,22 @@ const DataPribadi = () => {
         <CardDataPribadi
           title={"keluarga"}
           data={[
-            { title: "Status Perkawinan", text: keluarga?.data.status_kawin },
-            { title: "Nama Suami/Istri", text: keluarga?.data.nama_pasangan },
-            { title: "NIP Suami/Istri", text: keluarga?.data.nip_pasangan },
+            {
+              title: "Status Perkawinan",
+              text: keluarga?.data[0].status_kawin,
+            },
+            {
+              title: "Nama Suami/Istri",
+              text: keluarga?.data[0].nama_pasangan,
+            },
+            { title: "NIP Suami/Istri", text: keluarga?.data[0].nip_pasangan },
             {
               title: "Pekerjaan Suami/Istri",
-              text: keluarga?.data.pekerjaan_pasangan,
+              text: keluarga?.data[0].jenispekerjaan.nama,
             },
             {
               title: "Terhitung Mulai Tanggal PNS Suami/Istri",
-              text: keluarga?.data.tanggal_mulai_pns,
+              text: keluarga?.data[0].tanggal_mulai_pns, // no
             },
           ]}
         />
@@ -167,8 +185,8 @@ const DataPribadi = () => {
           title={"Bidang keilmuan"}
           data={[
             {
-              title: "[140408]",
-              text: "[140408] Teknologi Informasi dan Komunikasi - Teknik Sistem Informasi -- Keamanan Informasi",
+              title: bidangIlmu?.data[0]?.urutan,
+              text: bidangIlmu?.data[0]?.kelompokbidang.nama,
             },
           ]}
         />
