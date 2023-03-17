@@ -40,11 +40,11 @@ const Sidebar = () => {
         ref={ref}
       >
         <Image alt="" src={"/logo itk png.png"} width={300} height={200} />
-        <h1>Sistem Informasi</h1>
-        <h1>Sister</h1>
-        <span>
+        <h1 className="font-quicksand">Sistem Informasi</h1>
+        <h1 className="font-poppins">Sister</h1>
+        <h5>
           {router.pathname} {router.pathname === "profile/[*]" ?? "red"}
-        </span>
+        </h5>
         <Dropdown
           index={1}
           isActive={activeDropdown === 1}
@@ -123,7 +123,7 @@ const Sidebar = () => {
             { link: "/", title: "Jabatan Struktural", active: false },
           ]}
         />
-        <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-blue-800 bg-blue-700 dark:bg-opacity-80 backdrop-blur-lg animate-bounce">
+        <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-primary bg-primary dark:bg-opacity-80 backdrop-blur-lg">
           <button onClick={() => null}>
             <i className="fi-rr-user"></i> Tegar Pal
           </button>

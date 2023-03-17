@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Inter, Open_Sans } from "@next/font/google";
+
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { deleteUser, fetchUsers } from "@/helper/api/api";
 import {
@@ -11,14 +11,6 @@ import {
   MainLayout,
   Table,
 } from "@/components";
-import Link from "next/link";
-
-const inter = Inter({ subsets: ["latin"] });
-const open_Sans = Open_Sans({
-  subsets: ["latin"],
-  display: "auto",
-  weight: "400",
-});
 
 export default function Home() {
   const { data, error, isLoading } = useQuery({
