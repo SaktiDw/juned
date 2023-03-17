@@ -12,9 +12,9 @@ const Dropdown = ({ index, isActive, onClick, subItem, title, icon }) => {
       className={`relative flex flex-col group w-full transition-all ease-in-out duration-300`}
     >
       <button
-        className={`relative flex items-center gap-2 p-2 w-full shadow-2xl rounded-lg z-10 group-hover:bg-blue-700 group-hover:shadow-2xl group-hover:shadow-blue-800 group-hover:text-white group-hover:scale-105 duration-200 ease-in-out ${
+        className={`relative flex items-center gap-2 p-2 w-full shadow-2xl rounded-lg z-10 group-hover:bg-primary group-hover:shadow-2xl group-hover:shadow-primary group-hover:text-white group-hover:scale-105 duration-200 ease-in-out ${
           isActive
-            ? `bg-blue-700 shadow-blue-800 text-white`
+            ? `bg-primary shadow-primary text-white`
             : `bg-white dark:bg-slate-800`
         } `}
         onClick={handleDropdownClick}
@@ -40,9 +40,9 @@ const Dropdown = ({ index, isActive, onClick, subItem, title, icon }) => {
         {subItem &&
           subItem.map((item) => (
             <Link
-              className={`last:rounded-b-lg  hover:bg-blue-700 hover:text-white hover:pl-4 p-2 duration-200 ease-in-out ${
+              className={`last:rounded-b-lg  hover:bg-primary hover:text-white hover:pl-4 p-2 duration-200 ease-in-out ${
                 item.link === router.pathname
-                  ? `bg-blue-700 text-white`
+                  ? `bg-primary text-white`
                   : `bg-white dark:bg-slate-800`
               }`}
               href={item.link}

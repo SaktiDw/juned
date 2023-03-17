@@ -11,6 +11,20 @@
         "containerId": "",
         "created": "2023-03-16T12:08:18.852Z",
         "sortNum": 10000
+      },
+      {
+        "_id": "9194d798-aade-4be5-a990-568dfcad8051",
+        "name": "inpassing",
+        "containerId": "",
+        "created": "2023-03-17T09:01:34.517Z",
+        "sortNum": 20000
+      },
+      {
+        "_id": "b39d8aeb-29b7-4ed7-84ca-795e34912973",
+        "name": "jabatan-fungsional",
+        "containerId": "",
+        "created": "2023-03-17T09:01:46.349Z",
+        "sortNum": 30000
       }
     ],
     "settings": {

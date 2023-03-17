@@ -5,7 +5,7 @@ const Table = ({ columns, data }) => {
     <section className="z-10 overflow-x-auto w-full rounded-lg shadow-lg dark:shadow-blue-700">
       <table className="w-full table-auto text-left">
         <thead>
-          <tr className="bg-white dark:bg-slate-800 uppercase text-xs">
+          <tr className="bg-white dark:bg-slate-800 uppercase text-xs font-poppins">
             {columns.map((column) => (
               <th key={column.title} className="p-2 first:pl-4 last:pr-4">
                 {column.title}

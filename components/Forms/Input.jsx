@@ -16,7 +16,7 @@ const Input = (props) => {
         className={`py-2 px-4 rounded-lg shadow-lg outline-none ring dark:bg-slate-800 ${
           props.errors
             ? `ring-red-500 caret-red-500 `
-            : `ring-blue-500 caret-blue-500 `
+            : `ring-primary caret-primary `
         }`}
       />
       {props.errors && props.touched ? (

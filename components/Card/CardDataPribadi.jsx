@@ -3,11 +3,11 @@ import React from "react";
 const CardDataPribadi = ({ title, children, data }) => {
   return (
     <div className="flex flex-col gap-2 dark:text-white w-full h-full">
-      <span className="text-sm uppercase font-bold drop-shadow-lg shadow-white">
+      <h1 className="text-sm uppercase font-bold drop-shadow-lg shadow-white">
         {title}
-      </span>
+      </h1>
       <div className="relative w-full h-full flex flex-col gap-4 rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl hover:scale-105 hover:z-10 duration-200 ease-in-out p-4">
-        <button className="absolute -right-2 -top-2 z-10 p-2 rounded-full shadow-lg bg-white dark:bg-slate-800 w-8 h-8 text-sm text-blue-500  hover:scale-125 duration-200 ease-in-out">
+        <button className="absolute -right-2 -top-2 z-10 p-2 rounded-full shadow-lg bg-white dark:bg-slate-800 w-8 h-8 text-sm text-primary  hover:scale-125 duration-200 ease-in-out">
           <i className="fi-rr-pencil"></i>
         </button>
         {children}

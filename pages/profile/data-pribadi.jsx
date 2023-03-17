@@ -96,32 +96,32 @@ const DataPribadi = () => {
             data={[
               {
                 title: "Program Studi",
-                text: kepegawaian?.data[0].program_studi,
+                text: kepegawaian?.data[0]?.program_studi,
               },
-              { title: "NIP (khusus PNS)", text: kepegawaian?.data[0].nip },
+              { title: "NIP (khusus PNS)", text: kepegawaian?.data[0]?.nip },
               {
                 title: "Status Kepegawaian",
-                text: kepegawaian?.data[0].status_kepegawaian,
+                text: kepegawaian?.data[0]?.status_kepegawaian,
               },
               {
                 title: "Status Keaktifan",
-                text: kepegawaian?.data[0].status_keaktifan,
+                text: kepegawaian?.data[0]?.status_keaktifan,
               },
-              { title: "Nomor SK CPNS", text: kepegawaian?.data[0].sk_cpns },
+              { title: "Nomor SK CPNS", text: kepegawaian?.data[0]?.sk_cpns },
               {
                 title: "SK CPNS Terhitung Mulai Tanggal",
-                text: kepegawaian?.data[0].tanggal_sk_cpns,
+                text: kepegawaian?.data[0]?.tanggal_sk_cpns,
               },
-              { title: "Nomor SK TMMD", text: kepegawaian?.data[0].sk_tmmd },
+              { title: "Nomor SK TMMD", text: kepegawaian?.data[0]?.sk_tmmd },
               {
                 title: "Tanggal Mulai Menjadi Dosen (TMMD)",
-                text: kepegawaian?.data[0].tanggal_sk_tmmd,
+                text: kepegawaian?.data[0]?.tanggal_sk_tmmd,
               },
               {
                 title: "Pangkat/Golongan",
-                text: kepegawaian?.data[0].pangkat_golongan,
+                text: kepegawaian?.data[0]?.pangkat_golongan,
               },
-              { title: "Sumber Gaji", text: kepegawaian?.data[0].sumber_gaji },
+              { title: "Sumber Gaji", text: kepegawaian?.data[0]?.sumber_gaji },
             ]}
           />
         </div>

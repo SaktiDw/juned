@@ -26,5 +26,93 @@
     "headers": [],
     "params": [],
     "tests": []
+  },
+  {
+    "_id": "be5776e7-54fa-4829-b416-8256a3265c11",
+    "colId": "8ded7190-88df-4d74-a306-e672b783bd12",
+    "containerId": "9277b519-1db0-40b7-a308-9441de3258ec",
+    "name": "/data-pribadi/kependudukan/id_sdm",
+    "url": "/data-pribadi/kependudukan/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-03-17T08:57:46.700Z",
+    "modified": "2023-03-17T08:58:37.882Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "5a8baafd-7351-4a75-a6bf-f01299872226",
+    "colId": "8ded7190-88df-4d74-a306-e672b783bd12",
+    "containerId": "9277b519-1db0-40b7-a308-9441de3258ec",
+    "name": "/data-pribadi/lain/id_sdm",
+    "url": "/data-pribadi/kependudukan/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-03-17T08:59:01.973Z",
+    "modified": "2023-03-17T08:59:01.973Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "27d84ed7-3f10-44db-a8bf-14522e0d7a6c",
+    "colId": "8ded7190-88df-4d74-a306-e672b783bd12",
+    "containerId": "9277b519-1db0-40b7-a308-9441de3258ec",
+    "name": "/data-pribadi/keluarga/id_sdm",
+    "url": "/data-pribadi/keluarga/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
+    "method": "GET",
+    "sortNum": 60000,
+    "created": "2023-03-17T08:59:25.085Z",
+    "modified": "2023-03-17T09:00:00.312Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "bfb3e3ac-f41e-4221-bc03-db30469a972f",
+    "colId": "8ded7190-88df-4d74-a306-e672b783bd12",
+    "containerId": "9277b519-1db0-40b7-a308-9441de3258ec",
+    "name": "/data-pribadi/kepegawaian/id_sdm",
+    "url": "/data-pribadi/kepegawaian/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
+    "method": "GET",
+    "sortNum": 70000,
+    "created": "2023-03-17T09:00:00.245Z",
+    "modified": "2023-03-17T09:00:21.372Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "9de56d17-5bcc-4f2a-a2c8-911d012be3a5",
+    "colId": "8ded7190-88df-4d74-a306-e672b783bd12",
+    "containerId": "9194d798-aade-4be5-a990-568dfcad8051",
+    "name": "/inpassing/list-inpassing/id-sdm",
+    "url": "/inpassing/list-inpassing",
+    "method": "GET",
+    "sortNum": 40000,
+    "created": "2023-03-17T09:02:04.482Z",
+    "modified": "2023-03-17T09:02:40.455Z",
+    "headers": [],
+    "params": [],
+    "tests": []
+  },
+  {
+    "_id": "352488ba-61d3-434a-a071-73d455b3a923",
+    "colId": "8ded7190-88df-4d74-a306-e672b783bd12",
+    "containerId": "9194d798-aade-4be5-a990-568dfcad8051",
+    "name": "/inpassing/list-inpassing/id-sdm Copy",
+    "url": "/inpassing/detail-inpassing",
+    "method": "GET",
+    "sortNum": 50000,
+    "created": "2023-03-17T09:02:08.669Z",
+    "modified": "2023-03-17T09:03:33.380Z",
+    "headers": [],
+    "params": [],
+    "auth": {
+      "type": "bearer",
+      "bearer": "9|BV92PyNSWZl7ZT2Jr5Hqe5Xa0X0GZMeuJDzJAWtI"
+    },
+    "tests": []
   }
 ]

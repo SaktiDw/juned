@@ -7,7 +7,7 @@ const Action = ({ param, action }) => {
       <div className="flex items-center gap-2">
         <button
           onClick={() => mutate(param.id)}
-          className="relative flex justify-center p-1 text-red-500 rounded-xl text-sm group"
+          className="relative flex justify-center p-1 text-red-500 rounded-xl text-md group"
         >
           <i className="fi-rr-trash"></i>
           <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
@@ -16,7 +16,7 @@ const Action = ({ param, action }) => {
         </button>
         <button
           onClick={() => mutate(param.id)}
-          className="relative flex justify-center p-1 text-purple-500 rounded-xl text-sm group"
+          className="relative flex justify-center p-1 text-purple-500 rounded-xl text-md group"
         >
           <i className="fi-rr-pencil"></i>
           <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
@@ -25,7 +25,7 @@ const Action = ({ param, action }) => {
         </button>
         <button
           onClick={() => mutate(param.id)}
-          className="relative flex justify-center p-1 text-green-500 rounded-xl text-sm group"
+          className="relative flex justify-center p-1 text-green-500 rounded-xl text-md group"
         >
           <i className="fi-rr-info"></i>
           <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
@@ -34,7 +34,7 @@ const Action = ({ param, action }) => {
         </button>
         <button
           onClick={() => mutate(param.id)}
-          className="relative flex justify-center p-1 text-blue-500 rounded-xl text-sm group"
+          className="relative flex justify-center p-1 text-primary rounded-xl text-md group"
         >
           <i className="fi-rr-document"></i>
           <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">

@@ -15,9 +15,9 @@ const Penempatan = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-2 dark:text-white w-full h-full">
-        <span className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
           Penempatan
-        </span>
+        </h1>
 
         <Table
           columns={[

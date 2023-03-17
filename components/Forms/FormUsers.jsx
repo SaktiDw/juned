@@ -68,7 +68,7 @@ const FormUsers = () => {
             <button
               type="submit"
               disabled={!isValid}
-              className="disabled:cursor-not-allowed ring ring-blue-500 rounded-lg py-2 px-4 bg-blue-500"
+              className="disabled:cursor-not-allowed ring ring-primary rounded-lg py-2 px-4 bg-primary"
             >
               {isSubmitting ? "Loading..." : "Submit"}
             </button>
