@@ -4,11 +4,11 @@
     "colId": "history",
     "containerId": "",
     "name": "https://api-gerbangna.itk.ac.id/api/referensi/pegawai-pt",
-    "url": "https://api-gerbangna.itk.ac.id/api/data-pribadi/profil/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
+    "url": "https://api-gerbangna.itk.ac.id/api/penugasan/list-penugasan/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-16T11:17:41.030Z",
-    "modified": "2023-03-16T11:51:05.778Z",
+    "modified": "2023-03-17T12:56:42.264Z",
     "headers": [
       {
         "name": "Accept",
