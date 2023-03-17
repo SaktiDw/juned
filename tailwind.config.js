@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,13 +8,18 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
  ],
   theme: {
-    // colors: {
-    //   transparent: 'transparent',
-    //   current: 'currentColor',
-    //   primary: '#2892d7',
-    //   secondary: '#6daedb'
-    // },
-    extend: {},
+    extend: {
+      colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
+      primary: '#0165b1',
+      secondary: '#6daedb'
+      },
+      fontFamily: {
+        quicksand: ["Quicksand"],
+        poppins: ["Poppins"],
+      },
+    },
   },
   darkMode: ['class'],
   plugins: [],
