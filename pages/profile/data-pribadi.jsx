@@ -42,8 +42,8 @@ const DataPribadi = () => {
 
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4">
-        <div className="grid grid-flow-col items-stretch gap-4">
+      <div className="flex flex-col gap-8">
+        <div className="grid grid-flow-col items-stretch gap-8">
           <CardDataPribadi
             title={"profile"}
             data={[
@@ -125,7 +125,7 @@ const DataPribadi = () => {
             ]}
           />
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-8">
           <CardDataPribadi
             title={"kependudukan"}
             data={[

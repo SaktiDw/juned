@@ -3,7 +3,7 @@ import React from "react";
 const CardDataPribadi = ({ title, children, data }) => {
   return (
     <div className="flex flex-col gap-2 dark:text-white w-full h-full">
-      <span className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
+      <span className="text-sm uppercase font-bold drop-shadow-lg shadow-white">
         {title}
       </span>
       <div className="relative w-full h-full flex flex-col gap-4 rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl hover:scale-105 hover:z-10 duration-200 ease-in-out p-4">
@@ -18,9 +18,9 @@ const CardDataPribadi = ({ title, children, data }) => {
                 key={item.title}
                 className="flex flex-col justify-center py-2"
               >
-                <span className="text-xs text-slate-500 font-semibold uppercase leading-none">
+                <h4 className="text-xs text-slate-600 dark:text-slate-400 font-semibold uppercase leading-none">
                   {item.title}
-                </span>
+                </h4>
                 <span className="text-xl font-bold leading-tight">
                   {(item.text ||= "tidak ada")}
                 </span>
