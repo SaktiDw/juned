@@ -1,9 +1,10 @@
 import { Action, MainLayout, Table } from "@/components";
 import { fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 
-const inpassing = () => {
+const Inpassing = () => {
+  const [search, setSearch] = useState("");
   const {
     data: inpassing,
     error,
@@ -15,14 +16,24 @@ const inpassing = () => {
 
   return (
     <MainLayout>
-      <div className="flex flex-col gap-2 dark:text-white w-full h-full">
+      <div className="flex flex-col gap-4 dark:text-white w-full h-full">
         <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
           Inpassing
         </h1>
-        <button className="flex items-center justify-center gap-2 py-2 px-4 bg-primary rounded-md shadow-xl w-32 text-white">
-          <i className="fi-rr-plus"></i> Tambah
-        </button>
+        <div className="flex gap-4">
+          <button className="flex items-center justify-center gap-2 py-2 px-4 bg-primary rounded-md shadow-xl w-32 text-white">
+            <i className="fi-rr-plus"></i> Tambah
+          </button>
+          <input
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+            className="py-1 px-4 rounded-lg border border-primary shadow appearance-none outline-none caret-primary dark:bg-slate-700"
+            placeholder="Search here ..."
+          />
+        </div>
         <Table
+          query={search}
           columns={[
             { key: "id", title: "No." },
             { key: "pangkat_golongan", title: "Pangkat/Golongan" },
@@ -45,4 +56,4 @@ const inpassing = () => {
   );
 };
 
-export default inpassing;
+export default Inpassing;

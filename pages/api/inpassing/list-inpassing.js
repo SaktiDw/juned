@@ -7,9 +7,37 @@ export default function handler(req,res) {
                 id:1,
                 pangkat_golongan:"Koruptor",
                 sk:"D34TH",
-                tanggal_sk: Date.now(),
-                terhitung_mulai_tanggal: Date.now(),
-            }
+                tanggal_sk: new Date(Date.now()).toDateString(),
+                terhitung_mulai_tanggal: new Date(Date.now()).toDateString(),
+            },
+            {
+                id:1,
+                pangkat_golongan:"Pejabat",
+                sk:"D34TH",
+                tanggal_sk: new Date(Date.now()).toDateString(),
+                terhitung_mulai_tanggal: new Date(Date.now()).toDateString(),
+            },
+            {
+                id:1,
+                pangkat_golongan:"Tikus kantor",
+                sk:"D34TH",
+                tanggal_sk: new Date(Date.now()).toDateString(),
+                terhitung_mulai_tanggal: new Date(Date.now()).toDateString(),
+            },
+            {
+                id:1,
+                pangkat_golongan:"Polri",
+                sk:"D34TH",
+                tanggal_sk: new Date(Date.now()).toDateString(),
+                terhitung_mulai_tanggal: new Date(Date.now()).toDateString(),
+            },
+            {
+                id:1,
+                pangkat_golongan:"TNI",
+                sk:"D34TH",
+                tanggal_sk: new Date(Date.now()).toDateString(),
+                terhitung_mulai_tanggal: new Date(Date.now()).toDateString(),
+            },
         ]
     })
 }
