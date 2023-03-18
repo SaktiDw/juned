@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Table = ({ columns, data, query }) => {
+const Table = ({ columns, data, query = "" }) => {
   const [pageSize, setPageSize] = useState(2);
   const [currentPage, setCurrentPage] = useState(1);
 

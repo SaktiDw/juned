@@ -4,25 +4,35 @@ import React from "react";
 
 const Breadcrumbs = () => {
   const router = useRouter();
-  const splitedPath = router.asPath
-    .split("/")
-    .filter((item) => item.length > 0);
+  const path = router.asPath.split("/").filter((x) => x);
   return (
-    <div className="flex justify-center items-center gap-4">
-      <div className="flex justify-center items-center capitalize relative">
-        <Link href={"/"}>Beranda</Link>
-        <i className="fi-rr-angle-small-right absolute top-1 left-full"></i>
-      </div>
-      {splitedPath.map((item) => (
-        <div
-          key={item}
-          className="flex justify-center items-center capitalize relative"
-        >
-          <Link href={`/${item}`}>{item}</Link>
-          <i className="fi-rr-angle-small-right absolute top-1 left-full"></i>
-        </div>
-      ))}
-    </div>
+    <ul className="flex gap-2 items-center">
+      <li>
+        <Link href="/">Home</Link>
+      </li>
+      {path.map((part, index) => {
+        const url = `/${path.slice(0, index + 1).join("/")}`;
+        // const label = part.charAt(0).toUpperCase() + part.slice(1);
+        const words = part
+          .split("_")
+          .map((part) => part.charAt(0).toUpperCase() + part.slice(1));
+        const result = words.join(" ");
+
+        return (
+          <>
+            <i className="pt-1 fi-rr-angle-small-right"></i>
+            <button
+              className="disabled:text-slate-500 disabled:cursor-not-allowed"
+              // disabled={path.length == index + 1}
+              key={url}
+              onClick={() => router.push(url)}
+            >
+              {result}
+            </button>
+          </>
+        );
+      })}
+    </ul>
   );
 };
 

@@ -42,14 +42,12 @@ const Sidebar = () => {
         <Image alt="" src={"/logo itk png.png"} width={300} height={200} />
         <h1 className="font-quicksand">Sistem Informasi</h1>
         <h1 className="font-poppins">Sister</h1>
-        <h5>
-          {router.pathname} {router.pathname === "profile/[*]" ?? "red"}
-        </h5>
+
         <Dropdown
           index={1}
           isActive={activeDropdown === 1}
           onClick={handleDropdownClick}
-          active={router.pathname === "/profile/*"}
+          active={router.pathname.includes("profile")}
           title="Profile"
           href="/"
           icon={"fi-rr-user"}
@@ -57,20 +55,28 @@ const Sidebar = () => {
             {
               link: "/profile/data-pribadi",
               title: "Data Pribadi",
-              active: true,
+              active: router.pathname.includes("data-pribadi"),
             },
-            { link: "/profile/inpassing", title: "Inpassing", active: false },
+            {
+              link: "/profile/inpassing",
+              title: "Inpassing",
+              active: router.pathname.includes("inpassing"),
+            },
             {
               link: "/profile/jabatan-fungsional",
               title: "Jabatan Fungsional",
-              active: false,
+              active: router.pathname.includes("jabatan-fungsional"),
             },
             {
               link: "/profile/kepangkatan",
               title: "Kepangkatan",
-              active: false,
+              active: router.pathname.includes("kepangkatan"),
             },
-            { link: "/profile/penempatan", title: "Penempatan", active: false },
+            {
+              link: "/profile/penempatan",
+              title: "Penempatan",
+              active: router.pathname.includes("penemapatan"),
+            },
           ]}
         />
         <Dropdown
@@ -82,16 +88,56 @@ const Sidebar = () => {
           href="/"
           icon={"fi-rr-books"}
           subItem={[
-            { link: "/", title: "Pengajaran", active: false },
-            { link: "/", title: "Bimbingan Mahasiswa", active: false },
-            { link: "/", title: "Pengujian Mahasiswa", active: false },
-            { link: "/", title: "Visiting Scientist", active: false },
-            { link: "/", title: "Pembinaan Mahasiswa", active: false },
-            { link: "/", title: "Bahan Ajar", active: false },
-            { link: "/", title: "Datasering", active: false },
-            { link: "/", title: "Orasi Ilmiah", active: false },
-            { link: "/", title: "Pembimbing Dosen", active: false },
-            { link: "/", title: "Tugas Tambahan", active: false },
+            {
+              link: "/thridarma/pengajaran",
+              title: "Pengajaran",
+              active: false,
+            },
+            {
+              link: "/thridarma/bimbingan_mahasiswa",
+              title: "Bimbingan Mahasiswa",
+              active: false,
+            },
+            {
+              link: "/thridarma/pengujian_mahasiswa",
+              title: "Pengujian Mahasiswa",
+              active: false,
+            },
+            {
+              link: "/thridarma/visiting_scientist",
+              title: "Visiting Scientist",
+              active: false,
+            },
+            {
+              link: "/thridarma/pembinaan_mahasiswa",
+              title: "Pembinaan Mahasiswa",
+              active: false,
+            },
+            {
+              link: "/thridarma/bahan_ajar",
+              title: "Bahan Ajar",
+              active: false,
+            },
+            {
+              link: "/thridarma/datasering",
+              title: "Datasering",
+              active: false,
+            },
+            {
+              link: "/thridarma/orasi_ilmiah",
+              title: "Orasi Ilmiah",
+              active: false,
+            },
+            {
+              link: "/thridarma/pembimbing_dosen",
+              title: "Pembimbing Dosen",
+              active: false,
+            },
+            {
+              link: "/thridarma/tugas_tambahan",
+              title: "Tugas Tambahan",
+              active: false,
+            },
           ]}
         />
         <Dropdown
