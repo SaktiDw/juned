@@ -1,7 +1,11 @@
 import useToggle from "@/helper/hooks/useToggle";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useState, useRef, useEffect } from "react";
 
 const Sidebar = () => {
+  const router = useRouter();
+  const path = router.asPath.split("/").filter((x) => x);
   const [search, setSearch] = useState("");
   const data = [
     { name: "John", age: 25, city: "New York" },
@@ -58,6 +62,21 @@ const Sidebar = () => {
 
   return (
     <>
+      <ul>
+        <li>
+          <Link href="/">Home</Link>
+        </li>
+        {path?.map((part, index) => {
+          const url = `/${path.slice(0, index + 1).join("/")}`;
+          const label = part.charAt(0).toUpperCase() + part.slice(1);
+
+          return (
+            <li key={url}>
+              <Link href={url}>{label}</Link>
+            </li>
+          );
+        })}
+      </ul>
       {JSON.stringify(data)}
       <input
         type="text"
@@ -68,25 +87,9 @@ const Sidebar = () => {
       {JSON.stringify(filterData(search))}
       {JSON.stringify(paginateData(data, currentPage, pageSize))}
       {JSON.stringify(paginateData(data, currentPage, pageSize))}
+
+      {router.pathname.includes("test") ? "red" : "blue"}
     </>
-  );
-};
-
-const Dropdown = ({ index, isActive, onClick }) => {
-  const { toggle, toggler } = useToggle();
-  const handleDropdownClick = () => {
-    onClick(index);
-    toggler();
-  };
-
-  return (
-    <div
-      className={`dropdown ${isActive ? "bg-red-500" : ""}`}
-      onClick={handleDropdownClick}
-    >
-      Dropdown {index}
-      <span>{toggle ? "yo" : "no"}</span>
-    </div>
   );
 };
 

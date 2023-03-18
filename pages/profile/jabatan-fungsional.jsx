@@ -14,7 +14,7 @@ const JabatanFungsional = () => {
   });
   return (
     <MainLayout>
-      <div className="flex flex-col gap-2 dark:text-white w-full h-full">
+      <div className="flex flex-col gap-4 dark:text-white w-full h-full">
         <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
           Riwayat Jabatan Fungsional
         </h1>
