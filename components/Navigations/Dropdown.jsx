@@ -38,8 +38,9 @@ const Dropdown = ({ index, isActive, onClick, subItem, title, icon }) => {
         }`}
       >
         {subItem &&
-          subItem.map((item) => (
+          subItem.map((item, index) => (
             <Link
+              key={index}
               className={`last:rounded-b-lg  hover:bg-primary hover:text-white hover:pl-4 p-2 duration-200 ease-in-out ${
                 item.link === router.pathname
                   ? `bg-primary text-white`
