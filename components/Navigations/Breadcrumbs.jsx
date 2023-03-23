@@ -6,7 +6,7 @@ const Breadcrumbs = () => {
   const router = useRouter();
   const path = router.asPath.split("/").filter((x) => x);
   return (
-    <ul className="flex gap-2 items-center">
+    <ul className="flex gap-2 items-center text-xs">
       <li>
         <Link href="/">Home</Link>
       </li>

@@ -3,6 +3,7 @@ export { default as MainLayout } from "./Layouts/MainLayout";
 export { default as SearchButton } from "./Buttons/SearchButton";
 
 export { default as FormUsers } from "./Forms/FormUsers";
+export { default as FormEditBiodata } from "./Forms/FormEditBiodata";
 export { default as Input } from "./Forms/Input";
 
 export { default as Table } from "./Tables/Table";

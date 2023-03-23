@@ -1,4 +1,4 @@
-import { CardDataPribadi, MainLayout } from "@/components";
+import { Breadcrumbs, CardDataPribadi, MainLayout, Nav } from "@/components";
 import {
   fetchAlamat,
   fetchBidangIlmu,
@@ -49,7 +49,8 @@ const DataPribadi = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-8">
-        <div className="grid grid-flow-col items-stretch gap-8">
+        <Nav title={"Data pribadi"} />
+        <div className="grid grid-flow-col gap-8">
           <CardDataPribadi
             title={"profile"}
             data={[
@@ -158,38 +159,42 @@ const DataPribadi = () => {
             ]}
           />
         </div>
-
-        <CardDataPribadi
-          title={"keluarga"}
-          data={[
-            {
-              title: "Status Perkawinan",
-              text: keluarga?.data[0].status_kawin,
-            },
-            {
-              title: "Nama Suami/Istri",
-              text: keluarga?.data[0].nama_pasangan,
-            },
-            { title: "NIP Suami/Istri", text: keluarga?.data[0].nip_pasangan },
-            {
-              title: "Pekerjaan Suami/Istri",
-              text: keluarga?.data[0].jenispekerjaan.nama,
-            },
-            {
-              title: "Terhitung Mulai Tanggal PNS Suami/Istri",
-              text: keluarga?.data[0].tanggal_mulai_pns, // no
-            },
-          ]}
-        />
-        <CardDataPribadi
-          title={"Bidang keilmuan"}
-          data={[
-            {
-              title: bidangIlmu?.data[0]?.urutan,
-              text: bidangIlmu?.data[0]?.kelompokbidang.nama,
-            },
-          ]}
-        />
+        <div className="flex flex-col item-stretch gap-8">
+          <CardDataPribadi
+            title={"keluarga"}
+            data={[
+              {
+                title: "Status Perkawinan",
+                text: keluarga?.data[0].status_kawin,
+              },
+              {
+                title: "Nama Suami/Istri",
+                text: keluarga?.data[0].nama_pasangan,
+              },
+              {
+                title: "NIP Suami/Istri",
+                text: keluarga?.data[0].nip_pasangan,
+              },
+              {
+                title: "Pekerjaan Suami/Istri",
+                text: keluarga?.data[0].jenispekerjaan.nama,
+              },
+              {
+                title: "Terhitung Mulai Tanggal PNS Suami/Istri",
+                text: keluarga?.data[0].tanggal_mulai_pns, // no
+              },
+            ]}
+          />
+          <CardDataPribadi
+            title={"Bidang keilmuan"}
+            data={[
+              {
+                title: bidangIlmu?.data[0]?.urutan,
+                text: bidangIlmu?.data[0]?.kelompokbidang.nama,
+              },
+            ]}
+          />
+        </div>
       </div>
     </MainLayout>
   );

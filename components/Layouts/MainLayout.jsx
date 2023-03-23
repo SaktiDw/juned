@@ -22,7 +22,7 @@ const MainLayout = (props) => {
           height={600}
           className="fixed -z-0 left-1/3"
         />
-        <section className="flex flex-col w-full max-h-screen overflow-y-auto py-4 px-8 bg-slate-200 dark:bg-slate-900 text-slate-900 dark:text-white bg-opacity-50 backdrop-blur-2xl dark:bg-opacity-50 dark:backdrop-blur-2xl  z-10">
+        <section className="flex flex-col w-full max-h-screen overflow-y-auto overflow-x-hidden py-4 px-8 bg-slate-200 dark:bg-slate-900 text-slate-900 dark:text-white bg-opacity-50 backdrop-blur-2xl dark:bg-opacity-50 dark:backdrop-blur-2xl  z-10">
           {/* <Nav /> */}
           {props.children}
         </section>

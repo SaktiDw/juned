@@ -1,26 +1,26 @@
 import { Field } from "formik";
 import React from "react";
 
-const Input = (props) => {
+const Input = ({ name, label, type, errors, touched }) => {
   return (
     <div className="flex flex-col gap-2">
       <label
-        htmlFor={props.name}
+        htmlFor={name}
         className="uppercase leading-tight font-bold text-xs"
       >
-        {props.label}
+        {label}
       </label>
       <Field
-        type={props.type ? props.type : "text"}
-        name={props.name}
-        className={`py-2 px-4 rounded-lg shadow-lg outline-none ring dark:bg-slate-800 ${
-          props.errors
-            ? `ring-red-500 caret-red-500 `
-            : `ring-primary caret-primary `
+        type={type ? type : "text"}
+        name={name}
+        className={`py-2 px-4 rounded-lg shadow-lg outline dark:bg-slate-800 ${
+          errors
+            ? `outline-red-500 caret-red-500 `
+            : ` outline-primary caret-primary `
         }`}
       />
-      {props.errors && props.touched ? (
-        <div className="text-red-500 font-semibold">{props.errors}</div>
+      {errors && touched ? (
+        <div className="text-red-500 font-semibold">{errors}</div>
       ) : null}
     </div>
   );
