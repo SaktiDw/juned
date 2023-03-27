@@ -149,9 +149,9 @@ const Sidebar = () => {
           href="/"
           icon={"fi-rr-test-tube"}
           subItem={[
-            { link: "/", title: "Penelitian", active: false },
-            { link: "/", title: "Publikasi Karya", active: false },
-            { link: "/", title: "Paten/HKI", active: false },
+            { link: "/penelitian", title: "Penelitian", active: false },
+            { link: "/publikasi", title: "Publikasi Karya", active: false },
+            { link: "/paten", title: "Paten/HKI", active: false },
           ]}
         />
         <Dropdown
@@ -163,10 +163,18 @@ const Sidebar = () => {
           href="/"
           icon={"fi-rr-link-alt"}
           subItem={[
-            { link: "/", title: "Pengabdian", active: false },
-            { link: "/", title: "Pengelola Jurnal", active: false },
-            { link: "/", title: "Pembicara", active: false },
-            { link: "/", title: "Jabatan Struktural", active: false },
+            { link: "/pengabdian", title: "Pengabdian", active: false },
+            {
+              link: "/pengelola_jurnal",
+              title: "Pengelola Jurnal",
+              active: false,
+            },
+            { link: "/pembicara", title: "Pembicara", active: false },
+            {
+              link: "/jabatan_struktural",
+              title: "Jabatan Struktural",
+              active: false,
+            },
           ]}
         />
         <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-primary bg-primary dark:bg-opacity-80 backdrop-blur-lg text-white font-semibold">
