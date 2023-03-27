@@ -14,7 +14,7 @@ const SidebarItem = (props) => {
       onBlur={() => setToggle(toggle ? !toggle : toggle)}
     >
       <button
-        className={`relative flex items-center gap-2 p-2 w-full shadow-2xl rounded-lg z-10 group-hover:bg-primary group-hover:shadow-2xl group-hover:shadow-primary group-hover:text-white ${
+        className={`relative flex items-center gap-2 p-2 w-full text-left shadow-2xl rounded-lg z-10 group-hover:bg-primary group-hover:shadow-2xl group-hover:shadow-primary group-hover:text-white ${
           toggle || props.active
             ? `bg-primary shadow-primary text-white`
             : `bg-white dark:bg-slate-800`
@@ -23,7 +23,7 @@ const SidebarItem = (props) => {
         <div className="w-8 h-8 rounded-md flex items-center justify-center group-hover:shadow-xl">
           <i className={props.icon}></i>
         </div>
-        <span href={props.href}>{props.title}</span>
+        <p>{props.title}</p>
         {props.subitem && (
           <i
             className={`${

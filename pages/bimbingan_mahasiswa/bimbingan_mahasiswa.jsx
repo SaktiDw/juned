@@ -48,8 +48,8 @@ const BimbinganMahasiswa = () => {
           columns={[
             { key: "id", title: "No." },
             { key: "semester", title: "Semester" },
+            { key: "kategori_kegiatan", title: "Kategori Kegiatan" },
             { key: "judul_bimbingan", title: "Judul Bimbingan" },
-            { key: "bidang_keilmuan", title: "Bidang Keilmuan" },
             { key: "jenis_bimbingan", title: "Jenis Bimbingan" },
             {
               key: "program_studi",
