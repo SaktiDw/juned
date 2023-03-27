@@ -53,27 +53,27 @@ const Sidebar = () => {
           icon={"fi-rr-user"}
           subItem={[
             {
-              link: "/profile/data-pribadi",
+              link: "/data-pribadi",
               title: "Data Pribadi",
               active: router.pathname.includes("data-pribadi"),
             },
             {
-              link: "/profile/inpassing",
+              link: "/inpassing",
               title: "Inpassing",
               active: router.pathname.includes("inpassing"),
             },
             {
-              link: "/profile/jabatan-fungsional",
+              link: "/jabatan-fungsional",
               title: "Jabatan Fungsional",
               active: router.pathname.includes("jabatan-fungsional"),
             },
             {
-              link: "/profile/kepangkatan",
+              link: "/kepangkatan",
               title: "Kepangkatan",
               active: router.pathname.includes("kepangkatan"),
             },
             {
-              link: "/profile/penempatan",
+              link: "/penempatan",
               title: "Penempatan",
               active: router.pathname.includes("penemapatan"),
             },
@@ -89,52 +89,52 @@ const Sidebar = () => {
           icon={"fi-rr-books"}
           subItem={[
             {
-              link: "/thridarma/pengajaran",
+              link: "/pengajaran",
               title: "Pengajaran",
               active: false,
             },
             {
-              link: "/thridarma/bimbingan_mahasiswa",
+              link: "/bimbingan_mahasiswa",
               title: "Bimbingan Mahasiswa",
               active: false,
             },
             {
-              link: "/thridarma/pengujian_mahasiswa",
+              link: "/pengujian_mahasiswa",
               title: "Pengujian Mahasiswa",
               active: false,
             },
             {
-              link: "/thridarma/visiting_scientist",
+              link: "/visiting_scientist",
               title: "Visiting Scientist",
               active: false,
             },
             {
-              link: "/thridarma/pembinaan_mahasiswa",
+              link: "/pembinaan_mahasiswa",
               title: "Pembinaan Mahasiswa",
               active: false,
             },
             {
-              link: "/thridarma/bahan_ajar",
+              link: "/bahan_ajar",
               title: "Bahan Ajar",
               active: false,
             },
             {
-              link: "/thridarma/datasering",
+              link: "/datasering",
               title: "Datasering",
               active: false,
             },
             {
-              link: "/thridarma/orasi_ilmiah",
+              link: "/orasi_ilmiah",
               title: "Orasi Ilmiah",
               active: false,
             },
             {
-              link: "/thridarma/pembimbing_dosen",
+              link: "/pembimbing_dosen",
               title: "Pembimbing Dosen",
               active: false,
             },
             {
-              link: "/thridarma/tugas_tambahan",
+              link: "/tugas_tambahan",
               title: "Tugas Tambahan",
               active: false,
             },
