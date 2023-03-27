@@ -169,7 +169,7 @@ const Sidebar = () => {
             { link: "/", title: "Jabatan Struktural", active: false },
           ]}
         />
-        <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-primary bg-primary dark:bg-opacity-80 backdrop-blur-lg">
+        <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-primary bg-primary dark:bg-opacity-80 backdrop-blur-lg text-white font-semibold">
           <button onClick={() => null}>
             <i className="fi-rr-user"></i> Tegar Pal
           </button>

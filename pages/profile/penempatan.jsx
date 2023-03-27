@@ -1,4 +1,4 @@
-import { Action, MainLayout, Table } from "@/components";
+import { Action, MainLayout, Nav, Table } from "@/components";
 import { fetchListPenempatan } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
@@ -14,7 +14,8 @@ const Penempatan = () => {
   });
   return (
     <MainLayout>
-      <div className="flex flex-col gap-2 dark:text-white w-full h-full">
+      <div className="flex flex-col gap-4 dark:text-white w-full h-full">
+        <Nav title={"Penempatan"} />
         <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
           Penempatan
         </h1>

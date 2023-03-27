@@ -1,28 +1,36 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Input } from "..";
+import { Button, Input, MultipleUploadFile, Select, UploadFile } from "..";
 import * as yup from "yup";
-import { createUser } from "@/helper/api/api";
+import { createUser, fetchProfil } from "@/helper/api/api";
+import { useQuery } from "@tanstack/react-query";
 
 const schema = yup.object().shape({
-  name: yup.string().required(),
-  email: yup.string().email().required(),
-  password: yup.string().required(),
-  password_confirmation: yup
-    .string()
-    .required()
-    .oneOf([yup.ref("password"), null], "password must match"),
+  nama: yup.string().required("Nama wajib di isi dan tanpa gelar."),
+  jenis_kelamin: yup.string().required("Jenis kelamin wajib di isi."),
+  tempat_lahir: yup.string().required("Tempat lahir wajib di isi."),
+  tanggal_lahir: yup.date().required("Tanggal lahir wajib di isi."),
+  nama_ibu_kandung: yup.string().required("Nama ibu kandung wajib di isi."),
 });
 
 const FormUsers = () => {
+  const id = "";
+  const { data: profil, isLoading } = useQuery({
+    queryKey: ["profil"],
+    queryFn: async () => await fetchProfil(),
+  });
+  if (isLoading) return <>Loading!!</>;
   return (
     <>
+      {/* {JSON.stringify(profil?.data[0].pegawai.nama_sdm)} */}
       <Formik
+        enableReinitialize
         initialValues={{
-          name: "",
-          email: "",
-          password: "",
-          password_confirmation: "",
+          nama: profil?.data[0].pegawai.nama_sdm,
+          jenis_kelamin: profil?.data[0].jenis_kelamin,
+          tempat_lahir: profil?.data[0].tempat_lahir,
+          tanggal_lahir: profil?.data[0].tanggal_lahir,
+          nama_ibu_kandung: profil?.data[0].nama_ibu_kandung,
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) =>
@@ -34,44 +42,54 @@ const FormUsers = () => {
             )
         }
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, status, isValid, profil }) => (
           <Form className="flex flex-col gap-4">
-            {/* {JSON.stringify(errors)}
-            {JSON.stringify(status)} */}
+            {JSON.stringify(profil)}
             <Input
-              label="name"
-              name="name"
-              errors={errors.name}
-              touched={touched.name}
+              label="nama"
+              name="nama"
+              type="text"
+              errors={errors.nama}
+              touched={touched.nama}
+            />
+            <Select
+              label="jenis kelamin"
+              name="jenis_kelamin"
+              type="text"
+              errors={errors.jenis_kelamin}
+              touched={touched.jenis_kelamin}
+              option={[
+                { value: "L", label: "Laki-laki" },
+                { value: "P", label: "Perempuan" },
+              ]}
             />
             <Input
-              label="email"
-              name="email"
-              type="email"
-              errors={errors.email}
-              touched={touched.email}
+              label="tempat lahir"
+              name="tempat_lahir"
+              type="text"
+              errors={errors.tempat_lahir}
+              touched={touched.tempat_lahir}
             />
             <Input
-              label="password"
-              name="password"
-              type="password"
-              errors={errors.password}
-              touched={touched.password}
+              label="tanggal lahir"
+              name="tanggal_lahir"
+              type="date"
+              errors={errors.tanggal_lahir}
+              touched={touched.tanggal_lahir}
             />
             <Input
-              label="password_confirmation"
-              name="password_confirmation"
-              type="password"
-              errors={errors.password_confirmation}
-              touched={touched.password_confirmation}
+              label="nama ibu kandung"
+              name="nama_ibu_kandung"
+              type="text"
+              errors={errors.nama_ibu_kandung}
+              touched={touched.nama_ibu_kandung}
             />
-            <button
-              type="submit"
+            <MultipleUploadFile />
+            <Button
               disabled={!isValid}
-              className="disabled:cursor-not-allowed ring ring-primary rounded-lg py-2 px-4 bg-primary"
-            >
-              {isSubmitting ? "Loading..." : "Submit"}
-            </button>
+              type={"submit"}
+              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+            />
           </Form>
         )}
       </Formik>

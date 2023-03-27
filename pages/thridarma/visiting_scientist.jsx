@@ -1,18 +1,23 @@
-import { Action, Breadcrumbs, MainLayout, Table } from "@/components";
+import {
+  Action,
+  Breadcrumbs,
+  Button,
+  MainLayout,
+  Nav,
+  Table,
+} from "@/components";
 import React from "react";
 
 const VisitingScientist = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full h-full">
-        <Breadcrumbs />
+        <Nav title={"Visiting Scientist"} />
         <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
           Visiting Scientist
         </h1>
         <div className="flex justify-between">
-          <button className="flex items-center justify-center gap-2 py-2 px-4 bg-primary rounded-md shadow-xl  text-white">
-            <i className="fi-rr-plus"></i> Tambah
-          </button>
+          <Button icon={<i className="fi-rr-plus"></i>} text={"Tambah"} />
         </div>
         <Table
           columns={[

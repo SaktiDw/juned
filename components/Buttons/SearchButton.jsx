@@ -6,7 +6,7 @@ const SearchButton = ({ onChange, value }) => {
       type="text"
       onChange={onChange}
       value={value}
-      className="py-1 px-4 rounded-lg border border-primary shadow appearance-none outline-none caret-primary dark:bg-slate-700"
+      className="py-1 px-4 rounded-lg ring ring-primary shadow-lg appearance-none outline-none caret-primary dark:bg-slate-700"
       placeholder="Search here ..."
     />
   );

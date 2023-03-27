@@ -1,11 +1,18 @@
-import { Action, Breadcrumbs, MainLayout, Table } from "@/components";
+import {
+  Action,
+  Breadcrumbs,
+  Button,
+  MainLayout,
+  Nav,
+  Table,
+} from "@/components";
 import React from "react";
 
 const PengujianMahasiswa = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full h-full">
-        <Breadcrumbs />
+        <Nav title={"Pengujian Mahasiswa"} />
         <div className="flex flex-col  gap-2 p-4 bg-blue-200 rounded-lg divide-y divide-blue-400 text-sm shadow-lg">
           <h1 className="text-primary">
             <b>Info :</b> Sumber data pengisian berasal dari Feeder PDDIKTI yang
@@ -17,10 +24,10 @@ const PengujianMahasiswa = () => {
           Bimbingan Mahasiswa
         </h1>
         <div className="flex justify-between">
-          <button className="flex items-center justify-center gap-2 py-2 px-4 bg-primary rounded-md shadow-xl text-white">
-            <i className="fi-rr-cloud-download-alt pt-1"></i> Import Bimbingan
-            Mahasiswa
-          </button>
+          <Button
+            icon={<i className="fi-rr-cloud-download-alt pt-1"></i>}
+            text="Import Bimbingan Mahasiswa"
+          />
           <div className="flex gap-2 items-center">
             <label htmlFor="periode">Periode</label>
             <select

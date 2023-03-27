@@ -1,4 +1,11 @@
-import { Action, MainLayout, SearchButton, Table } from "@/components";
+import {
+  Action,
+  Button,
+  MainLayout,
+  Nav,
+  SearchButton,
+  Table,
+} from "@/components";
 import { fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
@@ -18,13 +25,13 @@ const Inpassing = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-full">
+        <Nav title={"Inpassing"} />
         <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
           Inpassing
         </h1>
         <div className="flex gap-4">
-          <button className="flex items-center justify-center gap-2 py-2 px-4 bg-primary rounded-md shadow-xl w-32 text-white">
-            <i className="fi-rr-plus"></i> Tambah
-          </button>
+          <Button icon={<i className="fi-rr-plus"></i>} text={"Tambah"} />
+          {/* <button className="flex items-center justify-center gap-2 py-2 px-4 bg-primary rounded-md shadow-xl w-32 text-white"></button> */}
           <SearchButton
             onChange={(e) => setSearch(e.target.value)}
             value={search}

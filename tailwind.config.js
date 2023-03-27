@@ -1,4 +1,3 @@
-const { fontFamily } = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,8 +9,6 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
       primary: '#0165b1',
       secondary: '#6daedb'
       },

@@ -1,11 +1,18 @@
-import { Action, Breadcrumbs, MainLayout, Table } from "@/components";
+import {
+  Action,
+  Breadcrumbs,
+  Button,
+  MainLayout,
+  Nav,
+  Table,
+} from "@/components";
 import React from "react";
 
 const Pengajaran = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full h-full">
-        <Breadcrumbs />
+        <Nav title={"Pengajaran"} />
         <div className="flex flex-col  gap-2 p-4 bg-blue-200 rounded-lg divide-y divide-blue-400 text-sm shadow-lg">
           <h1 className="text-primary">
             <b>Info :</b> Sumber data pengisian berasal dari Feeder PDDIKTI yang
@@ -21,12 +28,11 @@ const Pengajaran = () => {
           Riwayat Golongan/Pangkat
         </h1>
         <div className="flex justify-between">
-          <button className="flex items-center justify-center gap-2 py-2 px-4 bg-primary rounded-md shadow-xl  text-white">
-            <i className="fi-rr-plus"></i> Tambah
-          </button>
-          <button className="flex items-center justify-center gap-2 py-2 px-4 bg-primary rounded-md shadow-xl text-white">
-            <i className="fi-rr-plus"></i> Riwayat Ajuan Perubahan
-          </button>
+          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
+          <Button
+            icon={<i className="fi-rr-plus"></i>}
+            text="Riwayat Ajuan Perubahan"
+          />
         </div>
         <Table
           columns={[

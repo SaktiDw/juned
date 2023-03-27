@@ -31,7 +31,7 @@ const CardDataPribadi = ({ title, children, data }) => {
                 key={item.title}
                 className="flex flex-col justify-center py-2"
               >
-                <h4 className="text-md text-slate-600 dark:text-slate-400 font-semibold uppercase leading-none">
+                <h4 className="text-sm text-slate-600 dark:text-slate-400 font-semibold uppercase leading-none">
                   {item.title}
                 </h4>
                 <span className="text-sm font-bold leading-tight">
