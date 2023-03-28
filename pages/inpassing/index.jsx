@@ -29,18 +29,10 @@ const Inpassing = () => {
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-full">
         <Nav title={"Inpassing"} />
-        <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Inpassing
         </h1>
-        <div className="flex gap-4">
-          <Button icon={<i className="fi-rr-plus"></i>} text={"Tambah"} />
-          {/* <button className="flex items-center justify-center gap-2 py-2 px-4 bg-primary rounded-md shadow-xl w-32 text-white"></button> */}
-          <SearchButton
-            onChange={(e) => setSearch(e.target.value)}
-            value={search}
-          />
-          <FilterPageSize onChange={(e) => setPageSize(e.target.value)} />
-        </div>
+
         <Table
           pageSize={pageSize}
           query={search}
