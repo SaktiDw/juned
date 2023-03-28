@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import React, { useState } from "react";
 import { FilterPageSize } from "..";
 
-const Table = ({ columns, data, query = "" }) => {
-  const [search, setSearch] = useState("");
+const Table = ({ columns, data }) => {
+  const [query, setQuery] = useState("");
   const [pageSize, setPageSize] = useState(2);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -36,22 +37,26 @@ const Table = ({ columns, data, query = "" }) => {
   );
 
   return (
-    <section className="grid grid-flow-row gap-4 p-4 z-10 overflow-x-auto w-full rounded-lg shadow-lg bg-blue-50 dark:bg-slate-800 dark:shadow-blue-700">
-      <div className="flex gap-4">
+    <section className="grid grid-flow-row gap-4 p-4 z-10 overflow-x-auto w-full rounded-xl shadow-lg bg-white dark:bg-slate-800">
+      <div className="flex justify-between gap-4">
         <FilterPageSize onChange={(e) => setPageSize(e.target.value)} />
-        <button className="ml-auto flex items-center gap-2 py-1 px-2 w-min bg-primary rounded-lg shadow-lg text-white text-xs">
+        {/* <button className="ml-auto flex items-center gap-2 py-1 px-2 w-min bg-primary rounded-lg shadow-lg text-white text-xs">
           <i className="fi-rr-plus"></i>
           Tambah
-        </button>
-        <input
-          type="text"
-          className="py-1 px-2 text-xs w-min rounded-lg shadow-lg dark:bg-slate-700 outline-primary"
-          placeholder="Search here ..."
-        />
+        </button> */}
+        <div className="relative group">
+          <input
+            onChange={(e) => setQuery(e.target.value)}
+            type="text"
+            className="py-2 px-4 text-xs w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none"
+            placeholder="Search here ..."
+          />
+          <i className="fi-rr-search absolute right-2 top-1"></i>
+        </div>
       </div>
-      <table className="w-full table-auto text-left">
+      <table className="w-full table-auto text-left shadow">
         <thead>
-          <tr className="bg-white dark:bg-slate-800 uppercase text-xs font-poppins">
+          <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins">
             {columns.map((column) => (
               <th key={column.title} className="p-2 first:pl-4 last:pr-4">
                 {column.title}
@@ -63,7 +68,7 @@ const Table = ({ columns, data, query = "" }) => {
           <tbody>
             {paginateData(filtered, currentPage, pageSize)?.map((item) => (
               <tr
-                className=" bg-white odd:bg-blue-50 hover:bg-blue-100 dark:bg-slate-800 dark:odd:bg-slate-900 dark:hover:bg-slate-700"
+                className=" bg-white odd:bg-blue-50 hover:bg-blue-200 dark:bg-slate-700 dark:odd:bg-slate-800 dark:hover:bg-slate-600"
                 key={item.id}
               >
                 {columns.map((column, index) => {
@@ -81,11 +86,19 @@ const Table = ({ columns, data, query = "" }) => {
         ) : (
           <tbody>
             <tr
-              className="leading-relaxed bg-white odd:bg-blue-50 hover:bg-blue-100 dark:bg-slate-800 dark:odd:bg-slate-900 dark:hover:bg-slate-700"
+              className="leading-relaxed bg-white odd:bg-blue-50 hover:bg-blue-100 dark:bg-slate-900 dark:odd:bg-slate-800 dark:hover:bg-slate-700"
               key={0}
             >
               <td colSpan={columns.length} className="p-2 w-full text-center">
-                No Data
+                <div className="flex flex-col items-center justify-center gap-3 py-2">
+                  <Image
+                    alt="No data image"
+                    src={"/no_data.svg"}
+                    width={100}
+                    height={300}
+                  />
+                  <span>No data.</span>
+                </div>
               </td>
             </tr>
           </tbody>
@@ -109,7 +122,7 @@ const Table = ({ columns, data, query = "" }) => {
             <button
               key={item}
               onClick={() => setCurrentPage(item)}
-              className={`p-2 w-8 h-8 text-xs rounded-lg shadow-lg   ${
+              className={`p-2 w-8 h-8 text-xs rounded-lg shadow-lg hover:bg-primary dark:hover:bg-primary hover:text-white hover:shadow-primary  ${
                 item === currentPage
                   ? "bg-primary text-white dark:shadow-primary"
                   : "bg-white dark:bg-slate-700"
