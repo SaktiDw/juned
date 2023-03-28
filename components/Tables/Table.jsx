@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { FilterPageSize } from "..";
 
 const Table = ({ columns, data, query = "" }) => {
+  const [search, setSearch] = useState("");
   const [pageSize, setPageSize] = useState(2);
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -16,7 +18,6 @@ const Table = ({ columns, data, query = "" }) => {
           return true;
         }
       }
-
       return false;
     });
   };
@@ -26,7 +27,7 @@ const Table = ({ columns, data, query = "" }) => {
   const paginateData = (data, page, pageSize) => {
     const startIndex = (page - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    return data.slice(startIndex, endIndex);
+    return data?.slice(startIndex, endIndex);
   };
 
   const pageNumbers = Array.from(
@@ -35,7 +36,19 @@ const Table = ({ columns, data, query = "" }) => {
   );
 
   return (
-    <section className="z-10 overflow-x-auto w-full rounded-lg shadow-lg bg-blue-50 dark:bg-slate-800 dark:shadow-blue-700">
+    <section className="grid grid-flow-row gap-4 p-4 z-10 overflow-x-auto w-full rounded-lg shadow-lg bg-blue-50 dark:bg-slate-800 dark:shadow-blue-700">
+      <div className="flex gap-4">
+        <FilterPageSize onChange={(e) => setPageSize(e.target.value)} />
+        <button className="ml-auto flex items-center gap-2 py-1 px-2 w-min bg-primary rounded-lg shadow-lg text-white text-xs">
+          <i className="fi-rr-plus"></i>
+          Tambah
+        </button>
+        <input
+          type="text"
+          className="py-1 px-2 text-xs w-min rounded-lg shadow-lg dark:bg-slate-700 outline-primary"
+          placeholder="Search here ..."
+        />
+      </div>
       <table className="w-full table-auto text-left">
         <thead>
           <tr className="bg-white dark:bg-slate-800 uppercase text-xs font-poppins">
@@ -79,36 +92,43 @@ const Table = ({ columns, data, query = "" }) => {
         )}
       </table>
 
-      <div className="flex gap-2 p-4">
-        <button
-          disabled={currentPage == 1}
-          onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
-          className={`disabled:cursor-not-allowed p-2 w-8 h-8 text-xs rounded-lg shadow-lg bg-white dark:bg-slate-700 `}
-        >
-          <i className="fi-rr-angle-left"></i>
-        </button>
-        {pageNumbers.map((item) => (
+      <div className="flex justify-between items-center p-4">
+        <span className="text-xs">
+          Showing {currentPage} to {pageSize * currentPage} of total{" "}
+          {filtered?.length} entries
+        </span>
+        <div className="flex gap-2">
           <button
-            key={item}
-            onClick={() => setCurrentPage(item)}
-            className={`p-2 w-8 h-8 text-xs rounded-lg shadow-lg   ${
-              item === currentPage
-                ? "bg-primary text-white dark:shadow-primary"
-                : "bg-white dark:bg-slate-700"
-            }`}
+            disabled={currentPage == 1}
+            onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
+            className={`disabled:cursor-not-allowed p-2 w-8 h-8 text-xs rounded-lg shadow-lg bg-white dark:bg-slate-700 `}
           >
-            {item}
+            <i className="fi-rr-angle-left"></i>
           </button>
-        ))}
-        <button
-          disabled={currentPage == pageNumbers.length}
-          onClick={() =>
-            currentPage < pageNumbers.length && setCurrentPage(currentPage + 1)
-          }
-          className={`disabled:cursor-not-allowed p-2 w-8 h-8 text-xs rounded-lg shadow-lg bg-white dark:bg-slate-700 `}
-        >
-          <i className="fi-rr-angle-right"></i>
-        </button>
+          {pageNumbers.map((item) => (
+            <button
+              key={item}
+              onClick={() => setCurrentPage(item)}
+              className={`p-2 w-8 h-8 text-xs rounded-lg shadow-lg   ${
+                item === currentPage
+                  ? "bg-primary text-white dark:shadow-primary"
+                  : "bg-white dark:bg-slate-700"
+              }`}
+            >
+              {item}
+            </button>
+          ))}
+          <button
+            disabled={currentPage == pageNumbers.length}
+            onClick={() =>
+              currentPage < pageNumbers.length &&
+              setCurrentPage(currentPage + 1)
+            }
+            className={`disabled:cursor-not-allowed p-2 w-8 h-8 text-xs rounded-lg shadow-lg bg-white dark:bg-slate-700 `}
+          >
+            <i className="fi-rr-angle-right"></i>
+          </button>
+        </div>
       </div>
     </section>
   );

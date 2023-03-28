@@ -4,8 +4,10 @@ import {
   Input,
   MainLayout,
   Nav,
+  Tab,
   UploadFile,
 } from "@/components";
+import TabRiwayatAjuanPerubahanDataProfil from "@/components/Tabs/TabRiwayatAjuanPerubahanDataProfil";
 import { fetchProfil } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
@@ -21,6 +23,7 @@ const EditBiodata = () => {
             <FormEditBiodata />
           </div>
         </div>
+        <TabRiwayatAjuanPerubahanDataProfil />
       </div>
     </MainLayout>
   );

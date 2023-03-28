@@ -13,6 +13,9 @@ export { default as MultipleUploadFile } from "./Forms/MultipleUploadFile";
 
 export { default as Table } from "./Tables/Table";
 export { default as Action } from "./Tables/Action";
+export { default as FilterPageSize } from "./Tables/FilterPageSize";
+
+export { default as Tab } from "./Tabs/Tab";
 
 export { default as Nav } from "./Navigations/Nav";
 export { default as Sidebar } from "./Navigations/Sidebar";

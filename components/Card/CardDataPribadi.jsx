@@ -10,7 +10,7 @@ const CardDataPribadi = ({ title, children, data }) => {
       </h1>
       <div className="relative w-full h-full flex flex-col gap-4 rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl hover:scale-105 hover:z-10 duration-200 ease-in-out p-4">
         <button
-          onClick={() => router.push("/profile/data-pribadi/edit-biodata")}
+          onClick={() => router.push("/data-pribadi/edit-biodata")}
           className="group flex items-center absolute -right-2 -top-2 z-10 p-2 rounded-full shadow-lg bg-primary dark:bg-slate-800 w-8 h-8 text-white "
         >
           <i className="fi-rr-pencil pt-1"></i>

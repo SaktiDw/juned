@@ -1,9 +1,11 @@
 import {
   Action,
   Button,
+  FilterPageSize,
   MainLayout,
   Nav,
   SearchButton,
+  Select,
   Table,
 } from "@/components";
 import { fetchListInpassing } from "@/helper/api/api";
@@ -12,6 +14,7 @@ import React, { useState } from "react";
 
 const Inpassing = () => {
   const [search, setSearch] = useState("");
+  const [pageSize, setPageSize] = useState(5);
 
   const {
     data: inpassing,
@@ -36,8 +39,10 @@ const Inpassing = () => {
             onChange={(e) => setSearch(e.target.value)}
             value={search}
           />
+          <FilterPageSize onChange={(e) => setPageSize(e.target.value)} />
         </div>
         <Table
+          pageSize={pageSize}
           query={search}
           columns={[
             { key: "id", title: "No." },

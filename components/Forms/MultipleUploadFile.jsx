@@ -20,7 +20,7 @@ const MultipleUploadFile = ({ errors }) => {
         <div className="grid w-full gap-4">
           {files.map((item, index) => (
             <div className="relative flex flex-col gap-4 w-full">
-              <h1>Dokumen {item}</h1>
+              <h1>Dokumen {index + 1}</h1>
               <button
                 onClick={() => setFiles(files.filter((v, i) => i != index))}
                 className="absolute right-0 top-0"
