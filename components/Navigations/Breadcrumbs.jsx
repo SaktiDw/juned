@@ -14,7 +14,7 @@ const Breadcrumbs = () => {
         const url = `/${path.slice(0, index + 1).join("/")}`;
         // const label = part.charAt(0).toUpperCase() + part.slice(1);
         const words = part
-          .split("_")
+          .split("-")
           .map((part) => part.charAt(0).toUpperCase() + part.slice(1));
         const result = words.join(" ");
 
