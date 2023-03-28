@@ -1,5 +1,6 @@
 export default function handler(req,res) {
-    return res.status(200).json({
+    return res.status(200).json(
+      {
         "status": true,
         "message": "Keluarga berhasil diambil",
         "data": [
@@ -17,5 +18,6 @@ export default function handler(req,res) {
             }
           }
         ]
-      })
+      }
+    )
 }
