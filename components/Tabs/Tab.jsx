@@ -19,10 +19,11 @@ const Tab = ({ tabs, title, contents }) => {
       <div className="grid grid-flow-col items-center gap-4">
         {tabs?.map((tab, index) => (
           <button
+            key={tab}
             className={`px-2 py-2 rounded-lg shadow-xl ${
               activeTab === index
                 ? "bg-primary text-white"
-                : "bg-white dark:bg-slate-800"
+                : "bg-blue-50 dark:bg-slate-800 hover:bg-white dark:hover:bg-slate-700"
             }`}
             onClick={() => setActiveTab(index)}
           >
@@ -30,11 +31,8 @@ const Tab = ({ tabs, title, contents }) => {
           </button>
         ))}
       </div>
-      {contents && (
-        <div className="bg-white dark:bg-slate-800 p-4 rounded-lg">
-          {contents?.map((content, index) => activeTab === index && content)}
-        </div>
-      )}
+      {contents &&
+        contents?.map((content, index) => activeTab === index && content)}
     </div>
   );
 };
