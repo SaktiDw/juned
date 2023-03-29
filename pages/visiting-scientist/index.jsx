@@ -11,15 +11,13 @@ import React from "react";
 const VisitingScientist = () => {
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 w-full h-full">
+      <div className="flex flex-col gap-4 w-full">
         <Nav title={"Visiting Scientist"} />
-        <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Visiting Scientist
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text={"Tambah"} />
-        </div>
         <Table
+          createLink={"/visiting-scientist/create"}
           columns={[
             { key: "id", title: "No." },
             {

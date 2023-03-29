@@ -1,4 +1,11 @@
-import { Action, Button, MainLayout, Nav, Table } from "@/components";
+import {
+  Action,
+  Button,
+  MainLayout,
+  Nav,
+  Table,
+  TabRiwayatAjuanPerubahanData,
+} from "@/components";
 import { fetchListKepangkatan } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
@@ -14,19 +21,13 @@ const Kepangkatan = () => {
   });
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 dark:text-white w-full h-full">
+      <div className="flex flex-col gap-4 dark:text-white w-full">
         <Nav title={"Kepangkatan"} />
-        <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Riwayat Golongan/Pangkat
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
-          <Button
-            icon={<i className="fi-rr-plus"></i>}
-            text={"Riwayat Ajuan Perubahan"}
-          />
-        </div>
         <Table
+          createLink={"/kepangkatan/create"}
           columns={[
             { key: "id", title: "No." },
             ,
@@ -42,6 +43,9 @@ const Kepangkatan = () => {
             },
           ]}
           data={Kepangkatan?.data}
+        />
+        <TabRiwayatAjuanPerubahanData
+          title={" Riwayat Ajuan Perubahan Data Golongan/Pangkat "}
         />
       </div>
     </MainLayout>

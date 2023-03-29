@@ -1,9 +1,9 @@
 import {
   Action,
-  Breadcrumbs,
   Button,
   MainLayout,
   Nav,
+  PeriodeSelection,
   Table,
 } from "@/components";
 import React from "react";
@@ -11,7 +11,7 @@ import React from "react";
 const Pengajaran = () => {
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 w-full h-full">
+      <div className="flex flex-col gap-4 w-full">
         <Nav title={"Pengajaran"} />
         <div className="flex flex-col  gap-2 p-4 bg-blue-200 rounded-lg divide-y divide-blue-400 text-sm shadow-lg">
           <h1 className="text-primary">
@@ -24,15 +24,16 @@ const Pengajaran = () => {
             matakuliah <b>selain Tugas akhir/Skripsi/Thesis/Disertasi</b>
           </p>
         </div>
-        <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
-          Riwayat Golongan/Pangkat
+        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+          Pengajaran
         </h1>
         <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
           <Button
-            icon={<i className="fi-rr-plus"></i>}
-            text="Riwayat Ajuan Perubahan"
+            size={"small"}
+            icon={<i className="fi-rr-cloud-download-alt pt-1"></i>}
+            text="Import Pengajaran"
           />
+          <PeriodeSelection />
         </div>
         <Table
           columns={[

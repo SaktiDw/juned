@@ -15,7 +15,7 @@ const Publikasi = () => {
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-full">
         <Nav title={"paten"} />
-        <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Publikasi
         </h1>
         <div className="flex justify-between">

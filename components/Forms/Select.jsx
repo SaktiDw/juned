@@ -7,7 +7,7 @@ const Select = ({ name, label, option, errors, touched, values }) => {
     <div className="w-full flex flex-col gap-2 z-10 relative">
       <label
         htmlFor={name}
-        className="uppercase leading-tight font-bold text-xs"
+        className="uppercase leading-tight font-bold text-sm"
       >
         {label}
       </label>
@@ -37,6 +37,9 @@ const Select = ({ name, label, option, errors, touched, values }) => {
           className={`fi-rr-angle-small-down absolute right-0 pr-4 pt-1 text-lg z-0`}
         ></i>
       </div>
+      {errors ? (
+        <div className="text-red-500 font-semibold capitalize">{errors}</div>
+      ) : null}
     </div>
   );
 };

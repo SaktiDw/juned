@@ -12,9 +12,9 @@ import React from "react";
 const BimbinganDosen = () => {
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 w-full h-full">
+      <div className="flex flex-col gap-4 w-full">
         <Nav title={"Bimbingan Dosen"} />
-        <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Data Bimbingan Dosen
         </h1>
         <div className="flex justify-between">

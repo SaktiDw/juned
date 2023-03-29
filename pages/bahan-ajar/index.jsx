@@ -11,15 +11,13 @@ import React from "react";
 const BahanAjar = () => {
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 w-full h-full">
+      <div className="flex flex-col gap-4 w-full">
         <Nav title={"Bahan Ajar"} />
-        <h1 className="text-xs uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Bahan Ajar
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
-        </div>
         <Table
+          createLink={"/bahan-ajar/create"}
           columns={[
             { key: "id", title: "No." },
             { key: "judul_bahan_ajar", title: "Judul Bahan Ajar" },

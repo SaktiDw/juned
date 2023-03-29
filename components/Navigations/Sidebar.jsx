@@ -94,27 +94,27 @@ const Sidebar = () => {
               active: false,
             },
             {
-              link: "/bimbingan_mahasiswa",
+              link: "/bimbingan-mahasiswa",
               title: "Bimbingan Mahasiswa",
               active: false,
             },
             {
-              link: "/pengujian_mahasiswa",
+              link: "/pengujian-mahasiswa",
               title: "Pengujian Mahasiswa",
               active: false,
             },
             {
-              link: "/visiting_scientist",
+              link: "/visiting-scientist",
               title: "Visiting Scientist",
               active: false,
             },
             {
-              link: "/pembinaan_mahasiswa",
+              link: "/pembinaan-mahasiswa",
               title: "Pembinaan Mahasiswa",
               active: false,
             },
             {
-              link: "/bahan_ajar",
+              link: "/bahan-ajar",
               title: "Bahan Ajar",
               active: false,
             },
@@ -124,17 +124,17 @@ const Sidebar = () => {
               active: false,
             },
             {
-              link: "/orasi_ilmiah",
+              link: "/orasi-ilmiah",
               title: "Orasi Ilmiah",
               active: false,
             },
             {
-              link: "/pembimbing_dosen",
+              link: "/pembimbing-dosen",
               title: "Pembimbing Dosen",
               active: false,
             },
             {
-              link: "/tugas_tambahan",
+              link: "/tugas-tambahan",
               title: "Tugas Tambahan",
               active: false,
             },
@@ -165,13 +165,13 @@ const Sidebar = () => {
           subItem={[
             { link: "/pengabdian", title: "Pengabdian", active: false },
             {
-              link: "/pengelola_jurnal",
+              link: "/pengelola-jurnal",
               title: "Pengelola Jurnal",
               active: false,
             },
             { link: "/pembicara", title: "Pembicara", active: false },
             {
-              link: "/jabatan_struktural",
+              link: "/jabatan-struktural",
               title: "Jabatan Struktural",
               active: false,
             },

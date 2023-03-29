@@ -14,12 +14,17 @@ export { default as FormEditKeluarga } from "./Forms/FormEditKeluarga";
 export { default as FormEditBidangKeilmuan } from "./Forms/FormEditBidangKeilmuan";
 
 export { default as FormCreateInpassing } from "./Forms/FormCreateInpassing";
+export { default as FormCreateJabatanFungsional } from "./Forms/FormCreateJabatanFungsional";
+export { default as FormCreateKepangkatan } from "./Forms/FormCreateKepangkatan";
+export { default as FormCreateVisitingScientist } from "./Forms/FormCreateVisitingScientist";
+export { default as FormCreateBahanAjar } from "./Forms/FormCreateBahanAjar";
 
 export { default as Input } from "./Forms/Input";
 export { default as Select } from "./Forms/Select";
 export { default as Textarea } from "./Forms/Textarea";
 export { default as UploadFile } from "./Forms/UploadFile";
 export { default as MultipleUploadFile } from "./Forms/MultipleUploadFile";
+export { default as PeriodeSelection } from "./Forms/PeriodeSelection";
 
 export { default as Table } from "./Tables/Table";
 export { default as Action } from "./Tables/Action";
