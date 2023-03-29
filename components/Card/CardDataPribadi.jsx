@@ -1,7 +1,8 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
-const CardDataPribadi = ({ title, children, data }) => {
+const CardDataPribadi = ({ title, children, data, editLink }) => {
   const router = useRouter();
   return (
     <div className="flex flex-col gap-4 dark:text-white w-full h-full">
@@ -9,8 +10,9 @@ const CardDataPribadi = ({ title, children, data }) => {
         {title}
       </h1>
       <div className="relative w-full h-full flex flex-col gap-4 rounded-2xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl hover:scale-105 hover:z-10 duration-200 ease-in-out p-4">
-        <button
-          onClick={() => router.push("/data-pribadi/edit-biodata")}
+        <Link
+          // onClick={() => router.push("/data-pribadi/edit-biodata")}
+          href={`/data-pribadi/${editLink}`}
           className="group flex items-center absolute -right-2 -top-2 z-10 p-2 rounded-full shadow-lg bg-primary dark:bg-slate-800 w-8 h-8 text-white "
         >
           <i className="fi-rr-pencil pt-1"></i>
@@ -20,7 +22,7 @@ const CardDataPribadi = ({ title, children, data }) => {
               Ubah data
             </span>
           </div>
-        </button>
+        </Link>
 
         {children}
 

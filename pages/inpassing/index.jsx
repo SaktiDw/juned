@@ -34,8 +34,8 @@ const Inpassing = () => {
         </h1>
 
         <Table
-          pageSize={pageSize}
-          query={search}
+          searchAble={true}
+          createLink={"/inpassing/create"}
           columns={[
             { key: "id", title: "No." },
             { key: "pangkat_golongan", title: "Pangkat/Golongan" },
