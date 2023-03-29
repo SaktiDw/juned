@@ -37,7 +37,6 @@ const FormEditLain = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            {JSON.stringify(lain)}
             <Input
               label="npwp"
               name="npwp"

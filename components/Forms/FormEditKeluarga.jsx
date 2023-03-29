@@ -41,7 +41,6 @@ const FormEditKeluarga = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            {JSON.stringify(keluarga)}
             <Input
               label="status_kawin"
               name="status_kawin"

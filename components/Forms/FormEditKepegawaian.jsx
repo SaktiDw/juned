@@ -45,7 +45,6 @@ const FormEditKepegawaian = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            {JSON.stringify(kepegawaian, "", 2)}
             <Input
               label="nip"
               name="nip"

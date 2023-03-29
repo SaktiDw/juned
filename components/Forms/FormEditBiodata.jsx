@@ -22,7 +22,6 @@ const FormEditBiodata = () => {
   if (isLoading) return <>Loading!!</>;
   return (
     <>
-      {/* {JSON.stringify(profil?.data[0].pegawai.nama_sdm)} */}
       <Formik
         enableReinitialize
         initialValues={{

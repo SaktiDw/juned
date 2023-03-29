@@ -53,7 +53,6 @@ const FormEditAlamat = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid, alamat }) => (
           <Form className="flex flex-col gap-4">
-            {JSON.stringify(alamat)}
             <Input
               label="email"
               name="email"

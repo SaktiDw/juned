@@ -36,8 +36,6 @@ const FormUsers = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            {/* {JSON.stringify(errors)}
-            {JSON.stringify(status)} */}
             <Input
               label="name"
               name="name"

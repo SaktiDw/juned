@@ -33,7 +33,6 @@ const FormEditBidangKeilmuan = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            {/* {JSON.stringify(bidang_keilmuan)} */}
             <Table
               columns={[
                 { key: "urutan", title: "Urutan" },
