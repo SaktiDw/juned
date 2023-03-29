@@ -13,7 +13,7 @@ const schema = yup.object().shape({
   nama_ibu_kandung: yup.string().required("Nama ibu kandung wajib di isi."),
 });
 
-const FormUsers = () => {
+const FormEditBiodata = () => {
   const id = "";
   const { data: profil, isLoading } = useQuery({
     queryKey: ["profil"],
@@ -42,9 +42,8 @@ const FormUsers = () => {
             )
         }
       >
-        {({ isSubmitting, errors, touched, status, isValid, profil }) => (
+        {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            {JSON.stringify(profil)}
             <Input
               label="nama"
               name="nama"
@@ -97,4 +96,4 @@ const FormUsers = () => {
   );
 };
 
-export default FormUsers;
+export default FormEditBiodata;

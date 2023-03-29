@@ -20,8 +20,8 @@ const Input = ({ name, label, type, errors, touched, values }) => {
             : ` outline-primary caret-primary `
         }`}
       />
-      {errors && touched ? (
-        <div className="text-red-500 font-semibold">{errors}</div>
+      {errors ? (
+        <div className="text-red-500 font-semibold capitalize">{errors}</div>
       ) : null}
     </div>
   );

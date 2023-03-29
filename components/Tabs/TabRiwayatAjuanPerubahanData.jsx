@@ -1,13 +1,14 @@
 import React from "react";
 import { Action, Tab, Table } from "..";
 
-const TabRiwayatAjuanPerubahanDataProfil = () => {
+const TabRiwayatAjuanPerubahanData = ({ title }) => {
   return (
     <Tab
-      title={"Riwayat Ajuan Perubahan Data Profil"}
+      title={title}
       tabs={["Draft", "Diajukan", "Disetujui", "Ditolak", "Ditangguhkan"]}
       contents={[
         <Table
+          searchAble={true}
           key={1}
           columns={[
             { key: "tanggal_dibuat", title: "Tanggal Dibuat" },
@@ -21,6 +22,7 @@ const TabRiwayatAjuanPerubahanDataProfil = () => {
           ]}
         />,
         <Table
+          searchAble={true}
           key={2}
           columns={[
             { key: "tanggal_diajukan", title: "Tanggal Diajukan" },
@@ -35,6 +37,7 @@ const TabRiwayatAjuanPerubahanDataProfil = () => {
           ]}
         />,
         <Table
+          searchAble={true}
           key={3}
           columns={[
             { key: "tanggal_diajukan", title: "Tanggal Diajukan" },
@@ -50,6 +53,7 @@ const TabRiwayatAjuanPerubahanDataProfil = () => {
           ]}
         />,
         <Table
+          searchAble={true}
           key={4}
           columns={[
             { key: "tanggal_diajukan", title: "Tanggal Diajukan" },
@@ -65,6 +69,7 @@ const TabRiwayatAjuanPerubahanDataProfil = () => {
           ]}
         />,
         <Table
+          searchAble={true}
           key={5}
           columns={[
             { key: "tanggal_diajukan", title: "Tanggal Diajukan" },
@@ -84,4 +89,4 @@ const TabRiwayatAjuanPerubahanDataProfil = () => {
   );
 };
 
-export default TabRiwayatAjuanPerubahanDataProfil;
+export default TabRiwayatAjuanPerubahanData;

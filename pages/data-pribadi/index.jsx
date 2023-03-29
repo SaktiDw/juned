@@ -53,6 +53,7 @@ const DataPribadi = () => {
         <div className="grid grid-flow-col gap-8">
           <CardDataPribadi
             title={"profile"}
+            editLink={"/edit-biodata"}
             data={[
               { title: "Nama", text: profil?.data[0].pegawai.nama_sdm },
               { title: "Jenis Kelamin", text: profil?.data[0].jenis_kelamin },
@@ -78,6 +79,7 @@ const DataPribadi = () => {
           </CardDataPribadi>
           <CardDataPribadi
             title={"Alamat dan kontak"}
+            editLink={"/edit-alamat"}
             data={[
               { title: "Email", text: alamat?.data[0].email },
               { title: "Alamat", text: alamat?.data[0].alamat },
@@ -100,6 +102,7 @@ const DataPribadi = () => {
           />
           <CardDataPribadi
             title={"kepegawaian"}
+            editLink={"/edit-kepegawaian"}
             data={[
               {
                 title: "Program Studi",
@@ -141,6 +144,7 @@ const DataPribadi = () => {
         <div className="flex gap-8">
           <CardDataPribadi
             title={"kependudukan"}
+            editLink={"/edit-kependudukan"}
             data={[
               { title: "Nik", text: kependudukan?.data[0]?.nik },
               { title: "Agama", text: kependudukan?.data[0]?.agama.nama },
@@ -152,6 +156,7 @@ const DataPribadi = () => {
           />
           <CardDataPribadi
             title={"Lain-lain"}
+            editLink={"/edit-lain"}
             data={[
               { title: "NPWP", text: lain?.data?.npwp },
               { title: "Nama Wajib Pajak", text: lain?.data?.nama_wp },
@@ -162,6 +167,7 @@ const DataPribadi = () => {
         <div className="flex flex-col item-stretch gap-8">
           <CardDataPribadi
             title={"keluarga"}
+            editLink={"/edit-keluarga"}
             data={[
               {
                 title: "Status Perkawinan",
@@ -187,6 +193,7 @@ const DataPribadi = () => {
           />
           <CardDataPribadi
             title={"Bidang keilmuan"}
+            editLink={"/edit-bidang-keilmuan"}
             data={[
               {
                 title: bidangIlmu?.data[0]?.urutan,

@@ -1,8 +1,14 @@
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 import { FilterPageSize } from "..";
 
-const Table = ({ columns, data }) => {
+const Table = ({
+  columns,
+  data,
+  createLink = undefined,
+  searchAble = false,
+}) => {
   const [query, setQuery] = useState("");
   const [pageSize, setPageSize] = useState(2);
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,19 +46,26 @@ const Table = ({ columns, data }) => {
     <section className="grid grid-flow-row gap-4 p-4 z-10 overflow-x-auto w-full rounded-xl shadow-lg bg-white dark:bg-slate-800">
       <div className="flex justify-between gap-4">
         <FilterPageSize onChange={(e) => setPageSize(e.target.value)} />
-        {/* <button className="ml-auto flex items-center gap-2 py-1 px-2 w-min bg-primary rounded-lg shadow-lg text-white text-xs">
-          <i className="fi-rr-plus"></i>
-          Tambah
-        </button> */}
-        <div className="relative group">
-          <input
-            onChange={(e) => setQuery(e.target.value)}
-            type="text"
-            className="py-2 px-4 text-xs w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none"
-            placeholder="Search here ..."
-          />
-          <i className="fi-rr-search absolute right-2 top-1"></i>
-        </div>
+        {createLink && (
+          <Link
+            href={createLink}
+            className="ml-auto flex items-center gap-2 py-1 px-2 w-min bg-primary rounded-lg shadow-lg text-white text-xs"
+          >
+            <i className="fi-rr-plus"></i>
+            Tambah
+          </Link>
+        )}
+        {searchAble && (
+          <div className="relative group">
+            <input
+              onChange={(e) => setQuery(e.target.value)}
+              type="text"
+              className="py-2 px-4 text-xs w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none"
+              placeholder="Search here ..."
+            />
+            <i className="fi-rr-search absolute right-2 top-1"></i>
+          </div>
+        )}
       </div>
       <table className="w-full table-auto text-left shadow">
         <thead>

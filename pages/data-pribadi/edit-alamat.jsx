@@ -1,33 +1,28 @@
 import {
-  CardDataPribadi,
-  FormEditBiodata,
-  Input,
+  FormEditAlamat,
   MainLayout,
   Nav,
+  TabRiwayatAjuanPerubahanData,
 } from "@/components";
-import { fetchProfil } from "@/helper/api/api";
-import { useQuery } from "@tanstack/react-query";
-import Image from "next/image";
 import React from "react";
 
-const EditBiodata = () => {
-  const { data: profil } = useQuery({
-    queryKey: ["profil"],
-    queryFn: async () => await fetchProfil(id),
-  });
+const EditAlamat = () => {
   return (
-    <div>
+    <MainLayout>
       <div className="flex flex-col gap-8 px-8">
         <Nav title={"Edit Biodata"} />
         <div className="flex flex-col gap-4 dark:text-white w-full h-full">
-          <h1>Form Ajuan Perubahan Data Profil</h1>
-          <div className="grid grid-flow-col gap-4">
-            <FormEditBiodata />
+          <h1>Form Ajuan Perubahan Data Alamat</h1>
+          <div className="grid grid-flow-col gap-4  bg-white dark:bg-slate-800 px-4 py-8 rounded-xl ">
+            <FormEditAlamat />
           </div>
+          <TabRiwayatAjuanPerubahanData
+            title={"Riwayat Ajuan Perubahan Data Alamat"}
+          />
         </div>
       </div>
-    </div>
+    </MainLayout>
   );
 };
 
-export default EditBiodata;
+export default EditAlamat;

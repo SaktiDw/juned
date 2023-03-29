@@ -47,7 +47,13 @@ const MultipleUploadFile = ({ errors }) => {
                 />
               </div>
               <UploadFile />
-              <Textarea />
+              <Textarea label={"Keterangan"} />
+              <Input
+                name={"tautan_dokumen"}
+                label={"Tautan Dokumen"}
+                errors={""}
+                touched={""}
+              />
             </div>
           ))}
           <Button
