@@ -10,6 +10,7 @@ const Pembicara = () => {
   } = useQuery({
     queryKey: ["paten"],
     queryFn: () => null,
+    networkMode: "offlineFirst",
   });
   return (
     <MainLayout>

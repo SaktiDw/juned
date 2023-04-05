@@ -10,6 +10,7 @@ const Paten = () => {
   } = useQuery({
     queryKey: ["paten"],
     queryFn: () => null,
+    networkMode: "offlineFirst",
   });
   return (
     <MainLayout>

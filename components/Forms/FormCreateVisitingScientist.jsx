@@ -1,9 +1,17 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Button, Input, MultipleUploadFile, Select } from "..";
+import {
+  Button,
+  Input,
+  KategoriKegiatanSelection,
+  MultipleUploadFile,
+  PerguruanTinggiSelection,
+  Select,
+} from "..";
 import * as yup from "yup";
 import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
+import KategoriCapaianLuaranSelection from "../Selections/KategoriCapaianLuaranSelection";
 
 const schema = yup.object().shape({
   aktivitas_litabmas: yup.string().required("aktivitas litabmas wajib di isi."),
@@ -58,17 +66,11 @@ const FormCreateVisitingScientist = () => {
               errors={errors.aktivitas_litabmas}
               touched={touched.aktivitas_litabmas}
             />
-            <Select
-              label="kategori capaian luaran"
-              name="kategori_capaian_luaran"
-              option={[]}
+            <KategoriCapaianLuaranSelection
               errors={errors.kategori_capaian_luaran}
               touched={touched.kategori_capaian_luaran}
             />
-            <Select
-              label="Perguruan tinggi pengundang"
-              name="ptn_pengundang"
-              option={[]}
+            <PerguruanTinggiSelection
               errors={errors.ptn_pengundang}
               touched={touched.ptn_pengundang}
             />
@@ -79,10 +81,7 @@ const FormCreateVisitingScientist = () => {
               errors={errors.lama_kegiatan_hari}
               touched={touched.lama_kegiatan_hari}
             />
-            <Select
-              label="kategori kegiatan"
-              name="kategori_kegiatan"
-              option={[]}
+            <KategoriKegiatanSelection
               errors={errors.kategori_kegiatan}
               touched={touched.kategori_kegiatan}
             />

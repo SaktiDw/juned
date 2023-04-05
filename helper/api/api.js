@@ -26,3 +26,7 @@ export const fetchListInpassing = async () => await api.get(`/inpassing/list-inp
 export const fetchListJabatanFungsional = async () => await api.get(`/jabatan-fungsional/list-jabatan-fungsional`).then(res=>res.data) 
 export const fetchListKepangkatan = async () => await api.get(`/kepangkatan/list-kepangkatan`).then(res=>res.data) 
 export const fetchListPenempatan = async () => await api.get(`/penempatan/list-penempatan`).then(res=>res.data) 
+
+export const fetchListKateogriCapaianLuaran = async () => await api.get(`/referensi/kategori-capaian-luaran`).then(res=>res.data).catch(err=>err)
+export const fetchPerguruanTinggi = async () => await api.get(`/referensi/perguruan-tinggi`).then(res=>res.data).catch(err=>err)
+export const fetchKategoriKegiatan = async () => await api.get(`/referensi/kategori-kegiatan`).then(res=>res.data).catch(err=>err)

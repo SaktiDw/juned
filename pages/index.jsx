@@ -16,6 +16,7 @@ export default function Home() {
   const { data, error, isLoading } = useQuery({
     queryKey: ["user"],
     queryFn: () => fetchUsers(),
+    networkMode: "offlineFirst",
   });
 
   const { mutate } = useMutation({

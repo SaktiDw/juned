@@ -16,6 +16,7 @@ const FormEditKependudukan = () => {
   const { data: kependudukan, isLoading } = useQuery({
     queryKey: ["kependudukan"],
     queryFn: async () => await fetchKependudukan(),
+    networkMode: "offlineFirst",
   });
   if (isLoading) return <>Loading!!</>;
   return (

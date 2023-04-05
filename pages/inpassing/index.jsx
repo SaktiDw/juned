@@ -23,6 +23,7 @@ const Inpassing = () => {
   } = useQuery({
     queryKey: ["inpassing"],
     queryFn: () => fetchListInpassing(),
+    networkMode: "offlineFirst",
   });
 
   return (

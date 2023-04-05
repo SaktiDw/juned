@@ -14,6 +14,7 @@ const FormEditBidangKeilmuan = () => {
   const { data: bidang_keilmuan, isLoading } = useQuery({
     queryKey: ["bidang_keilmuan"],
     queryFn: async () => await fetchBidangIlmu(),
+    networkMode: "offlineFirst",
   });
   if (isLoading) return <>Loading!!</>;
   return (

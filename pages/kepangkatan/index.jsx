@@ -18,6 +18,7 @@ const Kepangkatan = () => {
   } = useQuery({
     queryKey: ["Kepangkatan"],
     queryFn: () => fetchListKepangkatan(),
+    networkMode: "offlineFirst",
   });
   return (
     <MainLayout>

@@ -10,6 +10,7 @@ const Penelitian = () => {
   } = useQuery({
     queryKey: ["paten"],
     queryFn: () => null,
+    networkMode: "offlineFirst",
   });
   return (
     <MainLayout>

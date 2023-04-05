@@ -15,6 +15,7 @@ const FormEditLain = () => {
   const { data: lain, isLoading } = useQuery({
     queryKey: ["lain"],
     queryFn: async () => await fetchLainLain(),
+    networkMode: "offlineFirst",
   });
   if (isLoading) return <>Loading!!</>;
   return (

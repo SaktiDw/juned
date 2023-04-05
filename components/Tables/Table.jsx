@@ -56,7 +56,7 @@ const Table = ({
           </Link>
         )}
         {searchAble && (
-          <div className="relative group">
+          <div className="relative group border border-primary rounded-lg">
             <input
               onChange={(e) => setQuery(e.target.value)}
               type="text"
@@ -127,7 +127,7 @@ const Table = ({
           <button
             disabled={currentPage == 1}
             onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
-            className={`disabled:cursor-not-allowed p-2 w-8 h-8 text-xs rounded-lg shadow-lg bg-white dark:bg-slate-700 `}
+            className={`disabled:cursor-not-allowed p-2 w-8 h-8 text-xs rounded-lg border border-slate-400 bg-white dark:bg-slate-700 `}
           >
             <i className="fi-rr-angle-left"></i>
           </button>
@@ -135,10 +135,10 @@ const Table = ({
             <button
               key={item}
               onClick={() => setCurrentPage(item)}
-              className={`p-2 w-8 h-8 text-xs rounded-lg shadow-lg hover:bg-primary dark:hover:bg-primary hover:text-white hover:shadow-primary  ${
+              className={`p-2 w-8 h-8 text-xs rounded-lg border hover:bg-primary dark:hover:bg-primary hover:text-white hover:shadow-primary  ${
                 item === currentPage
-                  ? "bg-primary text-white dark:shadow-primary"
-                  : "bg-white dark:bg-slate-700"
+                  ? "bg-primary text-white dark:shadow-primary border-primary"
+                  : "bg-white dark:bg-slate-700 border-slate-400"
               }`}
             >
               {item}
@@ -150,7 +150,7 @@ const Table = ({
               currentPage < pageNumbers.length &&
               setCurrentPage(currentPage + 1)
             }
-            className={`disabled:cursor-not-allowed p-2 w-8 h-8 text-xs rounded-lg shadow-lg bg-white dark:bg-slate-700 `}
+            className={`disabled:cursor-not-allowed p-2 w-8 h-8 text-xs rounded-lg border border-slate-400 bg-white dark:bg-slate-700 `}
           >
             <i className="fi-rr-angle-right"></i>
           </button>

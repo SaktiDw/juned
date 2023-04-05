@@ -18,6 +18,7 @@ const FormEditBiodata = () => {
   const { data: profil, isLoading } = useQuery({
     queryKey: ["profil"],
     queryFn: async () => await fetchProfil(),
+    networkMode: "offlineFirst",
   });
   if (isLoading) return <>Loading!!</>;
   return (

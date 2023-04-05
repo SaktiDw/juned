@@ -1,6 +1,13 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Button, Input, MultipleUploadFile, Select } from "..";
+import {
+  Button,
+  Input,
+  MultipleUploadFile,
+  NestedList,
+  Select,
+  StackedTab,
+} from "..";
 import * as yup from "yup";
 import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
@@ -43,10 +50,29 @@ const FormCreateBahanAjar = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            <ul>
+            <NestedList
+              items={[
+                {
+                  id: 1,
+                  title: "list1",
+                  children: [
+                    {
+                      id: 1,
+                      title: "child1",
+                      children: [{ id: 1, title: "grandchild1" }],
+                    },
+                    { id: 2, title: "child2" },
+                  ],
+                },
+                { id: 2, title: "list2" },
+                { id: 3, title: "list3" },
+                { id: 4, title: "list4" },
+              ]}
+            />
+            {/* <ul>
               <li>
                 Pelaksanaan Pendidikan
-                <ul>
+                <ul className="hidden">
                   <li>Mengembangkan Bahan Kuliah</li>
                   <div className="flex gap-2 items-baseline">
                     <input
@@ -88,8 +114,8 @@ const FormCreateBahanAjar = () => {
                 </ul>
               </li>
               <li>Penunjang Kegiatan Akademik Dosen</li>
-            </ul>
-            <div className="flex gap-2 items-baseline">
+            </ul> */}
+            {/* <div className="flex gap-2 items-baseline">
               <input
                 type="radio"
                 name="menulis_buku_pelajaran"
@@ -115,7 +141,7 @@ const FormCreateBahanAjar = () => {
                 className="m-2"
               />
               <label htmlFor="">Buku SD atau setingkat</label>
-            </div>
+            </div> */}
             <Select
               label="jenis bahan ajar"
               name="jenis_bahan_ajar"

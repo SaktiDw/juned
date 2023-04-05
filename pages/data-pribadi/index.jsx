@@ -20,30 +20,37 @@ const DataPribadi = () => {
   const { data: alamat } = useQuery({
     queryKey: ["alamat"],
     queryFn: async () => await fetchAlamat(id),
+    networkMode: "offlineFirst",
   });
   const { data: profil } = useQuery({
     queryKey: ["profil"],
     queryFn: async () => await fetchProfil(id),
+    networkMode: "offlineFirst",
   });
   const { data: kependudukan } = useQuery({
     queryKey: ["kependudukan"],
     queryFn: async () => await fetchKependudukan(id),
+    networkMode: "offlineFirst",
   });
   const { data: lain } = useQuery({
     queryKey: ["lain"],
     queryFn: async () => await fetchLainLain(id),
+    networkMode: "offlineFirst",
   });
   const { data: keluarga } = useQuery({
     queryKey: ["keluarga"],
     queryFn: async () => await fetchKeluarga(id),
+    networkMode: "offlineFirst",
   });
   const { data: kepegawaian } = useQuery({
     queryKey: ["kepegawaian"],
     queryFn: async () => await fetchKepegawaian(id),
+    networkMode: "offlineFirst",
   });
   const { data: bidangIlmu } = useQuery({
     queryKey: ["bidangIlmu"],
     queryFn: async () => await fetchBidangIlmu(id),
+    networkMode: "offlineFirst",
   });
 
   return (
@@ -73,7 +80,7 @@ const DataPribadi = () => {
                 fill
                 alt={"profile"}
                 src={"/images.jpg"}
-                className={`rounded-xl shadow-lg  hover:scale-110 duration-200 ease-in-out object-cover`}
+                className={`rounded-lg shadow-lg  object-cover`}
               />
             </div>
           </CardDataPribadi>

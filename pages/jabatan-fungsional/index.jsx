@@ -18,6 +18,7 @@ const JabatanFungsional = () => {
   } = useQuery({
     queryKey: ["jabatan_fungsional"],
     queryFn: () => fetchListJabatanFungsional(),
+    networkMode: "offlineFirst",
   });
   return (
     <MainLayout>

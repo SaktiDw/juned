@@ -19,6 +19,7 @@ const FormEditKepegawaian = () => {
   const { data: kepegawaian, isLoading } = useQuery({
     queryKey: ["kepegawaian"],
     queryFn: async () => await fetchKepegawaian(),
+    networkMode: "offlineFirst",
   });
   if (isLoading) return <>Loading!!</>;
   return (

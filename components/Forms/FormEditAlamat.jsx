@@ -23,6 +23,7 @@ const FormEditAlamat = () => {
   const { data: alamat, isLoading } = useQuery({
     queryKey: ["alamat"],
     queryFn: async () => await fetchAlamat(),
+    networkMode: "offlineFirst",
   });
   if (isLoading) return <>Loading!!</>;
   return (

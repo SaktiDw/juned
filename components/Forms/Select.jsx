@@ -21,17 +21,22 @@ const Select = ({ name, label, option, errors, touched, values }) => {
           as="select"
           name={name}
         >
-          {option.map((item) => {
-            return (
-              <option
-                key={item.value}
-                selected={item.value === values}
-                value={item.value}
-              >
-                {item.label}
-              </option>
-            );
-          })}
+          <option value="" selected className="w-fit">
+            Pilih...
+          </option>
+          {option &&
+            option.map((item) => {
+              return (
+                <option
+                  className="w-fit"
+                  key={item.value}
+                  selected={item.value === values}
+                  value={item.value}
+                >
+                  {item.label}
+                </option>
+              );
+            })}
         </Field>
         <i
           className={`fi-rr-angle-small-down absolute right-0 pr-4 pt-1 text-lg z-0`}
