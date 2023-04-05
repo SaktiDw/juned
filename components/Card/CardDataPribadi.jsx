@@ -13,7 +13,7 @@ const CardDataPribadi = ({ title, children, data, editLink }) => {
         <Link
           // onClick={() => router.push("/data-pribadi/edit-biodata")}
           href={`/data-pribadi/${editLink}`}
-          className="group hover:scale-125 flex items-center absolute -right-2 -top-2 z-10 p-2 rounded-full shadow-lg bg-primary dark:bg-slate-800 w-8 h-8 text-white "
+          className="group hover:scale-125 flex items-center absolute -right-2 -top-2 z-10 p-2 rounded-full shadow-lg bg-primary w-8 h-8 text-white "
         >
           <i className="fi-rr-pencil pt-1"></i>
           <div className="invisible group-hover:visible group-hover:absolute group-hover:scale-110 right-full flex gap-2 mr-2 items-center shadow-lg">
