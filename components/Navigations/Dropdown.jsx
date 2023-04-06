@@ -22,7 +22,7 @@ const Dropdown = ({ index, isOpen, active, onClick, subItem, title, icon }) => {
         <div className="w-8 h-8 rounded-md flex items-center justify-center group-hover:shadow-xl">
           <i className={icon}></i>
         </div>
-        {title}
+        <span className="text-left">{title}</span>
         {subItem && (
           <i
             className={`${
