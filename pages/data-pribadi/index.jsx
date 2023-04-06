@@ -62,7 +62,10 @@ const DataPribadi = () => {
             title={"profile"}
             editLink={"/edit-biodata"}
             data={[
-              { title: "Nama", text: profil?.data[0].pegawai.nama_sdm },
+              {
+                title: "Nama",
+                text: profil?.data[0].pegawai.nama_sdm.toLowerCase(),
+              },
               { title: "Jenis Kelamin", text: profil?.data[0].jenis_kelamin },
               { title: "NIDN", text: profil?.data[0].pegawai.nidn },
               {
