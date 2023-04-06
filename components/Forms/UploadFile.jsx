@@ -52,7 +52,7 @@ const UploadFile = () => {
                 setFile(event.dataTransfer.files[0]);
               }}
               onDragOver={(event) => event.preventDefault()}
-              className={`cursor-pointer shadow-lg border-4 border-dashed border-primary rounded-lg bg-white dark:bg-slate-800 w-full h-[200px] flex items-center justify-center`}
+              className={`cursor-pointer shadow-lg border-2 border-dashed border-primary rounded-xl bg-white dark:bg-slate-800 w-full h-[200px] flex items-center justify-center text-center p-2`}
             >
               {file ? (
                 <p>{file.name}</p>

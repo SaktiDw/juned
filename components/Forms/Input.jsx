@@ -14,10 +14,10 @@ const Input = ({ name, label, type, errors, touched, values }) => {
         type={type ? type : "text"}
         name={name}
         values={values}
-        className={`py-2 px-4 rounded-lg shadow-lg outline dark:bg-slate-800 ${
+        className={`py-2 px-4 rounded-lg shadow-lg outline-none border-2 appearance-none dark:bg-slate-800 ${
           errors
-            ? `outline-red-500 caret-red-500 `
-            : ` outline-primary caret-primary `
+            ? `focus:border-red-500 border-red-500 caret-red-500 `
+            : `focus:border-primary border-primary caret-primary `
         }`}
       />
       {errors ? (

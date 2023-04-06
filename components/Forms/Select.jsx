@@ -13,10 +13,10 @@ const Select = ({ name, label, option, errors, touched, values }) => {
       </label>
       <div className="relative flex items-center">
         <Field
-          className={`cursor-pointer w-full appearance-none py-2 px-4 rounded-lg shadow-lg outline bg-white dark:bg-slate-800 ${
+          className={`cursor-pointer w-full appearance-none outline-none border-2 py-2 px-4 rounded-lg shadow-lg bg-white dark:bg-slate-800 ${
             errors
-              ? `outline-red-500 caret-red-500 `
-              : ` outline-primary caret-primary `
+              ? `focus:border-red-500 border-red-500 caret-red-500`
+              : ` focus:border-primary border-primary caret-primary`
           }`}
           as="select"
           name={name}
