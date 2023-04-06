@@ -44,9 +44,15 @@ const Sidebar = () => {
 
         <Dropdown
           index={1}
-          isActive={activeDropdown === 1}
+          isOpen={activeDropdown === 1}
           onClick={handleDropdownClick}
-          active={router.pathname.includes("profile")}
+          active={[
+            "/data-pribadi",
+            "/inpassing",
+            "/jabatan-fungsional",
+            "/kepangkatan",
+            "/penemapatan",
+          ].includes(router.pathname)}
           title="Profile"
           href="/"
           icon={"fi-rr-user"}
@@ -80,9 +86,20 @@ const Sidebar = () => {
         />
         <Dropdown
           index={2}
-          isActive={activeDropdown === 2}
+          isOpen={activeDropdown === 2}
           onClick={handleDropdownClick}
-          active={false}
+          active={[
+            "/pengajaran",
+            "/bimbingan-mahasiswa",
+            "/pengujian-mahasiswa",
+            "/visiting-scientist",
+            "/pembinaan-mahasiswa",
+            "/bahan-ajar",
+            "/datasering",
+            "/orasi-ilmiah",
+            "/pembimbing-dosen",
+            "/tugas-tambahan",
+          ].includes(router.pathname)}
           title="Pelaks. Pendidikan"
           href="/"
           icon={"fi-rr-books"}
@@ -141,9 +158,11 @@ const Sidebar = () => {
         />
         <Dropdown
           index={3}
-          isActive={activeDropdown === 3}
+          isOpen={activeDropdown === 3}
           onClick={handleDropdownClick}
-          active={false}
+          active={["/penelitian", "/publikasi", "/paten"].includes(
+            router.pathname
+          )}
           title="Pelaks. Penelitian"
           href="/"
           icon={"fi-rr-test-tube"}
@@ -155,9 +174,14 @@ const Sidebar = () => {
         />
         <Dropdown
           index={4}
-          isActive={activeDropdown === 4}
+          isOpen={activeDropdown === 4}
           onClick={handleDropdownClick}
-          active={false}
+          active={[
+            "/pengabdian",
+            "/pengelola-jurnal",
+            "/pembicara",
+            "/jabatan-struktural",
+          ].includes(router.pathname)}
           title="Pelaks. Pengabdian"
           href="/"
           icon={"fi-rr-link-alt"}

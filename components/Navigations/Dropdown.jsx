@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Dropdown = ({ index, isActive, onClick, subItem, title, icon }) => {
+const Dropdown = ({ index, isOpen, active, onClick, subItem, title, icon }) => {
   const router = useRouter();
   const handleDropdownClick = () => {
     onClick(index);
@@ -13,7 +13,7 @@ const Dropdown = ({ index, isActive, onClick, subItem, title, icon }) => {
     >
       <button
         className={`relative flex items-center gap-2 p-2 w-full shadow-2xl rounded-lg z-10 group-hover:bg-primary group-hover:shadow-2xl group-hover:shadow-primary group-hover:text-white group-hover:scale-105 duration-200 ease-in-out ${
-          isActive
+          isOpen || active
             ? `bg-primary shadow-primary text-white`
             : `bg-white dark:bg-slate-800`
         } `}
@@ -26,7 +26,7 @@ const Dropdown = ({ index, isActive, onClick, subItem, title, icon }) => {
         {subItem && (
           <i
             className={`${
-              isActive ? `fi-rr-angle-small-up` : `fi-rr-angle-small-down`
+              isOpen ? `fi-rr-angle-small-up` : `fi-rr-angle-small-down`
             } ml-auto`}
           ></i>
         )}
@@ -34,7 +34,7 @@ const Dropdown = ({ index, isActive, onClick, subItem, title, icon }) => {
 
       <ul
         className={`px-2 text-left flex flex-col overflow-hidden w-full transition-all ease-in-out duration-400 ${
-          isActive ? `h-full` : `h-0`
+          isOpen ? `h-full` : `h-0`
         }`}
       >
         {subItem &&
