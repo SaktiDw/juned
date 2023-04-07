@@ -1,4 +1,6 @@
+import { Modal, MultipleUploadFile } from "@/components";
 import useToggle from "@/helper/hooks/useToggle";
+import { Formik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState, useRef, useEffect } from "react";
@@ -7,6 +9,7 @@ const Sidebar = () => {
   const router = useRouter();
   const path = router.asPath.split("/").filter((x) => x);
   const [search, setSearch] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const data = [
     { name: "John", age: 25, city: "New York" },
     { name: "Jane", age: 30, city: "Los Angeles" },
@@ -89,6 +92,34 @@ const Sidebar = () => {
       {JSON.stringify(paginateData(data, currentPage, pageSize))}
 
       {router.pathname.includes("test") ? "red" : "blue"}
+      {/* <Modal
+        title={
+          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptatibus atque iste, veniam numquam exercitationem facilis neque accusantium velit ad. Pariatur quas amet rem possimus et repellendus laboriosam vel facilis!"
+        }
+      >
+        <Formik>
+          <MultipleUploadFile />
+        </Formik>
+      </Modal> */}
+      <div className="bg-gray-100">
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onClick={() => setShowModal(true)}
+        >
+          Open Modal
+        </button>
+        <Modal
+          isOpen={showModal}
+          setIsOpen={setShowModal}
+          title={
+            "Caelestinum Finale Termini — Stormterror Dvalin's Theme | Genshin Impact OST: Mondstadt Chapter"
+          }
+        >
+          <Formik>
+            <MultipleUploadFile />
+          </Formik>
+        </Modal>
+      </div>
     </>
   );
 };
