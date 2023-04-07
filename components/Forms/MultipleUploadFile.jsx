@@ -3,6 +3,7 @@ import { Button, Input, Select, Textarea, UploadFile } from "..";
 
 const MultipleUploadFile = ({ errors }) => {
   const [files, setFiles] = useState([1]);
+  const [isActive, setIsActive] = useState(0);
   return (
     <>
       <label className="uppercase leading-tight font-bold text-sm">
@@ -20,40 +21,53 @@ const MultipleUploadFile = ({ errors }) => {
         <div className="grid w-full gap-4">
           {files.map((item, index) => (
             <div key={index} className="relative flex flex-col gap-4 w-full">
-              <h1>Dokumen {index + 1}</h1>
+              <h1
+                className="bg-primary text-white rounded-lg p-2 cursor-pointer"
+                onClick={() =>
+                  isActive === index ? setIsActive(-1) : setIsActive(index)
+                }
+              >
+                Dokumen {index + 1}
+              </h1>
               <button
                 onClick={() => setFiles(files.filter((v, i) => i != index))}
-                className="absolute right-0 top-0"
+                className="absolute right-2 top-2 z-10 text-white hover:text-red-500"
               >
                 <i className="fi-rr-cross"></i>
               </button>
-              <div className="grid grid-cols-2 justify-between gap-4">
+              <div
+                className={`${
+                  isActive === index ? "grid" : "hidden"
+                } grid-cols-1 justify-between gap-4`}
+              >
+                <div className={`grid grid-cols-2 justify-between gap-4`}>
+                  <Input
+                    name={"nama_dokumen"}
+                    label={"Nama Dokumen"}
+                    errors={""}
+                    touched={""}
+                  />
+                  <Select
+                    name={"jenis_dokumen"}
+                    label={"Jenis Dokumen"}
+                    errors={""}
+                    touched={""}
+                    option={[
+                      { label: "KTP", value: "ktp" },
+                      { label: "Kartu Keluarga", value: "kk" },
+                      { label: "Lainnya", value: "lainnya" },
+                    ]}
+                  />
+                </div>
+                <UploadFile />
+                <Textarea label={"Keterangan"} />
                 <Input
-                  name={"nama_dokumen"}
-                  label={"Nama Dokumen"}
+                  name={"tautan_dokumen"}
+                  label={"Tautan Dokumen"}
                   errors={""}
                   touched={""}
-                />
-                <Select
-                  name={"jenis_dokumen"}
-                  label={"Jenis Dokumen"}
-                  errors={""}
-                  touched={""}
-                  option={[
-                    { label: "KTP", value: "ktp" },
-                    { label: "Kartu Keluarga", value: "kk" },
-                    { label: "Lainnya", value: "lainnya" },
-                  ]}
                 />
               </div>
-              <UploadFile />
-              <Textarea label={"Keterangan"} />
-              <Input
-                name={"tautan_dokumen"}
-                label={"Tautan Dokumen"}
-                errors={""}
-                touched={""}
-              />
             </div>
           ))}
           <Button
