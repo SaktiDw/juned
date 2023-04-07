@@ -39,6 +39,8 @@ export { default as SidebarItem } from "./Navigations/SidebarItem";
 export { default as Dropdown } from "./Navigations/Dropdown";
 export { default as Breadcrumbs } from "./Navigations/Breadcrumbs";
 
+export { default as Modal } from "./Modals/Modal";
+
 export { default as ListItem } from "./Lists/ListItem";
 export { default as NestedList } from "./Lists/NestedList";
 
