@@ -18,6 +18,7 @@ export { default as FormCreateJabatanFungsional } from "./Forms/FormCreateJabata
 export { default as FormCreateKepangkatan } from "./Forms/FormCreateKepangkatan";
 export { default as FormCreateVisitingScientist } from "./Forms/FormCreateVisitingScientist";
 export { default as FormCreateBahanAjar } from "./Forms/FormCreateBahanAjar";
+export { default as FormCreateTugasTambahan } from "./Forms/FormCreateTugasTambahan";
 
 export { default as Input } from "./Forms/Input";
 export { default as Select } from "./Forms/Select";

@@ -16,10 +16,8 @@ const TugasTambahan = () => {
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Tugas Tambahan
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
-        </div>
         <Table
+          createLink={"/tugas-tambahan/create"}
           columns={[
             { key: "id", title: "No." },
             { key: "tugas_tambahan", title: "Tugas Tambahan" },
