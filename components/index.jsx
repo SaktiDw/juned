@@ -22,6 +22,7 @@ export { default as FormCreateTugasTambahan } from "./Forms/FormCreateTugasTamba
 export { default as FormCreateBimbingDosen } from "./Forms/FormCreateBimbingDosen";
 export { default as FormCreatePenghargaan } from "./Forms/FormCreatePenghargaan";
 export { default as FormCreateAnggotaProfesi } from "./Forms/FormCreateAnggotaProfesi";
+export { default as FormCreatePenunjangLain } from "./Forms/FormCreatePenunjangLain";
 
 export { default as Input } from "./Forms/Input";
 export { default as Select } from "./Forms/Select";
