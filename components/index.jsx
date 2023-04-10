@@ -52,5 +52,6 @@ export { default as NestedList } from "./Lists/NestedList";
 export { default as KategoriCapaianLuaranSelection } from "./Selections/KategoriCapaianLuaranSelection";
 export { default as PerguruanTinggiSelection } from "./Selections/PerguruanTinggiSelection";
 export { default as KategoriKegiatanSelection } from "./Selections/KategoriKegiatanSelection";
+export { default as GolonganPangkatSelection } from "./Selections/GolonganPangkatSelection";
 
 export { default as CardDataPribadi } from "./Card/CardDataPribadi";

@@ -30,3 +30,4 @@ export const fetchListPenempatan = async () => await api.get(`/penempatan/list-p
 export const fetchListKateogriCapaianLuaran = async () => await api.get(`/referensi/kategori-capaian-luaran`).then(res=>res.data).catch(err=>err)
 export const fetchPerguruanTinggi = async () => await api.get(`/referensi/perguruan-tinggi`).then(res=>res.data).catch(err=>err)
 export const fetchKategoriKegiatan = async () => await api.get(`/referensi/kategori-kegiatan`).then(res=>res.data).catch(err=>err)
+export const fetchGolonganPangkat = async () => await api.get(`/referensi/golongan-pangkat`).then(res=>res.data).catch(err=>err)

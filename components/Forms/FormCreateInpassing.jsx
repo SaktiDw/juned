@@ -1,12 +1,18 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Button, Input, MultipleUploadFile, Select } from "..";
+import {
+  Button,
+  GolonganPangkatSelection,
+  Input,
+  MultipleUploadFile,
+  Select,
+} from "..";
 import * as yup from "yup";
-import { createUser, fetchListInpassing } from "@/helper/api/api";
+import { createUser } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 
 const schema = yup.object().shape({
-  pangkat_golongan: yup.string().required("pangkat_golongan wajib di isi."),
+  golongan_pangkat: yup.string().required("pangkat golongan wajib di isi."),
   sk: yup.string().required("sk wajib di isi."),
   tanggal_sk: yup.string().required("tanggal sk wajib di isi."),
   terhitung_mulai_tanggal: yup
@@ -23,7 +29,7 @@ const FormCreateInpassing = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          pangkat_golongan: "",
+          golongan_pangkat: "",
           sk: "",
           tanggal_sk: "",
           terhitung_mulai_tanggal: "",
@@ -43,12 +49,9 @@ const FormCreateInpassing = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            <Input
-              label="pangkat golongan"
-              name="pangkat_golongan"
-              type="text"
-              errors={errors.pangkat_golongan}
-              touched={touched.pangkat_golongan}
+            <GolonganPangkatSelection
+              errors={errors.golongan_pangkat}
+              touched={touched.golongan_pangkat}
             />
             <Input
               label="nomor sk"
