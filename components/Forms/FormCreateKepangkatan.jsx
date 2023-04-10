@@ -1,12 +1,18 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Button, Input, MultipleUploadFile, Select } from "..";
+import {
+  Button,
+  GolonganPangkatSelection,
+  Input,
+  MultipleUploadFile,
+  Select,
+} from "..";
 import * as yup from "yup";
 import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 
 const schema = yup.object().shape({
-  golongan_pangkat: yup.string().required("jabatan fungsional wajib di isi."),
+  golongan_pangkat: yup.string().required("golongan pangkat wajib di isi."),
   sk: yup.string().required("sk wajib di isi."),
   tanggal_sk: yup.string().required("kelebihan pengajaran sk wajib di isi."),
   terhitung_mulai_tanggal: yup
@@ -43,10 +49,9 @@ const FormCreateKepangkatan = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            <Input
+            <GolonganPangkatSelection
               label="jabatan fungsional"
               name="golongan_pangkat"
-              type="text"
               errors={errors.golongan_pangkat}
               touched={touched.golongan_pangkat}
             />
