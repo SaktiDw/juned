@@ -60,7 +60,13 @@ const Pengajaran = () => {
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} />,
+              render: (val) => (
+                <Action
+                  param={val}
+                  action={["detail", "edit"]}
+                  baseUrl={"/pengajaran"}
+                />
+              ),
             },
           ]}
         />

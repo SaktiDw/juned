@@ -5,7 +5,7 @@ export default function handler(req, res) {
       "message": "Alamat berhasil diambil",
       "data": [
         {
-          "id": 2,
+          "id": 1,
           "id_sdm": "a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
           "email": "tegar@lecturer.itk.ac.id",
           "alamat": "Komp Pondok Joang Indah Blok A5/14 ",
