@@ -1,6 +1,12 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import { Button, Input, MultipleUploadFile, Select } from "..";
+import {
+  Button,
+  Input,
+  JabatanFungsionalSelection,
+  MultipleUploadFile,
+  Select,
+} from "..";
 import * as yup from "yup";
 import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
@@ -51,10 +57,7 @@ const FormCreateJabatanFungsional = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            <Input
-              label="jabatan fungsional"
-              name="jabatan_fungsional"
-              type="text"
+            <JabatanFungsionalSelection
               errors={errors.jabatan_fungsional}
               touched={touched.jabatan_fungsional}
             />
@@ -75,7 +78,7 @@ const FormCreateJabatanFungsional = () => {
             <Input
               label="kelebihan pengajaran"
               name="kelebihan_pengajaran"
-              type="date"
+              type="number"
               errors={errors.kelebihan_pengajaran}
               touched={touched.kelebihan_pengajaran}
             />

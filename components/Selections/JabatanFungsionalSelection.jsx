@@ -1,14 +1,18 @@
-import { fetchGolonganPangkat, fetchPerguruanTinggi } from "@/helper/api/api";
+import { fetchJabatanFungsional } from "@/helper/api/api";
 import { api } from "@/helper/api/axios";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Select } from "..";
 
-const GolonganPangkatSelection = ({ golonganPangkat, errors, touched }) => {
+const JabatanFungsionalSelection = ({
+  jabatan_fungsional,
+  errors,
+  touched,
+}) => {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["golongan-pangkat"],
-    queryFn: async () => await fetchGolonganPangkat(),
-    initialData: golonganPangkat,
+    queryKey: ["jabatan-fungsional"],
+    queryFn: async () => await fetchJabatanFungsional(),
+    initialData: jabatan_fungsional,
     networkMode: "offlineFirst",
   });
   const option =
@@ -18,8 +22,8 @@ const GolonganPangkatSelection = ({ golonganPangkat, errors, touched }) => {
     });
   return (
     <Select
-      label="Golongan/Pangkat"
-      name="golongan_pangkat"
+      label="Jabatan Fungsional"
+      name="jabatan_fungsional"
       option={option}
       errors={errors}
       touched={touched}
@@ -27,9 +31,9 @@ const GolonganPangkatSelection = ({ golonganPangkat, errors, touched }) => {
   );
 };
 
-export default GolonganPangkatSelection;
+export default JabatanFungsionalSelection;
 
 export async function getStaticProps() {
-  const golonganPangkat = await fetchGolonganPangkat();
-  return { props: { golonganPangkat } };
+  const jabatan_fungsional = await fetchJabatanFungsional();
+  return { props: { jabatan_fungsional } };
 }
