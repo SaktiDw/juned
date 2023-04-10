@@ -119,10 +119,10 @@ const Table = ({
       </table>
 
       <div className="flex justify-between items-center p-4">
-        <span className="text-xs">
+        {/* <span className="text-xs">
           Showing {currentPage} to {pageSize * currentPage} of total{" "}
           {filtered?.length} entries
-        </span>
+        </span> */}
         <div className="flex gap-2">
           <button
             disabled={currentPage == 1}
