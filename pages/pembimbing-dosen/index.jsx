@@ -17,13 +17,8 @@ const BimbinganDosen = () => {
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Data Bimbingan Dosen
         </h1>
-        <div className="flex justify-between">
-          <Button
-            icon={<i className="fi-rr-cloud-download-alt pt-1"></i>}
-            text="Import Bimbingan Dosen"
-          />
-        </div>
         <Table
+          createLink={"/pembimbing-dosen/create"}
           columns={[
             { key: "id", title: "No." },
             { key: "nama_pembimbing", title: "Nama pembimbing" },
