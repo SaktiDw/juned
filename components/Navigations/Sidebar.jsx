@@ -200,6 +200,28 @@ const Sidebar = () => {
             },
           ]}
         />
+        <Dropdown
+          index={5}
+          isOpen={activeDropdown === 5}
+          onClick={handleDropdownClick}
+          active={[
+            "/anggota-profesi",
+            "/penghargaan",
+            "/penunjang-lain",
+          ].includes(router.pathname)}
+          title="Penunjang"
+          href="/"
+          icon={"fi-rr-diploma"}
+          subItem={[
+            {
+              link: "/anggota-profesi",
+              title: "Anggota Profesi",
+              active: false,
+            },
+            { link: "/penghargaan", title: "Penghargaan", active: false },
+            { link: "/penunjang-lain", title: "Penunjang Lain", active: false },
+          ]}
+        />
         <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-primary bg-primary dark:bg-opacity-80 backdrop-blur-lg text-white font-semibold">
           <button onClick={() => null}>
             <i className="fi-rr-user"></i> Tegar Pal
