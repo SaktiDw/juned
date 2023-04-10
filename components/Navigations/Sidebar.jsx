@@ -39,8 +39,12 @@ const Sidebar = () => {
         ref={ref}
       >
         <Image alt="" src={"/logo itk png.png"} width={300} height={200} />
-        <h1 className="font-quicksand">Sistem Informasi</h1>
-        <h1 className="font-poppins">Sister</h1>
+        <div className="flex flex-col itemc-center justify-center text-center">
+          <h1 className="font-poppins">Sistem Informasi</h1>
+          <h1 className="font-quicksand font-semibold text-primary text-xl ">
+            Sister
+          </h1>
+        </div>
 
         <Dropdown
           index={1}

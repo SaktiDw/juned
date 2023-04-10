@@ -7,8 +7,7 @@ const Button = ({ type, disabled, text, onClick, icon, size }) => {
       disabled={disabled}
       onClick={onClick}
       className={`disabled:cursor-not-allowed rounded-lg py-2 px-4 bg-primary text-white font-semibold shadow-lg 
-      ${!size && "ring ring-primary"}
-      ${size == "small" && ""}
+      ${!size ? "ring ring-primary" : size == "small" ? "" : ""}
         `}
     >
       {icon} {text}
