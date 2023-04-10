@@ -20,6 +20,7 @@ export { default as FormCreateVisitingScientist } from "./Forms/FormCreateVisiti
 export { default as FormCreateBahanAjar } from "./Forms/FormCreateBahanAjar";
 export { default as FormCreateTugasTambahan } from "./Forms/FormCreateTugasTambahan";
 export { default as FormCreateBimbingDosen } from "./Forms/FormCreateBimbingDosen";
+export { default as FormCreatePenghargaan } from "./Forms/FormCreatePenghargaan";
 
 export { default as Input } from "./Forms/Input";
 export { default as Select } from "./Forms/Select";
