@@ -22,10 +22,11 @@ export const fetchKeluarga = async (id) => await api.get(`/data-pribadi/keluarga
 export const fetchKepegawaian = async (id) => await api.get(`/data-pribadi/kepegawaian/${id}`).then(res=>res.data) 
 export const fetchBidangIlmu = async (id) => await api.get(`/data-pribadi/bidang-ilmu/${id}`).then(res=>res.data) 
 
-export const fetchListInpassing = async () => await api.get(`/inpassing/list-inpassing`).then(res=>res.data) 
-export const fetchListJabatanFungsional = async () => await api.get(`/jabatan-fungsional/list-jabatan-fungsional`).then(res=>res.data) 
-export const fetchListKepangkatan = async () => await api.get(`/kepangkatan/list-kepangkatan`).then(res=>res.data) 
-export const fetchListPenempatan = async () => await api.get(`/penempatan/list-penempatan`).then(res=>res.data) 
+export const fetchListInpassing = async (id) => await api.get(`/inpassing/list-inpassing/${id}`).then(res=>res.data) 
+export const fetchDetailInpassing = async (id) => await api.get(`/inpassing/detail-inpassing/${id}`).then(res=>res.data) 
+export const fetchListJabatanFungsional = async (id) => await api.get(`/jabatan-fungsional/list-jabatan-fungsional/${id}`).then(res=>res.data) 
+export const fetchListKepangkatan = async (id) => await api.get(`/kepangkatan/list-kepangkatan/${id}`).then(res=>res.data) 
+export const fetchListPenempatan = async (id) => await api.get(`/penempatan/list-penempatan/${id}`).then(res=>res.data) 
 
 export const fetchListKateogriCapaianLuaran = async () => await api.get(`/referensi/kategori-capaian-luaran`).then(res=>res.data).catch(err=>err)
 export const fetchPerguruanTinggi = async () => await api.get(`/referensi/perguruan-tinggi`).then(res=>res.data).catch(err=>err)
