@@ -9,13 +9,14 @@ import {
   Table,
 } from "@/components";
 import { fetchListInpassing } from "@/helper/api/api";
+import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 
 const Inpassing = () => {
   const [search, setSearch] = useState("");
   const [pageSize, setPageSize] = useState(5);
-  const id = "a0a07ef9-1a61-46d2-b00b-ea4d580e714a";
+
   const {
     data: inpassing,
     error,

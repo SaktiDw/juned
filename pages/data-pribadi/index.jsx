@@ -8,6 +8,7 @@ import {
   fetchLainLain,
   fetchProfil,
 } from "@/helper/api/api";
+import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -15,7 +16,7 @@ import React from "react";
 
 const DataPribadi = () => {
   const router = useRouter();
-  const id = "a0a07ef9-1a61-46d2-b00b-ea4d580e714a";
+
   const { data: alamat } = useQuery({
     queryKey: ["alamat"],
     queryFn: async () => await fetchAlamat(id),
