@@ -12,30 +12,28 @@ import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 
 const schema = yup.object().shape({
-  golongan_pangkat: yup.string().required("golongan pangkat wajib di isi."),
+  pangkat_golongan: yup.string().required("golongan pangkat wajib di isi."),
   sk: yup.string().required("sk wajib di isi."),
   tanggal_sk: yup.string().required("kelebihan pengajaran sk wajib di isi."),
-  terhitung_mulai_tanggal: yup
-    .string()
-    .required("terhitung mulai tanggal wajib di isi."),
+  tanggal_mulai: yup.string().required("terhitung mulai tanggal wajib di isi."),
   masa_kerja_tahun: yup.string().required("kelebihan penelitian wajib di isi."),
   masa_kerja_bulan: yup
     .string()
     .required("kelebihan pengabdian masyarakat wajib di isi."),
 });
 
-const FormCreateKepangkatan = () => {
+const FormCreateKepangkatan = ({ initialValues }) => {
   return (
     <>
       <Formik
         enableReinitialize
         initialValues={{
-          golongan_pangkat: "",
-          sk: "",
-          tanggal_sk: "",
-          terhitung_mulai_tanggal: "",
-          masa_kerja_tahun: "",
-          masa_kerja_bulan: "",
+          pangkat_golongan: initialValues?.id_pangkat_golongan || "",
+          sk: initialValues?.sk || "",
+          tanggal_sk: initialValues?.tanggal_sk || "",
+          tanggal_mulai: initialValues?.tanggal_mulai || "",
+          masa_kerja_tahun: initialValues?.masa_kerja_tahun || "",
+          masa_kerja_bulan: initialValues?.masa_kerja_bulan || "",
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) =>
@@ -51,9 +49,10 @@ const FormCreateKepangkatan = () => {
           <Form className="flex flex-col gap-4">
             <GolonganPangkatSelection
               label="jabatan fungsional"
-              name="golongan_pangkat"
-              errors={errors.golongan_pangkat}
-              touched={touched.golongan_pangkat}
+              name="pangkat_golongan"
+              value={initialValues.id_pangkat_golongan}
+              errors={errors.pangkat_golongan}
+              touched={touched.pangkat_golongan}
             />
             <Input
               label="nomor sk"
@@ -64,10 +63,10 @@ const FormCreateKepangkatan = () => {
             />
             <Input
               label="terhitung mulai tanggal"
-              name="terhitung_mulai_tanggal"
+              name="tanggal_mulai"
               type="date"
-              errors={errors.terhitung_mulai_tanggal}
-              touched={touched.terhitung_mulai_tanggal}
+              errors={errors.tanggal_mulai}
+              touched={touched.tanggal_mulai}
             />
             <Input
               label="tanggal sk"

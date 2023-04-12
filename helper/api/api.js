@@ -26,6 +26,7 @@ export const fetchListInpassing = async (id) => await api.get(`/inpassing/list-i
 export const fetchDetailInpassing = async (id) => await api.get(`/inpassing/detail-inpassing/${id}`).then(res=>res.data) 
 export const fetchListJabatanFungsional = async (id) => await api.get(`/jabatan-fungsional/list-jabatan-fungsional/${id}`).then(res=>res.data) 
 export const fetchListKepangkatan = async (id) => await api.get(`/kepangkatan/list-kepangkatan/${id}`).then(res=>res.data) 
+export const fetchDetailKepangkatan = async (id) => await api.get(`/kepangkatan/detail-kepangkatan/${id}`).then(res=>res.data) 
 export const fetchListPenempatan = async (id) => await api.get(`/penempatan/list-penempatan/${id}`).then(res=>res.data) 
 
 export const fetchListKateogriCapaianLuaran = async () => await api.get(`/referensi/kategori-capaian-luaran`).then(res=>res.data).catch(err=>err)

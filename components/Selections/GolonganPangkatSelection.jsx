@@ -4,7 +4,13 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Select } from "..";
 
-const GolonganPangkatSelection = ({ golonganPangkat, errors, touched }) => {
+const GolonganPangkatSelection = ({
+  golonganPangkat,
+  name,
+  value,
+  errors,
+  touched,
+}) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["golongan-pangkat"],
     queryFn: async () => await fetchGolonganPangkat(),
@@ -19,10 +25,11 @@ const GolonganPangkatSelection = ({ golonganPangkat, errors, touched }) => {
   return (
     <Select
       label="Golongan/Pangkat"
-      name="golongan_pangkat"
+      name={name}
       option={option}
       errors={errors}
       touched={touched}
+      values={value}
     />
   );
 };
