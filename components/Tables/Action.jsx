@@ -6,13 +6,14 @@ const Action = ({
   param,
   action = ["delete", "edit", "detail", "add-document"],
   baseUrl,
+  deleteFn,
 }) => {
   return (
     <>
       <div className="flex items-center gap-2">
         {action.includes("delete") && (
           <button
-            onClick={() => mutate(param.id)}
+            onClick={deleteFn}
             className="relative flex justify-center p-1 text-red-500 rounded-xl text-md group"
           >
             <i className="fi-rr-trash"></i>
@@ -22,15 +23,15 @@ const Action = ({
           </button>
         )}
         {action.includes("edit") && (
-          <button
-            onClick={() => mutate(param.id)}
+          <Link
+            href={`${baseUrl}/${param.id}/edit`}
             className="relative flex justify-center p-1 text-purple-500 rounded-xl text-md group"
           >
             <i className="fi-rr-pencil"></i>
             <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
               Edit
             </span>
-          </button>
+          </Link>
         )}
         {action.includes("detail") && (
           <Link

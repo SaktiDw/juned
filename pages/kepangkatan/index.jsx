@@ -8,7 +8,7 @@ import {
 } from "@/components";
 import { fetchListKepangkatan } from "@/helper/api/api";
 import { id } from "@/helper/constant";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import React from "react";
 
 const Kepangkatan = () => {
@@ -21,6 +21,7 @@ const Kepangkatan = () => {
     queryFn: () => fetchListKepangkatan(id),
     networkMode: "offlineFirst",
   });
+
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full">
@@ -41,7 +42,13 @@ const Kepangkatan = () => {
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} baseUrl={"/kepangkatan"} />,
+              render: (val) => (
+                <Action
+                  param={val}
+                  baseUrl={"/kepangkatan"}
+                  action={["delete", "edit", "detail"]}
+                />
+              ),
             },
           ]}
           data={Kepangkatan?.data}
