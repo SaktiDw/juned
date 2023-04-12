@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { Dropdown, SidebarItem } from "..";
+import Link from "next/link";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -38,7 +39,9 @@ const Sidebar = () => {
         className="p-2 pl-4 pr-6 max-h-screen h-screen overflow-y-auto flex flex-col items-center gap-4 w-[320px] bg-slate-200 dark:bg-slate-900 bg-opacity-50 backdrop-blur-2xl dark:bg-opacity-50 dark:backdrop-blur-2xl z-10"
         ref={ref}
       >
-        <Image alt="" src={"/logo itk png.png"} width={300} height={200} />
+        <Link href={"/"}>
+          <Image alt="" src={"/logo itk png.png"} width={300} height={200} />
+        </Link>
         <div className="flex flex-col itemc-center justify-center text-center">
           <h1 className="font-poppins">Sistem Informasi</h1>
           <h1 className="font-quicksand font-semibold text-primary text-xl ">

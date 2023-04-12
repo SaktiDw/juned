@@ -42,13 +42,13 @@ const MultipleUploadFile = ({ errors }) => {
               >
                 <div className={`grid grid-cols-2 justify-between gap-4`}>
                   <Input
-                    name={"nama_dokumen"}
+                    name={`nama_dokumen${index}`}
                     label={"Nama Dokumen"}
                     errors={""}
                     touched={""}
                   />
                   <Select
-                    name={"jenis_dokumen"}
+                    name={`jenis_dokumen${index}`}
                     label={"Jenis Dokumen"}
                     errors={""}
                     touched={""}
@@ -62,7 +62,7 @@ const MultipleUploadFile = ({ errors }) => {
                 <UploadFile />
                 <Textarea label={"Keterangan"} />
                 <Input
-                  name={"tautan_dokumen"}
+                  name={`tautan_dokumen${index}`}
                   label={"Tautan Dokumen"}
                   errors={""}
                   touched={""}

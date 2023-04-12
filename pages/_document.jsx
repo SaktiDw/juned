@@ -7,7 +7,7 @@ export default function Document() {
   useEffect(() => {}, [darkMode]);
 
   return (
-    <Html lang="en" className={darkMode ?? "dark"}>
+    <Html lang="en" className={darkMode ? "dark" : ""}>
       <Head />
       <body>
         <Main />

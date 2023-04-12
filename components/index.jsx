@@ -56,3 +56,5 @@ export { default as GolonganPangkatSelection } from "./Selections/GolonganPangka
 export { default as JabatanFungsionalSelection } from "./Selections/JabatanFungsionalSelection";
 
 export { default as CardDataPribadi } from "./Card/CardDataPribadi";
+
+export { default as Chip } from "./Chips/Chip";
