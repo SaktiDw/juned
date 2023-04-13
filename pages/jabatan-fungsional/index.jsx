@@ -7,6 +7,7 @@ import {
   TabRiwayatAjuanPerubahanData,
 } from "@/components";
 import { fetchListJabatanFungsional } from "@/helper/api/api";
+import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
@@ -17,7 +18,7 @@ const JabatanFungsional = () => {
     isLoading,
   } = useQuery({
     queryKey: ["jabatan_fungsional"],
-    queryFn: () => fetchListJabatanFungsional(),
+    queryFn: () => fetchListJabatanFungsional(id),
     networkMode: "offlineFirst",
   });
   return (
@@ -34,13 +35,19 @@ const JabatanFungsional = () => {
             { key: "jabatan_fungsional", title: "Jabatan Fungsional" },
             { key: "sk", title: "Nomor SK" },
             {
-              key: "terhitung_mulai_tanggal",
+              key: "tanggal_mulai",
               title: "Terhitung Mulai Tanggal",
             },
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} />,
+              render: (val) => (
+                <Action
+                  param={val}
+                  baseUrl={"/jabatan-fungsional"}
+                  action={["delete", "edit", "detail"]}
+                />
+              ),
             },
           ]}
           data={jabatan_fungsional?.data}

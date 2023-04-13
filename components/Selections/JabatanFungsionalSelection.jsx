@@ -6,6 +6,8 @@ import { Select } from "..";
 
 const JabatanFungsionalSelection = ({
   jabatan_fungsional,
+  name,
+  value,
   errors,
   touched,
 }) => {
@@ -23,7 +25,8 @@ const JabatanFungsionalSelection = ({
   return (
     <Select
       label="Jabatan Fungsional"
-      name="jabatan_fungsional"
+      name={name}
+      values={value}
       option={option}
       errors={errors}
       touched={touched}

@@ -8,8 +8,7 @@ import {
   Select,
 } from "..";
 import * as yup from "yup";
-import { createUser, fetchListInpassing } from "@/helper/api/api";
-import { useQuery } from "@tanstack/react-query";
+import { createUser } from "@/helper/api/api";
 
 const schema = yup.object().shape({
   jabatan_fungsional: yup.string().required("jabatan fungsional wajib di isi."),
@@ -31,19 +30,21 @@ const schema = yup.object().shape({
     .required("kelebihan kegiatan penunjang wajib di isi."),
 });
 
-const FormCreateJabatanFungsional = () => {
+const FormCreateJabatanFungsional = ({ initialValues }) => {
   return (
     <>
       <Formik
         enableReinitialize
         initialValues={{
-          jabatan_fungsional: "",
-          sk: "",
-          kelebihan_pengajaran: "",
-          terhitung_mulai_tanggal: "",
-          kelebihan_penelitian: "",
-          kelebihan_pengabdian_masyarakat: "",
-          kelebihan_kegiatan_penunjang: "",
+          jabatan_fungsional: initialValues?.id_jabatan_fungsional || "",
+          sk: initialValues?.sk || "",
+          kelebihan_pengajaran: initialValues?.kelebihan_pengajaran || "",
+          terhitung_mulai_tanggal: initialValues?.terhitung_mulai_tanggal || "",
+          kelebihan_penelitian: initialValues?.kelebihan_penelitian || "",
+          kelebihan_pengabdian_masyarakat:
+            initialValues?.kelebihan_pengabdian_masyarakat || "",
+          kelebihan_kegiatan_penunjang:
+            initialValues?.kelebihan_kegiatan_penunjang || "",
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) =>
@@ -58,6 +59,8 @@ const FormCreateJabatanFungsional = () => {
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
             <JabatanFungsionalSelection
+              name={"jabatan_fungsional"}
+              value={initialValues.id_jabatan_fungsional}
               errors={errors.jabatan_fungsional}
               touched={touched.jabatan_fungsional}
             />

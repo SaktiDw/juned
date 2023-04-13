@@ -16,7 +16,7 @@ const JabatanFungsionalCreate = () => {
             Form Tambah Riwayat Jabatan Fungsional
           </h1>
           <div className="grid grid-flow-col gap-4 bg-white dark:bg-slate-800 px-4 py-8 rounded-xl ">
-            <FormCreateJabatanFungsional />
+            <FormCreateJabatanFungsional initialValues={[]} />
           </div>
         </div>
       </div>
