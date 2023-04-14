@@ -6,9 +6,12 @@ import {
   PeriodeSelection,
   Table,
 } from "@/components";
+import { useRouter } from "next/router";
 import React from "react";
 
 const Pengajaran = () => {
+  const router = useRouter();
+  const { id } = router.query;
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full">

@@ -31,6 +31,9 @@ export const fetchDetailKepangkatan = async (id) => await api.get(`/kepangkatan/
 export const fetchListPenempatan = async (id) => await api.get(`/penempatan/list-penempatan/${id}`).then(res=>res.data) 
 export const fetchDetailPenempatan = async (id) => await api.get(`/penempatan/detail-penempatan/${id}`).then(res=>res.data) 
 
+export const fetchListPenelitian = async (id) => await api.get(`/penelitian/list-penelitian/${id}`).then(res=>res.data)
+export const fetchDetailPenelitian = async (id) => await api.get(`/penelitian/detail-penelitian/${id}`).then(res=>res.data)
+
 export const fetchListKateogriCapaianLuaran = async () => await api.get(`/referensi/kategori-capaian-luaran`).then(res=>res.data).catch(err=>err)
 export const fetchPerguruanTinggi = async () => await api.get(`/referensi/perguruan-tinggi`).then(res=>res.data).catch(err=>err)
 export const fetchKategoriKegiatan = async () => await api.get(`/referensi/kategori-kegiatan`).then(res=>res.data).catch(err=>err)

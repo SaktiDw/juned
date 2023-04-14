@@ -28,14 +28,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="flex flex-col gap-4">
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-2 text-sm">
           <h1>Riwayat Perubahan Data Dosen</h1>
           <Table
             columns={[
               { key: "id", title: "id" },
               { key: "jenis_pdd", title: "Jenis PDD" },
               { key: "jenis_ajuan", title: "Jenis Ajuan" },
-              { key: "tanggal_ajauan", title: "Tanggal Ajuan" },
+              { key: "tanggal_ajuan", title: "Tanggal Ajuan" },
               { key: "tanggal_verifikasi", title: "Tanggal Verifikasi" },
               { key: "umur_ajuan", title: "Umur Ajuan (hari)" },
               {
@@ -54,7 +54,8 @@ export default function Home() {
             data={[
               {
                 id: 1,
-                jenis_pdd: "Pendidikan Formal 	Ajuan Data Baru",
+                jenis_pdd: "Pendidikan Formal",
+                jenis_ajuan: "Ajuan Data Baru",
                 tanggal_ajuan: "28 Mei 2019",
                 tanggal_verifikasi: "",
                 umur_ajuan: "",
@@ -62,7 +63,8 @@ export default function Home() {
               },
               {
                 id: 2,
-                jenis_pdd: "Data Pribadi Kepegawaian 	Ajuan Update Data",
+                jenis_pdd: "Data Pribadi Kepegawaian",
+                jenis_ajuan: "Ajuan Update Data",
                 tanggal_ajuan: "31 Oktober 2019",
                 tanggal_verifikasi: "",
                 umur_ajuan: "",
@@ -70,7 +72,8 @@ export default function Home() {
               },
               {
                 id: 3,
-                jenis_pdd: "Pendidikan Formal 	Ajuan Hapus Data",
+                jenis_pdd: "Pendidikan Formal",
+                jenis_ajuan: "Ajuan Hapus Data",
                 tanggal_ajuan: "25 Maret 2020",
                 tanggal_verifikasi: "",
                 umur_ajuan: "",
@@ -78,7 +81,8 @@ export default function Home() {
               },
               {
                 id: 4,
-                jenis_pdd: "Data Pribadi Keluarga 	Ajuan Update Data",
+                jenis_pdd: "Data Pribadi Keluarga",
+                jenis_ajuan: "Ajuan Update Data",
                 tanggal_ajuan: "25 Maret 2020",
                 tanggal_verifikasi: "",
                 umur_ajuan: "",
@@ -86,7 +90,8 @@ export default function Home() {
               },
               {
                 id: 5,
-                jenis_pdd: "Pendidikan Formal 	Ajuan Data Baru",
+                jenis_pdd: "Pendidikan Formal",
+                jenis_ajuan: "Ajuan Data Baru",
                 tanggal_ajuan: "28 Mei 2019",
                 tanggal_verifikasi: "02 Juli 2019",
                 umur_ajuan: "35",
@@ -95,7 +100,8 @@ export default function Home() {
               },
               {
                 id: 6,
-                jenis_pdd: "Data Pribadi Profil 	Ajuan Update Data",
+                jenis_pdd: "Data Pribadi Profil",
+                jenis_ajuan: "Ajuan Update Data",
                 tanggal_ajuan: "04 Maret 2019",
                 tanggal_verifikasi: "22 Maret 2019",
                 umur_ajuan: "18",
@@ -104,7 +110,8 @@ export default function Home() {
               },
               {
                 id: 7,
-                jenis_pdd: "Data Pribadi Alamat dan Kontak 	Ajuan Update Data",
+                jenis_pdd: "Data Pribadi Alamat dan Kontak",
+                jenis_ajuan: "Ajuan Update Data",
                 tanggal_ajuan: "25 Maret 2020",
                 tanggal_verifikasi: "30 Maret 2020",
                 umur_ajuan: "5",
@@ -113,7 +120,8 @@ export default function Home() {
               },
               {
                 id: 8,
-                jenis_pdd: "Data Pribadi Keluarga 	Ajuan Update Data",
+                jenis_pdd: "Data Pribadi Keluarga",
+                jenis_ajuan: "Ajuan Update Data",
                 tanggal_ajuan: "16 April 2020",
                 tanggal_verifikasi: "21 April 2020",
                 umur_ajuan: "5",
@@ -122,7 +130,8 @@ export default function Home() {
               },
               {
                 id: 9,
-                jenis_pdd: "Data Pribadi Kepegawaian 	Ajuan Update Data",
+                jenis_pdd: "Data Pribadi Kepegawaian",
+                jenis_ajuan: "Ajuan Update Data",
                 tanggal_ajuan: "25 Maret 2020",
                 tanggal_verifikasi: "30 Maret 2020",
                 umur_ajuan: "5",
@@ -131,7 +140,8 @@ export default function Home() {
               },
               {
                 id: 10,
-                jenis_pdd: "Data Pribadi Keluarga 	Ajuan Update Data",
+                jenis_pdd: "Data Pribadi Keluarga",
+                jenis_ajuan: "Ajuan Update Data",
                 tanggal_ajuan: "25 Juni 2021",
                 tanggal_verifikasi: "28 Juni 2021",
                 umur_ajuan: "3",
@@ -140,7 +150,8 @@ export default function Home() {
               },
               {
                 id: 11,
-                jenis_pdd: "Jabatan Fungsional 	Ajuan Data Baru",
+                jenis_pdd: "Jabatan Fungsional",
+                jenis_ajuan: "Ajuan Data Baru",
                 tanggal_ajuan: "20 April 2021",
                 tanggal_verifikasi: "21 April 2021",
                 umur_ajuan: "1",
@@ -149,7 +160,8 @@ export default function Home() {
               },
               {
                 id: 12,
-                jenis_pdd: "Kepangkatan 	Ajuan Data Baru",
+                jenis_pdd: "Kepangkatan",
+                jenis_ajuan: "Ajuan Data Baru",
                 tanggal_ajuan: "30 Maret 2021",
                 tanggal_verifikasi: "30 Maret 2021",
                 umur_ajuan: "0",

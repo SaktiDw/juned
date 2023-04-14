@@ -1,47 +1,52 @@
 import { Action, Button, MainLayout, Nav, Table } from "@/components";
+import { fetchListPenelitian } from "@/helper/api/api";
+import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const Penelitian = () => {
   const {
-    data: paten,
+    data: penelitian,
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["paten"],
-    queryFn: () => null,
+    queryKey: ["penelitian"],
+    queryFn: () => fetchListPenelitian(id),
     networkMode: "offlineFirst",
   });
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-full">
-        <Nav title={"paten"} />
+        <Nav title={"detail penelitian"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-          Penelitian
+          Detail Penelitian
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
-          <Button
-            icon={<i className="fi-rr-plus"></i>}
-            text={"Riwayat Ajuan Perubahan"}
-          />
-        </div>
         <Table
+          createLink={"/penelitian/create"}
           columns={[
             { key: "id", title: "No." },
             ,
-            { key: "sk", title: "Nomor SK" },
+            { key: "judul", title: "Judul" },
             {
-              key: "terhitung_mulai_tanggal",
-              title: "Terhitung Mulai Tanggal",
+              key: "bidang_keilmuan",
+              title: "Bidang Keilmuan",
+            },
+            {
+              key: "tahun_pelaksanaan",
+              title: "Tahun Pelaksanaan",
+            },
+            {
+              key: "lama_kegiatan",
+              title: "Lama Kegiatan",
+              render: (val) => <span>{val.lama_kegiatan} tahun</span>,
             },
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} />,
+              render: (val) => <Action param={val} baseUrl={"/penelitian"} />,
             },
           ]}
-          data={paten?.data}
+          data={penelitian?.data}
         />
       </div>
     </MainLayout>
