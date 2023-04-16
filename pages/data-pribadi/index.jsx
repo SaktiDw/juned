@@ -1,4 +1,10 @@
-import { Breadcrumbs, CardDataPribadi, MainLayout, Nav } from "@/components";
+import {
+  Breadcrumbs,
+  CardDataPribadi,
+  FotoProfil,
+  MainLayout,
+  Nav,
+} from "@/components";
 import {
   fetchAlamat,
   fetchBidangIlmu,
@@ -79,12 +85,7 @@ const DataPribadi = () => {
             ]}
           >
             <div className="relative w-full h-[300px]">
-              <Image
-                fill
-                alt={"profile"}
-                src={"/images.jpg"}
-                className={`rounded-lg shadow-lg  object-cover`}
-              />
+              <FotoProfil />
             </div>
           </CardDataPribadi>
           <CardDataPribadi
