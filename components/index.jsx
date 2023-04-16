@@ -36,6 +36,7 @@ export { default as PeriodeSelection } from "./Forms/PeriodeSelection";
 export { default as Table } from "./Tables/Table";
 export { default as Action } from "./Tables/Action";
 export { default as FilterPageSize } from "./Tables/FilterPageSize";
+export { default as Pagination } from "./Tables/Pagination";
 
 export { default as Tab } from "./Tabs/Tab";
 export { default as TabRiwayatAjuanPerubahanData } from "./Tabs/TabRiwayatAjuanPerubahanData";
