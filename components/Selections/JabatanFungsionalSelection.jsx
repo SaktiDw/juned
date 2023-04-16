@@ -1,5 +1,4 @@
-import { fetchJabatanFungsional } from "@/helper/api/api";
-import { api } from "@/helper/api/axios";
+import { fetchJabatanFungsional } from "@/helper/api/apiSister";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Select } from "..";
@@ -17,19 +16,17 @@ const JabatanFungsionalSelection = ({
     initialData: jabatan_fungsional,
     networkMode: "offlineFirst",
   });
-  const option =
-    data &&
-    data?.data.map((item) => {
-      return { value: item.id, label: item.nama };
-    });
+
   return (
     <Select
       label="Jabatan Fungsional"
       name={name}
-      values={value}
-      option={option}
+      option={data || []}
       errors={errors}
       touched={touched}
+      values={value}
+      valueKey="id"
+      labelKey="nama"
     />
   );
 };

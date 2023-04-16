@@ -57,6 +57,8 @@ const MultipleUploadFile = ({ errors }) => {
                       { label: "Kartu Keluarga", value: "kk" },
                       { label: "Lainnya", value: "lainnya" },
                     ]}
+                    valueKey={"value"}
+                    labelKey={"label"}
                   />
                 </div>
                 <UploadFile />
