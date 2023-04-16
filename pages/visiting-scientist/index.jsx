@@ -19,7 +19,7 @@ const VisitingScientist = () => {
         <Table
           createLink={"/visiting-scientist/create"}
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             {
               key: "perguruan_tingggi_pengundang",
               title: "Perguruan Tinggi Pengundang",

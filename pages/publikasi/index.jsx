@@ -28,7 +28,7 @@ const Publikasi = () => {
         </div>
         <Table
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             ,
             { key: "judul", title: "judul" },
             {

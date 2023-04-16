@@ -4,7 +4,7 @@ import {
   Nav,
   TabRiwayatAjuanPerubahanData,
 } from "@/components";
-import { fetchDetailJabatanFungsional } from "@/helper/api/api";
+import { fetchDetailJabatanFungsional } from "@/helper/api/apiSister";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import React from "react";
@@ -33,9 +33,7 @@ const JabatanFungsionalEdit = () => {
             {isLoading ? (
               "Loading..."
             ) : (
-              <FormCreateJabatanFungsional
-                initialValues={jabatan_fungsional?.data}
-              />
+              <FormCreateJabatanFungsional initialValues={jabatan_fungsional} />
             )}
           </div>
         </div>

@@ -21,7 +21,7 @@ const OrasiIlmiah = () => {
         </div>
         <Table
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             { key: "kategori_kegiatan", title: "Kategori Kegiatan" },
             {
               key: "judul_makalah",

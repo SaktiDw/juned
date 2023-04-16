@@ -6,7 +6,7 @@ import {
   Table,
   TabRiwayatAjuanPerubahanData,
 } from "@/components";
-import { fetchListJabatanFungsional } from "@/helper/api/api";
+import { fetchListJabatanFungsional } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
@@ -31,7 +31,7 @@ const JabatanFungsional = () => {
         <Table
           createLink={"/jabatan-fungsional/create"}
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             { key: "jabatan_fungsional", title: "Jabatan Fungsional" },
             { key: "sk", title: "Nomor SK" },
             {
@@ -50,7 +50,7 @@ const JabatanFungsional = () => {
               ),
             },
           ]}
-          data={jabatan_fungsional?.data}
+          data={jabatan_fungsional}
         />
         <TabRiwayatAjuanPerubahanData
           title={"Riwayat Ajuan Jabatan Fungsional"}

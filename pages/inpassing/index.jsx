@@ -4,6 +4,7 @@ import {
   FilterPageSize,
   MainLayout,
   Nav,
+  Pagination,
   SearchButton,
   Select,
   Table,
@@ -39,7 +40,7 @@ const Inpassing = () => {
           searchAble={true}
           createLink={"/inpassing/create"}
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             { key: "pangkat_golongan", title: "Pangkat/Golongan" },
             { key: "sk", title: "Nomor SK" },
             { key: "tanggal_sk", title: "Tanggal SK" },

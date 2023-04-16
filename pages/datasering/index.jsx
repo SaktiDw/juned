@@ -21,7 +21,7 @@ const Datasering = () => {
         </div>
         <Table
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             {
               key: "perguruan_tinggi_sasaran",
               title: "Perguruan Tinggi Sasaran",

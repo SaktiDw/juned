@@ -17,14 +17,14 @@ const Penelitian = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-full">
-        <Nav title={"detail penelitian"} />
+        <Nav title={"penelitian"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-          Detail Penelitian
+          Penelitian
         </h1>
         <Table
           createLink={"/penelitian/create"}
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             ,
             { key: "judul", title: "Judul" },
             {

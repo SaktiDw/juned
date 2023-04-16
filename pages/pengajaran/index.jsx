@@ -40,7 +40,7 @@ const Pengajaran = () => {
         </div>
         <Table
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             { key: "mata_kuliah", title: "Mata Kuliah" },
             { key: "jenis_mata_kuliah", title: "Jenis Mata Kuliah" },
             { key: "bidang_keilmuan", title: "Bidang Keilmuan" },

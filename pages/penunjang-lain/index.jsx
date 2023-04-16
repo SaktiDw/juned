@@ -12,7 +12,7 @@ const AnggotaProfesi = () => {
         <Table
           createLink={"/penunjang-lain/create"}
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             { key: "nama_kegiatan", title: "Nama Kegiatan" },
             { key: "instansi_penyelenggara", title: "Instansi Penyelenggara" },
             { key: "sk", title: "Nomor Sk Penugasan" },

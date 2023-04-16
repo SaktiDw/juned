@@ -19,7 +19,7 @@ const TugasTambahan = () => {
         <Table
           createLink={"/tugas-tambahan/create"}
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             { key: "tugas_tambahan", title: "Tugas Tambahan" },
             {
               key: "unit_kerja",

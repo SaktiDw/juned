@@ -28,7 +28,7 @@ const PengelolaJurnal = () => {
         </div>
         <Table
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             ,
             { key: "sk", title: "Nomor SK" },
             {

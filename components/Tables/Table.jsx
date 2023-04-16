@@ -1,55 +1,43 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import { FilterPageSize } from "..";
+import React, { useEffect, useRef, useState } from "react";
+import { FilterPageSize, Pagination } from "..";
 
 const Table = ({
   columns,
-  data,
+  data = [],
   createLink = undefined,
   searchAble = false,
 }) => {
-  const [query, setQuery] = useState("");
-  const [pageSize, setPageSize] = useState(2);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [perPage, setPerpage] = useState(2);
+  const [localData, setLocalData] = useState(data || []);
+  const [selectedPage, setSelectedPage] = useState(1);
+  const indexOfLastItem = selectedPage * perPage;
+  const indexOfFirstItem = indexOfLastItem - perPage;
 
-  const filterData = (query) => {
-    return data?.filter((item) => {
-      const values = Object.values(item);
+  useEffect(() => {
+    setLocalData(data);
+  }, [data]);
 
-      for (const value of values) {
-        if (
-          typeof value === "string" &&
-          value.toLowerCase().includes(query?.toLowerCase())
-        ) {
-          return true;
-        }
-      }
-      return false;
+  const handleFilter = (searchTerm) => {
+    const filtered = data?.filter((item) => {
+      return item.pangkat_golongan
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
     });
+
+    setLocalData(filtered);
+    setSelectedPage(1);
   };
-
-  let filtered = filterData(query);
-
-  const paginateData = (data, page, pageSize) => {
-    const startIndex = (page - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    return data?.slice(startIndex, endIndex);
-  };
-
-  const pageNumbers = Array.from(
-    { length: Math.ceil(filtered?.length / pageSize) },
-    (_, i) => i + 1
-  );
 
   return (
-    <section className="grid grid-flow-row gap-4 p-4 z-10 overflow-x-auto w-full rounded-xl shadow-lg bg-white dark:bg-slate-800">
-      <div className="flex justify-between gap-4">
-        <FilterPageSize onChange={(e) => setPageSize(e.target.value)} />
+    <section className="grid grid-flow-row gap-6 p-4 z-10 overflow-x-auto w-full rounded-xl shadow-lg bg-white dark:bg-slate-800">
+      <div className="flex justify-between gap-6">
+        <FilterPageSize onChange={(e) => setPerpage(e.target.value)} />
         {createLink && (
           <Link
             href={createLink}
-            className="ml-auto flex items-center gap-2 py-1 px-2 w-min bg-primary rounded-lg shadow-lg text-white text-xs"
+            className="ml-auto flex items-center gap-2 py-2 px-4 w-min bg-primary rounded-lg shadow-lg text-white text-sm"
           >
             <i className="fi-rr-plus"></i>
             Tambah
@@ -58,9 +46,9 @@ const Table = ({
         {searchAble && (
           <div className="relative group border border-primary rounded-lg">
             <input
-              onChange={(e) => setQuery(e.target.value)}
+              onChange={(e) => handleFilter(e.target.value)}
               type="text"
-              className="py-2 px-4 text-xs w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none"
+              className="py-2 px-4 text-sm w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none"
               placeholder="Search here ..."
             />
             <i className="fi-rr-search absolute right-2 top-1"></i>
@@ -79,28 +67,37 @@ const Table = ({
         </thead>
         {data?.length > 0 ? (
           <tbody>
-            {paginateData(filtered, currentPage, pageSize)?.map((item) => (
-              <tr
-                className=" bg-white odd:bg-blue-50 hover:bg-blue-200 dark:bg-slate-700 dark:odd:bg-slate-800 dark:hover:bg-slate-600"
-                key={item.id}
-              >
-                {columns.map((column, index) => {
-                  let toShown = item[column.key];
-                  if (column.render) toShown = column.render(item, index);
-                  return (
-                    <td key={index} className="p-2 first:pl-4 last:pr-4">
-                      {toShown}
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
+            {localData &&
+              localData
+                .slice(indexOfFirstItem, indexOfLastItem)
+                .map((item, index) => (
+                  <tr
+                    className=" bg-white odd:bg-blue-50 hover:bg-blue-200 dark:bg-slate-700 dark:odd:bg-slate-800 dark:hover:bg-slate-600"
+                    key={`tr-${index}`}
+                  >
+                    {columns.map((column, indexColumn) => {
+                      let toShown = item[column.key];
+                      if (column.render) toShown = column.render(item);
+                      if (column.dataType === "numbering") {
+                        toShown = (selectedPage - 1) * perPage + index + 1;
+                      }
+                      return (
+                        <td
+                          key={`tr-${index}-td-${indexColumn}`}
+                          className="p-2 first:pl-4 last:pr-4"
+                        >
+                          {toShown}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
           </tbody>
         ) : (
           <tbody>
             <tr
               className="leading-relaxed bg-white odd:bg-blue-50 hover:bg-blue-100 dark:bg-slate-900 dark:odd:bg-slate-800 dark:hover:bg-slate-700"
-              key={0}
+              key={"no-data"}
             >
               <td colSpan={columns.length} className="p-2 w-full text-center">
                 <div className="flex flex-col items-center justify-center gap-3 py-2">
@@ -118,44 +115,12 @@ const Table = ({
         )}
       </table>
 
-      <div className="flex justify-between items-center p-4">
-        {/* <span className="text-xs">
-          Showing {currentPage} to {pageSize * currentPage} of total{" "}
-          {filtered?.length} entries
-        </span> */}
-        <div className="flex gap-2">
-          <button
-            disabled={currentPage == 1}
-            onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
-            className={`disabled:cursor-not-allowed p-2 w-8 h-8 text-xs rounded-lg border border-slate-400 bg-white dark:bg-slate-700 `}
-          >
-            <i className="fi-rr-angle-left"></i>
-          </button>
-          {pageNumbers.map((item) => (
-            <button
-              key={item}
-              onClick={() => setCurrentPage(item)}
-              className={`p-2 w-8 h-8 text-xs rounded-lg border hover:bg-primary dark:hover:bg-primary hover:text-white hover:shadow-primary  ${
-                item === currentPage
-                  ? "bg-primary text-white dark:shadow-primary border-primary"
-                  : "bg-white dark:bg-slate-700 border-slate-400"
-              }`}
-            >
-              {item}
-            </button>
-          ))}
-          <button
-            disabled={currentPage == pageNumbers.length}
-            onClick={() =>
-              currentPage < pageNumbers.length &&
-              setCurrentPage(currentPage + 1)
-            }
-            className={`disabled:cursor-not-allowed p-2 w-8 h-8 text-xs rounded-lg border border-slate-400 bg-white dark:bg-slate-700 `}
-          >
-            <i className="fi-rr-angle-right"></i>
-          </button>
-        </div>
-      </div>
+      <Pagination
+        data={localData}
+        itemsPerPage={perPage}
+        currentPage={selectedPage}
+        setCurrentPage={setSelectedPage}
+      />
     </section>
   );
 };

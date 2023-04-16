@@ -28,7 +28,7 @@ const PembinaanMahasiswa = () => {
         </div>
         <Table
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             { key: "semester", title: "Semester" },
             { key: "judul_bimbingan", title: "Judul Pembinaan" },
             { key: "bidang_keilmuan", title: "Bidang Keilmuan" },

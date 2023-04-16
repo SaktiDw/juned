@@ -23,7 +23,7 @@ const Penempatan = () => {
 
         <Table
           columns={[
-            { key: "id", title: "No." },
+            { key: "id", title: "No.", dataType: "numbering" },
             ,
             { key: "status_kepegawaian", title: "Status" },
             { key: "ikatan_kerja", title: "Ikatan Kerja" },
