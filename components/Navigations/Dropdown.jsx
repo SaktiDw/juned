@@ -42,7 +42,7 @@ const Dropdown = ({ index, isOpen, active, onClick, subItem, title, icon }) => {
             <Link
               key={index}
               className={`last:rounded-b-lg  hover:bg-primary hover:text-white hover:pl-4 p-2 duration-200 ease-in-out ${
-                item.link === router.pathname
+                item.active
                   ? `bg-primary text-white`
                   : `bg-white dark:bg-slate-800`
               }`}

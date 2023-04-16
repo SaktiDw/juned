@@ -55,10 +55,29 @@ const Sidebar = () => {
           onClick={handleDropdownClick}
           active={[
             "/data-pribadi",
+            "/data-pribadi/edit-alamat",
+            "/data-pribadi/edit-bidang-keilmuan",
+            "/data-pribadi/edit-biodata",
+            "/data-pribadi/edit-keleuarga",
+            "/data-pribadi/edit-kepegawaian",
+            "/data-pribadi/edit-kependudukan",
+            "/data-pribadi/edit-lain",
             "/inpassing",
+            "/inpassing/create",
+            "/inpassing/[id]",
+            "/inpassing/[id]/edit",
             "/jabatan-fungsional",
+            "/jabatan-fungsional/create",
+            "/jabatan-fungsional/[id]",
+            "/jabatan-fungsional/[id]/edit",
             "/kepangkatan",
-            "/penemapatan",
+            "/kepangkatan/create",
+            "/kepangkatan/[id]",
+            "/kepangkatan/[id]/edit",
+            "/penempatan",
+            "/penempatan/create",
+            "/penempatan/[id]",
+            "/penempatan/[id]/edit",
           ].includes(router.pathname)}
           title="Profile"
           href="/"
@@ -82,12 +101,17 @@ const Sidebar = () => {
             {
               link: "/kepangkatan",
               title: "Kepangkatan",
-              active: router.pathname.includes("kepangkatan"),
+              active: [
+                "/kepangkatan",
+                "/kepangkatan/create",
+                "/kepangkatan/[id]",
+                "/kepangkatan/[id]/edit",
+              ].includes(router.pathname),
             },
             {
               link: "/penempatan",
               title: "Penempatan",
-              active: router.pathname.includes("penemapatan"),
+              active: router.pathname.includes("penempatan"),
             },
           ]}
         />
@@ -97,15 +121,45 @@ const Sidebar = () => {
           onClick={handleDropdownClick}
           active={[
             "/pengajaran",
+            "/pengajaran/create",
+            "/pengajaran/[id]",
+            "/pengajaran/[id]/edit",
             "/bimbingan-mahasiswa",
+            "/bimbingan-mahasiswa/create",
+            "/bimbingan-mahasiswa/[id]",
+            "/bimbingan-mahasiswa/[id]/edit",
             "/pengujian-mahasiswa",
+            "/pengujian-mahasiswa/create",
+            "/pengujian-mahasiswa/[id]",
+            "/pengujian-mahasiswa/[id]/edit",
             "/visiting-scientist",
-            "/pembinaan-mahasiswa",
+            "/visiting-scientist/create",
+            "/visiting-scientist/[id]",
+            "/visiting-scientist/[id]/edit",
+            "/pembinaam-mahasiwa",
+            "/pembinaam-mahasiwa/create",
+            "/pembinaam-mahasiwa/[id]",
+            "/pembinaam-mahasiwa/[id]/edit",
             "/bahan-ajar",
+            "/bahan-ajar/create",
+            "/bahan-ajar/[id]",
+            "/bahan-ajar/[id]/edit",
             "/datasering",
+            "/datasering/create",
+            "/datasering/[id]",
+            "/datasering/[id]/edit",
             "/orasi-ilmiah",
+            "/orasi-ilmiah/create",
+            "/orasi-ilmiah/[id]",
+            "/orasi-ilmiah/[id]/edit",
             "/pembimbing-dosen",
+            "/pembimbing-dosen/create",
+            "/pembimbing-dosen/[id]",
+            "/pembimbing-dosen/[id]/edit",
             "/tugas-tambahan",
+            "/tugas-tambahan/create",
+            "/tugas-tambahan/[id]",
+            "/tugas-tambahan/[id]/edit",
           ].includes(router.pathname)}
           title="Pelaks. Pendidikan"
           href="/"
@@ -114,52 +168,102 @@ const Sidebar = () => {
             {
               link: "/pengajaran",
               title: "Pengajaran",
-              active: false,
+              active: [
+                "/pengajaran",
+                "/pengajaran/create",
+                "/pengajaran/[id]",
+                "/pengajaran/[id]/edit",
+              ].includes(router.pathname),
             },
             {
               link: "/bimbingan-mahasiswa",
               title: "Bimbingan Mahasiswa",
-              active: false,
+              active: [
+                "/bimbingan-mahasiswa",
+                "/bimbingan-mahasiswa/create",
+                "/bimbingan-mahasiswa/[id]",
+                "/bimbingan-mahasiswa/[id]/edit",
+              ].includes(router.pathname),
             },
             {
               link: "/pengujian-mahasiswa",
               title: "Pengujian Mahasiswa",
-              active: false,
+              active: [
+                "/pengujian-mahasiswa",
+                "/pengujian-mahasiswa/create",
+                "/pengujian-mahasiswa/[id]",
+                "/pengujian-mahasiswa/[id]/edit",
+              ].includes(router.pathname),
             },
             {
               link: "/visiting-scientist",
               title: "Visiting Scientist",
-              active: false,
+              active: [
+                "/visiting-scientist",
+                "/visiting-scientist/create",
+                "/visiting-scientist/[id]",
+                "/visiting-scientist/[id]/edit",
+              ].includes(router.pathname),
             },
             {
               link: "/pembinaan-mahasiswa",
               title: "Pembinaan Mahasiswa",
-              active: false,
+              active: [
+                "/pembinaam-mahasiwa",
+                "/pembinaam-mahasiwa/create",
+                "/pembinaam-mahasiwa/[id]",
+                "/pembinaam-mahasiwa/[id]/edit",
+              ].includes(router.pathname),
             },
             {
               link: "/bahan-ajar",
               title: "Bahan Ajar",
-              active: false,
+              active: [
+                "/bahan-ajar",
+                "/bahan-ajar/create",
+                "/bahan-ajar/[id]",
+                "/bahan-ajar/[id]/edit",
+              ].includes(router.pathname),
             },
             {
               link: "/datasering",
               title: "Datasering",
-              active: false,
+              active: [
+                "/datasering",
+                "/datasering/create",
+                "/datasering/[id]",
+                "/datasering/[id]/edit",
+              ].includes(router.pathname),
             },
             {
               link: "/orasi-ilmiah",
               title: "Orasi Ilmiah",
-              active: false,
+              active: [
+                "/orasi-ilmiah",
+                "/orasi-ilmiah/create",
+                "/orasi-ilmiah/[id]",
+                "/orasi-ilmiah/[id]/edit",
+              ].includes(router.pathname),
             },
             {
               link: "/pembimbing-dosen",
               title: "Pembimbing Dosen",
-              active: false,
+              active: [
+                "/pembimbing-dosen",
+                "/pembimbing-dosen/create",
+                "/pembimbing-dosen/[id]",
+                "/pembimbing-dosen/[id]/edit",
+              ].includes(router.pathname),
             },
             {
               link: "/tugas-tambahan",
               title: "Tugas Tambahan",
-              active: false,
+              active: [
+                "/tugas-tambahan",
+                "/tugas-tambahan/create",
+                "/tugas-tambahan/[id]",
+                "/tugas-tambahan/[id]/edit",
+              ].includes(router.pathname),
             },
           ]}
         />
@@ -167,16 +271,54 @@ const Sidebar = () => {
           index={3}
           isOpen={activeDropdown === 3}
           onClick={handleDropdownClick}
-          active={["/penelitian", "/publikasi", "/paten"].includes(
-            router.pathname
-          )}
+          active={[
+            "/penelitian",
+            "/penelitian/create",
+            "/penelitian/[id]",
+            "/penelitian/[id]/edit",
+            "/publikasi",
+            "/publikasi/create",
+            "/publikasi/[id]",
+            "/publikasi/[id]/edit",
+            "/paten",
+            "/paten/create",
+            "/paten/[id]",
+            "/paten/[id]/edit",
+          ].includes(router.pathname)}
           title="Pelaks. Penelitian"
           href="/"
           icon={"fi-rr-test-tube"}
           subItem={[
-            { link: "/penelitian", title: "Penelitian", active: false },
-            { link: "/publikasi", title: "Publikasi Karya", active: false },
-            { link: "/paten", title: "Paten/HKI", active: false },
+            {
+              link: "/penelitian",
+              title: "Penelitian",
+              active: [
+                "/penelitian",
+                "/penelitian/create",
+                "/penelitian/[id]",
+                "/penelitian/[id]/edit",
+              ].includes(router.pathname),
+            },
+            {
+              link: "/publikasi",
+              title: "Publikasi Karya",
+              active: [
+                "/publikasi",
+                "/publikasi/create",
+                "/publikasi/[id]",
+                "/publikasi/[id]/edit",
+              ].includes(router.pathname),
+            },
+            {
+              link: "/paten",
+              title: "Paten/HKI",
+              active: [
+                "/paten",
+                "/paten/create",
+                "/paten/[id]",
+                "/paten/[id]/edit",
+              ].includes(router.pathname),
+            },
           ]}
         />
         <Dropdown
@@ -185,25 +327,65 @@ const Sidebar = () => {
           onClick={handleDropdownClick}
           active={[
             "/pengabdian",
+            "/pengabdian/create",
+            "/pengabdian/[id]",
+            "/pengabdian/[id]/edit",
             "/pengelola-jurnal",
+            "/pengelola-jurnal/create",
+            "/pengelola-jurnal/[id]",
+            "/pengelola-jurnal/[id]/edit",
             "/pembicara",
+            "/pembicara/create",
+            "/pembicara/[id]",
+            "/pembicara/[id]/edit",
             "/jabatan-struktural",
+            "/jabatan-struktural/create",
+            "/jabatan-struktural/[id]",
+            "/jabatan-struktural/[id]/edit",
           ].includes(router.pathname)}
           title="Pelaks. Pengabdian"
           href="/"
           icon={"fi-rr-link-alt"}
           subItem={[
-            { link: "/pengabdian", title: "Pengabdian", active: false },
+            {
+              link: "/pengabdian",
+              title: "Pengabdian",
+              active: [
+                "/pengabdian",
+                "/pengabdian/create",
+                "/pengabdian/[id]",
+                "/pengabdian/[id]/edit",
+              ].includes(router.pathname),
+            },
             {
               link: "/pengelola-jurnal",
               title: "Pengelola Jurnal",
-              active: false,
+              active: [
+                "/pengelola-jurnal",
+                "/pengelola-jurnal/create",
+                "/pengelola-jurnal/[id]",
+                "/pengelola-jurnal/[id]/edit",
+              ].includes(router.pathname),
             },
-            { link: "/pembicara", title: "Pembicara", active: false },
+            {
+              link: "/pembicara",
+              title: "Pembicara",
+              active: [
+                "/pembicara",
+                "/pembicara/create",
+                "/pembicara/[id]",
+                "/pembicara/[id]/edit",
+              ].includes(router.pathname),
+            },
             {
               link: "/jabatan-struktural",
               title: "Jabatan Struktural",
-              active: false,
+              active: [
+                "/jabatan-struktural",
+                "/jabatan-struktural/create",
+                "/jabatan-struktural/[id]",
+                "/jabatan-struktural/[id]/edit",
+              ].includes(router.pathname),
             },
           ]}
         />
@@ -213,8 +395,17 @@ const Sidebar = () => {
           onClick={handleDropdownClick}
           active={[
             "/anggota-profesi",
-            "/penghargaan",
+            "/anggota-profesi/create",
+            "/anggota-profesi/[id]",
+            "/anggota-profesi/[id]/edit",
+            "/pengharagaan",
+            "/pengharagaan/create",
+            "/pengharagaan/[id]",
+            "/pengharagaan/[id]/edit",
             "/penunjang-lain",
+            "/penunjang-lain/create",
+            "/penunjang-lain/[id]",
+            "/penunjang-lain/[id]/edit",
           ].includes(router.pathname)}
           title="Penunjang"
           href="/"
@@ -223,10 +414,33 @@ const Sidebar = () => {
             {
               link: "/anggota-profesi",
               title: "Anggota Profesi",
-              active: false,
+              active: [
+                "/anggota-profesi",
+                "/anggota-profesi/create",
+                "/anggota-profesi/[id]",
+                "/anggota-profesi/[id]/edit",
+              ].includes(router.pathname),
             },
-            { link: "/penghargaan", title: "Penghargaan", active: false },
-            { link: "/penunjang-lain", title: "Penunjang Lain", active: false },
+            {
+              link: "/penghargaan",
+              title: "Penghargaan",
+              active: [
+                "/pengharagaan",
+                "/pengharagaan/create",
+                "/pengharagaan/[id]",
+                "/pengharagaan/[id]/edit",
+              ].includes(router.pathname),
+            },
+            {
+              link: "/penunjang-lain",
+              title: "Penunjang Lain",
+              active: [
+                "/penunjang-lain",
+                "/penunjang-lain/create",
+                "/penunjang-lain/[id]",
+                "/penunjang-lain/[id]/edit",
+              ].includes(router.pathname),
+            },
           ]}
         />
         <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-primary bg-primary dark:bg-opacity-80 backdrop-blur-lg text-white font-semibold">
