@@ -20,21 +20,26 @@ const Publikasi = () => {
           Publikasi
         </h1>
         <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
           <Button
-            icon={<i className="fi-rr-plus"></i>}
-            text={"Riwayat Ajuan Perubahan"}
+            size={"small"}
+            icon={<i className="fi-rr-cloud-download"></i>}
+            text={"Import Publikasi dari SINTA"}
           />
         </div>
         <Table
           columns={[
             { key: "id", title: "No." },
             ,
-            { key: "sk", title: "Nomor SK" },
+            { key: "judul", title: "judul" },
             {
-              key: "terhitung_mulai_tanggal",
+              key: "kategori_kegiatan",
               title: "Terhitung Mulai Tanggal",
             },
+            { key: "jenis_publikasi", title: "jenis publikasi" },
+            { key: "quartile", title: "quartile" },
+            { key: "tanggal_terbit", title: "tanggal terbit" },
+            { key: "asal_data", title: "asal data" },
+            { key: "rubrik_bkd", title: "rubrik bkd" },
             {
               key: "id",
               title: "Action",
