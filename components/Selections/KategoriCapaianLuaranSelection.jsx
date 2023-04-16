@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Select } from "..";
 
-const KategoriCapaianLuaranSelection = ({ errors, touched }) => {
+const KategoriCapaianLuaranSelection = ({ errors, touched, value }) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["kategoricapaianluaran"],
     queryFn: async () => await fetchListKateogriCapaianLuaran(),
@@ -22,6 +22,9 @@ const KategoriCapaianLuaranSelection = ({ errors, touched }) => {
       option={option}
       errors={errors}
       touched={touched}
+      values={value}
+      valueKey={"value"}
+      labelKey={"label"}
     />
   );
 };

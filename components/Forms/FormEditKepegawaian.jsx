@@ -63,6 +63,8 @@ const FormEditKepegawaian = () => {
                 { value: "L", label: "Laki-laki" },
                 { value: "P", label: "Perempuan" },
               ]}
+              valueKey={"value"}
+              labelKey={"label"}
             />
             <Input
               label="tanggal_sk_cpns"

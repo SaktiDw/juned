@@ -61,6 +61,8 @@ const FormEditBiodata = () => {
                 { value: "L", label: "Laki-laki" },
                 { value: "P", label: "Perempuan" },
               ]}
+              valueKey={"value"}
+              labelKey={"label"}
             />
             <Input
               label="tempat lahir"

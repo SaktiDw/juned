@@ -1,7 +1,16 @@
 import { Field } from "formik";
 import React, { useState } from "react";
 
-const Select = ({ name, label, option, errors, touched, values }) => {
+const Select = ({
+  name,
+  label,
+  option,
+  errors,
+  touched,
+  values,
+  valueKey,
+  labelKey,
+}) => {
   return (
     <div className="w-full flex flex-col gap-2 z-10 relative">
       <label
@@ -23,15 +32,15 @@ const Select = ({ name, label, option, errors, touched, values }) => {
             Pilih...
           </option>
           {option &&
-            option.map((item) => {
+            option?.map((item) => {
               return (
                 <option
                   className="w-min"
-                  key={item.value}
-                  selected={item.value === values}
-                  value={item.value}
+                  key={item[valueKey]}
+                  selected={item[valueKey] === values}
+                  value={item[valueKey]}
                 >
-                  {item.label}
+                  {item[labelKey]}
                 </option>
               );
             })}

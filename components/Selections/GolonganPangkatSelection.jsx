@@ -30,6 +30,8 @@ const GolonganPangkatSelection = ({
       errors={errors}
       touched={touched}
       values={value}
+      valueKey={"value"}
+      labelKey={"label"}
     />
   );
 };

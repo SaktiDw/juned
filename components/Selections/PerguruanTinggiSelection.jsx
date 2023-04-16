@@ -22,6 +22,8 @@ const PerguruanTinggiSelection = ({ errors, touched }) => {
       option={option}
       errors={errors}
       touched={touched}
+      valueKey={"value"}
+      labelKey={"label"}
     />
   );
 };
