@@ -4,11 +4,11 @@
     "colId": "history",
     "containerId": "",
     "name": "https://api-gerbangna.itk.ac.id/api/referensi/pegawai-pt",
-    "url": "https://api-gerbangna.itk.ac.id/api/penugasan/list-penugasan/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
+    "url": "http://sister.itk.ac.id/ws.php/1.0/referensi/agama",
     "method": "GET",
     "sortNum": 0,
     "created": "2023-03-16T11:17:41.030Z",
-    "modified": "2023-03-17T12:56:42.264Z",
+    "modified": "2023-04-15T11:22:58.856Z",
     "headers": [
       {
         "name": "Accept",
@@ -23,7 +23,7 @@
     "params": [],
     "auth": {
       "type": "bearer",
-      "bearer": "9|BV92PyNSWZl7ZT2Jr5Hqe5Xa0X0GZMeuJDzJAWtI"
+      "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyNzJmYmMwMi1jZjY0LTRhZDktOTM2My0zM2FmZDRkNTUxOTgiLCJpc3MiOiJodHRwOlwvXC9zaXN0ZXIuaXRrLmFjLmlkXC93cy5waHBcLzEuMFwvYXV0aG9yaXplIiwiaWF0IjoxNjgxNTYxMzIzLCJleHAiOjE2ODE1NjQ5MjMsIm5iZiI6MTY4MTU2MTMyMywianRpIjoiMjg1NDcwZGY5ZGFjMmE4ZiJ9.EefTCbypiCVgqV978i-caktFM-fM3WFj2Qu5sC2hABU"
     },
     "tests": []
   },
