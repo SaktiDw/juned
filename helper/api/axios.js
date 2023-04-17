@@ -1,4 +1,6 @@
 import axios from "axios";
+import { getToken } from "../constant";
+
 
 export const api = axios.create({
     // baseURL: "https://jsonplaceholder.typicode.com/user",
@@ -8,10 +10,16 @@ export const api = axios.create({
         Authorization: 'Bearer 9|BV92PyNSWZl7ZT2Jr5Hqe5Xa0X0GZMeuJDzJAWtI' // bagusnya pake httpOnly cookie
     }
 })
+
+if (typeof window !== 'undefined') {
+    // Perform localStorage action
+    const item = localStorage.getItem('key')
+  }
+const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
 export const apiSister = axios.create({
     baseURL: "/sister/",
     headers: {
-        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyNzJmYmMwMi1jZjY0LTRhZDktOTM2My0zM2FmZDRkNTUxOTgiLCJpc3MiOiJodHRwOlwvXC9zaXN0ZXIuaXRrLmFjLmlkXC93cy5waHBcLzEuMFwvYXV0aG9yaXplIiwiaWF0IjoxNjgxNjc0NzY2LCJleHAiOjE2ODE2NzgzNjYsIm5iZiI6MTY4MTY3NDc2NiwianRpIjoiMTc3ZDk4YzVkMDFhY2JiZCJ9.O8Qel2EFWW415Hzzn1SpVc-51Ge1LCHb4Ihqy4xYyMw`,
+        'Authorization': `Bearer ${token}`,
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
     },  

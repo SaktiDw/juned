@@ -10,48 +10,44 @@ import * as yup from "yup";
 const schema = yup.object().shape({
   username: yup.string().required(),
   password: yup.string().required(),
-  id: yup.string().required(),
+  id_pengguna: yup.string().required(),
 });
 
 const Login = () => {
   const [imageSrc, setImageSrc] = useState("");
+  const [data, setData] = useState();
 
-  useEffect(() => {
-    async function fetchImage() {
-      const response = await apiSister.get(
-        "/sister/data_pribadi/foto/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
-        { responseType: "arraybuffer" } // Tell axios to treat the response as binary data
-      );
-      const dataUrl = `data:image/jpeg;base64,${Buffer.from(
-        response.data,
-        "binary"
-      ).toString("base64")}`;
-      setImageSrc(dataUrl);
-    }
+  // useEffect(() => {
+  //   async function fetchImage() {
+  //     const response = await apiSister.get(
+  //       "/sister/data_pribadi/foto/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
+  //       { responseType: "arraybuffer" } // Tell axios to treat the response as binary data
+  //     );
+  //     const dataUrl = `data:image/jpeg;base64,${Buffer.from(
+  //       response.data,
+  //       "binary"
+  //     ).toString("base64")}`;
+  //     setImageSrc(dataUrl);
+  //   }
 
-    fetchImage();
-  }, []);
+  //   fetchImage();
+  // }, []);
 
   return (
     <div className="flex flex-col w-full min-h-screen items-center justify-center bg-slate-200">
       <Formik
         initialValues={{
-          username: "",
-          password: "",
-          id: "",
+          username: "4PU03FXTjYYrMxACQLD5fvxwUOKc4B8OmXpNPU9MnkU=",
+          password:
+            "uCAYSxR7hlGK/63OzBFRQBWF60S7+n01nTbbxi822uHNKyscLAAiKAt40yNK/a0f",
+          id_pengguna: "272fbc02-cf64-4ad9-9363-33afd4d55198",
         }}
-        onSubmit={() =>
-          apiSister
-            .post("/sister/authorize", {
-              username: "4PU03FXTjYYrMxACQLD5fvxwUOKc4B8OmXpNPU9MnkU=",
-              password:
-                "uCAYSxR7hlGK/63OzBFRQBWF60S7+n01nTbbxi822uHNKyscLAAiKAt40yNK/a0f",
-              id_pengguna: "272fbc02-cf64-4ad9-9363-33afd4d55198",
-            })
-            .then((res) => {
-              localStorage.setItem("role", res.data.role);
-              localStorage.setItem("token", res.data.token);
-            })
+        onSubmit={(values) =>
+          apiSister.post("/authorize", values).then((res) => {
+            setData(res.data);
+            localStorage.setItem("role", res.data.role);
+            localStorage.setItem("token", res.data.token);
+          })
         }
         validationSchema={schema}
       >
@@ -73,10 +69,10 @@ const Login = () => {
               type={"password"}
             />
             <Input
-              name={"id"}
-              label={"id"}
-              errors={errors.id}
-              touched={touched.id}
+              name={"id_pengguna"}
+              label={"id_pengguna"}
+              errors={errors.id_pengguna}
+              touched={touched.id_pengguna}
               type={"text"}
             />
             <button
@@ -89,7 +85,8 @@ const Login = () => {
           </Form>
         )}
       </Formik>
-      {/* {JSON.stringify(data?.data)} */}
+      <span>{data && data.token}</span>
+      {/* {JSON.stringify(data)} */}
       {/* <Image src={imageSrc} width={300} height={300} /> */}
     </div>
   );

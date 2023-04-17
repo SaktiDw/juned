@@ -17,13 +17,15 @@ export const fetchDetailKepangkatan = async (id) => await apiSister.get(`/kepang
 export const fetchListPenempatan = async (id) => await apiSister.get(`/penempatan/list_penempatan/${id}`).then(res=>res.data) 
 export const fetchDetailPenempatan = async (id) => await apiSister.get(`/penempatan/detail_penempatan/${id}`).then(res=>res.data) 
 
-export const fetchListPenelitian = async (id) => await apiSister.get(`/penelitian/list_penelitian/${id}`).then(res=>res.data)
-export const fetchDetailPenelitian = async (id) => await apiSister.get(`/penelitian/detail_penelitian/${id}`).then(res=>res.data)
+export const fetchListPenelitian = async (id) => await apiSister.get(`/penelitian?id_sdm=${id}`).then(res=>res.data)
+export const fetchDetailPenelitian = async (id) => await apiSister.get(`/penelitian/${id}`).then(res=>res.data)
 export const fetchListPublikasi = async (id) => await apiSister.get(`/publikasi/list_publikasi/${id}`).then(res=>res.data)
 export const fetchDetailPublikasi = async (id) => await apiSister.get(`/publikasi/detail_publikasi/${id}`).then(res=>res.data)
 
 export const fetchListKateogriCapaianLuaran = async () => await apiSister.get(`/referensi/kategori_capaian_luaran`).then(res=>res.data).catch(err=>err)
 export const fetchPerguruanTinggi = async () => await apiSister.get(`/referensi/perguruan_tinggi`).then(res=>res.data).catch(err=>err)
-export const fetchKategoriKegiatan = async () => await apiSister.get(`/referensi/kategori_kegiatan`).then(res=>res.data).catch(err=>err)
+export const fetchKategoriKegiatan = async (type, menu) => await apiSister.get(`/referensi/kategori_kegiatan?tipe=${type}&menu=${menu}`).then(res=>res.data).catch(err=>err)
 export const fetchGolonganPangkat = async () => await apiSister.get(`/referensi/golongan_pangkat`).then(res=>res.data).catch(err=>err)
 export const fetchJabatanFungsional = async () => await apiSister.get(`/referensi/jabatan_fungsional`).then(res=>res.data).catch(err=>err)
+export const fetchDudi = async () => await apiSister.get(`/referensi/dudi`).then(res=>res.data).catch(err=>err)
+export const fetchJenisDokumen = async () => await apiSister.get(`/referensi/jenis_dokumen`).then(res=>res.data).catch(err=>err)
