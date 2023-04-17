@@ -8,23 +8,37 @@ const Table = ({
   data = [],
   createLink = undefined,
   searchAble = false,
+  isLoading,
 }) => {
   const [perPage, setPerpage] = useState(2);
-  const [localData, setLocalData] = useState(data || []);
+  const [localData, setLocalData] = useState(data);
   const [selectedPage, setSelectedPage] = useState(1);
   const indexOfLastItem = selectedPage * perPage;
   const indexOfFirstItem = indexOfLastItem - perPage;
 
-  useEffect(() => {
-    setLocalData(data);
-  }, [data]);
+  // useEffect(() => {
+  //   setLocalData(data);
+  // }, [isLoading]);
 
   const handleFilter = (searchTerm) => {
     const filtered = data?.filter((item) => {
-      return item.pangkat_golongan
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+      const values = Object.values(item);
+
+      for (const value of values) {
+        if (
+          typeof value === "string" &&
+          value.toLowerCase().includes(searchTerm?.toLowerCase())
+        ) {
+          return true;
+        }
+      }
+      return false;
     });
+    // {
+    //   return item.pangkat_golongan
+    //     .toLowerCase()
+    //     .includes(searchTerm.toLowerCase());
+    // });
 
     setLocalData(filtered);
     setSelectedPage(1);
@@ -44,14 +58,14 @@ const Table = ({
           </Link>
         )}
         {searchAble && (
-          <div className="relative group border border-primary rounded-lg">
+          <div className="relative group border border-slate-500 hover:border-primary rounded-lg">
             <input
               onChange={(e) => handleFilter(e.target.value)}
               type="text"
               className="py-2 px-4 text-sm w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none"
               placeholder="Search here ..."
             />
-            <i className="fi-rr-search absolute right-2 top-1"></i>
+            <i className="fi-rr-search absolute right-2 top-2"></i>
           </div>
         )}
       </div>
