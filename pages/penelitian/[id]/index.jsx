@@ -1,5 +1,5 @@
 import { Action, MainLayout, Nav, Table } from "@/components";
-import { fetchDetailPenelitian } from "@/helper/api/api";
+import { fetchDetailPenelitian } from "@/helper/api/apiSister";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -23,134 +23,161 @@ const DetailPenelitian = () => {
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Detail Penelitian
         </h1>
-        <div className="flex flex-col gap-2 justify-center bg-white rounded-xl p-4 divide-y">
-          <div className="grid grid-cols-2">
-            <h1>Skim Kegiatan</h1>
-            <span>{penelitian?.data.jenis_skim || "( tidak ada data )"}</span>
-          </div>
-          <div className="grid grid-cols-2">
-            <h1>Tahun Anggaran</h1>
-            <span>
-              {penelitian?.data.tahun_kegiatan || "( tidak ada data )"}
+        <div className="flex flex-col gap-2 justify-center bg-white dark:bg-slate-800 rounded-xl p-4 divide-y dark:divide-slate-500">
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Skim Kegiatan</h1>
+            <span className="flex-1">
+              {penelitian?.jenis_skim || "( tidak ada data )"}
             </span>
           </div>
-          <div className="grid grid-cols-2">
-            <h1>Litabmas Sebelumnya</h1>
-            <span>
-              {penelitian?.data.litabmas_sebelumnya || "( tidak ada data )"}
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Tahun Anggaran</h1>
+            <span className="flex-1">
+              {penelitian?.tahun_kegiatan || "( tidak ada data )"}
             </span>
           </div>
-          <div className="grid grid-cols-2">
-            <h1>Afiliasi</h1>
-            <span>{penelitian?.data.afiliasi || "( tidak ada data )"}</span>
-          </div>
-          <div className="grid grid-cols-2">
-            <h1>Kelompok Bidang</h1>
-            <span>
-              {penelitian?.data.kelompok_bidang || "( tidak ada data )"}
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Litabmas Sebelumnya</h1>
+            <span className="flex-1">
+              {penelitian?.litabmas_sebelumnya || "( tidak ada data )"}
             </span>
           </div>
-          <div className="grid grid-cols-2">
-            <h1>Nomor SK Penugasan</h1>
-            <span>{penelitian?.data.sk_penugasan || "( tidak ada data )"}</span>
-          </div>
-          <div className="grid grid-cols-2">
-            <h1>Tanggal SK Penugasan</h1>
-            <span>
-              {penelitian?.data.tanggal_sk_penugasan || "( tidak ada data )"}
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Afiliasi</h1>
+            <span className="flex-1">
+              {penelitian?.afiliasi || "( tidak ada data )"}
             </span>
           </div>
-          <div className="grid grid-cols-2">
-            <h1>Lama Kegiatan (tahun)</h1>
-            <span>
-              {penelitian?.data.lama_kegiatan || "( tidak ada data )"}
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Kelompok Bidang</h1>
+            <span className="flex-1">
+              {penelitian?.kelompok_bidang || "( tidak ada data )"}
             </span>
           </div>
-          <div className="grid grid-cols-2">
-            <h1>Judul Kegiatan</h1>
-            <span>{penelitian?.data.judul || "( tidak ada data )"}</span>
-          </div>
-          <div className="grid grid-cols-2">
-            <h1>Lokasi Kegiatan</h1>
-            <span>{penelitian?.data.lokasi || "( tidak ada data )"}</span>
-          </div>
-          <div className="grid grid-cols-2">
-            <h1>Tahun Pelaksanaan Ke</h1>
-            <span>
-              {penelitian?.data.tahun_pelaksanaan || "( tidak ada data )"}
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Nomor SK Penugasan</h1>
+            <span className="flex-1">
+              {penelitian?.sk_penugasan || "( tidak ada data )"}
             </span>
           </div>
-          <div className="grid grid-cols-2">
-            <h1>Dana Dari Dikti (Rp.)</h1>
-            <span>
-              {penelitian?.data.dana_dikti.toLocaleString() ||
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Tanggal SK Penugasan</h1>
+            <span className="flex-1">
+              {penelitian?.tanggal_sk_penugasan || "( tidak ada data )"}
+            </span>
+          </div>
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Lama Kegiatan (tahun)</h1>
+            <span className="flex-1">
+              {penelitian?.lama_kegiatan || "( tidak ada data )"}
+            </span>
+          </div>
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Judul Kegiatan</h1>
+            <span className="flex-1">
+              {penelitian?.judul || "( tidak ada data )"}
+            </span>
+          </div>
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Lokasi Kegiatan</h1>
+            <span className="flex-1">
+              {penelitian?.lokasi || "( tidak ada data )"}
+            </span>
+          </div>
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Tahun Pelaksanaan Ke</h1>
+            <span className="flex-1">
+              {penelitian?.tahun_pelaksanaan || "( tidak ada data )"}
+            </span>
+          </div>
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">Dana Dari Dikti (Rp.)</h1>
+            <span className="flex-1">
+              {penelitian?.dana_dikti.toLocaleString() || "( tidak ada data )"}
+            </span>
+          </div>
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">
+              Dana Dari Perguruan Tinggi (Rp.)
+            </h1>
+            <span className="flex-1">
+              {penelitian?.dana_perguruan_tinggi.toLocaleString() ||
                 "( tidak ada data )"}
             </span>
           </div>
-          <div className="grid grid-cols-2">
-            <h1>Dana Dari Perguruan Tinggi (Rp.)</h1>
-            <span>
-              {penelitian?.data.dana_perguruan_tinggi.toLocaleString() ||
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">
+              Dana Dari Institusi Lain (Rp.)
+            </h1>
+            <span className="flex-1">
+              {penelitian?.dana_institusi_lain.toLocaleString() ||
                 "( tidak ada data )"}
             </span>
           </div>
-          <div className="grid grid-cols-2">
-            <h1>Dana Dari Institusi Lain (Rp.)</h1>
-            <span>
-              {penelitian?.data.dana_institusi_lain.toLocaleString() ||
-                "( tidak ada data )"}
+          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
+            <h1 className="w-[300px] text-slate-500">In Kind</h1>
+            <span className="flex-1">
+              {penelitian?.in_kind || "( tidak ada data )"}
             </span>
-          </div>
-          <div className="grid grid-cols-2">
-            <h1>In Kind</h1>
-            <span>{penelitian?.data.in_kind || "( tidak ada data )"}</span>
           </div>
         </div>
+
         <div className="flex flex-col gap-2">
           <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
             Anggota Dosen
           </h1>
-          <Table
-            columns={[
-              { key: "id", title: "No" },
-              { key: "nama", title: "nama" },
-              { key: "peran", title: "peran" },
-              {
-                key: "aktif",
-                title: "aktif",
-                render: (val) => (val.aktif ? "Aktif" : "Tidak Aktif"),
-              },
-            ]}
-            data={penelitian?.data.anggota.filter(
-              (item) => item.jenis === "Dosen"
-            )}
-          />
+          {isLoading ? (
+            "loading"
+          ) : (
+            <Table
+              searchAble
+              columns={[
+                { key: "id", title: "No", dataType: "numbering" },
+                { key: "nama", title: "nama" },
+                { key: "peran", title: "peran" },
+                {
+                  key: "stat_aktif",
+                  title: "aktif",
+                  render: (val) => (val.stat_aktif ? "Aktif" : "Tidak Aktif"),
+                },
+              ]}
+              data={penelitian?.anggota.filter(
+                (item) => item.jenis === "Dosen"
+              )}
+            />
+          )}
         </div>
         <div className="flex flex-col gap-2">
           <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
             Anggota Mahasiswa
           </h1>
-          <Table
-            columns={[
-              { key: "id", title: "No" },
-              { key: "nama", title: "nama" },
-              { key: "peran", title: "peran" },
-              {
-                key: "aktif",
-                title: "aktif",
-                render: (val) => (val.aktif ? "Aktif" : "Tidak Aktif"),
-              },
-            ]}
-            data={penelitian?.data.anggota.filter(
-              (item) => item.jenis === "Mahasiswa"
-            )}
-          />
+          {isLoading ? (
+            "loading"
+          ) : (
+            <Table
+              searchAble
+              columns={[
+                { key: "id", title: "No" },
+                { key: "nama", title: "nama" },
+                { key: "peran", title: "peran" },
+                {
+                  key: "stat_aktif",
+                  title: "aktif",
+                  render: (val) => (val.stat_aktif ? "Aktif" : "Tidak Aktif"),
+                },
+              ]}
+              data={penelitian?.anggota.filter(
+                (item) => item.jenis === "Mahasiswa"
+              )}
+            />
+          )}
         </div>
         <div className="flex flex-col gap-2">
           <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
             Anggota Non Civitas Akademika
           </h1>
           <Table
+            searchAble
             columns={[
               { key: "id", title: "No" },
               { key: "nama", title: "nama" },
@@ -161,9 +188,7 @@ const DetailPenelitian = () => {
                 render: (val) => (val.aktif ? "Aktif" : "Tidak Aktif"),
               },
             ]}
-            data={penelitian?.data.anggota.filter(
-              (item) => item.jenis === "Other"
-            )}
+            data={penelitian?.anggota.filter((item) => item.jenis === "Other")}
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -171,6 +196,7 @@ const DetailPenelitian = () => {
             Dokumen
           </h1>
           <Table
+            searchAble={true}
             columns={[
               { key: "id", title: "No" },
               { key: "nama", title: "nama" },
@@ -199,7 +225,7 @@ const DetailPenelitian = () => {
                 ),
               },
             ]}
-            data={penelitian?.data.dokumen}
+            data={penelitian?.dokumen}
           />
         </div>
         <div className="flex justify-between items-center">
