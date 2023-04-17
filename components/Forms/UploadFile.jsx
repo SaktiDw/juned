@@ -35,39 +35,37 @@ const UploadFile = () => {
   };
   return (
     <>
-      <Formik initialValues={{}} onSubmit={handleFileUpload}>
-        {({ isSubmitting }) => (
-          <Form className="flex flex-col gap-3">
-            <label
-              htmlFor={"name"}
-              className="uppercase leading-tight font-bold text-xs"
-            >
-              Upload File
-            </label>
-            <div
-              name="name"
-              onClick={() => fileInput.current.click()}
-              onDrop={(event) => {
-                event.preventDefault();
-                setFile(event.dataTransfer.files[0]);
-              }}
-              onDragOver={(event) => event.preventDefault()}
-              className={`cursor-pointer shadow-lg border-2 border-dashed border-primary rounded-xl bg-white dark:bg-slate-800 w-full h-[200px] flex items-center justify-center text-center p-2`}
-            >
-              {file ? (
-                <p>{file.name}</p>
-              ) : (
-                <p>Drag and drop file here, or click to select file.</p>
-              )}
-              <input
-                type="file"
-                accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx"
-                className="hidden"
-                ref={fileInput}
-                onChange={handleFileSelect}
-              />
-            </div>
-            {/* <button
+      <div className="flex flex-col gap-3">
+        <label
+          htmlFor={"name"}
+          className="uppercase leading-tight font-bold text-xs"
+        >
+          Upload File
+        </label>
+        <div
+          name="name"
+          onClick={() => fileInput.current.click()}
+          onDrop={(event) => {
+            event.preventDefault();
+            setFile(event.dataTransfer.files[0]);
+          }}
+          onDragOver={(event) => event.preventDefault()}
+          className={`cursor-pointer shadow-lg border-2 border-dashed border-primary rounded-xl bg-white dark:bg-slate-800 w-full h-[200px] flex items-center justify-center text-center p-2`}
+        >
+          {file ? (
+            <p>{file.name}</p>
+          ) : (
+            <p>Drag and drop file here, or click to select file.</p>
+          )}
+          <input
+            type="file"
+            accept=".jpg,.jpeg,.png,.gif,.pdf,.doc,.docx"
+            className="hidden"
+            ref={fileInput}
+            onChange={handleFileSelect}
+          />
+        </div>
+        {/* <button
               type="submit"
               variant="contained"
               color="primary"
@@ -76,9 +74,7 @@ const UploadFile = () => {
             >
               {isSubmitting ? "Uploading..." : "Submit"}
             </button> */}
-          </Form>
-        )}
-      </Formik>
+      </div>
     </>
   );
 };

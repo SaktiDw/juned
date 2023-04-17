@@ -1,7 +1,14 @@
 import React, { useState } from "react";
-import { Button, Input, Select, Textarea, UploadFile } from "..";
+import {
+  Button,
+  Input,
+  JenisDokumenSelection,
+  Select,
+  Textarea,
+  UploadFile,
+} from "..";
 
-const MultipleUploadFile = ({ errors }) => {
+const MultipleUploadFile = ({ data, errors, children }) => {
   const [files, setFiles] = useState([1]);
   const [isActive, setIsActive] = useState(0);
   return (
@@ -9,6 +16,8 @@ const MultipleUploadFile = ({ errors }) => {
       <label className="uppercase leading-tight font-bold text-sm">
         Upload Dokumen
       </label>
+      {JSON.stringify(data)}
+      {children}
       <div className="flex items-start gap-8">
         <p className="w-1/4">
           Upload Dokumen{" "}
@@ -19,7 +28,7 @@ const MultipleUploadFile = ({ errors }) => {
           dengan data yang diusulkan. Dokumen Wajib : - KTP - Kartu Keluarga
         </p>
         <div className="grid w-full gap-4">
-          {files.map((item, index) => (
+          {data.map((item, index) => (
             <div key={index} className="relative flex flex-col gap-4 w-full">
               <h1
                 className="bg-primary text-white rounded-lg p-2 cursor-pointer"
@@ -47,11 +56,12 @@ const MultipleUploadFile = ({ errors }) => {
                     errors={""}
                     touched={""}
                   />
-                  <Select
+                  {/* <Select
                     name={`jenis_dokumen${index}`}
                     label={"Jenis Dokumen"}
                     errors={""}
                     touched={""}
+                    value={item.jenis_dokumen}
                     option={[
                       { label: "KTP", value: "ktp" },
                       { label: "Kartu Keluarga", value: "kk" },
@@ -59,7 +69,8 @@ const MultipleUploadFile = ({ errors }) => {
                     ]}
                     valueKey={"value"}
                     labelKey={"label"}
-                  />
+                  /> */}
+                  <JenisDokumenSelection />
                 </div>
                 <UploadFile />
                 <Textarea label={"Keterangan"} />

@@ -45,6 +45,7 @@ function List({
           </button>
           {pageNumbers.map((item, index) => (
             <button
+              key={`paginationBTN-${item}`}
               className={`p-2 w-8 h-8 text-xs rounded-lg border hover:bg-primary dark:hover:bg-primary hover:text-white hover:shadow-primary  ${
                 item === currentPage
                   ? "bg-primary text-white dark:shadow-primary border-primary"

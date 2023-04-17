@@ -57,6 +57,7 @@ export { default as PerguruanTinggiSelection } from "./Selections/PerguruanTingg
 export { default as KategoriKegiatanSelection } from "./Selections/KategoriKegiatanSelection";
 export { default as GolonganPangkatSelection } from "./Selections/GolonganPangkatSelection";
 export { default as JabatanFungsionalSelection } from "./Selections/JabatanFungsionalSelection";
+export { default as JenisDokumenSelection } from "./Selections/JenisDokumenSelection";
 
 export { default as CardDataPribadi } from "./Card/CardDataPribadi";
 
