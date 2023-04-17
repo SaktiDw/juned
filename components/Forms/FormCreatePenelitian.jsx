@@ -1,15 +1,18 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import {
+  Action,
   Button,
   Input,
   JabatanFungsionalSelection,
   KategoriKegiatanSelection,
   MultipleUploadFile,
   Select,
+  Table,
 } from "..";
 import * as yup from "yup";
 import { createUser } from "@/helper/api/api";
+import { useRouter } from "next/router";
 
 const schema = yup.object().shape({
   kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
@@ -23,7 +26,10 @@ const schema = yup.object().shape({
   lokasi: yup.string().required("lokasi kegiatan wajib di isi."),
   tahun_usulan: yup.string().required("tahun usulan wajib di isi."),
   tahun_kegiatan: yup.string().required("tahun kegiatan wajib di isi."),
-  tahun_pelaksanaan: yup.string().required("tahun pelaksanaan wajib di isi."),
+  lama_kegiatan: yup.string().required("lama kegiatan wajib di isi."),
+  tahun_pelaksanaan_ke: yup
+    .string()
+    .required("tahun pelaksanaan wajib di isi."),
   dana_dikti: yup.string().required("dana dikti wajib di isi."),
   dana_perguruan_tinggi: yup
     .string()
@@ -40,29 +46,35 @@ const schema = yup.object().shape({
 });
 
 const FormCreatePenelitian = ({ initialValues }) => {
+  const router = useRouter();
+
   return (
     <>
       <Formik
         enableReinitialize
         initialValues={{
-          kategori_kegiatan: initialValues?.id_jabatan_fungsional || "",
+          kategori_kegiatan: initialValues?.id_kategori_kegiatan || "",
           judul: initialValues?.judul || "",
           afiliasi: initialValues?.afiliasi || "",
           kelompok_bidang: initialValues?.kelompok_bidang || "",
           litabmas_sebelumnya: initialValues?.litabmas_sebelumnya || "",
           jenis_skim: initialValues?.jenis_skim || "",
           lokasi: initialValues?.lokasi || "",
-          tahun_usulan: initialValues?.tahun_usulan || "",
-          tahun_kegiatan: initialValues?.tahun_kegiatan || "",
+          tahun_usulan: initialValues?.tahun_usulan.toLocaleString() || "",
+          tahun_kegiatan: initialValues?.tahun_kegiatan.toLocaleString() || "",
           tahun_pelaksanaan: initialValues?.tahun_pelaksanaan || "",
+          lama_kegiatan: initialValues?.lama_kegiatan.toLocaleString() || "",
           tahun_pelaksanaan_ke: initialValues?.tahun_pelaksanaan_ke || "",
-          dana_dikti: initialValues?.dana_dikti || "",
-          dana_perguruan_tinggi: initialValues?.dana_perguruan_tinggi || "",
-          dana_institusi_lain: initialValues?.dana_institusi_lain || "",
+          dana_dikti: initialValues?.dana_dikti.toLocaleString() || "",
+          dana_perguruan_tinggi:
+            initialValues?.dana_perguruan_tinggi.toLocaleString() || "",
+          dana_institusi_lain:
+            initialValues?.dana_institusi_lain.toLocaleString() || "",
           in_kind: initialValues?.in_kind || "",
           sk_penugasan: initialValues?.sk_penugasan || "",
           tanggal_sk_penugasan: initialValues?.tanggal_sk_penugasan || "",
-          mitra_litabmas: initialValues?.mitra_litabmas[0].nama || "",
+          mitra_litabmas: initialValues?.mitra_litabmas[0]?.nama || "",
+          dokumen: initialValues?.dokumen || "",
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) =>
@@ -77,6 +89,8 @@ const FormCreatePenelitian = ({ initialValues }) => {
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
+              type={"list"}
+              menu={"penelitian"}
               name={"kategori_kegiatan"}
               value={initialValues?.id_kategori_kegiatan}
               errors={errors.kategori_kegiatan}
@@ -86,6 +100,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="Judul Kegiatan"
               name="judul"
               type="text"
+              value={initialValues?.judul}
               errors={errors.judul}
               touched={touched.judul}
             />
@@ -93,6 +108,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="kelompok bidang"
               name="kelompok_bidang"
               type="text"
+              value={initialValues?.kelompok_bidang}
               errors={errors.kelompok_bidang}
               touched={touched.kelompok_bidang}
             />
@@ -100,6 +116,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="afiliasi"
               name="afiliasi"
               type="text"
+              value={initialValues?.afiliasi}
               errors={errors.afiliasi}
               touched={touched.afiliasi}
             />
@@ -107,6 +124,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="litabmas sebelumnya"
               name="litabmas_sebelumnya"
               type="text"
+              value={initialValues?.litabmas_sebelumnya}
               errors={errors.litabmas_sebelumnya}
               touched={touched.litabmas_sebelumnya}
             />
@@ -114,6 +132,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="jenis skim"
               name="jenis_skim"
               type="text"
+              value={initialValues?.jenis_skim}
               errors={errors.jenis_skim}
               touched={touched.jenis_skim}
             />
@@ -121,6 +140,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="lokasi kegiatan"
               name="lokasi"
               type="text"
+              value={initialValues?.lokasi}
               errors={errors.lokasi}
               touched={touched.lokasi}
             />
@@ -128,6 +148,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="tahun usulan"
               name="tahun_usulan"
               type="number"
+              value={initialValues?.tahun_usulan}
               errors={errors.tahun_usulan}
               touched={touched.tahun_usulan}
             />
@@ -135,6 +156,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="tahun kegiatan"
               name="tahun_kegiatan"
               type="number"
+              value={initialValues?.tahun_kegiatan}
               errors={errors.tahun_kegiatan}
               touched={touched.tahun_kegiatan}
             />
@@ -142,6 +164,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="tahun pelaksanaan"
               name="tahun_pelaksanaan"
               type="number"
+              value={initialValues?.tahun_pelaksanaan}
               errors={errors.tahun_pelaksanaan}
               touched={touched.tahun_pelaksanaan}
             />
@@ -149,6 +172,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="lama kegiatan (tahun)"
               name="lama_kegiatan"
               type="number"
+              value={initialValues?.lama_kegiatan}
               errors={errors.lama_kegiatan}
               touched={touched.lama_kegiatan}
             />
@@ -156,6 +180,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="tahun pelaksanaan ke"
               name="tahun_pelaksanaan_ke"
               type="number"
+              value={initialValues?.tahun_pelaksanaan_ke}
               errors={errors.tahun_pelaksanaan_ke}
               touched={touched.tahun_pelaksanaan_ke}
             />
@@ -163,6 +188,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="dana dari dikti (Rp.)"
               name="dana_dikti"
               type="number"
+              value={initialValues?.dana_dikti}
               errors={errors.dana_dikti}
               touched={touched.dana_dikti}
             />
@@ -170,6 +196,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="dana dari perguruan_tinggi (Rp.)"
               name="dana_perguruan_tinggi"
               type="number"
+              value={initialValues?.dana_perguruan_tinggi}
               errors={errors.dana_perguruan_tinggi}
               touched={touched.dana_perguruan_tinggi}
             />
@@ -177,6 +204,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="dana dari institusi_lain (Rp.)"
               name="dana_institusi_lain"
               type="number"
+              value={initialValues?.dana_institusi_lain}
               errors={errors.dana_institusi_lain}
               touched={touched.dana_institusi_lain}
             />
@@ -184,6 +212,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="in kind"
               name="in_kind"
               type="text"
+              value={initialValues?.in_kind}
               errors={errors.in_kind}
               touched={touched.in_kind}
             />
@@ -191,6 +220,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="no sk penugasan"
               name="sk_penugasan"
               type="text"
+              value={initialValues?.sk_penugasan}
               errors={errors.sk_penugasan}
               touched={touched.sk_penugasan}
             />
@@ -198,6 +228,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="tanggal sk penugasan"
               name="tanggal_sk_penugasan"
               type="date"
+              value={initialValues?.tanggal_sk_penugasan}
               errors={errors.tanggal_sk_penugasan}
               touched={touched.tanggal_sk_penugasan}
             />
@@ -205,10 +236,35 @@ const FormCreatePenelitian = ({ initialValues }) => {
               label="mitra litabmas"
               name="mitra_litabmas"
               type="text"
+              value={initialValues?.mitra_litabmas}
               errors={errors.mitra_litabmas}
               touched={touched.mitra_litabmas}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile data={initialValues?.dokumen}>
+              {router.pathname.includes("edit") && initialValues.dokumen && (
+                <Table
+                  columns={[
+                    { key: "id", title: "No.", dataType: "numbering" },
+                    { key: "nama_file", title: "nama file" },
+                    { key: "jenis_file", title: "jenis file" },
+                    { key: "tanggal_upload", title: "tanggal_upload" },
+                    { key: "jenis_dokumen", title: "jenis_dokumen" },
+                    {
+                      key: "action",
+                      title: "action",
+                      render: (val) => (
+                        <Action
+                          param={val}
+                          baseUrl={"/dokumen"}
+                          action={["detail", "edit", "delete"]}
+                        />
+                      ),
+                    },
+                  ]}
+                  data={initialValues?.dokumen}
+                />
+              )}
+            </MultipleUploadFile>
             <Button
               disabled={!isValid}
               type={"submit"}

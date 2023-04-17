@@ -1,5 +1,5 @@
 import { Action, Button, MainLayout, Nav, Table } from "@/components";
-import { fetchListPenelitian } from "@/helper/api/api";
+import { fetchListPenelitian } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
@@ -21,33 +21,37 @@ const Penelitian = () => {
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Penelitian
         </h1>
-        <Table
-          createLink={"/penelitian/create"}
-          columns={[
-            { key: "id", title: "No.", dataType: "numbering" },
-            ,
-            { key: "judul", title: "Judul" },
-            {
-              key: "bidang_keilmuan",
-              title: "Bidang Keilmuan",
-            },
-            {
-              key: "tahun_pelaksanaan",
-              title: "Tahun Pelaksanaan",
-            },
-            {
-              key: "lama_kegiatan",
-              title: "Lama Kegiatan",
-              render: (val) => <span>{val.lama_kegiatan} tahun</span>,
-            },
-            {
-              key: "id",
-              title: "Action",
-              render: (val) => <Action param={val} baseUrl={"/penelitian"} />,
-            },
-          ]}
-          data={penelitian?.data}
-        />
+        {isLoading ? (
+          "Loading"
+        ) : (
+          <Table
+            createLink={"/penelitian/create"}
+            columns={[
+              { key: "id", title: "No.", dataType: "numbering" },
+              ,
+              { key: "judul", title: "Judul" },
+              {
+                key: "bidang_keilmuan",
+                title: "Bidang Keilmuan",
+              },
+              {
+                key: "tahun_pelaksanaan",
+                title: "Tahun Pelaksanaan",
+              },
+              {
+                key: "lama_kegiatan",
+                title: "Lama Kegiatan",
+                render: (val) => <span>{val.lama_kegiatan} tahun</span>,
+              },
+              {
+                key: "id",
+                title: "Action",
+                render: (val) => <Action param={val} baseUrl={"/penelitian"} />,
+              },
+            ]}
+            data={penelitian}
+          />
+        )}
       </div>
     </MainLayout>
   );
