@@ -27,11 +27,14 @@ const Select = ({
               : ` focus:border-primary border-primary caret-primary`
           }`}
           as="select"
+          // defaultValue={"pilih"}
+          // value={values}
         >
-          <option value="" className="w-fit">
+          <option value="pilih" className="w-fit">
             Pilih...
           </option>
           {option &&
+            option.length > 0 &&
             option?.map((item) => {
               return (
                 <option
