@@ -1,20 +1,22 @@
 import { Action, Button, MainLayout, Nav, Table } from "@/components";
+import { fetchListPublikasi } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const Publikasi = () => {
   const {
-    data: paten,
+    data: publikasi,
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["paten"],
-    queryFn: () => null,
+    queryKey: ["publikasi"],
+    queryFn: () => fetchListPublikasi(id),
     networkMode: "offlineFirst",
   });
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 dark:text-white w-full h-full">
+      <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"Publikasi"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Publikasi
@@ -27,6 +29,8 @@ const Publikasi = () => {
           />
         </div>
         <Table
+          searchAble
+          createLink={"/publikasi/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             ,
@@ -37,16 +41,23 @@ const Publikasi = () => {
             },
             { key: "jenis_publikasi", title: "jenis publikasi" },
             { key: "quartile", title: "quartile" },
-            { key: "tanggal_terbit", title: "tanggal terbit" },
+            { key: "tanggal", title: "tanggal terbit" },
             { key: "asal_data", title: "asal data" },
             { key: "rubrik_bkd", title: "rubrik bkd" },
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} />,
+              render: (val) => (
+                <Action
+                  param={val}
+                  baseUrl={"/publikasi"}
+                  action={["delete", "detail", "edit", "edit-bidang-ilmu"]}
+                />
+              ),
             },
           ]}
-          data={paten?.data}
+          data={publikasi}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>
