@@ -16,9 +16,9 @@ const Table = ({
   const indexOfLastItem = selectedPage * perPage;
   const indexOfFirstItem = indexOfLastItem - perPage;
 
-  // useEffect(() => {
-  //   setLocalData(data);
-  // }, [isLoading]);
+  useEffect(() => {
+    setLocalData(data);
+  }, [isLoading]);
 
   const handleFilter = (searchTerm) => {
     const filtered = data?.filter((item) => {
@@ -79,7 +79,7 @@ const Table = ({
             ))}
           </tr>
         </thead>
-        {data?.length > 0 ? (
+        {!isLoading && localData?.length > 0 ? (
           <tbody>
             {localData &&
               localData

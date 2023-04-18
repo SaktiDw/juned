@@ -89,7 +89,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
-              type={"list"}
+              type={"tree"}
               menu={"penelitian"}
               name={"kategori_kegiatan"}
               value={initialValues?.id_kategori_kegiatan}
@@ -241,7 +241,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               touched={touched.mitra_litabmas}
             />
             <MultipleUploadFile data={initialValues?.dokumen}>
-              {router.pathname.includes("edit") && initialValues.dokumen && (
+              {router.pathname.includes("edit") && initialValues?.dokumen && (
                 <Table
                   columns={[
                     { key: "id", title: "No.", dataType: "numbering" },

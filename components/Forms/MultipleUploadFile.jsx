@@ -8,7 +8,7 @@ import {
   UploadFile,
 } from "..";
 
-const MultipleUploadFile = ({ data, errors, children }) => {
+const MultipleUploadFile = ({ data = [0], errors, children }) => {
   const [files, setFiles] = useState([1]);
   const [isActive, setIsActive] = useState(0);
   return (
@@ -16,7 +16,6 @@ const MultipleUploadFile = ({ data, errors, children }) => {
       <label className="uppercase leading-tight font-bold text-sm">
         Upload Dokumen
       </label>
-      {JSON.stringify(data)}
       {children}
       <div className="flex items-start gap-8">
         <p className="w-1/4">

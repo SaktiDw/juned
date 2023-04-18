@@ -48,6 +48,7 @@ export { default as Dropdown } from "./Navigations/Dropdown";
 export { default as Breadcrumbs } from "./Navigations/Breadcrumbs";
 
 export { default as Modal } from "./Modals/Modal";
+export { default as ModalTambahDokumen } from "./Modals/ModalTambahDokumen";
 
 export { default as ListItem } from "./Lists/ListItem";
 export { default as NestedList } from "./Lists/NestedList";
@@ -58,6 +59,8 @@ export { default as KategoriKegiatanSelection } from "./Selections/KategoriKegia
 export { default as GolonganPangkatSelection } from "./Selections/GolonganPangkatSelection";
 export { default as JabatanFungsionalSelection } from "./Selections/JabatanFungsionalSelection";
 export { default as JenisDokumenSelection } from "./Selections/JenisDokumenSelection";
+export { default as BidangIlmuPenelitianSelection } from "./Selections/BidangIlmuPenelitianSelection";
+export { default as KelompokBidangSelection } from "./Selections/KelompokBidangSelection";
 
 export { default as CardDataPribadi } from "./Card/CardDataPribadi";
 

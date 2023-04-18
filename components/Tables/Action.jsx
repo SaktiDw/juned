@@ -7,10 +7,22 @@ const Action = ({
   action = ["delete", "edit", "detail", "add-document"],
   baseUrl,
   deleteFn,
+  addDocumentFn,
 }) => {
   return (
     <>
       <div className="flex items-center gap-2">
+        {action.includes("edit-bidang-ilmu") && (
+          <Link
+            href={`${baseUrl}/${param.id}/edit-bidang-ilmu`}
+            className="relative flex justify-center p-1 text-indigo-500 rounded-xl text-md group"
+          >
+            <i className="fi-rr-edit"></i>
+            <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
+              Edit Bidang Ilmu
+            </span>
+          </Link>
+        )}
         {action.includes("delete") && (
           <button
             onClick={deleteFn}
@@ -46,7 +58,7 @@ const Action = ({
         )}
         {action.includes("add-document") && (
           <button
-            onClick={() => mutate(param.id)}
+            onClick={addDocumentFn}
             className="relative flex justify-center p-1 text-primary rounded-xl text-md group"
           >
             <i className="fi-rr-document"></i>
