@@ -25,6 +25,7 @@ export { default as FormCreateAnggotaProfesi } from "./Forms/FormCreateAnggotaPr
 export { default as FormCreatePenunjangLain } from "./Forms/FormCreatePenunjangLain";
 export { default as FormCreatePenelitian } from "./Forms/FormCreatePenelitian";
 export { default as FormCreatePublikasi } from "./Forms/FormCreatePublikasi";
+export { default as FormCreatePaten } from "./Forms/FormCreatePaten";
 
 export { default as Input } from "./Forms/Input";
 export { default as Select } from "./Forms/Select";

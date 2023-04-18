@@ -1,4 +1,6 @@
 import { Action, Button, MainLayout, Nav, Table } from "@/components";
+import { fetchListKekayaanIntelektual } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
@@ -9,39 +11,45 @@ const Paten = () => {
     isLoading,
   } = useQuery({
     queryKey: ["paten"],
-    queryFn: () => null,
+    queryFn: () => fetchListKekayaanIntelektual(id),
     networkMode: "offlineFirst",
   });
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 dark:text-white w-full h-full">
+      <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"paten"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Paten
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
-          <Button
-            icon={<i className="fi-rr-plus"></i>}
-            text={"Riwayat Ajuan Perubahan"}
-          />
-        </div>
+
         <Table
+          searchAble
+          createLink={"/paten/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             ,
-            { key: "sk", title: "Nomor SK" },
+            { key: "judul", title: "Judul" },
             {
-              key: "terhitung_mulai_tanggal",
-              title: "Terhitung Mulai Tanggal",
+              key: "kategori_kegiatan",
+              title: "Kategori Kegiatan",
             },
+            { key: "jenis_publikasi", title: "jenis" },
+            { key: "quartile", title: "quartile" },
+            { key: "tanggal", title: "tanggal" },
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} />,
+              render: (val) => (
+                <Action
+                  param={val}
+                  baseUrl={"/paten"}
+                  action={["delete", "detail", "edit", "edit-bidang-ilmu"]}
+                />
+              ),
             },
           ]}
-          data={paten?.data}
+          data={paten}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>

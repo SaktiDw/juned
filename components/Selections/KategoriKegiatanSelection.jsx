@@ -38,7 +38,7 @@ const KategoriKegiatanSelection = ({
           htmlFor={name}
           className="uppercase leading-tight font-bold text-sm"
         >
-          {name}
+          kategori kegiatan
         </label>
         <TreeSelection name={name} data={data} />
       </div>

@@ -25,6 +25,10 @@ export const fetchListPublikasi = async (id) => await apiSister.get(`/publikasi?
 export const fetchDetailPublikasi = async (id) => await apiSister.get(`/publikasi/${id}`).then(res=>res.data)
 export const fetchBidangIlmuPublikasi = async (id) => await apiSister.get(`/publikasi/${id}/bidang_ilmu`).then(res=>res.data)
 
+export const fetchListKekayaanIntelektual = async (id) => await apiSister.get(`/kekayaan_intelektual?id_sdm=${id}`).then(res=>res.data)
+export const fetchDetailKekayaanIntelektual = async (id) => await apiSister.get(`/kekayaan_intelektual/${id}`).then(res=>res.data)
+export const fetchBidangIlmuKekayaanIntelektual = async (id) => await apiSister.get(`/kekayaan_intelektual/${id}/bidang_ilmu`).then(res=>res.data)
+
 export const fetchListKateogriCapaianLuaran = async () => await apiSister.get(`/referensi/kategori_capaian_luaran`).then(res=>res.data).catch(err=>err)
 export const fetchPerguruanTinggi = async () => await apiSister.get(`/referensi/perguruan_tinggi`).then(res=>res.data).catch(err=>err)
 export const fetchKategoriKegiatan = async (type, menu) => await apiSister.get(`/referensi/kategori_kegiatan?tipe=${type}&menu=${menu}`).then(res=>res.data).catch(err=>err)
