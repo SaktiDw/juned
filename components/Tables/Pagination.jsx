@@ -28,9 +28,9 @@ function List({
 
   return (
     <div className="flex justify-between items-center">
-      <span>{`Showing ${indexOfFirstItem + 1} to ${lastItem} entries of ${
-        data.length
-      }`}</span>
+      <span>{`Showing ${
+        data.length > 0 ? indexOfFirstItem + 1 : 0
+      } to ${lastItem} entries of ${data.length}`}</span>
       <div>
         {currentItems.map((item) => (
           <div key={item.id}>{item.title}</div>

@@ -45,7 +45,11 @@ const Table = ({
   };
 
   return (
-    <section className="grid grid-flow-row gap-6 p-4 z-10 overflow-x-auto w-full rounded-xl shadow-lg bg-white dark:bg-slate-800">
+    <section
+      className={`${
+        isLoading ? "animate-pulse" : ""
+      } grid grid-flow-row gap-6 p-4 z-10 overflow-x-auto w-full rounded-xl shadow-lg bg-white dark:bg-slate-800`}
+    >
       <div className="flex justify-between gap-6">
         <FilterPageSize onChange={(e) => setPerpage(e.target.value)} />
         {createLink && (
