@@ -126,51 +126,43 @@ const DetailPenelitian = () => {
           <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
             Anggota Dosen
           </h1>
-          {isLoading ? (
-            "loading"
-          ) : (
-            <Table
-              searchAble
-              columns={[
-                { key: "id", title: "No", dataType: "numbering" },
-                { key: "nama", title: "nama" },
-                { key: "peran", title: "peran" },
-                {
-                  key: "stat_aktif",
-                  title: "aktif",
-                  render: (val) => (val.stat_aktif ? "Aktif" : "Tidak Aktif"),
-                },
-              ]}
-              data={penelitian?.anggota.filter(
-                (item) => item.jenis === "Dosen"
-              )}
-            />
-          )}
+          <Table
+            isLoading={isLoading}
+            searchAble
+            columns={[
+              { key: "id", title: "No", dataType: "numbering" },
+              { key: "nama", title: "nama" },
+              { key: "peran", title: "peran" },
+              {
+                key: "stat_aktif",
+                title: "aktif",
+                render: (val) => (val.stat_aktif ? "Aktif" : "Tidak Aktif"),
+              },
+            ]}
+            data={penelitian?.anggota.filter((item) => item.jenis === "Dosen")}
+          />
         </div>
         <div className="flex flex-col gap-2">
           <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
             Anggota Mahasiswa
           </h1>
-          {isLoading ? (
-            "loading"
-          ) : (
-            <Table
-              searchAble
-              columns={[
-                { key: "id", title: "No" },
-                { key: "nama", title: "nama" },
-                { key: "peran", title: "peran" },
-                {
-                  key: "stat_aktif",
-                  title: "aktif",
-                  render: (val) => (val.stat_aktif ? "Aktif" : "Tidak Aktif"),
-                },
-              ]}
-              data={penelitian?.anggota.filter(
-                (item) => item.jenis === "Mahasiswa"
-              )}
-            />
-          )}
+          <Table
+            isLoading={isLoading}
+            searchAble
+            columns={[
+              { key: "id", title: "No" },
+              { key: "nama", title: "nama" },
+              { key: "peran", title: "peran" },
+              {
+                key: "stat_aktif",
+                title: "aktif",
+                render: (val) => (val.stat_aktif ? "Aktif" : "Tidak Aktif"),
+              },
+            ]}
+            data={penelitian?.anggota.filter(
+              (item) => item.jenis === "Mahasiswa"
+            )}
+          />
         </div>
         <div className="flex flex-col gap-2">
           <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
@@ -196,9 +188,10 @@ const DetailPenelitian = () => {
             Dokumen
           </h1>
           <Table
+            isLoading={isLoading}
             searchAble={true}
             columns={[
-              { key: "id", title: "No" },
+              { key: "id", title: "No", dataType: "numbering" },
               { key: "nama", title: "nama" },
               { key: "jenis_dokumen", title: "jenis dokumen" },
               { key: "nama_file", title: "nama file" },
@@ -207,11 +200,14 @@ const DetailPenelitian = () => {
               {
                 key: "tautan",
                 title: "tautan",
-                render: (val) => (
-                  <Link href={val.tautan} className="text-primary">
-                    Link
-                  </Link>
-                ),
+                render: (val) =>
+                  val.tautan ? (
+                    <Link href={val.tautan} className="text-primary">
+                      Link
+                    </Link>
+                  ) : (
+                    "(tidak ada data)"
+                  ),
               },
               {
                 key: "id",

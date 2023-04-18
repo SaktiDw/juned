@@ -1,4 +1,4 @@
-import { Modal, MultipleUploadFile } from "@/components";
+import { MainLayout, Modal, MultipleUploadFile } from "@/components";
 import useToggle from "@/helper/hooks/useToggle";
 import { Formik } from "formik";
 import Link from "next/link";
@@ -64,7 +64,7 @@ const Sidebar = () => {
   currentPage = 2; // Change the current page
 
   return (
-    <>
+    <MainLayout>
       <ul>
         <li>
           <Link href="/">Home</Link>
@@ -110,7 +110,7 @@ const Sidebar = () => {
         </button>
         <Modal
           isOpen={showModal}
-          setIsOpen={setShowModal}
+          setIsOpen={() => setShowModal(!showModal)}
           title={
             "Caelestinum Finale Termini — Stormterror Dvalin's Theme | Genshin Impact OST: Mondstadt Chapter"
           }
@@ -120,7 +120,7 @@ const Sidebar = () => {
           </Formik>
         </Modal>
       </div>
-    </>
+    </MainLayout>
   );
 };
 

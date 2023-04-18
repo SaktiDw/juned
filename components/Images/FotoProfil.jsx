@@ -9,7 +9,7 @@ const FotoProfil = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const fetchImage = async () => {
-      const response = await apiSister.get(`/sister/data_pribadi/foto/${id}`, {
+      const response = await apiSister.get(`/data_pribadi/foto/${id}`, {
         responseType: "arraybuffer",
       });
 

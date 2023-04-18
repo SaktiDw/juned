@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Form, Formik } from "formik";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import * as yup from "yup";
 
@@ -16,6 +17,7 @@ const schema = yup.object().shape({
 const Login = () => {
   const [imageSrc, setImageSrc] = useState("");
   const [data, setData] = useState();
+  const router = useRouter();
 
   // useEffect(() => {
   //   async function fetchImage() {
@@ -47,6 +49,7 @@ const Login = () => {
             setData(res.data);
             localStorage.setItem("role", res.data.role);
             localStorage.setItem("token", res.data.token);
+            router.back();
           })
         }
         validationSchema={schema}
