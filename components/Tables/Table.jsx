@@ -10,7 +10,7 @@ const Table = ({
   searchAble = false,
   isLoading,
 }) => {
-  const [perPage, setPerpage] = useState(2);
+  const [perPage, setPerpage] = useState(5);
   const [localData, setLocalData] = useState(data);
   const [selectedPage, setSelectedPage] = useState(1);
   const indexOfLastItem = selectedPage * perPage;
