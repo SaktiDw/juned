@@ -29,6 +29,10 @@ export const fetchListKekayaanIntelektual = async (id) => await apiSister.get(`/
 export const fetchDetailKekayaanIntelektual = async (id) => await apiSister.get(`/kekayaan_intelektual/${id}`).then(res=>res.data)
 export const fetchBidangIlmuKekayaanIntelektual = async (id) => await apiSister.get(`/kekayaan_intelektual/${id}/bidang_ilmu`).then(res=>res.data)
 
+export const fetchListPengabdian = async (id) => await apiSister.get(`/pengabdian?id_sdm=${id}`).then(res=>res.data)
+export const fetchDetailPengabdian = async (id) => await apiSister.get(`/pengabdian/${id}`).then(res=>res.data)
+export const fetchBidangIlmuPengabdian = async (id) => await apiSister.get(`/pengabdian/${id}/bidang_ilmu`).then(res=>res.data)
+
 export const fetchListKateogriCapaianLuaran = async () => await apiSister.get(`/referensi/kategori_capaian_luaran`).then(res=>res.data).catch(err=>err)
 export const fetchPerguruanTinggi = async () => await apiSister.get(`/referensi/perguruan_tinggi`).then(res=>res.data).catch(err=>err)
 export const fetchKategoriKegiatan = async (type, menu) => await apiSister.get(`/referensi/kategori_kegiatan?tipe=${type}&menu=${menu}`).then(res=>res.data).catch(err=>err)
