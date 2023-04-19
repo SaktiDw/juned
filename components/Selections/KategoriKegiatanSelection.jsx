@@ -55,7 +55,7 @@ const TreeSelection = ({ name, data = [] }) => {
       <ul className="cursor-pointer w-full">
         {data &&
           data?.map((item, index) => (
-            <li className="flex flex-col ">
+            <li key={item.nama} className="flex flex-col ">
               <div className="flex gap-2 w-full items-center px-4 hover:bg-slate-300 dark:hover:bg-slate-600 rounded-lg">
                 {item.sub_kategori ? (
                   <i
@@ -75,7 +75,11 @@ const TreeSelection = ({ name, data = [] }) => {
                 </label>
               </div>
               {item.sub_kategori && isOpen && (
-                <TreeSelection name={name} data={item.sub_kategori} />
+                <TreeSelection
+                  key={item.sub_kategori}
+                  name={name}
+                  data={item.sub_kategori}
+                />
               )}
             </li>
           ))}

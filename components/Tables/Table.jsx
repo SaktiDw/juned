@@ -18,7 +18,7 @@ const Table = ({
 
   useEffect(() => {
     setLocalData(data);
-  }, [isLoading]);
+  }, [isLoading, data]);
 
   const handleFilter = (searchTerm) => {
     const filtered = data?.filter((item) => {
