@@ -10,6 +10,7 @@ import {
   FormUsers,
   Input,
   MainLayout,
+  Nav,
   Table,
 } from "@/components";
 import Image from "next/image";
@@ -28,6 +29,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="flex flex-col gap-4">
+        <Nav title={"Institut Teknologi Kalimantan"} />
         <div className="flex flex-col gap-2 text-sm">
           <h1>Riwayat Perubahan Data Dosen</h1>
           <Table
