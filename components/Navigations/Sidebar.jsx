@@ -1,23 +1,14 @@
 import { DarkModeContext } from "@/helper/context/DarkModeContext";
-import useDarkMode from "@/helper/hooks/useDarkMode";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Dropdown, SidebarItem } from "..";
+import { Dropdown } from "..";
 import Link from "next/link";
-import { useQuery } from "@tanstack/react-query";
-import { fetchProfil } from "@/helper/api/apiSister";
-import { id } from "@/helper/constant";
 
 const Sidebar = () => {
   const router = useRouter();
   const [activeDropdown, setActiveDropdown] = useState(null);
   const ref = useRef(null);
-
-  const { data } = useQuery({
-    queryKey: ["profil", id],
-    queryFn: async () => await fetchProfil(id),
-  });
 
   const handleDropdownClick = (index) => {
     index === activeDropdown
