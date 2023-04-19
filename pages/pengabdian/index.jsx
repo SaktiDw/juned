@@ -1,10 +1,18 @@
-import { Action, Button, MainLayout, Nav, Table } from "@/components";
+import {
+  Action,
+  Button,
+  MainLayout,
+  ModalTambahDokumen,
+  Nav,
+  Table,
+} from "@/components";
 import { fetchListPengabdian } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 
 const Pengabdian = () => {
+  const [showModal, setShowModal] = useState(false);
   const {
     data: pengabdian,
     error,
@@ -15,7 +23,14 @@ const Pengabdian = () => {
     networkMode: "offlineFirst",
   });
   return (
-    <MainLayout>
+    <MainLayout
+      modal={
+        <ModalTambahDokumen
+          showModal={showModal}
+          setShowModal={() => setShowModal(!showModal)}
+        />
+      }
+    >
       <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"pengabdian"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
@@ -35,7 +50,7 @@ const Pengabdian = () => {
               render: (val) => (
                 <div className="flex flex-col gap-2">
                   {val.bidang_keilmuan.map((item, index) => (
-                    <div>
+                    <div key={item}>
                       <span>{index + 1}.</span> <span>{item}</span>
                     </div>
                   ))}
@@ -59,7 +74,14 @@ const Pengabdian = () => {
                 <Action
                   param={val}
                   baseUrl={"/pengabdian"}
-                  action={["delete", "detail", "edit", "edit-bidang-ilmu"]}
+                  action={[
+                    "delete",
+                    "detail",
+                    "edit",
+                    "edit-bidang-ilmu",
+                    "add-document",
+                  ]}
+                  addDocumentFn={() => setShowModal(!showModal)}
                 />
               ),
             },
