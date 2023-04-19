@@ -1,14 +1,23 @@
 import { DarkModeContext } from "@/helper/context/DarkModeContext";
+import useDarkMode from "@/helper/hooks/useDarkMode";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Dropdown } from "..";
+import { Dropdown, SidebarItem } from "..";
 import Link from "next/link";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProfil } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
 
 const Sidebar = () => {
   const router = useRouter();
   const [activeDropdown, setActiveDropdown] = useState(null);
   const ref = useRef(null);
+
+  const { data } = useQuery({
+    queryKey: ["profil", id],
+    queryFn: async () => await fetchProfil(id),
+  });
 
   const handleDropdownClick = (index) => {
     index === activeDropdown
@@ -442,13 +451,15 @@ const Sidebar = () => {
           ]}
         />
         <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-primary bg-primary dark:bg-opacity-80 backdrop-blur-lg text-white font-semibold">
-          <Link
-            href={"/auth/login"}
-            className="flex gap-2 justify-center items-center"
-          >
-            <i className="fi-rr-sign-in-alt mt-1"></i>
-            Login
-          </Link>
+          {data && !data.nama && (
+            <Link
+              href={"/auth/login"}
+              className="flex gap-2 justify-center items-center"
+            >
+              <i className="fi-rr-sign-in-alt mt-1"></i>
+              Login
+            </Link>
+          )}
           <button
             className="flex gap-2 items-center"
             onClick={() => toggleDarkMode()}
