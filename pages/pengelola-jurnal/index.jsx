@@ -1,47 +1,56 @@
 import { Action, Button, MainLayout, Nav, Table } from "@/components";
+import { fetchListPengelolaJurnal } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const PengelolaJurnal = () => {
   const {
-    data: paten,
+    data: pengelola_jurnal,
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["paten"],
-    queryFn: () => null,
+    queryKey: ["pengelola_jurnal"],
+    queryFn: () => fetchListPengelolaJurnal(id),
     networkMode: "offlineFirst",
   });
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-full">
-        <Nav title={"paten"} />
+        <Nav title={"pengelola_jurnal"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-          PengelolaJurnal
+          Pengelola Jurnal
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
-          <Button
-            icon={<i className="fi-rr-plus"></i>}
-            text={"Riwayat Ajuan Perubahan"}
-          />
-        </div>
         <Table
+          searchAble
+          createLink={"/pengelola-jurnal/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             ,
-            { key: "sk", title: "Nomor SK" },
+            { key: "media_publikasi", title: "Media Publikasi" },
+            { key: "sk_penugasan", title: "Nomor SK Penugasan" },
+            { key: "tanggal_mulai", title: "Terhitung Mulai Tanggal" },
+            { key: "tanggal_selesai", title: "Tanggal Selesai" },
             {
-              key: "terhitung_mulai_tanggal",
-              title: "Terhitung Mulai Tanggal",
+              key: "aktif",
+              title: "status aktif",
+              render: (val) => <span>{val.aktif ? "Aktif" : "Tidak"}</span>,
             },
+            { key: "peran", title: "peran" },
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} />,
+              render: (val) => (
+                <Action
+                  param={val}
+                  baseUrl={"/pengelola-jurnal"}
+                  action={["delete", "edit", "detail"]}
+                />
+              ),
             },
           ]}
-          data={paten?.data}
+          data={pengelola_jurnal}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>

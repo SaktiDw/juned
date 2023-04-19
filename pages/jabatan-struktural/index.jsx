@@ -1,39 +1,41 @@
 import { Action, Button, MainLayout, Nav, Table } from "@/components";
+import { fetchListJabatanStruktural } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const JabatanStruktural = () => {
   const {
-    data: paten,
+    data: jabatan_struktural,
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["paten"],
-    queryFn: () => null,
+    queryKey: ["jabatan_struktural"],
+    queryFn: () => fetchListJabatanStruktural(id),
     networkMode: "offlineFirst",
   });
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-full">
-        <Nav title={"paten"} />
+        <Nav title={"jabatan struktural"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-          JabatanStruktural
+          Jabatan Struktural
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
-          <Button
-            icon={<i className="fi-rr-plus"></i>}
-            text={"Riwayat Ajuan Perubahan"}
-          />
-        </div>
         <Table
+          searchAble
+          createLink={"/jabatan-struktural/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             ,
-            { key: "sk", title: "Nomor SK" },
+            { key: "jabatan", title: "Jabatan Struktural" },
+            { key: "sk_jabatan", title: "Nomor SK" },
             {
-              key: "terhitung_mulai_tanggal",
+              key: "tanggal_mulai_jabatan",
               title: "Terhitung Mulai Tanggal",
+            },
+            {
+              key: "tanggal_selesai_jabatan",
+              title: "Terhitung Tanggal Selesai",
             },
             {
               key: "id",
@@ -41,7 +43,8 @@ const JabatanStruktural = () => {
               render: (val) => <Action param={val} />,
             },
           ]}
-          data={paten?.data}
+          data={jabatan_struktural}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>

@@ -40,14 +40,14 @@ const KategoriKegiatanSelection = ({
         >
           kategori kegiatan
         </label>
-        <TreeSelection name={name} data={data} />
+        <TreeSelection value={value} name={name} data={data} />
       </div>
     );
 };
 
 export default KategoriKegiatanSelection;
 
-const TreeSelection = ({ name, data = [] }) => {
+const TreeSelection = ({ value, name, data = [] }) => {
   const [isOpen, setisOpen] = useState(false);
   if (!data) return <></>;
   return (
@@ -64,7 +64,13 @@ const TreeSelection = ({ name, data = [] }) => {
                     }`}
                   ></i>
                 ) : (
-                  <input type={"radio"} name={name} id={item.nama} />
+                  <input
+                    type={"radio"}
+                    name={name}
+                    id={item.nama}
+                    value={item.id}
+                    defaultChecked={item.id === value}
+                  />
                 )}{" "}
                 <label
                   className="p-1 cursor-pointer w-full"
@@ -79,6 +85,7 @@ const TreeSelection = ({ name, data = [] }) => {
                   key={item.sub_kategori}
                   name={name}
                   data={item.sub_kategori}
+                  value={value}
                 />
               )}
             </li>

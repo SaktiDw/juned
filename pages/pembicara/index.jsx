@@ -1,39 +1,41 @@
 import { Action, Button, MainLayout, Nav, Table } from "@/components";
+import { fetchListPembicara } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const Pembicara = () => {
   const {
-    data: paten,
+    data: pembicara,
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["paten"],
-    queryFn: () => null,
+    queryKey: ["pembicara"],
+    queryFn: () => fetchListPembicara(id),
     networkMode: "offlineFirst",
   });
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-full">
-        <Nav title={"paten"} />
+        <Nav title={"pembicara"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Pembicara
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
-          <Button
-            icon={<i className="fi-rr-plus"></i>}
-            text={"Riwayat Ajuan Perubahan"}
-          />
-        </div>
         <Table
+          searchAble
+          createLink={"/pembicara/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             ,
-            { key: "sk", title: "Nomor SK" },
+            { key: "judul_makalah", title: "judul makalah" },
+            { key: "nama_pertemuan", title: "nama temu ilmiah" },
             {
-              key: "terhitung_mulai_tanggal",
-              title: "Terhitung Mulai Tanggal",
+              key: "tanggal_pelaksanaan",
+              title: "Tanggal Pelaksanaan",
+            },
+            {
+              key: "rubrik_bkd",
+              title: "Rubrik BKD",
             },
             {
               key: "id",
@@ -41,7 +43,8 @@ const Pembicara = () => {
               render: (val) => <Action param={val} />,
             },
           ]}
-          data={paten?.data}
+          data={pembicara}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>

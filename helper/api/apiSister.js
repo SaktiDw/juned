@@ -33,6 +33,18 @@ export const fetchListPengabdian = async (id) => await apiSister.get(`/pengabdia
 export const fetchDetailPengabdian = async (id) => await apiSister.get(`/pengabdian/${id}`).then(res=>res.data)
 export const fetchBidangIlmuPengabdian = async (id) => await apiSister.get(`/pengabdian/${id}/bidang_ilmu`).then(res=>res.data)
 
+export const fetchListPengelolaJurnal = async (id) => await apiSister.get(`/pengelola_jurnal?id_sdm=${id}`).then(res=>res.data)
+export const fetchDetailPengelolaJurnal = async (id) => await apiSister.get(`/pengelola_jurnal/${id}`).then(res=>res.data)
+export const fetchBidangIlmuPengelolaJurnal = async (id) => await apiSister.get(`/pengelola_jurnal/${id}/bidang_ilmu`).then(res=>res.data)
+
+export const fetchListPembicara = async (id) => await apiSister.get(`/pembicara?id_sdm=${id}`).then(res=>res.data)
+export const fetchDetailPembicara = async (id) => await apiSister.get(`/pembicara/${id}`).then(res=>res.data)
+export const fetchBidangIlmuPembicara = async (id) => await apiSister.get(`/pembicara/${id}/bidang_ilmu`).then(res=>res.data)
+
+export const fetchListJabatanStruktural = async (id) => await apiSister.get(`/jabatan_struktural?id_sdm=${id}`).then(res=>res.data)
+export const fetchDetailJabatanStruktural = async (id) => await apiSister.get(`/jabatan_struktural/${id}`).then(res=>res.data)
+export const fetchBidangIlmuJabatanStruktural = async (id) => await apiSister.get(`/jabatan_struktural/${id}/bidang_ilmu`).then(res=>res.data)
+
 export const fetchListKateogriCapaianLuaran = async () => await apiSister.get(`/referensi/kategori_capaian_luaran`).then(res=>res.data).catch(err=>err)
 export const fetchPerguruanTinggi = async () => await apiSister.get(`/referensi/perguruan_tinggi`).then(res=>res.data).catch(err=>err)
 export const fetchKategoriKegiatan = async (type, menu) => await apiSister.get(`/referensi/kategori_kegiatan?tipe=${type}&menu=${menu}`).then(res=>res.data).catch(err=>err)

@@ -27,6 +27,9 @@ export { default as FormCreatePenelitian } from "./Forms/FormCreatePenelitian";
 export { default as FormCreatePublikasi } from "./Forms/FormCreatePublikasi";
 export { default as FormCreatePaten } from "./Forms/FormCreatePaten";
 export { default as FormCreatePengabdian } from "./Forms/FormCreatePengabdian";
+export { default as FormCreatePengelolaJurnal } from "./Forms/FormCreatePengelolaJurnal";
+export { default as FormCreatePembicara } from "./Forms/FormCreatePembicara";
+export { default as FormCreateJabatanStruktural } from "./Forms/FormCreateJabatanStruktural";
 
 export { default as Input } from "./Forms/Input";
 export { default as Select } from "./Forms/Select";
