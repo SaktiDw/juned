@@ -8,7 +8,7 @@ const Single = () => {
     const id = typeof router.query?.id === "string" ? router.query.id : ""
     const {data, error, isLoading, isSuccess, isError} = useQuery({
         queryKey: ['user', id],
-        queryFn: () => fetchUser(id),
+        queryFn: () => null,
         enabled: id.length > 0
     })
 

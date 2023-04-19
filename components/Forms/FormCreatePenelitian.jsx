@@ -77,14 +77,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
           dokumen: initialValues?.dokumen || "",
         }}
         validationSchema={schema}
-        onSubmit={(values, { setErrors, setStatus }) =>
-          createUser(values)
-            .then((res) => setStatus(res.data))
-            .catch(
-              (err) => err
-              // err.status === "422" && setErrors(err.response.data.message)
-            )
-        }
+        onSubmit={(values, { setErrors, setStatus }) => null}
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">

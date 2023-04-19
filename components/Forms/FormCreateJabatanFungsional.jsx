@@ -39,23 +39,16 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
           sk: initialValues?.sk || "",
           tanggal_mulai: initialValues?.tanggal_mulai || "",
           kelebihan_pengajaran:
-            initialValues?.kelebihan_pengajaran.toString() || "",
+            initialValues?.kelebihan_pengajaran?.toString() || "",
           kelebihan_penelitian:
-            initialValues?.kelebihan_penelitian.toString() || "",
+            initialValues?.kelebihan_penelitian?.toString() || "",
           kelebihan_pengabdian:
-            initialValues?.kelebihan_pengabdian.toString() || "",
+            initialValues?.kelebihan_pengabdian?.toString() || "",
           kelebihan_penunjang:
-            initialValues?.kelebihan_penunjang.toString() || "",
+            initialValues?.kelebihan_penunjang?.toString() || "",
         }}
         validationSchema={schema}
-        onSubmit={(values, { setErrors, setStatus }) =>
-          createUser(values)
-            .then((res) => setStatus(res.data))
-            .catch(
-              (err) => err
-              // err.status === "422" && setErrors(err.response.data.message)
-            )
-        }
+        onSubmit={(values, { setErrors, setStatus }) => null}
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
