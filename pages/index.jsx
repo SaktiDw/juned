@@ -8,6 +8,7 @@ import {
   Dropdown,
   Form,
   FormUsers,
+  FotoProfil,
   Input,
   MainLayout,
   Nav,
@@ -179,12 +180,13 @@ export default function Home() {
               <h1>Ringkasan Profil</h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
                 <div className="relative w-[300px] h-[300px] mx-auto">
-                  <Image
+                  {/* <Image
                     fill
                     alt={"profile"}
                     src={"/images.jpg"}
                     className={`rounded-lg shadow-lg  object-cover`}
-                  />
+                  /> */}
+                  <FotoProfil />
                 </div>
                 <div className="flex flex-col gap-1">
                   <span className="font-semibold text-slate-500">Nama :</span>
