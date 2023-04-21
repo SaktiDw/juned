@@ -6,9 +6,20 @@ import {
   Nav,
   Table,
 } from "@/components";
+import { fetchListBahanAjar } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const BahanAjar = () => {
+  const {
+    data: bahan_ajar,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["bahan_ajar"],
+    queryFn: () => fetchListBahanAjar(id),
+  });
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full">
@@ -17,19 +28,16 @@ const BahanAjar = () => {
           Bahan Ajar
         </h1>
         <Table
+          searchAble
           createLink={"/bahan-ajar/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
-            { key: "judul_bahan_ajar", title: "Judul Bahan Ajar" },
+            { key: "judul", title: "Judul Bahan Ajar" },
             { key: "isbn", title: "ISBN" },
             { key: "tanggal_terbit", title: "Tanggal Terbit" },
             {
-              key: "penerbit",
+              key: "nama_penerbit",
               title: "Penerbit",
-            },
-            {
-              key: "jumlah_mahasiswa",
-              title: "Jumlah Mahasiswa",
             },
             {
               key: "rubrik_bkd",
@@ -38,9 +46,17 @@ const BahanAjar = () => {
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} />,
+              render: (val) => (
+                <Action
+                  param={val}
+                  baseUrl={"/bahan-ajar"}
+                  action={["delete", "detail", "edit"]}
+                />
+              ),
             },
           ]}
+          data={bahan_ajar}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>

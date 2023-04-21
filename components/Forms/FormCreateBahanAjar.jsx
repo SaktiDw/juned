@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import {
   Button,
   Input,
+  KategoriKegiatanSelection,
   MultipleUploadFile,
   NestedList,
   Select,
@@ -43,98 +44,12 @@ const FormCreateBahanAjar = () => {
       >
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
-            <NestedList
-              items={[
-                {
-                  id: 1,
-                  title: "list1",
-                  children: [
-                    {
-                      id: 1,
-                      title: "child1",
-                      children: [{ id: 1, title: "grandchild1" }],
-                    },
-                    { id: 2, title: "child2" },
-                  ],
-                },
-                { id: 2, title: "list2" },
-                { id: 3, title: "list3" },
-                { id: 4, title: "list4" },
-              ]}
+            <KategoriKegiatanSelection
+              menu={"bahan_ajar"}
+              type={"tree"}
+              errors={errors.kategori_kegiatan}
+              touched={touched.kategori_kegiatan}
             />
-            {/* <ul>
-              <li>
-                Pelaksanaan Pendidikan
-                <ul className="hidden">
-                  <li>Mengembangkan Bahan Kuliah</li>
-                  <div className="flex gap-2 items-baseline">
-                    <input
-                      type="radio"
-                      name="bahan_kuliah"
-                      id="1"
-                      className="m-2"
-                    />
-                    <label htmlFor="1">Buku Ajar (cetak atau elektronik)</label>
-                  </div>
-                  <div className="flex gap-2 items-baseline">
-                    <input
-                      type="radio"
-                      name="bahan_kuliah"
-                      id="2"
-                      className="m-2"
-                    />
-                    <label htmlFor="2">
-                      mengembangkan bahan pengajaran/modul/ bahan kuliah yang
-                      mempunyai nilai kebaharuan/manual/ pedoman
-                      akademik/pedoman pemagangan/pedoman pembelajaran dalam
-                      bentuk case study/problem based learning/project based
-                      learning
-                    </label>
-                  </div>
-                  <div className="flex gap-2 items-baseline">
-                    <input
-                      type="radio"
-                      name="bahan_kuliah"
-                      id="3"
-                      className="m-2"
-                    />
-                    <label htmlFor="3">
-                      Mengembangkan bahan pengajaran/modul/ bahan kuliah yang
-                      mempunyai nilai kebaharuan/manual/ pedoman
-                      akademik/pedoman pemagangan/pedoman pembelajaran
-                    </label>
-                  </div>
-                </ul>
-              </li>
-              <li>Penunjang Kegiatan Akademik Dosen</li>
-            </ul> */}
-            {/* <div className="flex gap-2 items-baseline">
-              <input
-                type="radio"
-                name="menulis_buku_pelajaran"
-                id=""
-                className="m-2"
-              />
-              <label htmlFor="">Buku SLTA atau setingkat</label>
-            </div>
-            <div className="flex gap-2 items-baseline">
-              <input
-                type="radio"
-                name="menulis_buku_pelajaran"
-                id=""
-                className="m-2"
-              />
-              <label htmlFor="">Buku SLTP atau setingkat</label>
-            </div>
-            <div className="flex gap-2 items-baseline">
-              <input
-                type="radio"
-                name="menulis_buku_pelajaran"
-                id=""
-                className="m-2"
-              />
-              <label htmlFor="">Buku SD atau setingkat</label>
-            </div> */}
             <Select
               label="jenis bahan ajar"
               name="jenis_bahan_ajar"
