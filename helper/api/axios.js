@@ -16,6 +16,7 @@ if (typeof window !== 'undefined') {
     const item = localStorage.getItem('key')
   }
 const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null
+
 export const apiSister = axios.create({
     baseURL: "/sister/",
     headers: {
@@ -24,3 +25,19 @@ export const apiSister = axios.create({
         'Content-Type': 'application/json',
     },  
 })
+
+apiSister.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      const config = error.config;
+      if (error.response && error.response.status === 401 && !config._retry) {
+        config._retry = true;
+  
+        window.location.href = "/auth/login";
+        return Promise.reject(error);
+      }
+      return Promise.reject(error);
+    }
+  );
