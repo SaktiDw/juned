@@ -4,6 +4,7 @@ import {
   CardDataPribadi,
   FotoProfil,
   MainLayout,
+  ModalUploadFoto,
   Nav,
 } from "@/components";
 import {
@@ -19,10 +20,11 @@ import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 
 const DataPribadi = () => {
   const router = useRouter();
+  const [showModal, setShowModal] = useState(false);
 
   const { data: alamat } = useQuery({
     queryKey: ["alamat"],
@@ -61,7 +63,16 @@ const DataPribadi = () => {
   });
 
   return (
-    <MainLayout>
+    <MainLayout
+      modal={
+        <ModalUploadFoto
+          showModal={showModal}
+          setShowModal={() => {
+            setShowModal(!showModal);
+          }}
+        />
+      }
+    >
       <div className="flex flex-col gap-8">
         <Nav title={"Data pribadi"} />
         <div className="grid grid-flow-col gap-8">
@@ -93,6 +104,7 @@ const DataPribadi = () => {
               icon={<i className="fi-rr-upload"></i>}
               size={"small"}
               text={"Unggah Foto"}
+              onClick={() => setShowModal(!showModal)}
             ></Button>
           </CardDataPribadi>
           <CardDataPribadi

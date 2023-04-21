@@ -54,6 +54,7 @@ export { default as Breadcrumbs } from "./Navigations/Breadcrumbs";
 
 export { default as Modal } from "./Modals/Modal";
 export { default as ModalTambahDokumen } from "./Modals/ModalTambahDokumen";
+export { default as ModalUploadFoto } from "./Modals/ModalUploadFoto";
 
 export { default as ListItem } from "./Lists/ListItem";
 export { default as NestedList } from "./Lists/NestedList";
