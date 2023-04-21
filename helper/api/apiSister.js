@@ -61,6 +61,10 @@ export const fetchListBimbinganMahasiswa = async (id, id_semester) => await apiS
 export const fetchDetailBimbinganMahasiswa = async (id) => await apiSister.get(`/bimbingan_mahasiswa/${id}`).then(res=>res.data)
 export const fetchBidangIlmuBimbinganMahasiswa = async (id) => await apiSister.get(`/bimbingan_mahasiswa/${id}/bidang_ilmu`).then(res=>res.data)
 
+export const fetchListPengujianMahasiswa = async (id, id_semester) => await apiSister.get(`/pengujian_mahasiswa?id_sdm=${id}${id_semester ? `&id_semester=${id_semester}` : ''}`).then(res=>res.data)
+export const fetchDetailPengujianMahasiswa = async (id) => await apiSister.get(`/pengujian_mahasiswa/${id}`).then(res=>res.data)
+export const fetchBidangIlmuPengujianMahasiswa = async (id) => await apiSister.get(`/pengujian_mahasiswa/${id}/bidang_ilmu`).then(res=>res.data)
+
 export const fetchListKateogriCapaianLuaran = async () => await apiSister.get(`/referensi/kategori_capaian_luaran`).then(res=>res.data).catch(err=>err)
 export const fetchPerguruanTinggi = async () => await apiSister.get(`/referensi/perguruan_tinggi`).then(res=>res.data).catch(err=>err)
 export const fetchKategoriKegiatan = async (type, menu) => await apiSister.get(`/referensi/kategori_kegiatan?tipe=${type}&menu=${menu}`).then(res=>res.data).catch(err=>err)
