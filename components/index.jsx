@@ -72,3 +72,5 @@ export { default as CardDataPribadi } from "./Card/CardDataPribadi";
 export { default as Chip } from "./Chips/Chip";
 
 export { default as FotoProfil } from "./Images/FotoProfil";
+
+export { default as Footer } from "./Footers/Footer";

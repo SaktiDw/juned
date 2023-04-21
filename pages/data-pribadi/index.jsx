@@ -1,5 +1,6 @@
 import {
   Breadcrumbs,
+  Button,
   CardDataPribadi,
   FotoProfil,
   MainLayout,
@@ -87,6 +88,12 @@ const DataPribadi = () => {
             <div className="relative w-full h-[300px]">
               <FotoProfil />
             </div>
+
+            <Button
+              icon={<i className="fi-rr-upload"></i>}
+              size={"small"}
+              text={"Unggah Foto"}
+            ></Button>
           </CardDataPribadi>
           <CardDataPribadi
             title={"Alamat dan kontak"}
