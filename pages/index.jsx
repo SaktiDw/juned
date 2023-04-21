@@ -50,7 +50,7 @@ export default function Home() {
                 key: "id",
                 title: "Action",
                 render: (val) => (
-                  <Action param={val} baseUrl={"/"} action={["detail"]} />
+                  <Action param={val} baseUrl={""} action={["detail"]} />
                 ),
               },
             ]}
@@ -221,7 +221,7 @@ export default function Home() {
                   <span className="font-semibold">PNS</span>
                 </div>
                 <Link
-                  href={"/"}
+                  href={""}
                   className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
                 >
                   Lihat Detail
@@ -234,7 +234,7 @@ export default function Home() {
                 <div className="bg-blue-300 p-4 rounded-xl">Tidak ada data</div>
                 <div className="flex justify-end py-4">
                   <Link
-                    href={"/"}
+                    href={""}
                     className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
                   >
                     Lihat Detail
@@ -286,7 +286,7 @@ export default function Home() {
                 />
                 <div className="flex justify-end py-4">
                   <Link
-                    href={"/"}
+                    href={""}
                     className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
                   >
                     Lihat Detail
@@ -344,7 +344,7 @@ export default function Home() {
                 />
                 <div className="flex justify-end py-4">
                   <Link
-                    href={"/"}
+                    href={""}
                     className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
                   >
                     Lihat Detail
@@ -358,7 +358,7 @@ export default function Home() {
                 <div className="bg-blue-300 p-4 rounded-xl">Tidak ada data</div>
                 <div className="flex justify-end py-4">
                   <Link
-                    href={"/"}
+                    href={""}
                     className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
                   >
                     Lihat Detail
@@ -399,7 +399,7 @@ export default function Home() {
                 </div>
 
                 <Link
-                  href={"/"}
+                  href={""}
                   className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
                 >
                   Lihat Detail
@@ -451,7 +451,7 @@ export default function Home() {
                 />
                 <div className="flex justify-end py-4">
                   <Link
-                    href={"/"}
+                    href={""}
                     className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
                   >
                     Lihat Detail
@@ -534,7 +534,7 @@ export default function Home() {
                 />
                 <div className="flex justify-end py-4">
                   <Link
-                    href={"/"}
+                    href={""}
                     className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
                   >
                     Lihat Detail
@@ -586,7 +586,7 @@ export default function Home() {
                 />
                 <div className="flex justify-end py-4">
                   <Link
-                    href={"/"}
+                    href={""}
                     className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
                   >
                     Lihat Detail
@@ -600,7 +600,7 @@ export default function Home() {
                 <div className="bg-blue-300 p-4 rounded-xl">Tidak ada data</div>
                 <div className="flex justify-end py-4">
                   <Link
-                    href={"/"}
+                    href={""}
                     className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
                   >
                     Lihat Detail
