@@ -8,9 +8,21 @@ import {
   Select,
   Table,
 } from "@/components";
-import React from "react";
+import { fetchListBimbinganMahasiswa } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
+import { useQuery } from "@tanstack/react-query";
+import React, { useState } from "react";
 
 const BimbinganMahasiswa = () => {
+  const [semester, setSemester] = useState();
+  const {
+    data: bimbingan_mahasiswa,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["bimbingan_mahasiswa", semester],
+    queryFn: () => fetchListBimbinganMahasiswa(id, semester),
+  });
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full h-full">
@@ -31,14 +43,14 @@ const BimbinganMahasiswa = () => {
             icon={<i className="fi-rr-cloud-download-alt pt-1"></i>}
             text="Import Bimbingan Mahasiswa"
           />
-          <PeriodeSelection />
+          <PeriodeSelection onChange={(e) => setSemester(e.target.value)} />
         </div>
         <Table
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             { key: "semester", title: "Semester" },
             { key: "kategori_kegiatan", title: "Kategori Kegiatan" },
-            { key: "judul_bimbingan", title: "Judul Bimbingan" },
+            { key: "judul", title: "Judul Bimbingan" },
             { key: "jenis_bimbingan", title: "Jenis Bimbingan" },
             {
               key: "program_studi",
@@ -51,9 +63,17 @@ const BimbinganMahasiswa = () => {
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} />,
+              render: (val) => (
+                <Action
+                  param={val}
+                  baseUrl={"/bimbingan-mahasiswa"}
+                  action={["detail", "edit-bidang-ilmu"]}
+                />
+              ),
             },
           ]}
+          data={bimbingan_mahasiswa}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>
