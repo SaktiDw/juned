@@ -1,7 +1,21 @@
 import { Action, MainLayout, Nav, Table } from "@/components";
+import {
+  fetchListAnggotaProfesi,
+  fetchListPenunjangLain,
+} from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const AnggotaProfesi = () => {
+  const {
+    data: penunjang_lain,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["penunjang_lain"],
+    queryFn: () => fetchListPenunjangLain(id),
+  });
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full">
@@ -10,22 +24,33 @@ const AnggotaProfesi = () => {
           Penunjang Lain
         </h1>
         <Table
+          searchAble
           createLink={"/penunjang-lain/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
-            { key: "nama_kegiatan", title: "Nama Kegiatan" },
-            { key: "instansi_penyelenggara", title: "Instansi Penyelenggara" },
-            { key: "sk", title: "Nomor Sk Penugasan" },
-            { key: "tmmd", title: "Terhitung Mulai Tanggal" },
-            { key: "tanggal_selesai", title: "Tanggal Selesai" },
+            { key: "nama", title: "Nama kegiatan" },
+            { key: "instansi", title: "Instansi penyelenggara" },
+            { key: "sk_penugasan", title: "SK Penugasan" },
+            {
+              key: "tanggal_mulai",
+              title: "Tanggal Mulai",
+            },
+            {
+              key: "tanggal_selesai",
+              title: "Tanggal Selesai",
+            },
             { key: "peran", title: "Peran" },
             { key: "rubrik_bkd", title: "Rubrik BKD" },
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} />,
+              render: (val) => (
+                <Action param={val} baseUrl={"/penunjang-lain"} />
+              ),
             },
           ]}
+          data={penunjang_lain}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>
