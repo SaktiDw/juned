@@ -53,9 +53,13 @@ export const fetchListPenunjangLain = async (id) => await apiSister.get(`/penunj
 export const fetchDetailPenunjangLain = async (id) => await apiSister.get(`/penunjang_lain/${id}`).then(res=>res.data)
 export const fetchBidangIlmuPenunjangLain = async (id) => await apiSister.get(`/penunjang_lain/${id}/bidang_ilmu`).then(res=>res.data)
 
-export const fetchListPengajaran = async (id, id_semester) => await apiSister.get(`/jabatan_struktural?id_sdm=${id}&id_semester=${id_semester}`).then(res=>res.data)
-export const fetchDetailPengajaran = async (id) => await apiSister.get(`/jabatan_struktural/${id}`).then(res=>res.data)
-export const fetchBidangIlmuPengajaran = async (id) => await apiSister.get(`/jabatan_struktural/${id}/bidang_ilmu`).then(res=>res.data)
+export const fetchListPengajaran = async (id, id_semester) => await apiSister.get(`/pengajaran?id_sdm=${id}${id_semester ? `&id_semester=${id_semester}` : ''}`).then(res=>res.data)
+export const fetchDetailPengajaran = async (id) => await apiSister.get(`/pengajaran/${id}`).then(res=>res.data)
+export const fetchBidangIlmuPengajaran = async (id) => await apiSister.get(`/pengajaran/${id}/bidang_ilmu`).then(res=>res.data)
+
+export const fetchListBimbinganMahasiswa = async (id, id_semester) => await apiSister.get(`/bimbingan_mahasiswa?id_sdm=${id}${id_semester ? `&id_semester=${id_semester}` : ''}`).then(res=>res.data)
+export const fetchDetailBimbinganMahasiswa = async (id) => await apiSister.get(`/bimbingan_mahasiswa/${id}`).then(res=>res.data)
+export const fetchBidangIlmuBimbinganMahasiswa = async (id) => await apiSister.get(`/bimbingan_mahasiswa/${id}/bidang_ilmu`).then(res=>res.data)
 
 export const fetchListKateogriCapaianLuaran = async () => await apiSister.get(`/referensi/kategori_capaian_luaran`).then(res=>res.data).catch(err=>err)
 export const fetchPerguruanTinggi = async () => await apiSister.get(`/referensi/perguruan_tinggi`).then(res=>res.data).catch(err=>err)
