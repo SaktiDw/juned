@@ -45,6 +45,10 @@ export const fetchListJabatanStruktural = async (id) => await apiSister.get(`/ja
 export const fetchDetailJabatanStruktural = async (id) => await apiSister.get(`/jabatan_struktural/${id}`).then(res=>res.data)
 export const fetchBidangIlmuJabatanStruktural = async (id) => await apiSister.get(`/jabatan_struktural/${id}/bidang_ilmu`).then(res=>res.data)
 
+export const fetchListAnggotaProfesi = async (id) => await apiSister.get(`/anggota_profesi?id_sdm=${id}`).then(res=>res.data)
+export const fetchDetailAnggotaProfesi = async (id) => await apiSister.get(`/anggota_profesi/${id}`).then(res=>res.data)
+export const fetchBidangIlmuAnggotaProfesi = async (id) => await apiSister.get(`/anggota_profesi/${id}/bidang_ilmu`).then(res=>res.data)
+
 export const fetchListPengajaran = async (id, id_semester) => await apiSister.get(`/jabatan_struktural?id_sdm=${id}&id_semester=${id_semester}`).then(res=>res.data)
 export const fetchDetailPengajaran = async (id) => await apiSister.get(`/jabatan_struktural/${id}`).then(res=>res.data)
 export const fetchBidangIlmuPengajaran = async (id) => await apiSister.get(`/jabatan_struktural/${id}/bidang_ilmu`).then(res=>res.data)
