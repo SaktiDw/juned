@@ -247,7 +247,7 @@ export default function Home() {
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y text-xs">
                 <Table
                   columns={[
-                    { key: "id", title: "No" },
+                    { key: "id", title: "No", dataType: "numbering" },
                     { key: "judul_litabmas", title: "Judul Litabmas" },
                     { key: "tahun_anggaran", title: "Tahun Anggaran" },
                   ]}
@@ -300,7 +300,7 @@ export default function Home() {
                 {/* <div className="bg-blue-300 p-4 rounded-xl">Tidak ada data</div> */}
                 <Table
                   columns={[
-                    { key: "id", title: "No" },
+                    { key: "id", title: "No", dataType: "numbering" },
                     { key: "judul", title: "Judul" },
                     { key: "jenis", title: "Jenis" },
                     { key: "tahun_anggaran", title: "Tanggal Terbit" },
@@ -412,7 +412,7 @@ export default function Home() {
                 {/* <div className="bg-blue-300 p-4 rounded-xl">Tidak ada data</div> */}
                 <Table
                   columns={[
-                    { key: "id", title: "No" },
+                    { key: "id", title: "No", dataType: "numbering" },
                     { key: "tunjangan", title: "Tunjangan" },
                     { key: "instansi", title: "Instansi" },
                     { key: "dari_tahun", title: "Dari Tahun" },
@@ -464,7 +464,7 @@ export default function Home() {
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y text-xs">
                 <Table
                   columns={[
-                    { key: "id", title: "No" },
+                    { key: "id", title: "No", dataType: "numbering" },
                     { key: "mata_kuliah", title: "Mata Kuliah" },
                     { key: "jenjang_pendidikan", title: "Jenjang Pendidikan" },
                     { key: "semester", title: "Semester" },
@@ -547,7 +547,7 @@ export default function Home() {
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y text-xs">
                 <Table
                   columns={[
-                    { key: "id", title: "No" },
+                    { key: "id", title: "No", dataType: "numbering" },
                     { key: "judul_litabmas", title: "Judul Litabmas" },
                     { key: "tahun_anggaran", title: "Tahun Anggaran" },
                   ]}

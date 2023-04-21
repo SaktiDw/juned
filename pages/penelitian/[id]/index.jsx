@@ -150,7 +150,7 @@ const DetailPenelitian = () => {
             isLoading={isLoading}
             searchAble
             columns={[
-              { key: "id", title: "No" },
+              { key: "id", title: "No", dataType: "numbering" },
               { key: "nama", title: "nama" },
               { key: "peran", title: "peran" },
               {
@@ -171,7 +171,7 @@ const DetailPenelitian = () => {
           <Table
             searchAble
             columns={[
-              { key: "id", title: "No" },
+              { key: "id", title: "No", dataType: "numbering" },
               { key: "nama", title: "nama" },
               { key: "peran", title: "peran" },
               {
