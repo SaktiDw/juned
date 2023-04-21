@@ -226,10 +226,10 @@ const FormCreatePenelitian = ({ initialValues }) => {
               touched={touched.tanggal_sk_penugasan}
             />
             <Input
-              label="mitra litabmas"
+              label="Mitra Litabmas"
               name="mitra_litabmas"
               type="text"
-              value={initialValues?.mitra_litabmas}
+              value={initialValues?.mitra_litabmas[0]?.nama}
               errors={errors.mitra_litabmas}
               touched={touched.mitra_litabmas}
             />
