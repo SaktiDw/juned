@@ -6,12 +6,23 @@ import {
   PeriodeSelection,
   Table,
 } from "@/components";
+import { fetchListPengajaran } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
+import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 
 const Pengajaran = () => {
-  const router = useRouter();
-  const { id } = router.query;
+  const [semester, setSemester] = useState();
+
+  const {
+    data: pengajaran,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["pengajaran", semester],
+    queryFn: () => fetchListPengajaran(id, semester),
+  });
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full">
@@ -36,13 +47,24 @@ const Pengajaran = () => {
             icon={<i className="fi-rr-cloud-download-alt pt-1"></i>}
             text="Import Pengajaran"
           />
-          <PeriodeSelection />
+          <PeriodeSelection
+            onChange={(e) => {
+              setSemester(e.target.value);
+            }}
+          />
         </div>
         <Table
+          searchAble
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             { key: "mata_kuliah", title: "Mata Kuliah" },
-            { key: "jenis_mata_kuliah", title: "Jenis Mata Kuliah" },
+            {
+              key: "jns_mk",
+              title: "Jenis Mata Kuliah",
+              render: (val) => (
+                <span>{val.jns_mk === "A" ? "Wajib" : "Pilihan"}</span>
+              ),
+            },
             { key: "bidang_keilmuan", title: "Bidang Keilmuan" },
             {
               key: "kelas",
@@ -66,12 +88,14 @@ const Pengajaran = () => {
               render: (val) => (
                 <Action
                   param={val}
-                  action={["detail", "edit"]}
+                  action={["detail", "edit-bidang-ilmu"]}
                   baseUrl={"/pengajaran"}
                 />
               ),
             },
           ]}
+          data={pengajaran}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>
