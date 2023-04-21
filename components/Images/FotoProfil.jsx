@@ -14,7 +14,7 @@ const FotoProfil = () => {
       });
 
       const dataUrl = `data:image/jpeg;base64,${Buffer.from(
-        response.data,
+        response?.data,
         "binary"
       ).toString("base64")}`;
       setImageSrc(dataUrl);
