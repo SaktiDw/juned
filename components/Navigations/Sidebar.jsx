@@ -451,7 +451,7 @@ const Sidebar = () => {
           ]}
         />
         <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-primary bg-primary dark:bg-opacity-80 backdrop-blur-lg text-white font-semibold">
-          {data && !data.nama && (
+          {!data && (
             <Link
               href={"/auth/login"}
               className="flex gap-2 justify-center items-center"
