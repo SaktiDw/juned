@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProfil } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
+import { NavTogglerContext } from "@/helper/context/NavTogglerContext";
 
 const Sidebar = () => {
   const router = useRouter();
@@ -39,19 +40,40 @@ const Sidebar = () => {
   }, []);
 
   const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const { isNavOpen, toggleNav } = useContext(NavTogglerContext);
 
   return (
     <>
+      <div
+        onClick={() => toggleNav()}
+        className={`fixed inset-0 z-30 bg-black/20 backdrop-blur-sm ${
+          isNavOpen ? "block lg:hidden" : "hidden"
+        }`}
+      ></div>
       <aside
-        className="p-2 pl-4 pr-6 max-h-screen h-screen overflow-y-auto flex flex-col items-center gap-4 w-[320px] bg-slate-200 dark:bg-slate-900 bg-opacity-50 backdrop-blur-2xl dark:bg-opacity-50 dark:backdrop-blur-2xl z-10"
+        className={`
+        ${
+          isNavOpen
+            ? "lg:w-[320px] overflow-y-auto"
+            : "w-[320px] lg:w-20 -translate-x-full lg:translate-x-0"
+        }
+        fixed z-30 lg:relative p-2 pl-4 pr-4 max-h-screen h-screen flex flex-col items-center gap-4 bg-slate-200 dark:bg-slate-900 bg-opacity-50 backdrop-blur-2xl dark:bg-opacity-50 dark:backdrop-blur-2xl
+        transition-all ease-in-out duration-200
+        `}
         ref={ref}
       >
+        <button
+          onClick={() => toggleNav()}
+          className="lg:hidden absolute left-2 flex items-center justify-center w-10 h-10 text-sm font-light z-50"
+        >
+          <i className={`${"fi-rr-cross"}`}></i>
+        </button>
         <Link href={"/"}>
           <Image alt="" src={"/logo itk png.png"} width={300} height={200} />
         </Link>
-        <div className="flex flex-col itemc-center justify-center text-center">
+        <div className="flex flex-col itemc-center justify-center text-center text-sm md:text-md uppercase md:capitalize">
           <h1 className="font-poppins">Sistem Informasi</h1>
-          <h1 className="font-quicksand font-semibold text-primary text-xl ">
+          <h1 className="font-quicksand font-semibold text-primary dark:text-blue-400">
             Sister
           </h1>
         </div>
@@ -465,7 +487,7 @@ const Sidebar = () => {
             onClick={() => toggleDarkMode()}
           >
             <i className={`mt-1 ${darkMode ? "fi-rr-moon" : "fi-rr-sun"}`}></i>
-            {darkMode ? "Dark" : "Light"}
+            {isNavOpen && <span>{darkMode ? "Dark" : "Light"}</span>}
           </button>
         </div>
       </aside>

@@ -1,7 +1,10 @@
+import { NavTogglerContext } from "@/helper/context/NavTogglerContext";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useContext } from "react";
 
 const Dropdown = ({ index, isOpen, active, onClick, subItem, title, icon }) => {
+  const { isNavOpen } = useContext(NavTogglerContext);
   const router = useRouter();
   const handleDropdownClick = () => {
     onClick(index);
@@ -12,7 +15,7 @@ const Dropdown = ({ index, isOpen, active, onClick, subItem, title, icon }) => {
       className={`relative flex flex-col group w-full transition-all ease-in-out duration-300`}
     >
       <button
-        className={`relative flex items-center gap-2 p-2 w-full shadow-2xl rounded-lg z-10 group-hover:bg-primary group-hover:shadow-2xl group-hover:shadow-primary group-hover:text-white group-hover:scale-105 duration-200 ease-in-out ${
+        className={`relative flex items-center justify-center gap-2 p-2 w-full shadow-2xl rounded-lg z-10 group-hover:bg-primary group-hover:shadow-2xl group-hover:shadow-primary group-hover:text-white group-hover:scale-105 duration-200 ease-in-out ${
           isOpen || active
             ? `bg-primary shadow-primary text-white`
             : `bg-white dark:bg-slate-800`
@@ -22,10 +25,13 @@ const Dropdown = ({ index, isOpen, active, onClick, subItem, title, icon }) => {
         <div className="w-8 h-8 rounded-md flex items-center justify-center group-hover:shadow-xl">
           <i className={icon}></i>
         </div>
-        <span className="text-left">{title}</span>
+        <span className={`${isNavOpen ? "lg:block" : "lg:hidden"} text-left`}>
+          {title}
+        </span>
+
         {subItem && (
           <i
-            className={`${
+            className={`${isNavOpen ? "lg:block" : "lg:hidden"} ${
               isOpen ? `fi-rr-angle-small-up` : `fi-rr-angle-small-down`
             } ml-auto`}
           ></i>
@@ -33,18 +39,22 @@ const Dropdown = ({ index, isOpen, active, onClick, subItem, title, icon }) => {
       </button>
 
       <ul
-        className={`px-2 text-left flex flex-col overflow-hidden w-full transition-all ease-in-out duration-400 ${
-          isOpen ? `h-full` : `h-0`
+        className={`mx-2 rounded-b-lg  text-left flex flex-col overflow-hidden transition-all ease-in-out duration-400 bg-white/60 dark:bg-slate-900/50 backdrop-blur-2xl ${
+          isOpen
+            ? `${
+                isNavOpen
+                  ? "h-full"
+                  : "rounded-lg lg:absolute lg:left-16 h-max lg:w-max"
+              }`
+            : `h-0`
         }`}
       >
         {subItem &&
           subItem.map((item, index) => (
             <Link
               key={index}
-              className={`last:rounded-b-lg  hover:bg-primary hover:text-white hover:pl-4 p-2 duration-200 ease-in-out ${
-                item.active
-                  ? `bg-primary text-white`
-                  : `bg-white dark:bg-slate-800`
+              className={` hover:bg-primary dark:hover:bg-primary hover:text-white hover:pl-4 p-2 duration-200 ease-in-out ${
+                item.active ? `bg-primary text-white` : ``
               }`}
               href={item.link}
             >
