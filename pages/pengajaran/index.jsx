@@ -14,7 +14,7 @@ import React, { useState } from "react";
 
 const Pengajaran = () => {
   const [semester, setSemester] = useState();
-
+  const router = useRouter();
   const {
     data: pengajaran,
     isLoading,
@@ -23,6 +23,7 @@ const Pengajaran = () => {
     queryKey: ["pengajaran", semester],
     queryFn: () => fetchListPengajaran(id, semester),
   });
+
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full">
@@ -46,6 +47,7 @@ const Pengajaran = () => {
             size={"small"}
             icon={<i className="fi-rr-cloud-download-alt pt-1"></i>}
             text="Import Pengajaran"
+            onClick={() => router.push("/pengajaran/list-data")}
           />
           <PeriodeSelection
             onChange={(e) => {
@@ -53,6 +55,7 @@ const Pengajaran = () => {
             }}
           />
         </div>
+
         <Table
           searchAble
           columns={[

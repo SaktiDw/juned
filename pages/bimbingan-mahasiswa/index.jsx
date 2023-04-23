@@ -11,10 +11,12 @@ import {
 import { fetchListBimbinganMahasiswa } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 const BimbinganMahasiswa = () => {
   const [semester, setSemester] = useState();
+  const router = useRouter();
   const {
     data: bimbingan_mahasiswa,
     isLoading,
@@ -42,6 +44,7 @@ const BimbinganMahasiswa = () => {
             size={"small"}
             icon={<i className="fi-rr-cloud-download-alt pt-1"></i>}
             text="Import Bimbingan Mahasiswa"
+            onClick={() => router.push("/bimbingan-mahasiswa/list-data")}
           />
           <PeriodeSelection onChange={(e) => setSemester(e.target.value)} />
         </div>

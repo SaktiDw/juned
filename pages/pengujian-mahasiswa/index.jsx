@@ -9,10 +9,12 @@ import {
 import { fetchListPengujianMahasiswa } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 const PengujianMahasiswa = () => {
   const [semester, setSemester] = useState();
+  const router = useRouter();
   const {
     data: pengujian_mahasiswa,
     isLoading,
@@ -40,6 +42,9 @@ const PengujianMahasiswa = () => {
             size={"small"}
             icon={<i className="fi-rr-cloud-download-alt pt-1"></i>}
             text="Import Pengujian Mahasiswa"
+            onClick={() => {
+              router.push("/pengujian-mahasiswa/list-data");
+            }}
           />
           <PeriodeSelection onChange={(e) => setSemester(e.target.value)} />
         </div>
@@ -50,10 +55,7 @@ const PengujianMahasiswa = () => {
             { key: "judul", title: "Judul Pengujian" },
             { key: "bidang_keilmuan", title: "Bidang Keilmuan" },
             { key: "jenis_pengujian", title: "Jenis Pengujian" },
-            {
-              key: "program_studi",
-              title: "Program Studi",
-            },
+            { key: "program_studi", title: "Program Studi" },
             {
               key: "rubrik_bkd",
               title: "Rubrik BKD",
