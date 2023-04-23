@@ -1,17 +1,12 @@
-import {
-  Action,
-  Button,
-  MainLayout,
-  Nav,
-  Table,
-  TabRiwayatAjuanPerubahanData,
-} from "@/components";
+import { Action, Button, MainLayout, Nav, Table } from "@/components";
 import { fetchListKepangkatan } from "@/helper/api/api";
 import { id } from "@/helper/constant";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 import React from "react";
 
 const Kepangkatan = () => {
+  const router = useRouter();
   const {
     data: Kepangkatan,
     error,
@@ -29,6 +24,16 @@ const Kepangkatan = () => {
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Riwayat Golongan/Pangkat
         </h1>
+        <div className="flex justify-between">
+          <Button
+            size={"small"}
+            icon={<i className="fi-rr-time-past pt-1"></i>}
+            text="Riwayat Ajuan Perubahan"
+            onClick={() =>
+              router.push("/kepangkatan/riwayat-ajuan-perubahan-data")
+            }
+          />
+        </div>
         <Table
           createLink={"/kepangkatan/create"}
           columns={[
@@ -52,9 +57,6 @@ const Kepangkatan = () => {
             },
           ]}
           data={Kepangkatan?.data}
-        />
-        <TabRiwayatAjuanPerubahanData
-          title={" Riwayat Ajuan Perubahan Data Golongan/Pangkat "}
         />
       </div>
     </MainLayout>

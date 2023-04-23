@@ -9,9 +9,11 @@ import {
 import { fetchListJabatanFungsional } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
+import { useRouter } from "next/router";
 import React from "react";
 
 const JabatanFungsional = () => {
+  const router = useRouter();
   const {
     data: jabatan_fungsional,
     error,
@@ -28,6 +30,16 @@ const JabatanFungsional = () => {
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Riwayat Jabatan Fungsional
         </h1>
+        <div className="flex justify-between">
+          <Button
+            size={"small"}
+            icon={<i className="fi-rr-time-past pt-1"></i>}
+            text="Riwayat Ajuan Perubahan"
+            onClick={() =>
+              router.push("/jabatan-fungsional/riwayat-ajuan-perubahan-data")
+            }
+          />
+        </div>
         <Table
           createLink={"/jabatan-fungsional/create"}
           columns={[
@@ -51,9 +63,6 @@ const JabatanFungsional = () => {
             },
           ]}
           data={jabatan_fungsional}
-        />
-        <TabRiwayatAjuanPerubahanData
-          title={"Riwayat Ajuan Jabatan Fungsional"}
         />
       </div>
     </MainLayout>
