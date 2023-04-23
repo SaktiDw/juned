@@ -1,4 +1,4 @@
-import { MainLayout, Nav, Table } from "@/components";
+import { Action, MainLayout, Nav, Table } from "@/components";
 import { fetchDetailBimbinganMahasiswa } from "@/helper/api/apiSister";
 import { dynamicSort } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
