@@ -55,7 +55,7 @@ const Sidebar = () => {
         ${
           isNavOpen
             ? "lg:w-[320px] overflow-y-auto"
-            : "w-[320px] lg:w-20 -translate-x-full lg:translate-x-0"
+            : "w-3/4 lg:w-20 -translate-x-full lg:translate-x-0"
         }
         fixed z-30 lg:relative p-2 pl-4 pr-4 max-h-screen h-screen flex flex-col items-center gap-4 bg-slate-200 dark:bg-slate-900 bg-opacity-50 backdrop-blur-2xl dark:bg-opacity-50 dark:backdrop-blur-2xl
         transition-all ease-in-out duration-200

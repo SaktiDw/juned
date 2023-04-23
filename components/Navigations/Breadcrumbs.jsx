@@ -22,7 +22,7 @@ const Breadcrumbs = () => {
           <div key={url} className="flex items-center gap-2">
             <i className="pt-1 fi-rr-angle-small-right"></i>
             <button
-              className="disabled:text-slate-500 disabled:cursor-not-allowed"
+              className="disabled:text-slate-500 disabled:cursor-not-allowed truncate w-20 sm:w-max"
               // disabled={path.length == index + 1}
               key={url}
               onClick={() => router.push(url)}
