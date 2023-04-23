@@ -1,10 +1,18 @@
-import { Action, Button, MainLayout, Nav, Table } from "@/components";
+import {
+  Action,
+  Button,
+  MainLayout,
+  ModalTambahDokumen,
+  Nav,
+  Table,
+} from "@/components";
 import { fetchListPublikasi } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 
 const Publikasi = () => {
+  const [showModal, setShowModal] = useState(false);
   const {
     data: publikasi,
     error,
@@ -15,7 +23,14 @@ const Publikasi = () => {
     networkMode: "offlineFirst",
   });
   return (
-    <MainLayout>
+    <MainLayout
+      modal={
+        <ModalTambahDokumen
+          showModal={showModal}
+          setShowModal={() => setShowModal(!showModal)}
+        />
+      }
+    >
       <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"Publikasi"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
@@ -51,7 +66,14 @@ const Publikasi = () => {
                 <Action
                   param={val}
                   baseUrl={"/publikasi"}
-                  action={["delete", "detail", "edit", "edit-bidang-ilmu"]}
+                  action={[
+                    "delete",
+                    "detail",
+                    "edit",
+                    "edit-bidang-ilmu",
+                    "add-document",
+                  ]}
+                  addDocumentFn={() => setShowModal(!showModal)}
                 />
               ),
             },

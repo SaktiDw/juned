@@ -69,7 +69,13 @@ const Penelitian = () => {
                 <Action
                   param={val}
                   baseUrl={"/penelitian"}
-                  action={["delete", "edit", "detail", "edit-bidang-ilmu"]}
+                  action={[
+                    "delete",
+                    "edit",
+                    "detail",
+                    "edit-bidang-ilmu",
+                    "add-document",
+                  ]}
                   addDocumentFn={() => setShowModal(!showModal)}
                 />
               ),
