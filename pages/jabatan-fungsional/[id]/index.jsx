@@ -22,7 +22,7 @@ const DetailJabatanFungsional = () => {
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Detail Jabatan Fungsional
         </h1>
-        <div className="flex flex-col gap-2 justify-center bg-white rounded-xl p-4 divide-y">
+        <div className="flex flex-col gap-2 justify-center bg-white dark:bg-slate-800 rounded-xl p-4 divide-y dark:divide-slate-500">
           <div className="grid grid-cols-2">
             <h1>Jabatan Fungsional</h1>
             <span>
