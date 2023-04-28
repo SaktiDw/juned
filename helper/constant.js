@@ -20,3 +20,10 @@ export function dynamicSort(property) {
         return result * sortOrder;
     }
 }
+
+export const dateOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+
+export const dateFormater = (date) => new Date(date).toLocaleDateString(
+    "id-ID",
+    dateOptions
+  );

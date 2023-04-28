@@ -1,6 +1,6 @@
 import { Action, MainLayout, Nav, Table } from "@/components";
 import { fetchDetailBahanAjar } from "@/helper/api/apiSister";
-import { dynamicSort } from "@/helper/constant";
+import { dateFormater, dynamicSort } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -49,7 +49,7 @@ const DetailBahanAjar = () => {
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Tanggal Terbit</h1>
             <span className="flex-1">
-              {bahan_ajar?.tanggal_terbit || "( tidak ada data )"}
+              {dateFormater(bahan_ajar?.tanggal_terbit) || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
@@ -67,7 +67,8 @@ const DetailBahanAjar = () => {
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Tanggal SK Penugasan</h1>
             <span className="flex-1">
-              {bahan_ajar?.tanggal_sk_penugasan || "( tidak ada data )"}
+              {dateFormater(bahan_ajar?.tanggal_sk_penugasan) ||
+                "( tidak ada data )"}
             </span>
           </div>
         </div>

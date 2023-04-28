@@ -1,5 +1,6 @@
 import { Action, MainLayout, Nav, Table } from "@/components";
 import { fetchDetailPengelolaJurnal } from "@/helper/api/apiSister";
+import { dateFormater } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -53,13 +54,15 @@ const DetailPengelolaJurnal = () => {
               Terhitung Mulai Tanggal
             </h1>
             <span className="flex-1">
-              {pengelola_jurnal?.tanggal_mulai || "( tidak ada data )"}
+              {dateFormater(pengelola_jurnal?.tanggal_mulai) ||
+                "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Tanggal Selesai</h1>
             <span className="flex-1">
-              {pengelola_jurnal?.tanggal_selesai || "( tidak ada data )"}
+              {dateFormater(pengelola_jurnal?.tanggal_selesai) ||
+                "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">

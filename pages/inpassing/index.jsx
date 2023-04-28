@@ -10,14 +10,11 @@ import {
   Table,
 } from "@/components";
 import { fetchListInpassing } from "@/helper/api/api";
-import { id } from "@/helper/constant";
+import { dateFormater, id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 
 const Inpassing = () => {
-  const [search, setSearch] = useState("");
-  const [pageSize, setPageSize] = useState(5);
-
   const {
     data: inpassing,
     error,
@@ -43,10 +40,15 @@ const Inpassing = () => {
             { key: "id", title: "No.", dataType: "numbering" },
             { key: "pangkat_golongan", title: "Pangkat/Golongan" },
             { key: "sk", title: "Nomor SK" },
-            { key: "tanggal_sk", title: "Tanggal SK" },
+            {
+              key: "tanggal_sk",
+              title: "Tanggal SK",
+              render: (val) => dateFormater(val.tanggal_sk),
+            },
             {
               key: "tanggal_mulai",
               title: "Terhitung Mulai Tanggal",
+              render: (val) => dateFormater(val.tanggal_mulai),
             },
             {
               key: "id",

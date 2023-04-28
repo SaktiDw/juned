@@ -6,7 +6,7 @@ import {
   Table,
   TabRiwayatAjuanPerubahanData,
 } from "@/components";
-import { fetchListJabatanFungsional } from "@/helper/api/apiSister";
+import { fetchListJabatanFungsional } from "@/helper/api/api";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
@@ -49,6 +49,7 @@ const JabatanFungsional = () => {
             {
               key: "tanggal_mulai",
               title: "Terhitung Mulai Tanggal",
+              render: (val) => dateFormater(val.tanggal_mulai),
             },
             {
               key: "id",
@@ -62,7 +63,7 @@ const JabatanFungsional = () => {
               ),
             },
           ]}
-          data={jabatan_fungsional}
+          data={jabatan_fungsional?.data}
         />
       </div>
     </MainLayout>

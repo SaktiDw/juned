@@ -16,8 +16,9 @@ import {
   fetchLainLain,
   fetchProfil,
 } from "@/helper/api/api";
-import { id } from "@/helper/constant";
+import { dateFormater, dateOptions, id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
+import Error from "next/error";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
@@ -26,7 +27,11 @@ const DataPribadi = () => {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
 
-  const { data: alamat } = useQuery({
+  const {
+    data: alamat,
+    error,
+    failureReason,
+  } = useQuery({
     queryKey: ["alamat"],
     queryFn: async () => await fetchAlamat(id),
     networkMode: "offlineFirst",
@@ -62,6 +67,15 @@ const DataPribadi = () => {
     networkMode: "offlineFirst",
   });
 
+  if (error)
+    return (
+      <>
+        {JSON.stringify(error)}
+        <br />
+        {JSON.stringify(failureReason)}
+      </>
+    );
+
   return (
     <MainLayout
       modal={
@@ -91,7 +105,7 @@ const DataPribadi = () => {
                 text:
                   profil?.data[0].tempat_lahir +
                   ", " +
-                  profil?.data[0].tanggal_lahir,
+                  dateFormater(profil?.data[0].tanggal_lahir),
               },
               { title: "Ibu Kandung", text: profil?.data[0].nama_ibu_kandung },
             ]}
@@ -153,12 +167,12 @@ const DataPribadi = () => {
               { title: "Nomor SK CPNS", text: kepegawaian?.data[0]?.sk_cpns },
               {
                 title: "SK CPNS Terhitung Mulai Tanggal",
-                text: kepegawaian?.data[0]?.tanggal_sk_cpns,
+                text: dateFormater(kepegawaian?.data[0]?.tanggal_sk_cpns),
               },
               { title: "Nomor SK TMMD", text: kepegawaian?.data[0]?.sk_tmmd },
               {
                 title: "Tanggal Mulai Menjadi Dosen (TMMD)",
-                text: kepegawaian?.data[0]?.tmmd,
+                text: dateFormater(kepegawaian?.data[0]?.tmmd),
               },
               {
                 title: "Pangkat/Golongan",

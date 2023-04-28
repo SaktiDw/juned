@@ -15,25 +15,8 @@ const schema = yup.object().shape({
 });
 
 const Login = () => {
-  const [imageSrc, setImageSrc] = useState("");
   const [data, setData] = useState();
   const router = useRouter();
-
-  // useEffect(() => {
-  //   async function fetchImage() {
-  //     const response = await apiSister.get(
-  //       "/sister/data_pribadi/foto/a0a07ef9-1a61-46d2-b00b-ea4d580e714a",
-  //       { responseType: "arraybuffer" } // Tell axios to treat the response as binary data
-  //     );
-  //     const dataUrl = `data:image/jpeg;base64,${Buffer.from(
-  //       response.data,
-  //       "binary"
-  //     ).toString("base64")}`;
-  //     setImageSrc(dataUrl);
-  //   }
-
-  //   fetchImage();
-  // }, []);
 
   return (
     <div className="flex flex-col w-full min-h-screen items-center justify-center bg-slate-200">
@@ -54,15 +37,16 @@ const Login = () => {
         }
         validationSchema={schema}
       >
-        {({ isSubmitting, isValid, errors, touched }) => (
+        {({ initialValues, isSubmitting, isValid, errors, touched }) => (
           <Form className="grid grid-flow-row gap-4 min-w-[400px] bg-white shadow-xl p-8 rounded-xl">
-            <h1>Login</h1>
+            <h1>Sistem Informasi Sumberdaya Terintegrasi</h1>
             <Input
               name={"username"}
               label={"username"}
               errors={errors.username}
               touched={touched.username}
               type={"text"}
+              value={initialValues.username}
             />
             <Input
               name={"password"}
@@ -70,6 +54,7 @@ const Login = () => {
               errors={errors.password}
               touched={touched.password}
               type={"password"}
+              value={initialValues.password}
             />
             <Input
               name={"id_pengguna"}
@@ -77,6 +62,7 @@ const Login = () => {
               errors={errors.id_pengguna}
               touched={touched.id_pengguna}
               type={"text"}
+              value={initialValues.id_pengguna}
             />
             <button
               type="submit"

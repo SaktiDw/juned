@@ -1,5 +1,6 @@
 import { Action, MainLayout, Nav, Table } from "@/components";
 import { fetchDetailPenunjangLain } from "@/helper/api/apiSister";
+import { dateFormater } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -63,13 +64,15 @@ const DetailPenunjangLain = () => {
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Tanggal Mulai</h1>
             <span className="flex-1">
-              {penunjang_lain?.tanggal_mulai || "( tidak ada data )"}
+              {dateFormater(penunjang_lain?.tanggal_mulai) ||
+                "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Tanggal Selesai</h1>
             <span className="flex-1">
-              {penunjang_lain?.tanggal_selesai || "( tidak ada data )"}
+              {dateFormater(penunjang_lain?.tanggal_selesai) ||
+                "( tidak ada data )"}
             </span>
           </div>
         </div>

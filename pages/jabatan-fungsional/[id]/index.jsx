@@ -1,5 +1,6 @@
 import { Action, MainLayout, Nav, Table } from "@/components";
 import { fetchDetailJabatanFungsional } from "@/helper/api/api";
+import { dateFormater } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import React from "react";
@@ -37,7 +38,8 @@ const DetailJabatanFungsional = () => {
           <div className="grid grid-cols-2">
             <h1>Terhitung Mulai Tanggal</h1>
             <span>
-              {jabatan_fungsional?.data.tanggal_mulai || "( tidak ada data )"}
+              {dateFormater(jabatan_fungsional?.data.tanggal_mulai) ||
+                "( tidak ada data )"}
             </span>
           </div>
           <div className="grid grid-cols-2">

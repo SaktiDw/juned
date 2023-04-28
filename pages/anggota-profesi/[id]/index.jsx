@@ -1,5 +1,6 @@
 import { Action, MainLayout, Nav, Table } from "@/components";
 import { fetchDetailAnggotaProfesi } from "@/helper/api/apiSister";
+import { dateFormater } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -45,14 +46,14 @@ const DetailAnggotaProfesi = () => {
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Mulai Keanggotaan</h1>
             <span className="flex-1">
-              {anggota_profesi?.tanggal_mulai_keanggotaan ||
+              {dateFormater(anggota_profesi?.tanggal_mulai_keanggotaan) ||
                 "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Selesai Keanggotaan</h1>
             <span className="flex-1">
-              {anggota_profesi?.tanggal_selesai_keanggotaan ||
+              {dateFormater(anggota_profesi?.tanggal_selesai_keanggotaan) ||
                 "( tidak ada data )"}
             </span>
           </div>
@@ -77,7 +78,11 @@ const DetailAnggotaProfesi = () => {
               { key: "jenis_dokumen", title: "jenis dokumen" },
               { key: "nama_file", title: "nama file" },
               { key: "jenis_file", title: "jenis file" },
-              { key: "tanggal_upload", title: "tanggal upload" },
+              {
+                key: "tanggal_upload",
+                title: "tanggal upload",
+                render: (val) => dateFormater(val.tanggal_upload),
+              },
               {
                 key: "tautan",
                 title: "tautan",

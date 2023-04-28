@@ -1,5 +1,6 @@
 import { Action, MainLayout, Nav, Table } from "@/components";
 import { fetchDetailPenempatan } from "@/helper/api/api";
+import { dateFormater } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import React from "react";
@@ -52,19 +53,22 @@ const Penempatan = () => {
           <div className="grid grid-cols-2">
             <h1>Terhitung Mulai Tanggal</h1>
             <span>
-              {penempatan?.data.tanggal_mulai || "( tidak ada data )"}
+              {dateFormater(penempatan?.data.tanggal_mulai) ||
+                "( tidak ada data )"}
             </span>
           </div>
           <div className="grid grid-cols-2">
             <h1>Tanggal Surat Keluar</h1>
             <span>
-              {penempatan?.data.tanggal_surat_tugas || "( tidak ada data )"}
+              {dateFormater(penempatan?.data.tanggal_surat_tugas) ||
+                "( tidak ada data )"}
             </span>
           </div>
           <div className="grid grid-cols-2">
             <h1>Tanggal Keluar</h1>
             <span>
-              {penempatan?.data.tanggal_keluar || "( tidak ada data )"}
+              {dateFormater(penempatan?.data.tanggal_keluar) ||
+                "( tidak ada data )"}
             </span>
           </div>
           <div className="grid grid-cols-2">
