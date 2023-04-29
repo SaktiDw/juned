@@ -67,15 +67,6 @@ const DataPribadi = () => {
     networkMode: "offlineFirst",
   });
 
-  if (error)
-    return (
-      <>
-        {JSON.stringify(error)}
-        <br />
-        {JSON.stringify(failureReason)}
-      </>
-    );
-
   return (
     <MainLayout
       modal={
@@ -96,18 +87,18 @@ const DataPribadi = () => {
             data={[
               {
                 title: "Nama",
-                text: profil?.data[0].pegawai.nama_sdm.toLowerCase(),
+                text: profil?.data[0]?.pegawai.nama_sdm.toLowerCase(),
               },
-              { title: "Jenis Kelamin", text: profil?.data[0].jenis_kelamin },
-              { title: "NIDN", text: profil?.data[0].pegawai.nidn },
+              { title: "Jenis Kelamin", text: profil?.data[0]?.jenis_kelamin },
+              { title: "NIDN", text: profil?.data[0]?.pegawai.nidn },
               {
                 title: "Tempat, tanggal lahir",
                 text:
-                  profil?.data[0].tempat_lahir +
+                  profil?.data[0]?.tempat_lahir +
                   ", " +
-                  dateFormater(profil?.data[0].tanggal_lahir),
+                  dateFormater(profil?.data[0]?.tanggal_lahir),
               },
-              { title: "Ibu Kandung", text: profil?.data[0].nama_ibu_kandung },
+              { title: "Ibu Kandung", text: profil?.data[0]?.nama_ibu_kandung },
             ]}
           >
             <div className="relative w-full h-[300px]">
