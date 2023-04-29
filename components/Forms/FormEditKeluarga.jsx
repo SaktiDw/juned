@@ -4,6 +4,7 @@ import { Button, Input, MultipleUploadFile, Select } from "..";
 import * as yup from "yup";
 import { createUser, fetchKeluarga } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
+import { id } from "@/helper/constant";
 
 const schema = yup.object().shape({
   status_kawin: yup.string().required("status_kawin wajib di isi."),
@@ -13,10 +14,9 @@ const schema = yup.object().shape({
 });
 
 const FormEditKeluarga = () => {
-  const id = "";
   const { data: keluarga, isLoading } = useQuery({
     queryKey: ["keluarga"],
-    queryFn: async () => await fetchKeluarga(),
+    queryFn: async () => await fetchKeluarga(id),
     networkMode: "offlineFirst",
   });
   if (isLoading) return <>Loading!!</>;
@@ -25,10 +25,10 @@ const FormEditKeluarga = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          status_kawin: keluarga?.data[0].status_kawin,
-          nama_pasangan: keluarga?.data[0].nama_pasangan,
-          nip_pasangan: keluarga?.data[0].nip_pasangan,
-          jenispekerjaan: keluarga?.data[0].jenispekerjaan.nama,
+          status_kawin: keluarga?.data[0]?.status_kawin,
+          nama_pasangan: keluarga?.data[0]?.nama_pasangan,
+          nip_pasangan: keluarga?.data[0]?.nip_pasangan,
+          jenispekerjaan: keluarga?.data[0]?.jenispekerjaan.nama,
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
@@ -39,6 +39,7 @@ const FormEditKeluarga = () => {
               label="status_kawin"
               name="status_kawin"
               type="text"
+              value={keluarga?.data[0]?.status_kawin}
               errors={errors.status_kawin}
               touched={touched.status_kawin}
             />
@@ -46,6 +47,7 @@ const FormEditKeluarga = () => {
               label="nama_pasangan"
               name="nama_pasangan"
               type="text"
+              value={keluarga?.data[0]?.nama_pasangan}
               errors={errors.nama_pasangan}
               touched={touched.nama_pasangan}
             />
@@ -53,6 +55,7 @@ const FormEditKeluarga = () => {
               label="nip_pasangan"
               name="nip_pasangan"
               type="text"
+              value={keluarga?.data[0]?.nip_pasangan}
               errors={errors.nip_pasangan}
               touched={touched.nip_pasangan}
             />
@@ -60,6 +63,7 @@ const FormEditKeluarga = () => {
               label="jenispekerjaan"
               name="jenispekerjaan"
               type="text"
+              value={keluarga?.data[0]?.jenispekerjaan.nama}
               errors={errors.jenispekerjaan}
               touched={touched.jenispekerjaan}
             />

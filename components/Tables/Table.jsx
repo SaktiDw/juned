@@ -99,6 +99,9 @@ const Table = ({
                       if (column.dataType === "numbering") {
                         toShown = (selectedPage - 1) * perPage + index + 1;
                       }
+                      if (column.dataType === "date") {
+                        toShown = dateFormater(item[column.key]);
+                      }
                       return (
                         <td
                           key={`tr-${index}-td-${indexColumn}`}

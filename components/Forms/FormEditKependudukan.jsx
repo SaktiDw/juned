@@ -4,6 +4,7 @@ import { Button, Input, MultipleUploadFile, Select } from "..";
 import * as yup from "yup";
 import { createUser, fetchKependudukan } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
+import { id } from "@/helper/constant";
 
 const schema = yup.object().shape({
   agama: yup.string().required("agama wajib di isi."),
@@ -12,10 +13,9 @@ const schema = yup.object().shape({
 });
 
 const FormEditKependudukan = () => {
-  const id = "";
   const { data: kependudukan, isLoading } = useQuery({
     queryKey: ["kependudukan"],
-    queryFn: async () => await fetchKependudukan(),
+    queryFn: async () => await fetchKependudukan(id),
     networkMode: "offlineFirst",
   });
   if (isLoading) return <>Loading!!</>;
@@ -24,9 +24,9 @@ const FormEditKependudukan = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          agama: kependudukan?.data[0].agama.nama,
-          negara: kependudukan?.data[0].negara.nama,
-          nik: kependudukan?.data[0].nik,
+          agama: kependudukan?.data[0]?.agama.nama,
+          negara: kependudukan?.data[0]?.negara.nama,
+          nik: kependudukan?.data[0]?.nik,
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
@@ -37,6 +37,7 @@ const FormEditKependudukan = () => {
               label="nik"
               name="nik"
               type="text"
+              value={kependudukan?.data[0]?.nik}
               errors={errors.nik}
               touched={touched.nik}
             />
@@ -57,6 +58,7 @@ const FormEditKependudukan = () => {
               label="agama"
               name="agama"
               type="text"
+              value={kependudukan?.data[0]?.agama.nama}
               errors={errors.agama}
               touched={touched.agama}
             />
@@ -64,6 +66,7 @@ const FormEditKependudukan = () => {
               label="negara"
               name="negara"
               type="text"
+              value={kependudukan?.data[0]?.negara.nama}
               errors={errors.negara}
               touched={touched.negara}
             />

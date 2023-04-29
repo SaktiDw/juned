@@ -4,6 +4,7 @@ import { Button, Input, MultipleUploadFile, Select, UploadFile } from "..";
 import * as yup from "yup";
 import { createUser, fetchProfil } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
+import { id } from "@/helper/constant";
 
 const schema = yup.object().shape({
   nama: yup.string().required("Nama wajib di isi dan tanpa gelar."),
@@ -14,10 +15,9 @@ const schema = yup.object().shape({
 });
 
 const FormEditBiodata = () => {
-  const id = "";
   const { data: profil, isLoading } = useQuery({
     queryKey: ["profil"],
-    queryFn: async () => await fetchProfil(),
+    queryFn: async () => await fetchProfil(id),
     networkMode: "offlineFirst",
   });
   if (isLoading) return <>Loading!!</>;
@@ -26,11 +26,11 @@ const FormEditBiodata = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          nama: profil?.data[0].pegawai.nama_sdm,
-          jenis_kelamin: profil?.data[0].jenis_kelamin,
-          tempat_lahir: profil?.data[0].tempat_lahir,
-          tanggal_lahir: profil?.data[0].tanggal_lahir,
-          nama_ibu_kandung: profil?.data[0].nama_ibu_kandung,
+          nama: profil?.data[0]?.pegawai.nama_sdm,
+          jenis_kelamin: profil?.data[0]?.jenis_kelamin,
+          tempat_lahir: profil?.data[0]?.tempat_lahir,
+          tanggal_lahir: profil?.data[0]?.tanggal_lahir,
+          nama_ibu_kandung: profil?.data[0]?.nama_ibu_kandung,
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
@@ -41,6 +41,7 @@ const FormEditBiodata = () => {
               label="nama"
               name="nama"
               type="text"
+              value={profil?.data[0]?.pegawai.nama_sdm}
               errors={errors.nama}
               touched={touched.nama}
             />
@@ -54,6 +55,7 @@ const FormEditBiodata = () => {
                 { value: "L", label: "Laki-laki" },
                 { value: "P", label: "Perempuan" },
               ]}
+              values={profil?.data[0]?.jenis_kelamin}
               valueKey={"value"}
               labelKey={"label"}
             />
@@ -61,6 +63,7 @@ const FormEditBiodata = () => {
               label="tempat lahir"
               name="tempat_lahir"
               type="text"
+              value={profil?.data[0]?.tempat_lahir}
               errors={errors.tempat_lahir}
               touched={touched.tempat_lahir}
             />
@@ -68,6 +71,7 @@ const FormEditBiodata = () => {
               label="tanggal lahir"
               name="tanggal_lahir"
               type="date"
+              value={profil?.data[0]?.tanggal_lahir}
               errors={errors.tanggal_lahir}
               touched={touched.tanggal_lahir}
             />
@@ -75,6 +79,7 @@ const FormEditBiodata = () => {
               label="nama ibu kandung"
               name="nama_ibu_kandung"
               type="text"
+              value={profil?.data[0]?.nama_ibu_kandung}
               errors={errors.nama_ibu_kandung}
               touched={touched.nama_ibu_kandung}
             />

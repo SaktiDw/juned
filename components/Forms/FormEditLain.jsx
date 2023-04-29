@@ -4,6 +4,7 @@ import { Button, Input, MultipleUploadFile, Select } from "..";
 import * as yup from "yup";
 import { createUser, fetchLainLain } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
+import { id } from "@/helper/constant";
 
 const schema = yup.object().shape({
   npwp: yup.string().required("npwp wajib di isi."),
@@ -11,10 +12,9 @@ const schema = yup.object().shape({
 });
 
 const FormEditLain = () => {
-  const id = "";
   const { data: lain, isLoading } = useQuery({
     queryKey: ["lain"],
-    queryFn: async () => await fetchLainLain(),
+    queryFn: async () => await fetchLainLain(id),
     networkMode: "offlineFirst",
   });
   if (isLoading) return <>Loading!!</>;
@@ -23,8 +23,8 @@ const FormEditLain = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          npwp: lain?.data.npwp,
-          nama_wp: lain?.data.nama_wp,
+          npwp: lain?.data?.npwp,
+          nama_wp: lain?.data?.nama_wp,
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
@@ -35,6 +35,7 @@ const FormEditLain = () => {
               label="npwp"
               name="npwp"
               type="text"
+              value={lain?.data?.npwp}
               errors={errors.npwp}
               touched={touched.npwp}
             />
@@ -42,6 +43,7 @@ const FormEditLain = () => {
               label="nama_wp"
               name="nama_wp"
               type="text"
+              value={lain?.data?.nama_wp}
               errors={errors.nama_wp}
               touched={touched.nama_wp}
             />
