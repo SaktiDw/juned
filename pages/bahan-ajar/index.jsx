@@ -34,7 +34,11 @@ const BahanAjar = () => {
             { key: "id", title: "No.", dataType: "numbering" },
             { key: "judul", title: "Judul Bahan Ajar" },
             { key: "isbn", title: "ISBN" },
-            { key: "tanggal_terbit", title: "Tanggal Terbit" },
+            {
+              key: "tanggal_terbit",
+              title: "Tanggal Terbit",
+              render: (val) => dateFormater(val.tanggal_terbit),
+            },
             {
               key: "nama_penerbit",
               title: "Penerbit",

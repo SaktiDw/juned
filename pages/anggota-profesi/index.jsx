@@ -30,10 +30,12 @@ const AnggotaProfesi = () => {
             {
               key: "tanggal_mulai_keanggotaan",
               title: "Mulai Keanggotaan",
+              render: (val) => dateFormater(val.tanggal_mulai_keanggotaan),
             },
             {
               key: "tanggal_selesai_keanggotaan",
               title: "Selesai keanggotaan",
+              render: (val) => dateFormater(val.tanggal_selesai_keanggotaan),
             },
             { key: "instansi_profesi", title: "Instansi Profesi" },
             { key: "rubrik_bkd", title: "Rubrik BKD" },

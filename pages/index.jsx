@@ -1,21 +1,7 @@
 import Head from "next/head";
-
-import { useMutation, useQuery } from "@tanstack/react-query";
-import { deleteUser, fetchUsers } from "@/helper/api/api";
-import {
-  Action,
-  Chip,
-  Dropdown,
-  Form,
-  FormUsers,
-  FotoProfil,
-  Input,
-  MainLayout,
-  Nav,
-  Table,
-} from "@/components";
-import Image from "next/image";
+import { Action, Chip, FotoProfil, MainLayout, Nav, Table } from "@/components";
 import Link from "next/link";
+import { dateFormater } from "@/helper/constant";
 
 export default function Home() {
   return (
@@ -38,8 +24,16 @@ export default function Home() {
               { key: "id", title: "id" },
               { key: "jenis_pdd", title: "Jenis PDD" },
               { key: "jenis_ajuan", title: "Jenis Ajuan" },
-              { key: "tanggal_ajuan", title: "Tanggal Ajuan" },
-              { key: "tanggal_verifikasi", title: "Tanggal Verifikasi" },
+              {
+                key: "tanggal_ajuan",
+                title: "Tanggal Ajuan",
+                render: (val) => dateFormater(val.tanggal_ajuan),
+              },
+              {
+                key: "tanggal_verifikasi",
+                title: "Tanggal Verifikasi",
+                render: (val) => dateFormater(val.tanggal_verifikasi),
+              },
               { key: "umur_ajuan", title: "Umur Ajuan (hari)" },
               {
                 key: "status_ajuan",

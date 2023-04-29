@@ -17,6 +17,7 @@ import * as yup from "yup";
 import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
+import { dateFormater } from "@/helper/constant";
 
 const schema = yup.object().shape({
   kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
@@ -106,7 +107,11 @@ const FormCreateAnggotaProfesi = ({ initialValues }) => {
                     { key: "id", title: "No.", dataType: "numbering" },
                     { key: "nama_file", title: "nama file" },
                     { key: "jenis_file", title: "jenis file" },
-                    { key: "tanggal_upload", title: "tanggal_upload" },
+                    {
+                      key: "tanggal_upload",
+                      title: "tanggal_upload",
+                      render: (val) => dateFormater(val.tanggal_upload),
+                    },
                     { key: "jenis_dokumen", title: "jenis_dokumen" },
                     {
                       key: "action",

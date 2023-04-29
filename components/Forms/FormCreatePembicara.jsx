@@ -154,7 +154,11 @@ const FormCreatePembicara = ({ initialValues }) => {
                     { key: "id", title: "No.", dataType: "numbering" },
                     { key: "nama_file", title: "nama file" },
                     { key: "jenis_file", title: "jenis file" },
-                    { key: "tanggal_upload", title: "tanggal_upload" },
+                    {
+                      key: "tanggal_upload",
+                      title: "tanggal_upload",
+                      render: (val) => dateFormater(val.tanggal_upload),
+                    },
                     { key: "jenis_dokumen", title: "jenis_dokumen" },
                     {
                       key: "action",

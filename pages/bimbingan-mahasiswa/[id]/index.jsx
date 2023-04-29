@@ -128,7 +128,11 @@ const DetailBimbinganMahasiswa = () => {
               { key: "jenis_dokumen", title: "jenis dokumen" },
               { key: "nama_file", title: "nama file" },
               { key: "jenis_file", title: "jenis file" },
-              { key: "tanggal_upload", title: "tanggal upload" },
+              {
+                key: "tanggal_upload",
+                title: "tanggal upload",
+                dataType: "date",
+              },
               {
                 key: "tautan",
                 title: "tautan",
