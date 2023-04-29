@@ -17,7 +17,7 @@ const CardDataPribadi = ({ title, children, data, editLink }) => {
         >
           <i className="fi-rr-pencil pt-1"></i>
           <div className="invisible group-hover:visible group-hover:absolute group-hover:scale-110 right-full flex gap-2 mr-2 items-center shadow-lg">
-            <div class="absolute left-full w-0 h-0 border-4 border-transparent border-b-4 border-l-4 border-l-primary"></div>
+            <div className="absolute left-full w-0 h-0 border-4 border-transparent border-b-4 border-l-4 border-l-primary"></div>
             <span className="text-xs p-1 px-2 w-max bg-primary rounded-md shadow-lg">
               Ubah data
             </span>
