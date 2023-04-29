@@ -214,22 +214,26 @@ export default function Home() {
                   </span>
                   <span className="font-semibold">PNS</span>
                 </div>
-                <Link
-                  href={""}
-                  className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
-                >
-                  Lihat Detail
-                </Link>
+                <div className="flex justify-end py-4 text-sm">
+                  <Link
+                    href={"/data-pribadi"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
+                  >
+                    Lihat Detail
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="flex flex-col gap-2">
               <h1>Kesejahteraan</h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
-                <div className="bg-blue-300 p-4 rounded-xl">Tidak ada data</div>
-                <div className="flex justify-end py-4">
+                <div className="bg-blue-300 p-4 rounded-xl min-h-[200px] justify-center items-center flex">
+                  Tidak ada data
+                </div>
+                <div className="flex justify-end py-4 text-sm">
                   <Link
-                    href={""}
-                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
+                    href={"/kesejahteraan"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
                   >
                     Lihat Detail
                   </Link>
@@ -278,10 +282,10 @@ export default function Home() {
                     },
                   ]}
                 />
-                <div className="flex justify-end py-4">
+                <div className="flex justify-end py-4 text-sm">
                   <Link
-                    href={""}
-                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
+                    href={"/penelitian"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
                   >
                     Lihat Detail
                   </Link>
@@ -291,7 +295,7 @@ export default function Home() {
             <div className="flex flex-col gap-2">
               <h1>Publikasi</h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y text-xs">
-                {/* <div className="bg-blue-300 p-4 rounded-xl">Tidak ada data</div> */}
+                {/* <div className="bg-blue-300 p-4 rounded-xl min-h-[200px] justify-center items-center flex">Tidak ada data</div> */}
                 <Table
                   columns={[
                     { key: "id", title: "No", dataType: "numbering" },
@@ -336,10 +340,10 @@ export default function Home() {
                     },
                   ]}
                 />
-                <div className="flex justify-end py-4">
+                <div className="flex justify-end py-4 text-sm">
                   <Link
-                    href={""}
-                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
+                    href={"/publikasi"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
                   >
                     Lihat Detail
                   </Link>
@@ -349,11 +353,13 @@ export default function Home() {
             <div className="flex flex-col gap-2">
               <h1>Visiting Scientist</h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
-                <div className="bg-blue-300 p-4 rounded-xl">Tidak ada data</div>
-                <div className="flex justify-end py-4">
+                <div className="bg-blue-300 p-4 rounded-xl min-h-[200px] justify-center items-center flex">
+                  Tidak ada data
+                </div>
+                <div className="flex justify-end py-4 text-sm">
                   <Link
-                    href={""}
-                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
+                    href={"/visiting-scientist"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
                   >
                     Lihat Detail
                   </Link>
@@ -392,18 +398,20 @@ export default function Home() {
                   <span className="font-semibold">2017</span>
                 </div>
 
-                <Link
-                  href={""}
-                  className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
-                >
-                  Lihat Detail
-                </Link>
+                <div className="flex justify-end py-4 text-sm">
+                  <Link
+                    href={"/pendidikan-formal"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
+                  >
+                    Lihat Detail
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="flex flex-col gap-2">
               <h1>Tunjangan</h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y text-xs">
-                {/* <div className="bg-blue-300 p-4 rounded-xl">Tidak ada data</div> */}
+                {/* <div className="bg-blue-300 p-4 rounded-xl min-h-[200px] justify-center items-center flex">Tidak ada data</div> */}
                 <Table
                   columns={[
                     { key: "id", title: "No", dataType: "numbering" },
@@ -443,10 +451,10 @@ export default function Home() {
                     },
                   ]}
                 />
-                <div className="flex justify-end py-4">
+                <div className="flex justify-end py-4 text-sm">
                   <Link
-                    href={""}
-                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
+                    href={"/tunjangan"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
                   >
                     Lihat Detail
                   </Link>
@@ -526,10 +534,10 @@ export default function Home() {
                     },
                   ]}
                 />
-                <div className="flex justify-end py-4">
+                <div className="flex justify-end py-4 text-sm">
                   <Link
-                    href={""}
-                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
+                    href={"/pengajaran"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
                   >
                     Lihat Detail
                   </Link>
@@ -578,10 +586,10 @@ export default function Home() {
                     },
                   ]}
                 />
-                <div className="flex justify-end py-4">
+                <div className="flex justify-end py-4 text-sm">
                   <Link
-                    href={""}
-                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
+                    href={"/pengabdian"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
                   >
                     Lihat Detail
                   </Link>
@@ -589,13 +597,43 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1>Visiting Scientist</h1>
+              <h1>Pembicara</h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
-                <div className="bg-blue-300 p-4 rounded-xl">Tidak ada data</div>
-                <div className="flex justify-end py-4">
+                <div className="bg-blue-300 p-4 rounded-xl min-h-[200px] justify-center items-center flex">
+                  Tidak ada data
+                </div>
+                <div className="flex justify-end py-4 text-sm">
                   <Link
-                    href={""}
-                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-lg text-white"
+                    href={"/pembicara"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
+                  >
+                    Lihat Detail
+                  </Link>
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
+              <h1>Buku Yang Diterbitkan</h1>
+              <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
+                <div className="flex flex-col gap-1">
+                  <span className="font-semibold text-slate-500">
+                    Judul Buku :
+                  </span>
+                  <span className="font-semibold">
+                    Video Pembalajaran MK Keprofesian Informatika IF201431
+                  </span>
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span className="font-semibold text-slate-500">
+                    Penerbit :
+                  </span>
+                  <span className="font-semibold">Pribadi</span>
+                </div>
+
+                <div className="flex justify-end py-4 text-sm">
+                  <Link
+                    href={"/bahan-ajar"}
+                    className="ml-auto bg-primary hover:bg-blue-800 px-4 py-1 rounded-xl shadow-xl text-white"
                   >
                     Lihat Detail
                   </Link>

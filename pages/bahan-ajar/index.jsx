@@ -7,7 +7,7 @@ import {
   Table,
 } from "@/components";
 import { fetchListBahanAjar } from "@/helper/api/apiSister";
-import { id } from "@/helper/constant";
+import { dateFormater, id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
