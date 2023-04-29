@@ -1,7 +1,14 @@
-import { Action, Button, MainLayout, Nav, Table } from "@/components";
+import { Action, MainLayout, Nav, Table } from "@/components";
+import { fetchKesejahteraan } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const Kesejahteraan = () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ["kesejahteraan", id],
+    queryFn: () => fetchKesejahteraan(id),
+  });
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full">
@@ -17,16 +24,20 @@ const Kesejahteraan = () => {
               key: "jenis_kesejahteraan",
               title: "Jenis Kesejahteraan",
             },
-            { key: "kategori_kegiatan", title: "Layanan Kesejahteraan" },
-            { key: "no_sk_penugasan", title: "Penyelenggara" },
-            { key: "tanggal_sk_penugasan", title: "Tahun Mulai" },
-            { key: "tanggal_sk_penugasan", title: "Tahun Selesai" },
+            { key: "nama", title: "Layanan Kesejahteraan" },
+            { key: "penyelenggara", title: "Penyelenggara" },
+            { key: "tahun_mulai", title: "Tahun Mulai" },
+            { key: "tahun_selesai", title: "Tahun Selesai" },
             {
               key: "id",
               title: "Action",
-              render: (val) => <Action param={val} />,
+              render: (val) => (
+                <Action param={val} baseUrl={"/kesejahteraan"} />
+              ),
             },
           ]}
+          data={data}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>
