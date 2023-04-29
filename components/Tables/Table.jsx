@@ -102,6 +102,12 @@ const Table = ({
                       if (column.dataType === "date") {
                         toShown = dateFormater(item[column.key]);
                       }
+                      if (
+                        column.dataType === "number" ||
+                        column.dataType === "currency"
+                      ) {
+                        toShown = item[column.key].toLocaleString("id-ID");
+                      }
                       return (
                         <td
                           key={`tr-${index}-td-${indexColumn}`}
