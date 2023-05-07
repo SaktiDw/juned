@@ -35,7 +35,7 @@ const PendidikanFormal = () => {
                 <Action
                   param={val}
                   baseUrl={"/pendidikan-formal"}
-                  action={["delete", "detail"]}
+                  action={["delete", "detail", "edit"]}
                 />
               ),
             },
