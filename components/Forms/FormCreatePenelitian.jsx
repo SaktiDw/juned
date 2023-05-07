@@ -243,7 +243,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
                     {
                       key: "tanggal_upload",
                       title: "tanggal_upload",
-                      render: (val) => dateFormater(val.tanggal_upload),
+                      dataType: "date",
                     },
                     { key: "jenis_dokumen", title: "jenis_dokumen" },
                     {

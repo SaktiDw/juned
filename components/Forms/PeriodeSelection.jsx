@@ -7,6 +7,7 @@ const PeriodeSelection = ({ onChange }) => {
     queryKey: ["periode"],
     queryFn: () => fetchSemester(),
   });
+  if (isLoading) return <p>Loading...</p>;
   return (
     <div className="flex gap-2 items-center">
       <label htmlFor="periode">Periode</label>
@@ -19,7 +20,7 @@ const PeriodeSelection = ({ onChange }) => {
       >
         <option value="">Semua periode</option>
         {data &&
-          data.map((item, index) => (
+          data?.map((item, index) => (
             <option key={item.id} value={item.id}>
               {item.nama}
             </option>

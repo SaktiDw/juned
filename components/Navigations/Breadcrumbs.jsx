@@ -35,5 +35,18 @@ const Breadcrumbs = () => {
     </ul>
   );
 };
+// const hasNumber = (part) => /\d/.test(part);
+// const path = router.asPath
+//   .split("/")
+//   .filter((x) => x)
+//   .map((part, index) => {
+//     const words = part
+//       .split("-")
+//       .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+//       // .filter((part) => (hasNumber(part) ? "Ada" : ""));
+//     const result = words.join(" ");
+
+//     return `${result} `;
+//   });
 
 export default Breadcrumbs;

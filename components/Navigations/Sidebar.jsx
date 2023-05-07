@@ -72,10 +72,16 @@ const Sidebar = () => {
           <Image alt="" src={"/logo itk png.png"} width={300} height={200} />
         </Link>
         <div className="flex flex-col itemc-center justify-center text-center text-sm md:text-md uppercase md:capitalize">
-          <h1 className="font-poppins">Sistem Informasi</h1>
-          <h1 className="font-quicksand font-semibold text-primary dark:text-blue-400">
-            Sister
+          <h1
+            className={`font-poppins leading-tight ${
+              isNavOpen ? "text-base" : "text-[10px]"
+            }`}
+          >
+            Sistem Informasi Kepegawaian
           </h1>
+          {/* <h1 className="font-quicksand font-semibold text-primary dark:text-blue-400">
+            Sister
+          </h1> */}
         </div>
 
         <Dropdown
@@ -475,8 +481,12 @@ const Sidebar = () => {
             },
           ]}
         />
-        <div className="w-full flex justify-around items-center p-4 mt-auto rounded-lg shadow-2xl dark:shadow-primary bg-primary dark:bg-opacity-80 backdrop-blur-lg text-white font-semibold">
-          {!data && (
+        <div
+          className={`w-full flex ${
+            isNavOpen ? "flex-row" : "flex-col"
+          } justify-around items-center gap-2 p-4 mt-auto rounded-lg shadow-2xl dark:shadow-primary bg-primary dark:bg-opacity-80 backdrop-blur-lg text-white font-semibold`}
+        >
+          {!data ? (
             <Link
               href={"/auth/login"}
               className="flex gap-2 justify-center items-center"
@@ -484,6 +494,18 @@ const Sidebar = () => {
               <i className="fi-rr-sign-in-alt mt-1"></i>
               Login
             </Link>
+          ) : (
+            <button
+              onClick={() => {
+                localStorage.removeItem("token");
+                localStorage.removeItem("role");
+                router.push("/auth/login");
+              }}
+              className="flex gap-2 justify-center items-center"
+            >
+              <i className="fi-rr-sign-out-alt mt-1"></i>
+              {isNavOpen && <span>Logout</span>}
+            </button>
           )}
           <button
             className="flex gap-2 items-center"

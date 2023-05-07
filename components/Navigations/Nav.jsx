@@ -25,7 +25,7 @@ const Nav = ({ title }) => {
       </button>
       <div className="flex flex-col">
         <h1 className="lg:text-3xl font-bold capitalize ">{title}</h1>
-        <Breadcrumbs />
+        {/* <Breadcrumbs /> */}
       </div>
 
       <h1 className="ml-auto lg:text-xl capitalize font-bold">

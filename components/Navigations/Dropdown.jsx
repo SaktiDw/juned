@@ -39,12 +39,12 @@ const Dropdown = ({ index, isOpen, active, onClick, subItem, title, icon }) => {
       </button>
 
       <ul
-        className={`mx-2 rounded-b-lg  text-left flex flex-col overflow-hidden transition-all ease-in-out duration-400 bg-white/60 dark:bg-slate-900/50 backdrop-blur-2xl ${
+        className={`mx-2 rounded-b-lg text-left flex flex-col overflow-hidden transition-all ease-in-out duration-400 bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl  ${
           isOpen
             ? `${
                 isNavOpen
                   ? "h-full"
-                  : "rounded-lg lg:absolute lg:left-16 h-max lg:w-max"
+                  : "rounded-lg lg:absolute lg:left-16 h-max lg:w-max border-2 border-primary"
               }`
             : `h-0`
         }`}

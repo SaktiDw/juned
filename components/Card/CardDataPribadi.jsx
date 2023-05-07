@@ -3,15 +3,13 @@ import { useRouter } from "next/router";
 import React from "react";
 
 const CardDataPribadi = ({ title, children, data, editLink }) => {
-  const router = useRouter();
   return (
     <div className="flex flex-col gap-4 dark:text-white w-full h-full">
-      <h1 className="text-md uppercase font-semibold drop-shadow-lg shadow-white">
+      <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
         {title}
       </h1>
       <div className="relative w-full h-full flex flex-col gap-4 rounded-xl bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl duration-200 ease-in-out p-4">
         <Link
-          // onClick={() => router.push("/data-pribadi/edit-biodata")}
           href={`/data-pribadi${editLink}`}
           className="group hover:scale-125 flex items-center absolute -right-2 -top-2 z-10 p-2 rounded-full shadow-lg bg-primary w-8 h-8 text-white "
         >

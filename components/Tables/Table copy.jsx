@@ -60,7 +60,7 @@ const Table = ({
             <input
               onChange={(e) => setQuery(e.target.value)}
               type="text"
-              className="py-2 px-4 text-xs w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none"
+              className="py-2 px-4 text-xs w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none placeholder:font-bold"
               placeholder="Search here ..."
             />
             <i className="fi-rr-search absolute right-2 top-1"></i>

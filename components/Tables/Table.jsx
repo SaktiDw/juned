@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import { FilterPageSize, Pagination } from "..";
+import { dateFormater } from "@/helper/constant";
 
 const Table = ({
   columns,
@@ -9,6 +10,7 @@ const Table = ({
   createLink = undefined,
   searchAble = false,
   isLoading,
+  className,
 }) => {
   const [perPage, setPerpage] = useState(5);
   const [localData, setLocalData] = useState(data);
@@ -66,14 +68,14 @@ const Table = ({
             <input
               onChange={(e) => handleFilter(e.target.value)}
               type="text"
-              className="py-2 px-4 text-sm w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none"
+              className="py-2 px-4 text-sm w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none placeholder:font-bold"
               placeholder="Search here ..."
             />
             <i className="fi-rr-search absolute right-2 top-2"></i>
           </div>
         )}
       </div>
-      <table className="w-full table-auto text-left shadow">
+      <table className={`w-full table-auto text-left shadow ${className}`}>
         <thead>
           <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins">
             {columns.map((column) => (

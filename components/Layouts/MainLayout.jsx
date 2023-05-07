@@ -3,12 +3,15 @@ import Link from "next/link";
 import React, { useRef } from "react";
 import Nav from "../Navigations/Nav";
 import Sidebar from "../Navigations/Sidebar";
-import { Footer } from "..";
+import { Footer, Title } from "..";
+import { useRouter } from "next/router";
+import Head from "next/head";
 
 const MainLayout = (props) => {
   const ref = useRef(null);
   return (
     <>
+      <Title />
       <section className="flex bg-slate-200 dark:bg-slate-900 dark:text-white">
         <button
           onClick={() => ref.current?.scrollIntoView({ behavior: "smooth" })}

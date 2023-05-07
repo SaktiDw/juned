@@ -6,20 +6,14 @@ import { dateFormater } from "@/helper/constant";
 export default function Home() {
   return (
     <MainLayout>
-      <Head>
-        <title>Sister</title>
-        <meta
-          name="description"
-          content="Sister Institut Teknologi Kalimantan"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <section className="flex flex-col gap-4">
         <Nav title={"Institut Teknologi Kalimantan"} />
-        <div className="flex flex-col gap-2 text-sm">
-          <h1>Riwayat Perubahan Data Dosen</h1>
+        <div className="flex flex-col gap-2">
+          <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+            Riwayat Perubahan Data Dosen
+          </h1>
           <Table
+            className="text-xs"
             columns={[
               { key: "id", title: "id" },
               { key: "jenis_pdd", title: "Jenis PDD" },
@@ -27,12 +21,12 @@ export default function Home() {
               {
                 key: "tanggal_ajuan",
                 title: "Tanggal Ajuan",
-                render: (val) => dateFormater(val.tanggal_ajuan),
+                // render: (val) => dateFormater(val.tanggal_ajuan),
               },
               {
                 key: "tanggal_verifikasi",
                 title: "Tanggal Verifikasi",
-                render: (val) => dateFormater(val.tanggal_verifikasi),
+                // render: (val) => dateFormater(val.tanggal_verifikasi),
               },
               { key: "umur_ajuan", title: "Umur Ajuan (hari)" },
               {
@@ -171,15 +165,11 @@ export default function Home() {
         <div className="grid grid-cols-2 gap-8 justify-start items-start">
           <div className="grid grid-flow-row gap-4">
             <div className="flex flex-col gap-2">
-              <h1>Ringkasan Profil</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Ringkasan Profil
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
                 <div className="relative w-[300px] h-[300px] mx-auto">
-                  {/* <Image
-                    fill
-                    alt={"profile"}
-                    src={"/images.jpg"}
-                    className={`rounded-lg shadow-lg  object-cover`}
-                  /> */}
                   <FotoProfil />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -225,9 +215,11 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1>Kesejahteraan</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Kesejahteraan
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
-                <div className="bg-blue-300 p-4 rounded-xl min-h-[200px] justify-center items-center flex">
+                <div className="bg-blue-300 dark:bg-blue-500 p-4 rounded-xl min-h-[200px] justify-center items-center flex">
                   Tidak ada data
                 </div>
                 <div className="flex justify-end py-4 text-sm">
@@ -241,7 +233,9 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1>Penelitian</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Penelitian
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y text-xs">
                 <Table
                   columns={[
@@ -293,9 +287,11 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1>Publikasi</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Publikasi
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y text-xs">
-                {/* <div className="bg-blue-300 p-4 rounded-xl min-h-[200px] justify-center items-center flex">Tidak ada data</div> */}
+                {/* <div className="bg-blue-300 dark:bg-blue-500 p-4 rounded-xl min-h-[200px] justify-center items-center flex">Tidak ada data</div> */}
                 <Table
                   columns={[
                     { key: "id", title: "No", dataType: "numbering" },
@@ -351,9 +347,11 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1>Visiting Scientist</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Visiting Scientist
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
-                <div className="bg-blue-300 p-4 rounded-xl min-h-[200px] justify-center items-center flex">
+                <div className="bg-blue-300 dark:bg-blue-500 p-4 rounded-xl min-h-[200px] justify-center items-center flex">
                   Tidak ada data
                 </div>
                 <div className="flex justify-end py-4 text-sm">
@@ -369,7 +367,9 @@ export default function Home() {
           </div>
           <div className="grid grid-flow-row gap-4">
             <div className="flex flex-col gap-2">
-              <h1>Pendidikan Terakhir</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Pendidikan Terakhir
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
                 <div className="flex flex-col gap-1">
                   <span className="font-semibold text-slate-500">
@@ -409,9 +409,11 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1>Tunjangan</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Tunjangan
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y text-xs">
-                {/* <div className="bg-blue-300 p-4 rounded-xl min-h-[200px] justify-center items-center flex">Tidak ada data</div> */}
+                {/* <div className="bg-blue-300 dark:bg-blue-500 p-4 rounded-xl min-h-[200px] justify-center items-center flex">Tidak ada data</div> */}
                 <Table
                   columns={[
                     { key: "id", title: "No", dataType: "numbering" },
@@ -462,7 +464,9 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1>Pengajaran</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Pengajaran
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y text-xs">
                 <Table
                   columns={[
@@ -545,7 +549,9 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1>Pengabdian Masyarakat</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Pengabdian Masyarakat
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y text-xs">
                 <Table
                   columns={[
@@ -597,9 +603,11 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1>Pembicara</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Pembicara
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
-                <div className="bg-blue-300 p-4 rounded-xl min-h-[200px] justify-center items-center flex">
+                <div className="bg-blue-300 dark:bg-blue-500 p-4 rounded-xl min-h-[200px] justify-center items-center flex">
                   Tidak ada data
                 </div>
                 <div className="flex justify-end py-4 text-sm">
@@ -613,7 +621,9 @@ export default function Home() {
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <h1>Buku Yang Diterbitkan</h1>
+              <h1 className="text-md capitalize font-semibold drop-shadow-lg shadow-white">
+                Buku Yang Diterbitkan
+              </h1>
               <div className="flex flex-col gap-3 bg-white dark:bg-slate-800 rounded-xl shadow-lg p-4 divide-y">
                 <div className="flex flex-col gap-1">
                   <span className="font-semibold text-slate-500">

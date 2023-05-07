@@ -1,3 +1,5 @@
+export { default as Title } from "./Titles/Title";
+
 export { default as MainLayout } from "./Layouts/MainLayout";
 
 export { default as Button } from "./Buttons/Button";
@@ -30,6 +32,7 @@ export { default as FormCreatePengabdian } from "./Forms/FormCreatePengabdian";
 export { default as FormCreatePengelolaJurnal } from "./Forms/FormCreatePengelolaJurnal";
 export { default as FormCreatePembicara } from "./Forms/FormCreatePembicara";
 export { default as FormCreateJabatanStruktural } from "./Forms/FormCreateJabatanStruktural";
+export { default as FormCreatePendidikanFormal } from "./Forms/FormCreatePendidikanFormal";
 
 export { default as Input } from "./Forms/Input";
 export { default as Select } from "./Forms/Select";
