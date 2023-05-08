@@ -79,7 +79,7 @@ const Table = ({
           </div>
         )}
       </div>
-      <table className={`w-full table-auto text-left ${className}`}>
+      <table className={`w-full table-auto text-left shadow ${className}`}>
         <thead>
           <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins text-center">
             {columns.map((column) => (
