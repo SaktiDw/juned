@@ -6,9 +6,16 @@ import {
   Nav,
   Table,
 } from "@/components";
+import { fetchListTugasTambahan } from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
+import { useQuery } from "@tanstack/react-query";
 import React from "react";
 
 const TugasTambahan = () => {
+  const { data, isLoading, error } = useQuery({
+    queryKey: ["tugas-tambahan", id],
+    queryFn: () => fetchListTugasTambahan(id),
+  });
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full">
@@ -20,14 +27,22 @@ const TugasTambahan = () => {
           createLink={"/tugas-tambahan/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
-            { key: "tugas_tambahan", title: "Tugas Tambahan" },
+            { key: "jenis_tugas", title: "Tugas Tambahan" },
             {
               key: "unit_kerja",
               title: "Unit Kerja",
             },
-            { key: "instansi", title: "Instansi" },
-            { key: "tanggal_mulai", title: "Tanggal Mulai" },
-            { key: "tanggal_berakhir", title: "Tanggal Berakhir" },
+            { key: "perguruan_tinggi", title: "Instansi" },
+            {
+              key: "tanggal_mulai_tugas",
+              title: "Tanggal Mulai",
+              dataType: "date",
+            },
+            {
+              key: "tanggal_selesai_tugas",
+              title: "Tanggal Berakhir",
+              dataType: "date",
+            },
             {
               key: "rubrik_bkd",
               title: "Rubrik BKD",
@@ -38,6 +53,8 @@ const TugasTambahan = () => {
               render: (val) => <Action param={val} />,
             },
           ]}
+          data={data}
+          isLoading={isLoading}
         />
       </div>
     </MainLayout>

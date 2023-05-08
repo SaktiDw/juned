@@ -1,10 +1,10 @@
-import { fetchPerguruanTinggi } from "@/helper/api/api";
+import { fetchPerguruanTinggi } from "@/helper/api/apiSister";
 import { api } from "@/helper/api/axios";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import { Select } from "..";
 
-const PerguruanTinggiSelection = ({ errors, touched }) => {
+const PerguruanTinggiSelection = ({ label, name, errors, touched }) => {
   const { data, isLoading, error } = useQuery({
     queryKey: ["perguruan-tinggi"],
     queryFn: async () => await fetchPerguruanTinggi(),
@@ -12,13 +12,13 @@ const PerguruanTinggiSelection = ({ errors, touched }) => {
   });
   const option =
     data &&
-    data?.data.map((item) => {
+    data?.map((item) => {
       return { value: item.id, label: item.nama };
     });
   return (
     <Select
-      label="Perguruan tinggi pengundang"
-      name="ptn_pengundang"
+      label={label}
+      name={name || "ptn_pengundang"}
       option={option}
       errors={errors}
       touched={touched}

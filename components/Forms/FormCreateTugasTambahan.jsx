@@ -70,6 +70,7 @@ const FormCreateTugasTambahan = () => {
               touched={touched.jenis_tugas_tambahan}
             />
             <PerguruanTinggiSelection
+              label="perguruan tinggi penugasan"
               errors={errors.ptn_tugas_tambahan}
               touched={touched.ptn_tugas_tambahan}
             />

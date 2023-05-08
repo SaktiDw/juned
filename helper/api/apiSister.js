@@ -69,6 +69,10 @@ export const fetchListBahanAjar = async (id) => await apiSister.get(`/bahan_ajar
 export const fetchDetailBahanAjar = async (id) => await apiSister.get(`/bahan_ajar/${id}`).then(res=>res.data)
 export const fetchBidangIlmuBahanAjar = async (id) => await apiSister.get(`/bahan_ajar/${id}/bidang_ilmu`).then(res=>res.data)
 
+export const fetchListTugasTambahan = async (id) => await apiSister.get(`/tugas_tambahan?id_sdm=${id}`).then(res=>res.data)
+export const fetchDetailTugasTambahan = async (id) => await apiSister.get(`/tugas_tambahan/${id}`).then(res=>res.data)
+export const fetchBidangIlmuTugasTambahan = async (id) => await apiSister.get(`/tugas_tambahan/${id}/bidang_ilmu`).then(res=>res.data)
+
 export const fetchListKateogriCapaianLuaran = async () => await apiSister.get(`/referensi/kategori_capaian_luaran`).then(res=>res.data).catch(err=>err)
 export const fetchPerguruanTinggi = async () => await apiSister.get(`/referensi/perguruan_tinggi`).then(res=>res.data).catch(err=>err)
 export const fetchKategoriKegiatan = async (type, menu) => await apiSister.get(`/referensi/kategori_kegiatan?tipe=${type}&menu=${menu}`).then(res=>res.data).catch(err=>err)
