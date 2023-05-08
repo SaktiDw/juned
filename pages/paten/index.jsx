@@ -50,7 +50,8 @@ const Paten = () => {
             },
             { key: "jenis_publikasi", title: "jenis" },
             { key: "quartile", title: "quartile" },
-            { key: "tanggal", title: "tanggal" },
+            { key: "tanggal", title: "tanggal terbit", dataType: "date" },
+            { key: "rubrik_bkd", title: "rubrik bkd" },
             {
               key: "id",
               title: "aksi",
