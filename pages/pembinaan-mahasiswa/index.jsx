@@ -19,11 +19,6 @@ const PembinaanMahasiswa = () => {
           Pembinaan Mahasiswa
         </h1>
         <div className="flex justify-between">
-          <Button
-            size={"small"}
-            icon={<i className="fi-rr-cloud-download-alt pt-1"></i>}
-            text="Import Pengujian Mahasiswa"
-          />
           <PeriodeSelection />
         </div>
         <Table
