@@ -17,7 +17,7 @@ const PengelolaJurnal = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-full">
-        <Nav title={"pengelola_jurnal"} />
+        <Nav title={"pengelola jurnal"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Pengelola Jurnal
         </h1>
@@ -27,7 +27,7 @@ const PengelolaJurnal = () => {
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             ,
-            { key: "media_publikasi", title: "Media Publikasi" },
+            { key: "media_publikasi", title: "Nama Jurnal" },
             { key: "sk_penugasan", title: "Nomor SK Penugasan" },
             { key: "tanggal_mulai", title: "Terhitung Mulai Tanggal" },
             { key: "tanggal_selesai", title: "Tanggal Selesai" },
@@ -37,6 +37,7 @@ const PengelolaJurnal = () => {
               render: (val) => <span>{val.aktif ? "Aktif" : "Tidak"}</span>,
             },
             { key: "peran", title: "peran" },
+            { key: "rubrik_bkd", title: "rubrik bkd" },
             {
               key: "id",
               title: "aksi",
