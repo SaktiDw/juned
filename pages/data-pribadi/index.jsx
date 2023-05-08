@@ -80,7 +80,7 @@ const DataPribadi = () => {
     >
       <div className="flex flex-col gap-8">
         <Nav title={"Data pribadi"} />
-        <div className="grid grid-flow-col gap-8">
+        <div className="grid grid-flow-row lg:grid-flow-col gap-8">
           <CardDataPribadi
             title={"profile"}
             editLink={"/edit-biodata"}
@@ -176,7 +176,7 @@ const DataPribadi = () => {
             ]}
           />
         </div>
-        <div className="flex gap-8">
+        <div className="flex flex-col lg:flex-row gap-8">
           <CardDataPribadi
             title={"kependudukan"}
             editLink={"/edit-kependudukan"}
