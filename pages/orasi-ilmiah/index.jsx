@@ -16,10 +16,8 @@ const OrasiIlmiah = () => {
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Orasi Ilmiah
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
-        </div>
         <Table
+          createLink={"/orasi-ilmiah/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             { key: "kategori_kegiatan", title: "Kategori Kegiatan" },
