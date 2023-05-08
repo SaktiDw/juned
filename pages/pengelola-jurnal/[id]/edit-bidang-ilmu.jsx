@@ -42,7 +42,7 @@ const PenelitianEditBidangIlmu = () => {
             </h1>
             <div className="flex gap-8">
               <div className="flex flex-col gap-2">
-                <span className="font-bold uppercase text-sm">Ururtan</span>
+                <span className="font-bold uppercase text-sm">urutan</span>
               </div>
               <KelompokBidangSelection />
               <div className="flex flex-col gap-2">
