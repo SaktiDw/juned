@@ -186,7 +186,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               touched={touched.dana_dikti}
             />
             <Input
-              label="dana dari perguruan_tinggi (Rp.)"
+              label="dana dari perguruan tinggi (Rp.)"
               name="dana_perguruan_tinggi"
               type="number"
               value={initialValues?.dana_perguruan_tinggi}
@@ -194,7 +194,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               touched={touched.dana_perguruan_tinggi}
             />
             <Input
-              label="dana dari institusi_lain (Rp.)"
+              label="dana dari institusi lain (Rp.)"
               name="dana_institusi_lain"
               type="number"
               value={initialValues?.dana_institusi_lain}
@@ -248,7 +248,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
                     { key: "jenis_dokumen", title: "jenis_dokumen" },
                     {
                       key: "action",
-                      title: "aksi",
+                      title: "action",
                       render: (val) => (
                         <Action
                           param={val}

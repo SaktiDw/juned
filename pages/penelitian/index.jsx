@@ -60,7 +60,6 @@ const Penelitian = () => {
             {
               key: "rubrik_bkd",
               title: "RUBRIk BKD",
-              render: (val) => <span>{val.lama_kegiatan}</span>,
             },
             {
               key: "id",
