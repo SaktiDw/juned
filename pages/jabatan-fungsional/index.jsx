@@ -49,7 +49,7 @@ const JabatanFungsional = () => {
             {
               key: "tanggal_mulai",
               title: "Terhitung Mulai Tanggal",
-              render: (val) => dateFormater(val.tanggal_mulai),
+              dataType: "date",
             },
             {
               key: "id",
