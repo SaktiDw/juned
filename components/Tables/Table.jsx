@@ -81,7 +81,7 @@ const Table = ({
       </div>
       <table className={`w-full table-auto text-left shadow ${className}`}>
         <thead>
-          <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins">
+          <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins text-center">
             {columns.map((column) => (
               <th key={column.title} className="p-2 first:pl-4 last:pr-4">
                 {column.title}
