@@ -12,7 +12,7 @@ const Action = ({
 }) => {
   return (
     <>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-center gap-2">
         {action.includes("edit-bidang-ilmu") && (
           <Link
             href={`${baseUrl}/${param.id}/edit-bidang-ilmu`}

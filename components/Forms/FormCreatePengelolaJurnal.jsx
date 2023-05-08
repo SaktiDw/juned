@@ -117,6 +117,7 @@ const FormCreatePengelolaJurnal = ({ initialValues }) => {
                     {
                       key: "action",
                       title: "aksi",
+                      align: "center",
                       render: (val) => (
                         <Action
                           param={val}

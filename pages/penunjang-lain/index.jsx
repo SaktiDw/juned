@@ -60,6 +60,7 @@ const AnggotaProfesi = () => {
             {
               key: "id",
               title: "aksi",
+              align: "center",
               render: (val) => (
                 <Action
                   param={val}

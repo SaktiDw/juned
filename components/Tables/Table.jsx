@@ -81,12 +81,20 @@ const Table = ({
       </div>
       <table className={`w-full table-auto text-left shadow ${className}`}>
         <thead>
-          <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins text-center">
-            {columns.map((column) => (
-              <th key={column.title} className="p-2 first:pl-4 last:pr-4">
-                {column.title}
-              </th>
-            ))}
+          <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins">
+            {columns.map((column) => {
+              let align = "text-left";
+              if (column.align) align = `text-${column.align}`;
+
+              return (
+                <th
+                  key={column.title}
+                  className={`p-2 first:pl-4 last:pr-4 ${align}`}
+                >
+                  {column.title}
+                </th>
+              );
+            })}
           </tr>
         </thead>
         {!isLoading && localData?.length > 0 ? (

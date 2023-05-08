@@ -21,6 +21,7 @@ const TabRiwayatAjuanPerubahanData = ({ title }) => {
             {
               key: "id",
               title: "aksi",
+              align: "center",
               render: (val) => <Action param={val} />,
             },
           ]}
@@ -40,6 +41,7 @@ const TabRiwayatAjuanPerubahanData = ({ title }) => {
             {
               key: "id",
               title: "aksi",
+              align: "center",
               render: (val) => <Action param={val} />,
             },
           ]}
@@ -64,6 +66,7 @@ const TabRiwayatAjuanPerubahanData = ({ title }) => {
             {
               key: "id",
               title: "aksi",
+              align: "center",
               render: (val) => <Action param={val} />,
             },
           ]}
@@ -88,6 +91,7 @@ const TabRiwayatAjuanPerubahanData = ({ title }) => {
             {
               key: "id",
               title: "aksi",
+              align: "center",
               render: (val) => <Action param={val} />,
             },
           ]}
@@ -112,6 +116,7 @@ const TabRiwayatAjuanPerubahanData = ({ title }) => {
             {
               key: "id",
               title: "aksi",
+              align: "center",
               render: (val) => <Action param={val} />,
             },
           ]}
