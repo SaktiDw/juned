@@ -25,18 +25,18 @@ export const apiSister = axios.create({
     },  
 })
 
-// apiSister.interceptors.response.use(
-//     (response) => {
-//       return response;
-//     },
-//     (error) => {
-//       const config = error.config;
-//       if (error.response && error.response.status === 401 && !config._retry) {
-//         config._retry = true;
+apiSister.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      const config = error.config;
+      if (error.response && error.response.status === 401 && !config._retry) {
+        config._retry = true;
   
-//         window.location.href = "/auth/login";
-//         return Promise.reject(error);
-//       }
-//       return Promise.reject(error);
-//     }
-//   );
+        window.location.href = "/auth/login";
+        return Promise.reject(error);
+      }
+      return Promise.reject(error);
+    }
+  );

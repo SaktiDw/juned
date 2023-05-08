@@ -27,7 +27,7 @@ const BimbinganMahasiswa = () => {
   });
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 w-full h-full">
+      <div className="flex flex-col gap-4 w-full h-max">
         <Nav title={"Bimbingan Mahasiswa"} />
         <div className="flex flex-col  gap-2 p-4 bg-blue-200 rounded-lg divide-y divide-blue-400 text-sm shadow-lg">
           <h1 className="text-primary">
@@ -65,7 +65,7 @@ const BimbinganMahasiswa = () => {
             },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => (
                 <Action
                   param={val}

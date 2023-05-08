@@ -143,7 +143,7 @@ const DetailPengujianMahasiswa = () => {
               },
               {
                 key: "id",
-                title: "action",
+                title: "aksi",
                 render: (val) => (
                   <Action
                     param={val}

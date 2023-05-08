@@ -37,7 +37,7 @@ const Penempatan = () => {
             { key: "tanggal_keluar", title: "Tanggal Keluar" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => (
                 <Action
                   param={val}

@@ -27,6 +27,7 @@ const Pembicara = () => {
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             ,
+            { key: "kategori_kegiatan", title: "kategori kegiatan" },
             { key: "judul_makalah", title: "judul makalah" },
             { key: "nama_pertemuan", title: "nama temu ilmiah" },
             {
@@ -39,7 +40,7 @@ const Pembicara = () => {
             },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => <Action param={val} />,
             },
           ]}

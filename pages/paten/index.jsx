@@ -53,7 +53,7 @@ const Paten = () => {
             { key: "tanggal", title: "tanggal" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => (
                 <Action
                   param={val}

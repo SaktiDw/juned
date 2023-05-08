@@ -1,11 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
-import Nav from "../Navigations/Nav";
-import Sidebar from "../Navigations/Sidebar";
-import { Footer, Title } from "..";
-import { useRouter } from "next/router";
-import Head from "next/head";
+import { Footer, Sidebar, Title } from "..";
 
 const MainLayout = (props) => {
   const ref = useRef(null);

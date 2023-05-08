@@ -30,7 +30,7 @@ const Kesejahteraan = () => {
             { key: "tahun_selesai", title: "Tahun Selesai" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => (
                 <Action param={val} baseUrl={"/kesejahteraan"} />
               ),

@@ -51,7 +51,7 @@ const DetailInpassing = () => {
             },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => <Action param={val} baseUrl={"/inpassing"} />,
             },
           ]}

@@ -50,7 +50,7 @@ const FormEditBidangKeilmuan = () => {
                 },
                 {
                   key: "id",
-                  title: "Action",
+                  title: "aksi",
                   render: (val) => <Action param={val} />,
                 },
               ]}

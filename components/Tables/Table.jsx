@@ -22,6 +22,10 @@ const Table = ({
     setLocalData(data);
   }, [isLoading, data.length]);
 
+  useEffect(() => {
+    setSelectedPage(1);
+  }, [perPage]);
+
   const handleFilter = (searchTerm) => {
     const filtered = data?.filter((item) => {
       const values = Object.values(item);

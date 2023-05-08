@@ -53,7 +53,7 @@ const JabatanFungsional = () => {
             },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => (
                 <Action
                   param={val}

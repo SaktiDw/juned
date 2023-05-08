@@ -1,4 +1,7 @@
-import { fetchGolonganPangkat, fetchPerguruanTinggi } from "@/helper/api/api";
+import {
+  fetchGolonganPangkat,
+  fetchPerguruanTinggi,
+} from "@/helper/api/apiSister";
 import { api } from "@/helper/api/axios";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
@@ -19,7 +22,7 @@ const GolonganPangkatSelection = ({
   });
   const option =
     data &&
-    data?.data.map((item) => {
+    data?.map((item) => {
       return { value: item.id, label: item.nama };
     });
   return (

@@ -30,7 +30,7 @@ const PendidikanFormal = () => {
             { key: "tahun_lulus", title: "Tahun Lulus" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => (
                 <Action
                   param={val}

@@ -59,7 +59,7 @@ const AnggotaProfesi = () => {
             { key: "rubrik_bkd", title: "Rubrik BKD" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => (
                 <Action
                   param={val}

@@ -1,7 +1,5 @@
-import Head from "next/head";
 import { Action, Chip, FotoProfil, MainLayout, Nav, Table } from "@/components";
 import Link from "next/link";
-import { dateFormater } from "@/helper/constant";
 
 export default function Home() {
   return (
@@ -36,7 +34,7 @@ export default function Home() {
               },
               {
                 key: "id",
-                title: "Action",
+                title: "aksi",
                 render: (val) => (
                   <Action param={val} baseUrl={""} action={["detail"]} />
                 ),

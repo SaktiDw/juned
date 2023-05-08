@@ -115,7 +115,7 @@ const FormCreateAnggotaProfesi = ({ initialValues }) => {
                     { key: "jenis_dokumen", title: "jenis_dokumen" },
                     {
                       key: "action",
-                      title: "action",
+                      title: "aksi",
                       render: (val) => (
                         <Action
                           param={val}

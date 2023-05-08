@@ -36,7 +36,7 @@ const OrasiIlmiah = () => {
             },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => <Action param={val} />,
             },
           ]}

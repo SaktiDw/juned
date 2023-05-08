@@ -39,7 +39,7 @@ const PengelolaJurnal = () => {
             { key: "peran", title: "peran" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => (
                 <Action
                   param={val}

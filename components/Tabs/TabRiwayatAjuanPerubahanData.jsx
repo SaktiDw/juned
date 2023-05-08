@@ -20,7 +20,7 @@ const TabRiwayatAjuanPerubahanData = ({ title }) => {
             { key: "status", title: "Status" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => <Action param={val} />,
             },
           ]}
@@ -39,7 +39,7 @@ const TabRiwayatAjuanPerubahanData = ({ title }) => {
             { key: "umur_ajuan", title: "Umur Ajuan ( hari )" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => <Action param={val} />,
             },
           ]}
@@ -63,7 +63,7 @@ const TabRiwayatAjuanPerubahanData = ({ title }) => {
             { key: "umur_ajuan", title: "Umur Ajuan ( hari )" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => <Action param={val} />,
             },
           ]}
@@ -87,7 +87,7 @@ const TabRiwayatAjuanPerubahanData = ({ title }) => {
             { key: "umur_ajuan", title: "Umur Ajuan ( hari )" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => <Action param={val} />,
             },
           ]}
@@ -111,7 +111,7 @@ const TabRiwayatAjuanPerubahanData = ({ title }) => {
             { key: "umur_ajuan", title: "Umur Ajuan ( hari )" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => <Action param={val} />,
             },
           ]}

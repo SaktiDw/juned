@@ -61,7 +61,7 @@ const Publikasi = () => {
             { key: "rubrik_bkd", title: "rubrik bkd" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => (
                 <Action
                   param={val}

@@ -32,7 +32,7 @@ const Tunjangan = () => {
             { key: "nominal", title: "Nominal", dataType: "currency" },
             {
               key: "id",
-              title: "Action",
+              title: "aksi",
               render: (val) => (
                 <Action
                   param={val}
