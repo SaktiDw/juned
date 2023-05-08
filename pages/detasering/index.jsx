@@ -8,13 +8,13 @@ import {
 } from "@/components";
 import React from "react";
 
-const Datasering = () => {
+const Detasering = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 w-full">
-        <Nav title={"Datasering"} />
+        <Nav title={"Detasering"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-          Datasering
+          Detasering
         </h1>
         <div className="flex justify-between">
           <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
@@ -45,4 +45,4 @@ const Datasering = () => {
   );
 };
 
-export default Datasering;
+export default Detasering;
