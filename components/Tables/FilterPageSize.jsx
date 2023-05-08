@@ -7,7 +7,7 @@ const FilterPageSize = ({ onChange }) => {
       <select
         name="pageSize"
         id="pageSize"
-        className="bg-white dark:bg-slate-700 border border-primary rounded-lg py-2 px-4 font-semibold shadow-lg"
+        className="bg-white dark:bg-slate-700 border border-primary rounded-lg py-2 px-4 font-semibold"
         onChange={onChange}
         defaultValue={"5"}
       >

@@ -61,7 +61,7 @@ const Table = ({
         {createLink && (
           <Link
             href={createLink}
-            className="ml-auto flex items-center gap-2 py-2 px-4 w-min bg-primary rounded-lg shadow-lg text-white text-sm"
+            className="ml-auto flex items-center gap-2 py-2 px-4 w-min bg-primary rounded-lg text-white text-sm"
           >
             <i className="fi-rr-plus"></i>
             Tambah
@@ -72,14 +72,14 @@ const Table = ({
             <input
               onChange={(e) => handleFilter(e.target.value)}
               type="text"
-              className="py-2 px-4 text-sm w-min rounded-lg shadow-lg dark:bg-slate-700 outline-none appearance-none placeholder:font-bold"
+              className="py-2 px-4 text-sm w-min rounded-lg dark:bg-slate-700 outline-none appearance-none placeholder:font-bold"
               placeholder="Search here ..."
             />
             <i className="fi-rr-search absolute right-2 top-2"></i>
           </div>
         )}
       </div>
-      <table className={`w-full table-auto text-left shadow ${className}`}>
+      <table className={`w-full table-auto text-left ${className}`}>
         <thead>
           <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins text-center">
             {columns.map((column) => (
