@@ -16,10 +16,8 @@ const Detasering = () => {
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Detasering
         </h1>
-        <div className="flex justify-between">
-          <Button icon={<i className="fi-rr-plus"></i>} text="Tambah" />
-        </div>
         <Table
+          createLink={"/detasering/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             {
