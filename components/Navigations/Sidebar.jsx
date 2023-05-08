@@ -265,7 +265,7 @@ const Sidebar = () => {
             },
             {
               link: "/detasering",
-              title: "Datasering",
+              title: "Detasering",
               active: [
                 "/detasering",
                 "/detasering/create",
