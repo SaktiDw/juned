@@ -52,11 +52,11 @@ const Publikasi = () => {
             { key: "judul", title: "judul" },
             {
               key: "kategori_kegiatan",
-              title: "Terhitung Mulai Tanggal",
+              title: "kategori kegiatan",
             },
             { key: "jenis_publikasi", title: "jenis publikasi" },
             { key: "quartile", title: "quartile" },
-            { key: "tanggal", title: "tanggal terbit" },
+            { key: "tanggal", title: "tanggal terbit", dataType: "date" },
             { key: "asal_data", title: "asal data" },
             { key: "rubrik_bkd", title: "rubrik bkd" },
             {
