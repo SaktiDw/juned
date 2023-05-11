@@ -12,7 +12,7 @@ const GelarAkademikSelection = ({ errors, touched }) => {
   });
   const option =
     data &&
-    data?.data.map((item) => {
+    data?.data?.map((item) => {
       return { value: item.id, label: item.nama };
     });
   return (

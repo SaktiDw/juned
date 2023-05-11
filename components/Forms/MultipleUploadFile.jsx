@@ -27,7 +27,7 @@ const MultipleUploadFile = ({ data = [0], errors, children }) => {
           dengan data yang diusulkan. Dokumen Wajib : - KTP - Kartu Keluarga
         </p>
         <div className="grid w-full gap-4">
-          {files.map((item, index) => (
+          {files?.map((item, index) => (
             <div
               key={`dokumen-form${index}`}
               className="relative flex flex-col gap-4 w-full"

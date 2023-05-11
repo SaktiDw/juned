@@ -50,7 +50,7 @@ const Dropdown = ({ index, isOpen, active, onClick, subItem, title, icon }) => {
         }`}
       >
         {subItem &&
-          subItem.map((item, index) => (
+          subItem?.map((item, index) => (
             <Link
               key={index}
               className={` hover:bg-primary dark:hover:bg-primary hover:text-white hover:pl-4 p-2 duration-200 ease-in-out ${

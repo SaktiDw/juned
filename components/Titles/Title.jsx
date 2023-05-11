@@ -8,10 +8,10 @@ const Title = () => {
   let route = router.pathname
     .split("/")
     .filter((x) => x)
-    .map((part) => {
+    ?.map((part) => {
       const words = part
         .split("-")
-        .map((part) => part.charAt(0).toUpperCase() + part.slice(1));
+        ?.map((part) => part.charAt(0).toUpperCase() + part.slice(1));
       const result = words.join(" ");
       return result;
       // return words;

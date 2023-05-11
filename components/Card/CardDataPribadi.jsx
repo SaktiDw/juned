@@ -26,7 +26,7 @@ const CardDataPribadi = ({ title, children, data, editLink }) => {
 
         <div className="flex flex-col gap-2 divide-y">
           {data &&
-            data.map((item) => (
+            data?.map((item) => (
               <div
                 key={item.title}
                 className="flex flex-col gap-1 justify-center py-2"

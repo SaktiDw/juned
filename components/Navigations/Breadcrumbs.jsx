@@ -11,11 +11,11 @@ const Breadcrumbs = () => {
       <li>
         <Link href="/">Home</Link>
       </li>
-      {path.map((part, index) => {
+      {path?.map((part, index) => {
         const url = `/${path.slice(0, index + 1).join("/")}`;
         const words = part
           .split("-")
-          .map((part) => part.charAt(0).toUpperCase() + part.slice(1));
+          ?.map((part) => part.charAt(0).toUpperCase() + part.slice(1));
         const result = words.join(" ");
         let label = result;
 
@@ -46,10 +46,10 @@ const Breadcrumbs = () => {
 // const path = router.asPath
 //   .split("/")
 //   .filter((x) => x)
-//   .map((part, index) => {
+//   ?.map((part, index) => {
 //     const words = part
 //       .split("-")
-//       .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+//       ?.map((part) => part.charAt(0).toUpperCase() + part.slice(1))
 //       // .filter((part) => (hasNumber(part) ? "Ada" : ""));
 //     const result = words.join(" ");
 

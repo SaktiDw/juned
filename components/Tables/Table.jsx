@@ -82,7 +82,7 @@ const Table = ({
       <table className={`w-full table-auto text-left shadow ${className}`}>
         <thead>
           <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins">
-            {columns.map((column) => {
+            {columns?.map((column) => {
               let align = "text-left";
               if (column.align) align = `text-${column.align}`;
 
@@ -102,12 +102,12 @@ const Table = ({
             {localData &&
               localData
                 .slice(indexOfFirstItem, indexOfLastItem)
-                .map((item, index) => (
+                ?.map((item, index) => (
                   <tr
                     className=" bg-white odd:bg-blue-50 hover:bg-blue-200 dark:bg-slate-700 dark:odd:bg-slate-800 dark:hover:bg-slate-600"
                     key={`tr-${index}`}
                   >
-                    {columns.map((column, indexColumn) => {
+                    {columns?.map((column, indexColumn) => {
                       let toShown = item[column.key];
                       if (column.render) toShown = column.render(item);
                       if (column.dataType === "numbering") {

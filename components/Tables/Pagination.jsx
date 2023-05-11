@@ -32,7 +32,7 @@ function List({
         data.length > 0 ? indexOfFirstItem + 1 : 0
       } to ${lastItem} entries of ${data.length}`}</span>
       <div>
-        {currentItems.map((item) => (
+        {currentItems?.map((item) => (
           <div key={item.id}>{item.title}</div>
         ))}
         <div className="flex gap-2 items-center">
@@ -43,7 +43,7 @@ function List({
           >
             Prev
           </button>
-          {pageNumbers.map((item, index) => (
+          {pageNumbers?.map((item, index) => (
             <button
               key={`paginationBTN-${item}`}
               className={`p-2 w-8 h-8 text-xs rounded-lg border hover:bg-primary dark:hover:bg-primary hover:text-white hover:shadow-primary  ${

@@ -51,7 +51,7 @@ const Pengabdian = () => {
               title: "bidang keilmuan",
               render: (val) => (
                 <div className="flex flex-col gap-2">
-                  {val.bidang_keilmuan.map((item, index) => (
+                  {val.bidang_keilmuan?.map((item, index) => (
                     <div key={item}>
                       <span>{index + 1}.</span> <span>{item}</span>
                     </div>

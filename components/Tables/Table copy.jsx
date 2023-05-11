@@ -70,7 +70,7 @@ const Table = ({
       <table className="w-full table-auto text-left shadow">
         <thead>
           <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins">
-            {columns.map((column) => (
+            {columns?.map((column) => (
               <th key={column.title} className="p-2 first:pl-4 last:pr-4">
                 {column.title}
               </th>
@@ -84,7 +84,7 @@ const Table = ({
                 className=" bg-white odd:bg-blue-50 hover:bg-blue-200 dark:bg-slate-700 dark:odd:bg-slate-800 dark:hover:bg-slate-600"
                 key={item.id}
               >
-                {columns.map((column, index) => {
+                {columns?.map((column, index) => {
                   let toShown = item[column.key];
                   if (column.render) toShown = column.render(item, index);
                   return (
@@ -131,7 +131,7 @@ const Table = ({
           >
             <i className="fi-rr-angle-left"></i>
           </button>
-          {pageNumbers.map((item) => (
+          {pageNumbers?.map((item) => (
             <button
               key={item}
               onClick={() => setCurrentPage(item)}
