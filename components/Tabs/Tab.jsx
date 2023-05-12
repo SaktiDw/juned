@@ -16,7 +16,7 @@ const Tab = ({ tabs, title, contents }) => {
   return (
     <div className="flex flex-col gap-4">
       <h1 className="text-md font-bold uppercase">{title}</h1>
-      <div className="grid grid-flow-col items-center gap-4">
+      <div className="grid grid-flow-col overflow-auto items-center gap-4">
         {tabs?.map((tab, index) => (
           <button
             key={tab}
