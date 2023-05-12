@@ -17,8 +17,8 @@ const MultipleUploadFile = ({ data = [0], errors, children }) => {
         Upload Dokumen
       </label>
       {children}
-      <div className="flex items-start gap-8">
-        <p className="w-1/4">
+      <div className="flex flex-col md:flex-row items-start gap-8">
+        <p className=" md:w-1/4">
           Upload Dokumen{" "}
           <span className="text-blue-500 font-semibold">
             (Maksimal total ukuran file dalam sekali proses upload : 5 MB)
@@ -51,7 +51,9 @@ const MultipleUploadFile = ({ data = [0], errors, children }) => {
                   isActive === index ? "grid" : "hidden"
                 } grid-cols-1 justify-between gap-4`}
               >
-                <div className={`grid grid-cols-2 justify-between gap-4`}>
+                <div
+                  className={`grid grid-flow-row md:grid-cols-2 md:justify-between gap-4`}
+                >
                   <Input
                     name={`nama_dokumen${index}`}
                     label={"Nama Dokumen"}

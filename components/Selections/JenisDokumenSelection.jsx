@@ -12,7 +12,7 @@ const JenisDokumenSelection = ({ value, errors, touched }) => {
   return (
     <>
       <Select
-        label={`jenis dokumen ${value}`}
+        label={`jenis dokumen`}
         name="jenis_dokumen"
         option={data}
         errors={errors}
