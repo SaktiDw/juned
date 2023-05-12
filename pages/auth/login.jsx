@@ -19,7 +19,14 @@ const Login = () => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col w-full min-h-screen items-center justify-center bg-slate-200">
+    <div className="flex flex-col gap-4 w-full min-h-screen items-center justify-start bg-slate-200">
+      <Image
+        alt="logo"
+        src={"/logo itk png.png"}
+        width={150}
+        height={150}
+        className="object-cover aspect-square mx-auto"
+      />
       <Formik
         initialValues={{
           username: "4PU03FXTjYYrMxACQLD5fvxwUOKc4B8OmXpNPU9MnkU=",
@@ -38,8 +45,10 @@ const Login = () => {
         validationSchema={schema}
       >
         {({ initialValues, isSubmitting, isValid, errors, touched }) => (
-          <Form className="grid grid-flow-row gap-4 min-w-[400px] bg-white shadow-xl p-8 rounded-xl">
-            <h1>Sistem Informasi Sumberdaya Terintegrasi</h1>
+          <Form className="grid grid-flow-row gap-4 w-10/12 sm:w-3/4 lg:w-1/2 xl:w-[500px] bg-white shadow-2xl p-8 rounded-xl">
+            <h1 className="capitalize text-primary text-xl font-semibold">
+              Sistem Informasi Sumberdaya Terintegrasi
+            </h1>
             <Input
               name={"username"}
               label={"username"}
@@ -74,9 +83,6 @@ const Login = () => {
           </Form>
         )}
       </Formik>
-      <span>{data && data.token}</span>
-      {/* {JSON.stringify(data)} */}
-      {/* <Image src={imageSrc} width={300} height={300} /> */}
     </div>
   );
 };
