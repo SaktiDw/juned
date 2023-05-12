@@ -20,7 +20,10 @@ const DetailBimbinganMahasiswa = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-max">
-        <Nav title={"Detail BimbinganMahasiswa"} />
+        <Nav title={"Detail Bimbingan Mahasiswa"} />
+        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+          Detail Bimbingan Mahasiswa
+        </h1>
         <div className="flex flex-col gap-2 justify-center bg-white dark:bg-slate-800 rounded-xl p-4 divide-y dark:divide-slate-500">
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">
@@ -108,7 +111,19 @@ const DetailBimbinganMahasiswa = () => {
             searchAble
             columns={[
               { key: "id", title: "No", dataType: "numbering" },
-              { key: "nama", title: "nama" },
+              {
+                key: "nama",
+                title: "nama",
+                render: (val) => (
+                  <div className="flex flex-col">
+                    <span>{val.nama}</span>{" "}
+                    <span className="text-xs">
+                      NIPD:{" "}
+                      <span className="font-semibold">{val.nomor_induk}</span>
+                    </span>
+                  </div>
+                ),
+              },
               { key: "peran", title: "peran" },
             ]}
             data={bimbingan_mahasiswa?.mahasiswa}
@@ -161,7 +176,7 @@ const DetailBimbinganMahasiswa = () => {
             data={bimbingan_mahasiswa?.dokumen}
           />
         </div>
-        <div className="flex justify-between items-center">
+        {/* <div className="flex justify-between items-center">
           <Link
             href={`/bimbingan_mahasiswa/${id}/edit`}
             className="bg-primary rounded-xl py-2 px-4 text-white text-sm"
@@ -174,7 +189,7 @@ const DetailBimbinganMahasiswa = () => {
           >
             <i className="fi-rr-pencil"></i> Laporkan Kesalahan
           </Link>
-        </div>
+        </div> */}
       </div>
     </MainLayout>
   );

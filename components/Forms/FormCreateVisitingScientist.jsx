@@ -64,6 +64,7 @@ const FormCreateVisitingScientist = () => {
               touched={touched.kategori_capaian_luaran}
             />
             <PerguruanTinggiSelection
+              label={"perguruan tinggi pengundang"}
               errors={errors.ptn_pengundang}
               touched={touched.ptn_pengundang}
             />

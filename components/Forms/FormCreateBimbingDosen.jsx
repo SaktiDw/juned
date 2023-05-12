@@ -65,6 +65,8 @@ const FormCreateBimbingDosen = () => {
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
+              menu={"bimbing_dosen"}
+              type={"tree"}
               errors={errors.kategori_kegiatan}
               touched={touched.kategori_kegiatan}
             />

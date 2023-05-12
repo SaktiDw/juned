@@ -59,6 +59,8 @@ const FormCreateTugasTambahan = () => {
         {({ isSubmitting, errors, touched, status, isValid }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
+              menu={"tugas_tambahan"}
+              type={"tree"}
               errors={errors.kategori_kegiatan}
               touched={touched.kategori_kegiatan}
             />

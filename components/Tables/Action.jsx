@@ -79,7 +79,7 @@ const Action = ({
         {action.includes("add-document") && (
           <button
             onClick={addDocumentFn}
-            className="relative flex justify-center p-1 text-primary rounded-xl text-md group"
+            className="relative flex justify-center p-1 text-primary rounded-xl text-lg group"
           >
             <i className="fi-rr-document"></i>
             <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">

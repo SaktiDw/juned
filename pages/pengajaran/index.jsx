@@ -50,6 +50,7 @@ const Pengajaran = () => {
             onClick={() => router.push("/pengajaran/list-data")}
           />
           <PeriodeSelection
+            withPendek={false}
             onChange={(e) => {
               setSemester(e.target.value);
             }}
