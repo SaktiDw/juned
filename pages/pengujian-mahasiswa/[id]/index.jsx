@@ -148,7 +148,7 @@ const DetailPengujianMahasiswa = () => {
                 render: (val) => (
                   <Action
                     param={val}
-                    baseUrl={"/pengujian_mahasiswa"}
+                    baseUrl={"/dokumen"}
                     action={["delete", "detail", "edit"]}
                   />
                 ),

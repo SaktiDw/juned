@@ -124,7 +124,7 @@ const DetailPenunjangLain = () => {
                 render: (val) => (
                   <Action
                     param={val}
-                    baseUrl={"/penunjang_lain"}
+                    baseUrl={"/dokumen"}
                     action={["delete", "detail", "edit"]}
                   />
                 ),

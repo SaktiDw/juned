@@ -16,7 +16,7 @@ const Pembicara = () => {
   });
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 dark:text-white w-full h-full">
+      <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"pembicara"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Pembicara

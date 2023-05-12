@@ -208,7 +208,7 @@ const DetailPaten = () => {
                 render: (val) => (
                   <Action
                     param={val}
-                    baseUrl={"/publikasi"}
+                    baseUrl={"/dokumen"}
                     action={["delete", "detail", "edit"]}
                   />
                 ),

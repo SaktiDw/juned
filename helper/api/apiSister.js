@@ -92,3 +92,7 @@ export const fetchDetailKesejahteraan = async (id) => await apiSister.get(`/kese
 
 export const fetchTunjangan = async (id) => await apiSister.get(`/tunjangan?id_sdm=${id}`).then(res=>res.data).catch(err=>err)
 export const fetchDetailTunjangan = async (id) => await apiSister.get(`/tunjangan/${id}`).then(res=>res.data).catch(err=>err)
+
+export const fetchListDokumen = async (id) => await apiSister.get(`/dokumen?id_sdm=${id}`).then(res=>res.data).catch(err=>err)
+export const fetchDetailDokumen = async (id) => await apiSister.get(`/dokumen/${id}`).then(res=>res.data).catch(err=>err)
+

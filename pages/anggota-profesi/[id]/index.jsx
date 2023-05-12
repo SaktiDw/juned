@@ -102,7 +102,7 @@ const DetailAnggotaProfesi = () => {
                 render: (val) => (
                   <Action
                     param={val}
-                    baseUrl={"/anggota_profesi"}
+                    baseUrl={"/dokumen"}
                     action={["delete", "detail", "edit"]}
                   />
                 ),

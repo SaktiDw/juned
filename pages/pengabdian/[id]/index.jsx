@@ -218,7 +218,7 @@ const DetailPengabdian = () => {
                 render: (val) => (
                   <Action
                     param={val}
-                    baseUrl={"/penelitian"}
+                    baseUrl={"/dokumen"}
                     action={["delete", "detail", "edit"]}
                   />
                 ),

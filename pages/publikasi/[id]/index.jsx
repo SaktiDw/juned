@@ -219,7 +219,7 @@ const DetailPublikasi = () => {
                 render: (val) => (
                   <Action
                     param={val}
-                    baseUrl={"/publikasi"}
+                    baseUrl={"/dokumen"}
                     action={["delete", "detail", "edit"]}
                   />
                 ),

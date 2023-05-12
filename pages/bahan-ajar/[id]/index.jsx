@@ -145,7 +145,7 @@ const DetailBahanAjar = () => {
                 render: (val) => (
                   <Action
                     param={val}
-                    baseUrl={"/bahan_ajar"}
+                    baseUrl={"/dokumen"}
                     action={["delete", "detail", "edit"]}
                   />
                 ),

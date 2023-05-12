@@ -171,7 +171,7 @@ const DetailPengelolaJurnal = () => {
                 render: (val) => (
                   <Action
                     param={val}
-                    baseUrl={"/pengelola_jurnal"}
+                    baseUrl={"/dokumen"}
                     action={["delete", "detail", "edit"]}
                   />
                 ),

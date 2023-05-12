@@ -1,14 +1,7 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Input,
-  JenisDokumenSelection,
-  Select,
-  Textarea,
-  UploadFile,
-} from "..";
+import { Button, Input, JenisDokumenSelection, Textarea, UploadFile } from "..";
 
-const MultipleUploadFile = ({ data = [0], errors, children }) => {
+const MultipleUploadFile = ({ data = [0], errors, children, limit = 5 }) => {
   const [files, setFiles] = useState([1]);
   const [isActive, setIsActive] = useState(0);
   return (
@@ -59,6 +52,7 @@ const MultipleUploadFile = ({ data = [0], errors, children }) => {
                     label={"Nama Dokumen"}
                     errors={""}
                     touched={""}
+                    value={data?.nama}
                   />
                   {/* <Select
                     name={`jenis_dokumen${index}`}
@@ -74,23 +68,31 @@ const MultipleUploadFile = ({ data = [0], errors, children }) => {
                     valueKey={"value"}
                     labelKey={"label"}
                   /> */}
-                  <JenisDokumenSelection />
+                  <JenisDokumenSelection value={data?.jenis_dokumen} />
                 </div>
                 <UploadFile />
-                <Textarea label={"Keterangan"} />
+                <Textarea label={"Keterangan"} values={data?.keterangan} />
                 <Input
                   name={`tautan_dokumen${index}`}
                   label={"Tautan Dokumen"}
                   errors={""}
                   touched={""}
+                  value={data?.tautan}
                 />
               </div>
             </div>
           ))}
-          <Button
-            text={"Tambah Dokumen"}
-            onClick={() => setFiles([...files, files.length + 1])}
-          />
+          {files.length < limit && (
+            <Button
+              text={"Tambah Dokumen"}
+              onClick={() =>
+                files.length < limit
+                  ? setFiles([...files, files.length + 1])
+                  : null
+              }
+              disabled={files.length >= limit}
+            />
+          )}
         </div>
       </div>
     </>
