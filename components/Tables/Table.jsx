@@ -11,6 +11,7 @@ const Table = ({
   searchAble = false,
   isLoading,
   className,
+  shadow = true,
 }) => {
   const [perPage, setPerpage] = useState(5);
   const [localData, setLocalData] = useState(data);
@@ -54,7 +55,9 @@ const Table = ({
     <section
       className={`${
         isLoading ? "animate-pulse" : ""
-      } grid grid-flow-row gap-6 p-4 z-10 overflow-x-auto w-full rounded-xl shadow-lg bg-white dark:bg-slate-800`}
+      } flex flex-col gap-6 p-4 z-10 overflow-x-auto w-full rounded-xl bg-white dark:bg-slate-800 ${
+        shadow ? "shadow-lg" : ""
+      }`}
     >
       <div className="flex justify-between gap-6">
         <FilterPageSize onChange={(e) => setPerpage(e.target.value)} />

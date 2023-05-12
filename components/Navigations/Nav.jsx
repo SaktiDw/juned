@@ -13,7 +13,7 @@ const Nav = ({ title }) => {
     queryFn: async () => await fetchProfil(id),
   });
   return (
-    <nav className="w-full flex items-center gap-4 h-14">
+    <nav className="w-full flex items-start md:items-center gap-4 h-14">
       {/* <i className="fi-rr-menu-burger"></i>
         <button className='ml-auto'>Pengaturan</button>
         <button>Pengaturan</button> */}
@@ -23,12 +23,12 @@ const Nav = ({ title }) => {
       >
         <i className={`${"fi-rr-menu-burger"}`}></i>
       </button>
-      <div className="flex flex-col">
-        <h1 className="lg:text-3xl font-bold capitalize ">{title}</h1>
+      <div className="flex flex-col ">
+        <h1 className="text-xs lg:text-3xl font-bold capitalize ">{title}</h1>
         <Breadcrumbs />
       </div>
 
-      <h1 className="ml-auto lg:text-xl capitalize font-bold">
+      <h1 className="ml-auto text-xs lg:text-xl capitalize font-bold whitespace-nowrap text-ellipsis">
         {data && data.nama.toLowerCase()}
       </h1>
     </nav>
