@@ -55,11 +55,11 @@ const Table = ({
     <section
       className={`${
         isLoading ? "animate-pulse" : ""
-      } flex flex-col gap-6 p-4 z-10 overflow-x-auto w-full rounded-xl bg-white dark:bg-slate-800 ${
+      } flex flex-col gap-6 p-4 z-10 overflow-x-auto w-full h-max rounded-xl bg-white dark:bg-slate-800 ${
         shadow ? "shadow-lg" : ""
       }`}
     >
-      <div className="flex justify-between gap-6">
+      <div className="flex w-full justify-between gap-6">
         <FilterPageSize onChange={(e) => setPerpage(e.target.value)} />
         {createLink && (
           <Link
@@ -82,7 +82,9 @@ const Table = ({
           </div>
         )}
       </div>
-      <table className={`w-full table-auto text-left shadow ${className}`}>
+      <table
+        className={`w-full h-max table-auto text-left shadow ${className}`}
+      >
         <thead>
           <tr className="bg-white dark:bg-slate-900 uppercase text-xs font-poppins">
             {columns?.map((column) => {
@@ -92,7 +94,7 @@ const Table = ({
               return (
                 <th
                   key={column.title}
-                  className={`p-2 first:pl-4 last:pr-4 ${align}`}
+                  className={`p-2 first:pl-4 last:pr-4 ${align} w-max`}
                 >
                   {column.title}
                 </th>
@@ -128,7 +130,7 @@ const Table = ({
                       return (
                         <td
                           key={`tr-${index}-td-${indexColumn}`}
-                          className="p-2 first:pl-4 last:pr-4"
+                          className="p-2 first:pl-4 last:pr-4 w-max"
                         >
                           {toShown}
                         </td>

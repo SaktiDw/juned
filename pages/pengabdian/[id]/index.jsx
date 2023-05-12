@@ -19,7 +19,7 @@ const DetailPengabdian = () => {
   });
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 dark:text-white w-full">
+      <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"Detail Pengabdian"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Detail Pengabdian

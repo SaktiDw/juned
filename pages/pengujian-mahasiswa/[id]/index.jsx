@@ -19,7 +19,7 @@ const DetailPengujianMahasiswa = () => {
   });
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 dark:text-white w-full">
+      <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"Detail Pengujian Mahasiswa"} />
         <div className="flex flex-col gap-2 justify-center bg-white dark:bg-slate-800 rounded-xl p-4 divide-y dark:divide-slate-500">
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">

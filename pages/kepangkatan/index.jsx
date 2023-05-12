@@ -19,12 +19,12 @@ const Kepangkatan = () => {
 
   return (
     <MainLayout>
-      <div className="flex flex-col gap-4 dark:text-white w-full">
+      <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"Kepangkatan"} />
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Riwayat Golongan/Pangkat
         </h1>
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row gap-2 justify-between">
           <Button
             size={"small"}
             icon={<i className="fi-rr-time-past pt-1"></i>}

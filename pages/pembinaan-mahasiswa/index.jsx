@@ -18,7 +18,7 @@ const PembinaanMahasiswa = () => {
         <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
           Pembinaan Mahasiswa
         </h1>
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row gap-2 justify-between">
           <PeriodeSelection />
         </div>
         <Table

@@ -10,11 +10,13 @@ const PeriodeSelection = ({ onChange }) => {
   if (isLoading) return <p>Loading...</p>;
   return (
     <div className="flex gap-2 items-center">
-      <label htmlFor="periode">Periode</label>
+      <label htmlFor="periode" className="hidden md:block font-semibold">
+        Periode
+      </label>
       <select
         name="periode"
         id="periode"
-        className="py-2 px-4 bg-white dark:bg-slate-700 rounded-md shadow-xl"
+        className="py-3 px-4 bg-white dark:bg-slate-700 rounded-md shadow-xl w-full"
         onChange={onChange}
         defaultValue={""}
       >
