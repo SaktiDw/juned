@@ -15,7 +15,7 @@ const Textarea = ({
       <div className="flex flex-col gap-2">
         <label
           htmlFor={name}
-          className="uppercase leading-tight font-bold text-xs"
+          className="uppercase leading-tight font-bold text-sm"
         >
           {label}
         </label>
@@ -29,11 +29,11 @@ const Textarea = ({
           }`}
           name={name}
           id={name}
-          rows="1"
+          rows="5"
           placeholder={placeholder}
         ></Field>
         {errors && touched ? (
-          <div className="text-red-500 font-semibold">{errors}</div>
+          <div className="text-red-500 font-semibold capitalize">{errors}</div>
         ) : null}
       </div>
     </>

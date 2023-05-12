@@ -33,6 +33,7 @@ export { default as FormCreatePengelolaJurnal } from "./Forms/FormCreatePengelol
 export { default as FormCreatePembicara } from "./Forms/FormCreatePembicara";
 export { default as FormCreateJabatanStruktural } from "./Forms/FormCreateJabatanStruktural";
 export { default as FormCreatePendidikanFormal } from "./Forms/FormCreatePendidikanFormal";
+export { default as FormCreateDetasering } from "./Forms/FormCreateDetasering";
 
 export { default as Input } from "./Forms/Input";
 export { default as Select } from "./Forms/Select";

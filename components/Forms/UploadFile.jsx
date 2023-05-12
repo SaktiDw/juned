@@ -38,7 +38,7 @@ const UploadFile = () => {
       <div className="flex flex-col gap-3">
         <label
           htmlFor={"name"}
-          className="uppercase leading-tight font-bold text-xs"
+          className="uppercase leading-tight font-bold text-sm"
         >
           Upload File
         </label>
