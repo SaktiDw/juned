@@ -48,7 +48,7 @@ const KategoriKegiatanSelection = ({
 export default KategoriKegiatanSelection;
 
 const TreeSelection = ({ value, name, data = [] }) => {
-  const [isOpen, setisOpen] = useState(false);
+  const [isOpen, setisOpen] = useState("");
   if (!data) return <></>;
   return (
     <div className="p-2 pr-0 bg-slate-200 dark:bg-slate-700 rounded-xl">
@@ -60,7 +60,9 @@ const TreeSelection = ({ value, name, data = [] }) => {
                 {item.sub_kategori ? (
                   <i
                     className={`pt-1 ${
-                      isOpen ? "fi-rr-angle-up" : "fi-rr-angle-down"
+                      isOpen == item.nama
+                        ? "fi-rr-angle-up"
+                        : "fi-rr-angle-down"
                     }`}
                   ></i>
                 ) : (
@@ -75,12 +77,14 @@ const TreeSelection = ({ value, name, data = [] }) => {
                 <label
                   className="p-1 cursor-pointer w-full"
                   htmlFor={item.nama}
-                  onClick={() => setisOpen(!isOpen)}
+                  onClick={() =>
+                    isOpen == item.nama ? setisOpen("") : setisOpen(item.nama)
+                  }
                 >
                   {item.nama}
                 </label>
               </div>
-              {item.sub_kategori && isOpen && (
+              {item.sub_kategori && isOpen == item.nama && (
                 <TreeSelection
                   key={item.sub_kategori}
                   name={name}
