@@ -53,7 +53,7 @@ const TreeSelection = ({ value, name, data = [] }) => {
   return (
     <div className="p-2 pr-0 bg-slate-200 dark:bg-slate-700 rounded-xl">
       <ul className="cursor-pointer w-full">
-        {data &&
+        {data.length &&
           data?.map((item, index) => (
             <li key={item.nama} className="flex flex-col ">
               <div className="flex gap-2 w-full items-center px-4 hover:bg-slate-300 dark:hover:bg-slate-600 rounded-lg">

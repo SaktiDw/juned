@@ -57,7 +57,7 @@ const Inpassing = () => {
               render: (val) => <Action param={val} baseUrl={"/inpassing"} />,
             },
           ]}
-          data={inpassing?.data}
+          data={[]}
         />
       </div>
     </MainLayout>

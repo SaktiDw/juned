@@ -4,17 +4,11 @@ export default function handler(req,res) {
         message: "bla bla",
         data: [
             {
-                id:1,
-                golongan_pangkat:"koruptor",
-                sk:"D34TH",
-                terhitung_mulai_tanggal: Date.now(),
-            },
-            {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "pangkat_golongan": "III/c (Penata)",
-                "sk": "53979/A3/KP/2020",
-                "tanggal_mulai": "2020-04-01"
+              "sk": "16/IT10/KP.02/2021",
+              "tanggal_mulai": "2021-01-04",
+              "id": "ab2f2b4c-e4b8-4c38-8c53-158f7e435088",
+              "pangkat_golongan": "III/b (Penata Muda Tk. I)"
             }
-        ]
+          ]
     })
 }

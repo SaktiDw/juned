@@ -38,11 +38,13 @@ const Kepangkatan = () => {
           createLink={"/kepangkatan/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
-            ,
+
+            { key: "pangkat_golongan", title: "Pangkat/Golongan" },
             { key: "sk", title: "Nomor SK" },
             {
-              key: "terhitung_mulai_tanggal",
+              key: "tanggal_mulai",
               title: "Terhitung Mulai Tanggal",
+              dataType: "date",
             },
             {
               key: "id",
