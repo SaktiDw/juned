@@ -8,8 +8,6 @@ import {
   Select,
 } from "..";
 import * as yup from "yup";
-import { createUser } from "@/helper/api/api";
-import { useQuery } from "@tanstack/react-query";
 
 const schema = yup.object().shape({
   golongan_pangkat: yup.string().required("pangkat golongan wajib di isi."),

@@ -2,6 +2,7 @@ import React from "react";
 import { Formik, Form } from "formik";
 import {
   Button,
+  FormAnggotaKegiatan,
   Input,
   KategoriKegiatanSelection,
   MultipleUploadFile,
@@ -24,6 +25,11 @@ const schema = yup.object().shape({
   sk_penugasan: yup.string().required("sk_penugasan di isi."),
   tanggal_mulai: yup.string().required("tanggal mulai di isi."),
   tanggal_selesai: yup.string().required("tanggal selesai di isi."),
+  anggota_dosen: yup.object().shape({
+    id_sdm: yup.string().required("id_sdm wajib di isi."),
+    name: yup.string().required("nama wajib di isi."),
+    peran: yup.string().required("peran wajib di isi."),
+  }),
 });
 
 const FormCreatePenunjangLain = ({ initialValues }) => {
@@ -40,11 +46,20 @@ const FormCreatePenunjangLain = ({ initialValues }) => {
           sk_penugasan: initialValues?.sk_penugasan || "",
           tanggal_mulai: initialValues?.tanggal_mulai || "",
           tanggal_selesai: initialValues?.tanggal_selesai || "",
+          anggota_dosen:
+            initialValues?.anggota_dosen ||
+            [
+              // {
+              //   id_sdm: "",
+              //   nama: "",
+              //   peran: "",
+              // },
+            ],
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
               menu={"penunjang_lain"}
@@ -110,6 +125,15 @@ const FormCreatePenunjangLain = ({ initialValues }) => {
               touched={touched.tanggal_selesai}
             />
             Anggota Kegiatan (Dosen)
+            <FormAnggotaKegiatan
+              name={"anggota_dosen"}
+              values={values.anggota_dosen}
+              defaultValue={{
+                id_sdm: "",
+                nama: "",
+                peran: "",
+              }}
+            />
             <MultipleUploadFile />
             <Button
               disabled={!isValid}

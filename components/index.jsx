@@ -35,6 +35,7 @@ export { default as FormCreateJabatanStruktural } from "./Forms/FormCreateJabata
 export { default as FormCreatePendidikanFormal } from "./Forms/FormCreatePendidikanFormal";
 export { default as FormCreateDetasering } from "./Forms/FormCreateDetasering";
 
+export { default as FormAnggotaKegiatan } from "./Forms/FormAnggotaKegiatan";
 export { default as Input } from "./Forms/Input";
 export { default as Select } from "./Forms/Select";
 export { default as Textarea } from "./Forms/Textarea";

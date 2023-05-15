@@ -114,7 +114,7 @@ const Table = ({
                   >
                     {columns?.map((column, indexColumn) => {
                       let toShown = item[column.key];
-                      if (column.render) toShown = column.render(item);
+                      if (column.render) toShown = column.render(item, index);
                       if (column.dataType === "numbering") {
                         toShown = (selectedPage - 1) * perPage + index + 1;
                       }

@@ -1,11 +1,9 @@
-import { FotoProfil, Input } from "@/components";
+import { Input } from "@/components";
 import { apiSister } from "@/helper/api/axios";
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
 import { Form, Formik } from "formik";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
@@ -19,7 +17,7 @@ const Login = () => {
   const router = useRouter();
 
   return (
-    <div className="flex flex-col gap-4 w-full min-h-screen items-center justify-start bg-slate-200">
+    <div className="flex flex-col gap-4 w-full min-h-screen items-center justify-start bg-slate-200 dark:bg-slate-900 dark:text-white">
       <Image
         alt="logo"
         src={"/logo itk png.png"}
@@ -39,13 +37,13 @@ const Login = () => {
             setData(res.data);
             localStorage.setItem("role", res.data.role);
             localStorage.setItem("token", res.data.token);
-            router.back();
+            router.push("/");
           })
         }
         validationSchema={schema}
       >
         {({ initialValues, isSubmitting, isValid, errors, touched }) => (
-          <Form className="grid grid-flow-row gap-4 w-10/12 sm:w-3/4 lg:w-1/2 xl:w-[500px] bg-white shadow-2xl p-8 rounded-xl">
+          <Form className="grid grid-flow-row gap-4 w-10/12 sm:w-3/4 lg:w-1/2 xl:w-[500px] bg-white dark:bg-slate-800 shadow-2xl p-8 rounded-xl">
             <h1 className="capitalize text-primary text-xl font-semibold">
               Sistem Informasi Sumberdaya Terintegrasi
             </h1>

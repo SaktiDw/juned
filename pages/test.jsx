@@ -1,6 +1,6 @@
-import { MainLayout, Modal, MultipleUploadFile } from "@/components";
+import { MainLayout, Modal, MultipleUploadFile, Table } from "@/components";
 import useToggle from "@/helper/hooks/useToggle";
-import { Formik } from "formik";
+import { Field, FieldArray, Form, Formik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState, useRef, useEffect } from "react";
@@ -65,7 +65,127 @@ const Sidebar = () => {
 
   return (
     <MainLayout>
-      <ul>
+      <Formik
+        enableReinitialize
+        initialValues={{
+          friends: [{ name: "jared", age: 23 }],
+        }}
+        onSubmit={() => null}
+      >
+        {({ isSubmitting, values }) => (
+          <Form>
+            <FieldArray
+              name="friends"
+              render={(arrayHelpers) => (
+                <div className="flex flex-col-reverse gap-2">
+                  {values.friends && values.friends.length > 0 ? (
+                    values.friends.map((item, index) => (
+                      <div className="flex">
+                        <Field
+                          key={`friends.${index}.name`}
+                          name={`friends.${index}.name`}
+                        />
+                        <Field
+                          type="number"
+                          key={`friends.${index}.age`}
+                          name={`friends.${index}.age`}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => arrayHelpers.remove(index)}
+                        >
+                          remove
+                        </button>
+                        <button
+                          type="submit"
+                          onClick={() => arrayHelpers.insert(index, "")}
+                        >
+                          insert
+                        </button>
+                      </div>
+                    ))
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        arrayHelpers.push({
+                          name: "",
+                          age: 0,
+                        })
+                      }
+                    >
+                      {/* show this when user has removed all friends from the list */}
+                      Add a friend
+                    </button>
+                  )}
+                </div>
+              )}
+            ></FieldArray>
+          </Form>
+        )}
+      </Formik>
+
+      <Formik
+        enableReinitialize
+        initialValues={{
+          friends: [{ name: "jared", age: 23 }],
+        }}
+        onSubmit={() => null}
+      >
+        {({ isSubmitting, values }) => (
+          <Form>
+            <FieldArray
+              name="friends"
+              render={(arrayHelpers) => (
+                <div className="flex flex-col-reverse gap-2">
+                  <Table
+                    columns={[
+                      {
+                        key: "name",
+                        title: "Name",
+                        render: (item, index) => (
+                          <Field name={`friends.${index}.name`} />
+                        ),
+                      },
+                      {
+                        key: "age",
+                        title: "Age",
+                        render: (item, index) => (
+                          <>
+                            {" "}
+                            <Field name={`friends.${index}.age`} />
+                            <button
+                              type="submit"
+                              onClick={() =>
+                                arrayHelpers.push({
+                                  name: "",
+                                  age: 0,
+                                })
+                              }
+                            ></button>
+                          </>
+                        ),
+                      },
+                      {
+                        key: "age",
+                        title: "Age",
+                        render: (item, index) => (
+                          <button onClick={() => arrayHelpers.remove(index)}>
+                            remove
+                          </button>
+                        ),
+                      },
+                    ]}
+                    data={values.friends}
+                  />
+                </div>
+              )}
+            ></FieldArray>
+          </Form>
+        )}
+      </Formik>
+
+      {/* <ul>
         <li>
           <Link href="/">Home</Link>
         </li>
@@ -91,7 +211,7 @@ const Sidebar = () => {
       {JSON.stringify(paginateData(data, currentPage, pageSize))}
       {JSON.stringify(paginateData(data, currentPage, pageSize))}
 
-      {router.pathname.includes("test") ? "red" : "blue"}
+      {router.pathname.includes("test") ? "red" : "blue"} */}
       {/* <Modal
         title={
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam voluptatibus atque iste, veniam numquam exercitationem facilis neque accusantium velit ad. Pariatur quas amet rem possimus et repellendus laboriosam vel facilis!"
@@ -101,7 +221,7 @@ const Sidebar = () => {
           <MultipleUploadFile />
         </Formik>
       </Modal> */}
-      <div className="bg-gray-100">
+      {/* <div className="bg-gray-100">
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
           onClick={() => setShowModal(true)}
@@ -119,7 +239,7 @@ const Sidebar = () => {
             <MultipleUploadFile />
           </Formik>
         </Modal>
-      </div>
+      </div> */}
     </MainLayout>
   );
 };
