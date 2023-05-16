@@ -38,7 +38,7 @@ const DetailInpassing = () => {
         </h1>
         {JSON.stringify(inpassing)}
         {/* <Table
-          searchAble={true}
+          
           createLink={"/inpassing/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },

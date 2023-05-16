@@ -22,7 +22,6 @@ const JabatanStruktural = () => {
           Jabatan Struktural
         </h1>
         <Table
-          searchAble
           createLink={"/jabatan-struktural/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },

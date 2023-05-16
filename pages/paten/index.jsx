@@ -38,7 +38,6 @@ const Paten = () => {
         </h1>
 
         <Table
-          searchAble
           createLink={"/paten/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },

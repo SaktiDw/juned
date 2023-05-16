@@ -44,7 +44,6 @@ const Publikasi = () => {
           />
         </div>
         <Table
-          searchAble
           createLink={"/publikasi/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },

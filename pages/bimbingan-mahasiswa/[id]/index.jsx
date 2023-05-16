@@ -92,7 +92,6 @@ const DetailBimbinganMahasiswa = () => {
             Dosen Pembimbing
           </h1>
           <Table
-            searchAble
             columns={[
               { key: "id", title: "No", dataType: "numbering" },
               { key: "nama", title: "nama" },
@@ -108,7 +107,6 @@ const DetailBimbinganMahasiswa = () => {
           </h1>
           <Table
             isLoading={isLoading}
-            searchAble
             columns={[
               { key: "id", title: "No", dataType: "numbering" },
               {
@@ -136,7 +134,6 @@ const DetailBimbinganMahasiswa = () => {
           </h1>
           <Table
             isLoading={isLoading}
-            searchAble={true}
             columns={[
               { key: "id", title: "No", dataType: "numbering" },
               { key: "nama", title: "nama" },

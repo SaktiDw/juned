@@ -71,7 +71,6 @@ const DetailAnggotaProfesi = () => {
           </h1>
           <Table
             isLoading={isLoading}
-            searchAble={true}
             columns={[
               { key: "id", title: "No", dataType: "numbering" },
               { key: "nama", title: "nama" },

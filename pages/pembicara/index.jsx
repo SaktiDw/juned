@@ -22,7 +22,6 @@ const Pembicara = () => {
           Pembicara
         </h1>
         <Table
-          searchAble
           createLink={"/pembicara/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },

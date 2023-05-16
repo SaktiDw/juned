@@ -82,7 +82,6 @@ const DetailPenunjangLain = () => {
           </h1>
           <Table
             isLoading={isLoading}
-            searchAble
             columns={[
               { key: "id", title: "No", dataType: "numbering" },
               { key: "nama", title: "nama" },
@@ -97,7 +96,6 @@ const DetailPenunjangLain = () => {
           </h1>
           <Table
             isLoading={isLoading}
-            searchAble={true}
             columns={[
               { key: "id", title: "No", dataType: "numbering" },
               { key: "nama", title: "nama" },

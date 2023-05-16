@@ -8,7 +8,7 @@ const Table = ({
   columns,
   data = [],
   createLink = undefined,
-  searchAble = false,
+  searchAble = true,
   isLoading,
   className,
   shadow = true,

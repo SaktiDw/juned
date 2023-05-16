@@ -34,7 +34,6 @@ const Inpassing = () => {
         </h1>
 
         <Table
-          searchAble={true}
           createLink={"/inpassing/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },

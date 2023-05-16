@@ -78,7 +78,6 @@ const FormCreatePublikasi = ({ initialValues }) => {
                     Anggota Dosen
                   </h1>
                   <Table
-                    searchAble
                     columns={[
                       { key: "id", title: "No", dataType: "numbering" },
                       { key: "nama", title: "nama" },
@@ -102,7 +101,6 @@ const FormCreatePublikasi = ({ initialValues }) => {
                     Anggota Mahasiswa
                   </h1>
                   <Table
-                    searchAble
                     columns={[
                       { key: "id", title: "No", dataType: "numbering" },
                       { key: "nama", title: "nama" },
@@ -126,7 +124,6 @@ const FormCreatePublikasi = ({ initialValues }) => {
                     Anggota Non Civitas Akademika
                   </h1>
                   <Table
-                    searchAble
                     columns={[
                       { key: "id", title: "No", dataType: "numbering" },
                       { key: "nama", title: "nama" },

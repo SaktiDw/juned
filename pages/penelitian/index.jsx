@@ -38,7 +38,6 @@ const Penelitian = () => {
         </h1>
         <Table
           key={"penelitian"}
-          searchAble
           createLink={"/penelitian/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },

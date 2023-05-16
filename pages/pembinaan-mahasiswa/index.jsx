@@ -22,6 +22,7 @@ const PembinaanMahasiswa = () => {
           <PeriodeSelection />
         </div>
         <Table
+          createLink={"/pembinaan-mahasiswa/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             { key: "semester", title: "Semester" },

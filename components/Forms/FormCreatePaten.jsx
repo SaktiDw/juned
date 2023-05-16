@@ -72,7 +72,6 @@ const FormCreatePaten = ({ initialValues }) => {
                     Anggota Dosen
                   </h1>
                   <Table
-                    searchAble
                     columns={[
                       { key: "id", title: "No", dataType: "numbering" },
                       { key: "nama", title: "nama" },
@@ -96,7 +95,6 @@ const FormCreatePaten = ({ initialValues }) => {
                     Anggota Mahasiswa
                   </h1>
                   <Table
-                    searchAble
                     columns={[
                       { key: "id", title: "No", dataType: "numbering" },
                       { key: "nama", title: "nama" },
@@ -120,7 +118,6 @@ const FormCreatePaten = ({ initialValues }) => {
                     Anggota Non Civitas Akademika
                   </h1>
                   <Table
-                    searchAble
                     columns={[
                       { key: "id", title: "No", dataType: "numbering" },
                       { key: "nama", title: "nama" },

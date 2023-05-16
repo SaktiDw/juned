@@ -11,7 +11,6 @@ const ListDataPengujianMahasiswa = () => {
         </h1>
 
         <Table
-          searchAble
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             { key: "judul", title: "Judul Pengujian" },

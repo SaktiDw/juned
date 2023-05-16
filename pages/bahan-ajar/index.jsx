@@ -28,7 +28,6 @@ const BahanAjar = () => {
           Bahan Ajar
         </h1>
         <Table
-          searchAble
           createLink={"/bahan-ajar/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },

@@ -40,7 +40,6 @@ const Pengabdian = () => {
         </h1>
 
         <Table
-          searchAble
           createLink={"/pengabdian/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },

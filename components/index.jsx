@@ -34,6 +34,7 @@ export { default as FormCreatePembicara } from "./Forms/FormCreatePembicara";
 export { default as FormCreateJabatanStruktural } from "./Forms/FormCreateJabatanStruktural";
 export { default as FormCreatePendidikanFormal } from "./Forms/FormCreatePendidikanFormal";
 export { default as FormCreateDetasering } from "./Forms/FormCreateDetasering";
+export { default as FormCreatePembinaanMahasiswa } from "./Forms/FormCreatePembinaanMahasiswa";
 
 export { default as FormAnggotaKegiatan } from "./Forms/FormAnggotaKegiatan";
 export { default as Input } from "./Forms/Input";

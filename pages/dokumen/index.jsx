@@ -18,7 +18,6 @@ const Dokumen = () => {
           Pembicara
         </h1>
         <Table
-          searchAble
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             ,

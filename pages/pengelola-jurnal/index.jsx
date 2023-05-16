@@ -22,7 +22,6 @@ const PengelolaJurnal = () => {
           Pengelola Jurnal
         </h1>
         <Table
-          searchAble
           createLink={"/pengelola-jurnal/create"}
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },

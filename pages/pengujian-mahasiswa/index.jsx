@@ -49,7 +49,6 @@ const PengujianMahasiswa = () => {
           <PeriodeSelection onChange={(e) => setSemester(e.target.value)} />
         </div>
         <Table
-          searchAble
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             { key: "judul", title: "Judul Pengujian" },

@@ -11,7 +11,6 @@ const ListDataBimbinganMahasiswa = () => {
         </h1>
 
         <Table
-          searchAble
           columns={[
             { key: "id", title: "No.", dataType: "numbering" },
             { key: "semester", title: "Semester" },

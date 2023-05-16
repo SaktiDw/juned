@@ -6,7 +6,6 @@ import {
   Input,
   JabatanFungsionalSelection,
   KategoriKegiatanSelection,
-  KelompokBidangSelection,
   MultipleUploadFile,
   Select,
   Table,
@@ -24,14 +23,13 @@ const schema = yup.object().shape({
     .string()
     .required("litabmas sebelumnya wajib di isi."),
   jenis_skim: yup.string().required("jenis skim wajib di isi."),
-  lokasi: yup.string().required("lokasi wajib di isi."),
+  lokasi: yup.string().required("lokasi kegiatan wajib di isi."),
   tahun_usulan: yup.string().required("tahun usulan wajib di isi."),
   tahun_kegiatan: yup.string().required("tahun kegiatan wajib di isi."),
-  tahun_pelaksanaan: yup.string().required("tahun pelaksanaan wajib di isi."),
+  lama_kegiatan: yup.string().required("lama kegiatan wajib di isi."),
   tahun_pelaksanaan_ke: yup
     .string()
-    .required("tahun pelaksanaan ke wajib di isi."),
-  lama_kegiatan: yup.string().required("lama kegiatan wajib di isi."),
+    .required("tahun pelaksanaan wajib di isi."),
   dana_dikti: yup.string().required("dana dikti wajib di isi."),
   dana_perguruan_tinggi: yup
     .string()
@@ -47,8 +45,9 @@ const schema = yup.object().shape({
   mitra_litabmas: yup.string().required("mitra litabmas wajib di isi."),
 });
 
-const FormCreatePengabdian = ({ initialValues }) => {
+const FormCreatePembinaanMahasiswa = ({ initialValues }) => {
   const router = useRouter();
+
   return (
     <>
       <Formik
@@ -57,22 +56,25 @@ const FormCreatePengabdian = ({ initialValues }) => {
           kategori_kegiatan: initialValues?.id_kategori_kegiatan || "",
           judul: initialValues?.judul || "",
           afiliasi: initialValues?.afiliasi || "",
-          kelompok_bidang: initialValues?.id_kelompok_bidang || "",
+          kelompok_bidang: initialValues?.kelompok_bidang || "",
           litabmas_sebelumnya: initialValues?.litabmas_sebelumnya || "",
           jenis_skim: initialValues?.jenis_skim || "",
           lokasi: initialValues?.lokasi || "",
-          tahun_usulan: initialValues?.tahun_usulan || "",
-          tahun_kegiatan: initialValues?.tahun_kegiatan || "",
+          tahun_usulan: initialValues?.tahun_usulan.toLocaleString() || "",
+          tahun_kegiatan: initialValues?.tahun_kegiatan.toLocaleString() || "",
           tahun_pelaksanaan: initialValues?.tahun_pelaksanaan || "",
+          lama_kegiatan: initialValues?.lama_kegiatan.toLocaleString() || "",
           tahun_pelaksanaan_ke: initialValues?.tahun_pelaksanaan_ke || "",
-          lama_kegiatan: initialValues?.lama_kegiatan || "",
-          dana_dikti: initialValues?.dana_dikti || "",
-          dana_perguruan_tinggi: initialValues?.dana_perguruan_tinggi || "",
-          dana_institusi_lain: initialValues?.dana_institusi_lain || "",
+          dana_dikti: initialValues?.dana_dikti.toLocaleString() || "",
+          dana_perguruan_tinggi:
+            initialValues?.dana_perguruan_tinggi.toLocaleString() || "",
+          dana_institusi_lain:
+            initialValues?.dana_institusi_lain.toLocaleString() || "",
           in_kind: initialValues?.in_kind || "",
           sk_penugasan: initialValues?.sk_penugasan || "",
           tanggal_sk_penugasan: initialValues?.tanggal_sk_penugasan || "",
-          mitra_litabmas: initialValues?.mitra_litabmas || "",
+          mitra_litabmas: initialValues?.mitra_litabmas[0]?.nama || "",
+          dokumen: initialValues?.dokumen || "",
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
@@ -81,7 +83,7 @@ const FormCreatePengabdian = ({ initialValues }) => {
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
               type={"tree"}
-              menu={"pengabdian"}
+              menu={"penelitian"}
               name={"kategori_kegiatan"}
               value={initialValues?.id_kategori_kegiatan}
               errors={errors.kategori_kegiatan}
@@ -91,124 +93,143 @@ const FormCreatePengabdian = ({ initialValues }) => {
               label="Judul Kegiatan"
               name="judul"
               type="text"
+              value={initialValues?.judul}
               errors={errors.judul}
               touched={touched.judul}
+            />
+            <Input
+              label="kelompok bidang"
+              name="kelompok_bidang"
+              type="text"
+              value={initialValues?.kelompok_bidang}
+              errors={errors.kelompok_bidang}
+              touched={touched.kelompok_bidang}
             />
             <Input
               label="afiliasi"
               name="afiliasi"
               type="text"
+              value={initialValues?.afiliasi}
               errors={errors.afiliasi}
               touched={touched.afiliasi}
             />
-            <KelompokBidangSelection
-              name={"kelompok_bidang"}
-              iptek
-              errors={errors.kelompok_bidang}
-              touched={touched.kelompok_bidang}
-            />
             <Input
-              label="litabmas_sebelumnya"
+              label="litabmas sebelumnya"
               name="litabmas_sebelumnya"
               type="text"
+              value={initialValues?.litabmas_sebelumnya}
               errors={errors.litabmas_sebelumnya}
               touched={touched.litabmas_sebelumnya}
             />
             <Input
-              label="jenis_skim"
+              label="jenis skim"
               name="jenis_skim"
               type="text"
+              value={initialValues?.jenis_skim}
               errors={errors.jenis_skim}
               touched={touched.jenis_skim}
             />
             <Input
-              label="lokasi"
+              label="lokasi kegiatan"
               name="lokasi"
               type="text"
+              value={initialValues?.lokasi}
               errors={errors.lokasi}
               touched={touched.lokasi}
             />
             <Input
-              label="tahun_usulan"
+              label="tahun usulan"
               name="tahun_usulan"
               type="number"
+              value={initialValues?.tahun_usulan}
               errors={errors.tahun_usulan}
               touched={touched.tahun_usulan}
             />
             <Input
-              label="tahun_kegiatan"
+              label="tahun kegiatan"
               name="tahun_kegiatan"
               type="number"
+              value={initialValues?.tahun_kegiatan}
               errors={errors.tahun_kegiatan}
               touched={touched.tahun_kegiatan}
             />
             <Input
-              label="tahun_pelaksanaan"
+              label="tahun pelaksanaan"
               name="tahun_pelaksanaan"
               type="number"
+              value={initialValues?.tahun_pelaksanaan}
               errors={errors.tahun_pelaksanaan}
               touched={touched.tahun_pelaksanaan}
             />
             <Input
-              label="lama_kegiatan"
+              label="lama kegiatan (tahun)"
               name="lama_kegiatan"
               type="number"
+              value={initialValues?.lama_kegiatan}
               errors={errors.lama_kegiatan}
               touched={touched.lama_kegiatan}
             />
             <Input
-              label="tahun_pelaksanaan_ke"
+              label="tahun pelaksanaan ke"
               name="tahun_pelaksanaan_ke"
               type="number"
+              value={initialValues?.tahun_pelaksanaan_ke}
               errors={errors.tahun_pelaksanaan_ke}
               touched={touched.tahun_pelaksanaan_ke}
             />
             <Input
-              label="dana_dikti"
+              label="dana dari dikti (Rp.)"
               name="dana_dikti"
               type="number"
+              value={initialValues?.dana_dikti}
               errors={errors.dana_dikti}
               touched={touched.dana_dikti}
             />
             <Input
-              label="dana_perguruan_tinggi"
+              label="dana dari perguruan tinggi (Rp.)"
               name="dana_perguruan_tinggi"
               type="number"
+              value={initialValues?.dana_perguruan_tinggi}
               errors={errors.dana_perguruan_tinggi}
               touched={touched.dana_perguruan_tinggi}
             />
             <Input
-              label="dana_institusi_lain"
+              label="dana dari institusi lain (Rp.)"
               name="dana_institusi_lain"
               type="number"
+              value={initialValues?.dana_institusi_lain}
               errors={errors.dana_institusi_lain}
               touched={touched.dana_institusi_lain}
             />
             <Input
-              label="in_kind"
+              label="in kind"
               name="in_kind"
               type="text"
+              value={initialValues?.in_kind}
               errors={errors.in_kind}
               touched={touched.in_kind}
             />
             <Input
-              label="sk_penugasan"
+              label="no sk penugasan"
               name="sk_penugasan"
               type="text"
+              value={initialValues?.sk_penugasan}
               errors={errors.sk_penugasan}
               touched={touched.sk_penugasan}
             />
             <Input
-              label="tanggal_sk_penugasan"
+              label="tanggal sk penugasan"
               name="tanggal_sk_penugasan"
               type="date"
+              value={initialValues?.tanggal_sk_penugasan}
               errors={errors.tanggal_sk_penugasan}
               touched={touched.tanggal_sk_penugasan}
             />
             <Input
-              label="mitra_litabmas"
+              label="Mitra Litabmas"
               name="mitra_litabmas"
               type="text"
+              value={initialValues?.mitra_litabmas[0]?.nama}
               errors={errors.mitra_litabmas}
               touched={touched.mitra_litabmas}
             />
@@ -222,13 +243,12 @@ const FormCreatePengabdian = ({ initialValues }) => {
                     {
                       key: "tanggal_upload",
                       title: "tanggal_upload",
-                      render: (val) => dateFormater(val.tanggal_upload),
+                      dataType: "date",
                     },
                     { key: "jenis_dokumen", title: "jenis_dokumen" },
                     {
                       key: "action",
-                      title: "aksi",
-                      align: "center",
+                      title: "action",
                       render: (val) => (
                         <Action
                           param={val}
@@ -242,79 +262,6 @@ const FormCreatePengabdian = ({ initialValues }) => {
                 />
               )}
             </MultipleUploadFile>
-            {router.pathname.includes("edit") && initialValues?.anggota && (
-              <>
-                <div>
-                  <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-                    Anggota Dosen
-                  </h1>
-                  <Table
-                    columns={[
-                      { key: "id", title: "No", dataType: "numbering" },
-                      { key: "nama", title: "nama" },
-                      { key: "urutan", title: "urutan" },
-                      { key: "afiliasi", title: "afiliasi" },
-                      { key: "peran", title: "peran" },
-                      {
-                        key: "corresponding_author",
-                        title: "corresponding author",
-                        render: (val) =>
-                          val.corresponding_author ? "Ya" : "Tidak",
-                      },
-                    ]}
-                    data={initialValues?.anggota.filter(
-                      (item) => item.jenis === "Dosen"
-                    )}
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-                    Anggota Mahasiswa
-                  </h1>
-                  <Table
-                    columns={[
-                      { key: "id", title: "No", dataType: "numbering" },
-                      { key: "nama", title: "nama" },
-                      { key: "urutan", title: "urutan" },
-                      { key: "afiliasi", title: "afiliasi" },
-                      { key: "peran", title: "peran" },
-                      {
-                        key: "corresponding_author",
-                        title: "corresponding author",
-                        render: (val) =>
-                          val.corresponding_author ? "Ya" : "Tidak",
-                      },
-                    ]}
-                    data={initialValues?.anggota.filter(
-                      (item) => item.jenis === "Mahasiswa"
-                    )}
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-                    Anggota Non Civitas Akademika
-                  </h1>
-                  <Table
-                    columns={[
-                      { key: "id", title: "No", dataType: "numbering" },
-                      { key: "nama", title: "nama" },
-                      { key: "urutan", title: "urutan" },
-                      { key: "afiliasi", title: "afiliasi" },
-                      { key: "peran", title: "peran" },
-                      {
-                        key: "corresponding_author",
-                        title: "corresponding author",
-                        render: (val) =>
-                          val.corresponding_author ? "Ya" : "Tidak",
-                      },
-                    ]}
-                    data={initialValues?.anggota.filter(
-                      (item) => item.jenis === "Other"
-                    )}
-                  />
-                </div>
-              </>
-            )}
             <Button
               disabled={!isValid}
               type={"submit"}
@@ -327,4 +274,4 @@ const FormCreatePengabdian = ({ initialValues }) => {
   );
 };
 
-export default FormCreatePengabdian;
+export default FormCreatePembinaanMahasiswa;

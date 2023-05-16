@@ -7,7 +7,7 @@ const Table = ({
   columns,
   data,
   createLink = undefined,
-  searchAble = false,
+   = false,
 }) => {
   const [query, setQuery] = useState("");
   const [pageSize, setPageSize] = useState(2);
@@ -55,7 +55,7 @@ const Table = ({
             Tambah
           </Link>
         )}
-        {searchAble && (
+        { && (
           <div className="relative group border border-primary rounded-lg">
             <input
               onChange={(e) => setQuery(e.target.value)}
