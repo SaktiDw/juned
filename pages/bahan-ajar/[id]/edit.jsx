@@ -18,7 +18,7 @@ const DetailPengajaran = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-8">
-        <Nav title={"Edit Lain"} />
+        <Nav title={"Edit Bahan Ajar"} />
         <div className="flex flex-col gap-4 dark:text-white w-full h-full">
           <h1 className="text-md font-bold uppercase">
             Form Tambah Bahan Ajar
