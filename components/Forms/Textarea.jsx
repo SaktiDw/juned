@@ -23,7 +23,7 @@ const Textarea = ({
           as="textarea"
           value={values}
           className={`py-2 px-4 rounded-lg shadow-lg border-2 outline-none dark:bg-slate-800 ${
-            errors
+            errors && touched
               ? `focus:border-red-500 border-red-500 caret-red-500 `
               : `focus:border-primary border-primary caret-primary `
           }`}
