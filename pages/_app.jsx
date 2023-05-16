@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
     if (!localStorage.getItem("token")) {
       router.push("/auth/login");
     }
-  }, [router.pathname]);
+  }, [router.isReady, router.pathname]);
 
   return (
     <>

@@ -80,7 +80,7 @@ const Sidebar = () => {
                 <div className="flex flex-col-reverse gap-2">
                   {values.friends && values.friends.length > 0 ? (
                     values.friends.map((item, index) => (
-                      <div className="flex">
+                      <div className="flex" key={`---${index}`}>
                         <Field
                           key={`friends.${index}.name`}
                           name={`friends.${index}.name`}
@@ -155,6 +155,7 @@ const Sidebar = () => {
                             {" "}
                             <Field name={`friends.${index}.age`} />
                             <button
+                              key={`friends.${index}.age`}
                               type="submit"
                               onClick={() =>
                                 arrayHelpers.push({
@@ -170,7 +171,10 @@ const Sidebar = () => {
                         key: "age",
                         title: "Age",
                         render: (item, index) => (
-                          <button onClick={() => arrayHelpers.remove(index)}>
+                          <button
+                            key={`friends.${index}`}
+                            onClick={() => arrayHelpers.remove(index)}
+                          >
                             remove
                           </button>
                         ),
