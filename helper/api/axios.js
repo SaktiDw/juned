@@ -1,6 +1,4 @@
 import axios from "axios";
-import { getToken } from "../constant";
-
 
 export const api = axios.create({
   // baseURL: "https://api-gerbangna.itk.ac.id/api/",
