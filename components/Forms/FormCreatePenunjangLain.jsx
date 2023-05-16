@@ -124,7 +124,7 @@ const FormCreatePenunjangLain = ({ initialValues }) => {
               errors={errors.tanggal_selesai}
               touched={touched.tanggal_selesai}
             />
-            Anggota Kegiatan (Dosen)
+            <h1 className="text-primary">Anggota Kegiatan (Dosen)</h1>
             <FormAnggotaKegiatan
               name={"anggota_dosen"}
               values={values.anggota_dosen}

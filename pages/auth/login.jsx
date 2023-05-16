@@ -53,7 +53,7 @@ const Login = () => {
               errors={errors.username}
               touched={touched.username}
               type={"text"}
-              value={initialValues.username}
+              // value={initialValues.username}
             />
             <Input
               name={"password"}
@@ -61,7 +61,7 @@ const Login = () => {
               errors={errors.password}
               touched={touched.password}
               type={"password"}
-              value={initialValues.password}
+              // value={initialValues.password}
             />
             <Input
               name={"id_pengguna"}
@@ -69,7 +69,7 @@ const Login = () => {
               errors={errors.id_pengguna}
               touched={touched.id_pengguna}
               type={"text"}
-              value={initialValues.id_pengguna}
+              // value={initialValues.id_pengguna}
             />
             <button
               type="submit"
