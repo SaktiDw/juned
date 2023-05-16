@@ -24,7 +24,7 @@ const JabatanFungsionalEdit = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-8">
-        <Nav title={"Edit Lain"} />
+        <Nav title={"Edit Jabatan Fungsional"} />
         <div className="flex flex-col gap-4 dark:text-white w-full h-full">
           <h1 className="text-md font-bold uppercase">
             Form Tambah Riwayat Jabatan Fungsional
