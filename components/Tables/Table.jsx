@@ -59,12 +59,12 @@ const Table = ({
         shadow ? "shadow-lg" : ""
       }`}
     >
-      <div className="flex w-full justify-between gap-6">
+      <div className="flex flex-col sm:flex-row w-full justify-between gap-2 sm:gap-6">
         <FilterPageSize onChange={(e) => setPerpage(e.target.value)} />
         {createLink && (
           <Link
             href={createLink}
-            className="ml-auto flex items-center gap-2 py-2 px-4 w-min bg-primary rounded-lg text-white text-sm"
+            className="ml-auto flex items-center justify-center gap-2 py-2 px-4 w-full sm:w-min bg-primary rounded-lg text-white text-sm"
           >
             <i className="fi-rr-plus"></i>
             Tambah
