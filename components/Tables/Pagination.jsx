@@ -27,7 +27,7 @@ function List({
   );
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex flex-col gap-2 flex-wrap lg:flex-row lg:justify-between items-center">
       <span>{`Showing ${
         data.length > 0 ? indexOfFirstItem + 1 : 0
       } to ${lastItem} entries of ${data.length}`}</span>
@@ -35,7 +35,7 @@ function List({
         {currentItems?.map((item) => (
           <div key={item.id}>{item.title}</div>
         ))}
-        <div className="flex gap-2 items-center">
+        <div className="flex gap-2 items-center flex-wrap">
           <button
             className={`disabled:cursor-not-allowed p-2 text-xs rounded-lg border border-slate-400 bg-white dark:bg-slate-700 `}
             disabled={currentPage === 1}

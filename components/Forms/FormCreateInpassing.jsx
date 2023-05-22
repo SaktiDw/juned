@@ -10,7 +10,7 @@ import {
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  golongan_pangkat: yup.string().required("pangkat golongan wajib di isi."),
+  id_pangkat_golongan: yup.string().required("pangkat golongan wajib di isi."),
   sk: yup.string().required("sk wajib di isi."),
   tanggal_sk: yup.string().required("tanggal sk wajib di isi."),
   terhitung_mulai_tanggal: yup
@@ -27,7 +27,7 @@ const FormCreateInpassing = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          golongan_pangkat: "",
+          id_pangkat_golongan: "",
           sk: "",
           tanggal_sk: "",
           terhitung_mulai_tanggal: "",
@@ -38,11 +38,12 @@ const FormCreateInpassing = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, isValid }) => (
           <Form className="flex flex-col gap-4">
             <GolonganPangkatSelection
-              errors={errors.golongan_pangkat}
-              touched={touched.golongan_pangkat}
+              name={"id_pangkat_golongan"}
+              errors={errors.id_pangkat_golongan}
+              touched={touched.id_pangkat_golongan}
             />
             <Input
               label="nomor sk"

@@ -43,9 +43,9 @@ const FormCreateKepangkatan = ({ initialValues }) => {
             <GolonganPangkatSelection
               label="jabatan fungsional"
               name="pangkat_golongan"
-              value={initialValues?.id_pangkat_golongan}
-              errors={errors.pangkat_golongan}
-              touched={touched.pangkat_golongan}
+              // value={initialValues?.id_pangkat_golongan}
+              // errors={errors.pangkat_golongan}
+              // touched={touched.pangkat_golongan}
             />
             <Input
               label="nomor sk"

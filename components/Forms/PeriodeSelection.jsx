@@ -9,14 +9,14 @@ const PeriodeSelection = ({ onChange, withPendek = true }) => {
   });
   if (isLoading) return <p>Loading...</p>;
   return (
-    <div className="flex gap-2 items-center ml-auto">
+    <div className="flex gap-2 items-center">
       <label htmlFor="periode" className="hidden md:block font-semibold">
         Periode
       </label>
       <select
         name="periode"
         id="periode"
-        className="py-3 px-4 bg-white dark:bg-slate-700 rounded-md shadow-xl w-full"
+        className="py-3 px-4 bg-white dark:bg-slate-700 rounded-lg shadow-xl w-full"
         onChange={onChange}
         defaultValue={""}
       >

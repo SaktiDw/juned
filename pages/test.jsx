@@ -1,5 +1,15 @@
-import { MainLayout, Modal, MultipleUploadFile, Table } from "@/components";
+import {
+  GolonganPangkatSelection,
+  Input,
+  MainLayout,
+  Modal,
+  MultipleUploadFile,
+  Table,
+} from "@/components";
+import List from "@/components/Selections/SelectWithSearch";
+import { fetchGolonganPangkat } from "@/helper/api/api";
 import useToggle from "@/helper/hooks/useToggle";
+import { useQuery } from "@tanstack/react-query";
 import { Field, FieldArray, Form, Formik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -62,6 +72,13 @@ const Sidebar = () => {
   };
 
   currentPage = 2; // Change the current page
+
+  const [golongan, setGolongan] = useState([]);
+  const { data: golonganpangkat } = useQuery({
+    queryKey: ["golongan-pangkat"],
+    queryFn: async () => await fetchGolonganPangkat(),
+    networkMode: "offlineFirst",
+  });
 
   return (
     <MainLayout>
@@ -244,6 +261,24 @@ const Sidebar = () => {
           </Formik>
         </Modal>
       </div> */}
+
+      <Formik
+        initialValues={{
+          id_golongan_pangkat: "",
+        }}
+        onSubmit={() => null}
+      >
+        {({ isSubmitting, values, setFieldValue }) => (
+          <Form className="flex flex-col gap-2">
+            <Input label={"Input"} name={""} type={"text"} />
+            <GolonganPangkatSelection
+              name={"id_golongan_pangkat"}
+              value={values.id_golongan_pangkat}
+              onChange={setFieldValue}
+            />
+          </Form>
+        )}
+      </Formik>
     </MainLayout>
   );
 };
