@@ -16,6 +16,18 @@ import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
   tingkat_penghargaan: yup
     .string()
@@ -34,6 +46,7 @@ const FormCreatePenghargaan = () => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           kategori_kegiatan: "",
           tingkat_penghargaan: "",
           jenis_penghargaan: "",
@@ -44,7 +57,7 @@ const FormCreatePenghargaan = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
               errors={errors.kategori_kegiatan}
@@ -78,7 +91,11 @@ const FormCreatePenghargaan = () => {
               errors={errors.tahun}
               touched={touched.tahun}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

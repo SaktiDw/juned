@@ -7,6 +7,18 @@ import { useQuery } from "@tanstack/react-query";
 import { id } from "@/helper/constant";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   nip: yup.string().required("nip wajib di isi."),
   sumbergaji: yup.string().required("sumbergaji wajib di isi."),
   sk_cpns: yup.string().required("sk cpns wajib di isi."),
@@ -27,6 +39,7 @@ const FormEditKepegawaian = () => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           nip: kepegawaian?.data[0]?.pegawai.nip,
           sumbergaji: kepegawaian?.data[0]?.sumbergaji.nama,
           sk_cpns: kepegawaian?.data[0]?.sk_cpns,
@@ -37,7 +50,7 @@ const FormEditKepegawaian = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="nip"
@@ -93,7 +106,11 @@ const FormEditKepegawaian = () => {
               errors={errors.sumbergaji}
               touched={touched.sumbergaji}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

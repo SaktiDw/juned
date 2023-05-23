@@ -15,6 +15,18 @@ import { createUser } from "@/helper/api/api";
 import { useRouter } from "next/router";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
   judul: yup.string().required("judul wajib di isi."),
   afiliasi: yup.string().required("afiliasi wajib di isi."),
@@ -53,6 +65,7 @@ const FormCreatePembinaanMahasiswa = ({ initialValues }) => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           kategori_kegiatan: initialValues?.id_kategori_kegiatan || "",
           judul: initialValues?.judul || "",
           afiliasi: initialValues?.afiliasi || "",
@@ -79,7 +92,7 @@ const FormCreatePembinaanMahasiswa = ({ initialValues }) => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
               type={"tree"}
@@ -233,7 +246,11 @@ const FormCreatePembinaanMahasiswa = ({ initialValues }) => {
               errors={errors.mitra_litabmas}
               touched={touched.mitra_litabmas}
             />
-            <MultipleUploadFile data={initialValues?.dokumen}>
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            >
               {router.pathname.includes("edit") && initialValues?.dokumen && (
                 <Table
                   columns={[

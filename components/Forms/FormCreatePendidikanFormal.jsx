@@ -20,6 +20,18 @@ import { useRouter } from "next/router";
 import { dateFormater } from "@/helper/constant";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
   nama_perguruan_tinggi: yup.string().required("nama organisasi wajib di isi."),
   nama_program_studi: yup.string().required("nama_program_studi wajib di isi."),
@@ -37,6 +49,7 @@ const FormCreatePendidikanFormal = ({ initialValues }) => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           kategori_kegiatan: initialValues?.id_kategori_kegiatan || "",
           nama_perguruan_tinggi: initialValues?.nama_perguruan_tinggi || "",
           nama_program_studi: initialValues?.nama_program_studi || "",
@@ -56,7 +69,7 @@ const FormCreatePendidikanFormal = ({ initialValues }) => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="perguruan tinggi"
@@ -170,7 +183,11 @@ const FormCreatePendidikanFormal = ({ initialValues }) => {
               errors={errors.judul_tugas_akhir}
               touched={touched.judul_tugas_akhir}
             />
-            <MultipleUploadFile data={initialValues?.dokumen}>
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            >
               {router.pathname.includes("edit") && initialValues?.dokumen && (
                 <Table
                   columns={[

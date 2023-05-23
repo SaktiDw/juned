@@ -7,6 +7,18 @@ import React, { useState } from "react";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   username: yup.string().required(),
   password: yup.string().required(),
   id_pengguna: yup.string().required(),
@@ -27,6 +39,7 @@ const Login = () => {
       />
       <Formik
         initialValues={{
+          dokumen: [],
           username: "4PU03FXTjYYrMxACQLD5fvxwUOKc4B8OmXpNPU9MnkU=",
           password:
             "uCAYSxR7hlGK/63OzBFRQBWF60S7+n01nTbbxi822uHNKyscLAAiKAt40yNK/a0f",

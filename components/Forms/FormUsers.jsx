@@ -5,6 +5,18 @@ import * as yup from "yup";
 import { createUser } from "@/helper/api/api";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   name: yup.string().required(),
   email: yup.string().email().required(),
   password: yup.string().required(),
@@ -19,6 +31,7 @@ const FormUsers = () => {
     <>
       <Formik
         initialValues={{
+          dokumen: [],
           name: "",
           email: "",
           password: "",
@@ -27,7 +40,7 @@ const FormUsers = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="name"

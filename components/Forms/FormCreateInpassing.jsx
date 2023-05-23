@@ -10,6 +10,18 @@ import {
 import * as yup from "yup";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   id_pangkat_golongan: yup.string().required("pangkat golongan wajib di isi."),
   sk: yup.string().required("sk wajib di isi."),
   tanggal_sk: yup.string().required("tanggal sk wajib di isi."),
@@ -27,6 +39,7 @@ const FormCreateInpassing = () => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           id_pangkat_golongan: "",
           sk: "",
           tanggal_sk: "",
@@ -38,7 +51,7 @@ const FormCreateInpassing = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <GolonganPangkatSelection
               name={"id_pangkat_golongan"}
@@ -87,7 +100,11 @@ const FormCreateInpassing = () => {
               errors={errors.masa_kerja_bulan}
               touched={touched.masa_kerja_bulan}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

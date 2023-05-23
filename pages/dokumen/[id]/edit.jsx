@@ -30,6 +30,7 @@ const DokumenEdit = () => {
             <Formik
               enableReinitialize
               initialValues={{
+                dokumen: [],
                 nama: dokumen?.nama || "",
                 tautan: dokumen?.tautan || "",
                 keterangan: dokumen?.keterangan || "",

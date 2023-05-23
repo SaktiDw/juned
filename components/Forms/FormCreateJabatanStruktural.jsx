@@ -16,6 +16,18 @@ import { createUser } from "@/helper/api/api";
 import { useRouter } from "next/router";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   jabatan: yup.string().required("jabatan kegiatan wajib di isi."),
   kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
   sk_jabatan: yup.string().required("sk_jabatan bidang wajib di isi."),
@@ -36,6 +48,7 @@ const FormCreateJabatanStruktural = ({ initialValues }) => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           jabatan: initialValues?.jabatan || "",
           kategori_kegiatan: initialValues?.id_kategori_kegiatan || "",
           sk_jabatan: initialValues?.sk_jabatan || "",
@@ -46,7 +59,7 @@ const FormCreateJabatanStruktural = ({ initialValues }) => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="jabatan"
@@ -97,7 +110,11 @@ const FormCreateJabatanStruktural = ({ initialValues }) => {
               touched={touched.lokasi}
             />
 
-            <MultipleUploadFile data={initialValues?.dokumen}>
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            >
               {router.pathname.includes("edit") && initialValues?.dokumen && (
                 <Table
                   columns={[

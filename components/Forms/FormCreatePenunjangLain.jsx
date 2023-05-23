@@ -17,6 +17,18 @@ import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
   nama: yup.string().required("nama kegiatan wajib di isi."),
   jenis_kegiatan: yup.string().required("jenis kegiatan wajib di isi."),
@@ -38,6 +50,7 @@ const FormCreatePenunjangLain = ({ initialValues }) => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           kategori_kegiatan: initialValues?.id_kategori_kegiatan || "",
           nama: initialValues?.nama || "",
           jenis_kegiatan: initialValues?.jenis_kegiatan || "",
@@ -134,7 +147,11 @@ const FormCreatePenunjangLain = ({ initialValues }) => {
                 peran: "",
               }}
             />
-            <MultipleUploadFile />
+            {/* <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            /> */}
             <Button
               disabled={!isValid}
               type={"submit"}

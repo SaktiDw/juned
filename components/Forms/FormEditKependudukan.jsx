@@ -7,6 +7,18 @@ import { useQuery } from "@tanstack/react-query";
 import { id } from "@/helper/constant";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   agama: yup.string().required("agama wajib di isi."),
   negara: yup.string().required("negara wajib di isi."),
   nik: yup.string().required("nik wajib di isi."),
@@ -24,6 +36,7 @@ const FormEditKependudukan = () => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           agama: kependudukan?.data[0]?.agama.nama,
           negara: kependudukan?.data[0]?.negara.nama,
           nik: kependudukan?.data[0]?.nik,
@@ -31,7 +44,7 @@ const FormEditKependudukan = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="nik"
@@ -70,7 +83,11 @@ const FormEditKependudukan = () => {
               errors={errors.negara}
               touched={touched.negara}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

@@ -12,6 +12,18 @@ import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   pangkat_golongan: yup.string().required("golongan pangkat wajib di isi."),
   sk: yup.string().required("sk wajib di isi."),
   tanggal_sk: yup.string().required("kelebihan pengajaran sk wajib di isi."),
@@ -28,6 +40,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           pangkat_golongan: initialValues?.id_pangkat_golongan || "",
           sk: initialValues?.sk || "",
           tanggal_sk: initialValues?.tanggal_sk || "",
@@ -38,7 +51,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <GolonganPangkatSelection
               label="jabatan fungsional"
@@ -82,7 +95,11 @@ const FormCreateKepangkatan = ({ initialValues }) => {
               errors={errors.masa_kerja_bulan}
               touched={touched.masa_kerja_bulan}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

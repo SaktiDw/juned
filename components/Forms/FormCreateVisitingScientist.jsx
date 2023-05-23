@@ -14,6 +14,18 @@ import { useQuery } from "@tanstack/react-query";
 import KategoriCapaianLuaranSelection from "../Selections/KategoriCapaianLuaranSelection";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   aktivitas_litabmas: yup.string().required("aktivitas litabmas wajib di isi."),
   kategori_capaian_luaran: yup
     .string()
@@ -37,6 +49,7 @@ const FormCreateVisitingScientist = () => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           aktivitas_litabmas: "",
           kategori_capaian_luaran: "",
           ptn_pengundang: "",
@@ -50,7 +63,7 @@ const FormCreateVisitingScientist = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <Select
               label="aktivitas litabmas"
@@ -100,7 +113,11 @@ const FormCreateVisitingScientist = () => {
               errors={errors.tanggal_sk}
               touched={touched.tanggal_sk}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

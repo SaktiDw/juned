@@ -7,6 +7,18 @@ import { useQuery } from "@tanstack/react-query";
 import { id } from "@/helper/constant";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   email: yup.string().required("email wajib di isi."),
   alamat: yup.string().required("alamat wajib di isi."),
   rt: yup.string().required("rt wajib di isi."),
@@ -31,6 +43,7 @@ const FormEditAlamat = () => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           email: alamat?.data[0]?.email,
           alamat: alamat?.data[0]?.alamat,
           rt: alamat?.data[0]?.rt,
@@ -45,7 +58,7 @@ const FormEditAlamat = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="email"
@@ -127,7 +140,11 @@ const FormEditAlamat = () => {
               errors={errors.telepon_hp}
               touched={touched.telepon_hp}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

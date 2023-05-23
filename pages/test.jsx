@@ -84,9 +84,7 @@ const Sidebar = () => {
     <MainLayout>
       <Formik
         enableReinitialize
-        initialValues={{
-          friends: [{ name: "jared", age: 23 }],
-        }}
+        initialValues={{ dokumen: [], friends: [{ name: "jared", age: 23 }] }}
         onSubmit={() => null}
       >
         {({ isSubmitting, values }) => (
@@ -144,9 +142,7 @@ const Sidebar = () => {
 
       <Formik
         enableReinitialize
-        initialValues={{
-          friends: [{ name: "jared", age: 23 }],
-        }}
+        initialValues={{ dokumen: [], friends: [{ name: "jared", age: 23 }] }}
         onSubmit={() => null}
       >
         {({ isSubmitting, values }) => (
@@ -239,7 +235,11 @@ const Sidebar = () => {
         }
       >
         <Formik>
-          <MultipleUploadFile />
+          <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
         </Formik>
       </Modal> */}
       {/* <div className="bg-gray-100">
@@ -257,15 +257,17 @@ const Sidebar = () => {
           }
         >
           <Formik>
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
           </Formik>
         </Modal>
       </div> */}
 
       <Formik
-        initialValues={{
-          id_golongan_pangkat: "",
-        }}
+        initialValues={{ dokumen: [], id_golongan_pangkat: "" }}
         onSubmit={() => null}
       >
         {({ isSubmitting, values, setFieldValue }) => (

@@ -16,6 +16,18 @@ import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
   program_studi: yup.string().required("program studi wajib di isi."),
   tanggal_mulai: yup.string().required("tanggal mulai wajib di isi."),
@@ -45,6 +57,7 @@ const FormCreateBimbingDosen = () => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           kategori_kegiatan: "",
           program_studi: "",
           tanggal_mulai: "",
@@ -62,7 +75,7 @@ const FormCreateBimbingDosen = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
               menu={"bimbing_dosen"}
@@ -146,7 +159,11 @@ const FormCreateBimbingDosen = () => {
               errors={errors.tanggal_sk}
               touched={touched.tanggal_sk}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

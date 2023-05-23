@@ -11,6 +11,18 @@ import * as yup from "yup";
 import { createUser } from "@/helper/api/api";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   jabatan_fungsional: yup.string().required("jabatan fungsional wajib di isi."),
   sk: yup.string().required("sk wajib di isi."),
   kelebihan_pengajaran: yup
@@ -34,6 +46,7 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           id: initialValues?.id || "",
           jabatan_fungsional: initialValues?.id_jabatan_fungsional || "",
           sk: initialValues?.sk || "",
@@ -50,7 +63,7 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <JabatanFungsionalSelection
               name={"jabatan_fungsional"}
@@ -100,7 +113,11 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
               errors={errors.kelebihan_penunjang}
               touched={touched.kelebihan_penunjang}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

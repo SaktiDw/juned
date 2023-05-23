@@ -7,6 +7,18 @@ import { useQuery } from "@tanstack/react-query";
 import { id } from "@/helper/constant";
 
 const schema = yup.object().shape({
+  dokumen: yup.array().of(
+    yup
+      .object()
+      .shape({
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
+        file: yup.string().required("file wajib di isi."),
+        nama: yup.string().required("nama wajib di isi."),
+        tautan: yup.string().required("tautan wajib di isi."),
+        keterangan: yup.string().required("keterangan wajib di isi."),
+      })
+      .required("dokumen wajib di isi.")
+  ),
   npwp: yup.string().required("npwp wajib di isi."),
   nama_wp: yup.string().required("nama_wp wajib di isi."),
 });
@@ -23,13 +35,14 @@ const FormEditLain = () => {
       <Formik
         enableReinitialize
         initialValues={{
+          dokumen: [],
           npwp: lain?.data?.npwp,
           nama_wp: lain?.data?.nama_wp,
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, status, isValid }) => (
+        {({ isSubmitting, errors, touched, values, isValid }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="npwp"
@@ -47,7 +60,11 @@ const FormEditLain = () => {
               errors={errors.nama_wp}
               touched={touched.nama_wp}
             />
-            <MultipleUploadFile />
+            <MultipleUploadFile
+              values={values}
+              errors={errors}
+              touched={touched}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}
