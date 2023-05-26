@@ -13,11 +13,7 @@ const PenelitianEditBidangIlmu = () => {
   const { id } = router.query;
   useEffect(() => {}, [router.isReady]);
 
-  const {
-    data: penelitian,
-    isError,
-    isLoading,
-  } = useQuery({
+  const { data, isError, isLoading } = useQuery({
     queryKey: ["penelitian", id],
     queryFn: async () => await fetchDetailPenelitian(id),
     networkMode: "offlineFirst",
@@ -38,7 +34,7 @@ const PenelitianEditBidangIlmu = () => {
           </h1>
           <div className="grid grid-flow-row gap-4 bg-white dark:bg-slate-800 px-4 py-8 rounded-xl ">
             <h1 className="text-lg font-bold text-slate-600 dark:text-slate-500">
-              {penelitian?.judul}
+              {data?.judul}
             </h1>
             <div className="flex gap-8">
               <div className="flex flex-col gap-2">
