@@ -1,11 +1,4 @@
-import {
-  KelompokBidangSelection,
-  FormCreatePenelitian,
-  MainLayout,
-  Nav,
-  Button,
-  Selector,
-} from "@/components";
+import { MainLayout, Nav, Button, Selector } from "@/components";
 import {
   fetchDetailPenelitian,
   fetchKelompokBidang,

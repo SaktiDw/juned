@@ -1,11 +1,9 @@
+import { MainLayout, Nav, Button, Selector } from "@/components";
 import {
-  KelompokBidangSelection,
-  FormCreatePublikasi,
-  MainLayout,
-  Nav,
-  Button,
-} from "@/components";
-import { fetchDetailPublikasi } from "@/helper/api/apiSister";
+  fetchDetailPublikasi,
+  fetchKelompokBidang,
+} from "@/helper/api/apiSister";
+import { Form, Formik } from "formik";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
@@ -46,7 +44,31 @@ const PublikasiEditBidangIlmu = () => {
               <div className="flex flex-col gap-2">
                 <span className="font-bold uppercase text-sm">urutan</span>
               </div>
-              <KelompokBidangSelection />
+              <Formik
+                initialValues={{
+                  bidang_ilmu: penelitian?.bidang_ilmu?.id,
+                }}
+                onSubmit={() => null}
+              >
+                {({ values, errors, touched, setFieldValue }) => (
+                  <Form>
+                    <Selector
+                      label="Bidang Ilmu"
+                      name="bidang_ilmu"
+                      placeholder={"Pilih Bidang Ilmu"}
+                      value={values.bidang_ilmu}
+                      onChange={setFieldValue}
+                      queryKey={"bahan_ajar"}
+                      queryFn={() => fetchKelompokBidang(true)}
+                      valueKey="id"
+                      labelKey="nama"
+                      errors={errors.bidang_ilmu}
+                      touched={touched.bidang_ilmu}
+                    />
+                  </Form>
+                )}
+              </Formik>
+
               <div className="flex flex-col gap-2">
                 <span className="font-bold uppercase text-sm">Aksi</span>
                 <Button text={"Simpan"} size={"small"} />
