@@ -25,7 +25,7 @@ const ModalTambahDokumen = ({ title = "modal", showModal, setShowModal }) => {
             />
             <Button
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Submit"}
+              text={isSubmitting ? "Memuat..." : "Kirim"}
             />
           </Form>
         )}

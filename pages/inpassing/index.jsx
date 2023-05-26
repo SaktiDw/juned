@@ -29,7 +29,7 @@ const Inpassing = () => {
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"Inpassing"} />
-        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md capitalize font-bold drop-shadow-lg shadow-white">
           Inpassing
         </h1>
 

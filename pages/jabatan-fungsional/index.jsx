@@ -27,7 +27,7 @@ const JabatanFungsional = () => {
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"Jabatan Fungsional"} />
-        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md capitalize font-bold drop-shadow-lg shadow-white">
           Riwayat Jabatan Fungsional
         </h1>
         <div className="flex flex-col md:flex-row gap-2 justify-between">

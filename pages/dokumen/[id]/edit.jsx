@@ -20,12 +20,12 @@ const DokumenEdit = () => {
   });
   return (
     <MainLayout>
-      <Nav title={"Edit Dokumen"} />
+      <Nav title={"Ubah Dokumen"} />
       <div className="flex flex-col gap-4 dark:text-white w-full h-max">
-        <h1 className="text-md font-bold uppercase">Form Edit Dokumen</h1>
+        <h1 className="text-md font-bold capitalize">Form Edit Dokumen</h1>
         <div className="flex flex-col gap-4 bg-white dark:bg-slate-800 px-4 py-8 rounded-xl ">
           {isLoading ? (
-            "Loading...!"
+            "Memuat...!"
           ) : (
             <Formik
               enableReinitialize
@@ -44,7 +44,7 @@ const DokumenEdit = () => {
                   <MultipleUploadFile limit={1} data={dokumen} />
                   <Button
                     type={"submit"}
-                    text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+                    text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
                   />
                 </Form>
               )}

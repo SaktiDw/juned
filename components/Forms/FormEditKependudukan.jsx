@@ -11,17 +11,17 @@ const schema = yup.object().shape({
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  agama: yup.string().required("agama wajib di isi."),
-  negara: yup.string().required("negara wajib di isi."),
-  nik: yup.string().required("nik wajib di isi."),
+  agama: yup.string().required("agama wajib diisi."),
+  negara: yup.string().required("negara wajib diisi."),
+  nik: yup.string().required("nik wajib diisi."),
 });
 
 const FormEditKependudukan = () => {
@@ -91,7 +91,7 @@ const FormEditKependudukan = () => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

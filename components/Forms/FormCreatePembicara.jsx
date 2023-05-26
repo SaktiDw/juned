@@ -20,32 +20,32 @@ const schema = yup.object().shape({
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
+  kategori_kegiatan: yup.string().required("kategori kegiatan wajib diisi."),
   kategori_capaian_luaran: yup
     .string()
-    .required("kategori_capaian_luaran kegiatan wajib di isi."),
-  litabmas: yup.string().required("litabmas kegiatan wajib di isi."),
+    .required("kategori_capaian_luaran kegiatan wajib diisi."),
+  litabmas: yup.string().required("litabmas kegiatan wajib diisi."),
   kategori_pembicara: yup
     .string()
-    .required("kategori_pembicara kegiatan wajib di isi."),
-  nama_pertemuan: yup.string().required("nama_pertemuan wajib di isi."),
-  penyelenggara: yup.string().required("penyelenggara wajib di isi."),
+    .required("kategori_pembicara kegiatan wajib diisi."),
+  nama_pertemuan: yup.string().required("nama_pertemuan wajib diisi."),
+  penyelenggara: yup.string().required("penyelenggara wajib diisi."),
   tanggal_pelaksanaan: yup
     .string()
-    .required("tanggal_pelaksanaan wajib di isi."),
-  bahasa: yup.string().required("bahasa sebelumnya wajib di isi."),
-  sk_penugasan: yup.string().required("sk_penugasan bidang wajib di isi."),
+    .required("tanggal_pelaksanaan wajib diisi."),
+  bahasa: yup.string().required("bahasa sebelumnya wajib diisi."),
+  sk_penugasan: yup.string().required("sk_penugasan bidang wajib diisi."),
   tanggal_sk_penugasan: yup
     .string()
-    .required("tanggal_sk_penugasan bidang wajib di isi."),
+    .required("tanggal_sk_penugasan bidang wajib diisi."),
 });
 
 const FormCreatePembicara = ({ initialValues }) => {
@@ -197,7 +197,7 @@ const FormCreatePembicara = ({ initialValues }) => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

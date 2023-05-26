@@ -33,7 +33,7 @@ const Publikasi = () => {
     >
       <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"Publikasi"} />
-        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md capitalize font-bold drop-shadow-lg shadow-white">
           Publikasi
         </h1>
         <div className="flex flex-col md:flex-row gap-2 justify-between">

@@ -76,7 +76,7 @@ const Table = ({
               onChange={(e) => handleFilter(e.target.value)}
               type="text"
               className="py-2 px-4 text-sm w-min rounded-lg dark:bg-slate-700 outline-none appearance-none placeholder:font-bold"
-              placeholder="Search here ..."
+              placeholder="Cari di sini ..."
             />
             <i className="fi-rr-search absolute right-2 top-2"></i>
           </div>
@@ -154,7 +154,7 @@ const Table = ({
                       width={100}
                       height={300}
                     />
-                    <span>No data.</span>
+                    <span>Tidak ada data.</span>
                   </div>
                 </td>
               </tr>

@@ -15,29 +15,29 @@ const schema = yup.object().shape({
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  jabatan_fungsional: yup.string().required("jabatan fungsional wajib di isi."),
-  sk: yup.string().required("sk wajib di isi."),
+  jabatan_fungsional: yup.string().required("jabatan fungsional wajib diisi."),
+  sk: yup.string().required("sk wajib diisi."),
   kelebihan_pengajaran: yup
     .string()
-    .required("kelebihan pengajaran sk wajib di isi."),
-  tanggal_mulai: yup.string().required("terhitung mulai tanggal wajib di isi."),
+    .required("kelebihan pengajaran sk wajib diisi."),
+  tanggal_mulai: yup.string().required("terhitung mulai tanggal wajib diisi."),
   kelebihan_penelitian: yup
     .string()
-    .required("kelebihan penelitian wajib di isi."),
+    .required("kelebihan penelitian wajib diisi."),
   kelebihan_pengabdian: yup
     .string()
-    .required("kelebihan pengabdian masyarakat wajib di isi."),
+    .required("kelebihan pengabdian masyarakat wajib diisi."),
   kelebihan_penunjang: yup
     .string()
-    .required("kelebihan kegiatan penunjang wajib di isi."),
+    .required("kelebihan kegiatan penunjang wajib diisi."),
 });
 
 const FormCreateJabatanFungsional = ({ initialValues }) => {
@@ -121,7 +121,7 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

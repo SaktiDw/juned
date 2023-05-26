@@ -11,24 +11,24 @@ const schema = yup.object().shape({
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  email: yup.string().required("email wajib di isi."),
-  alamat: yup.string().required("alamat wajib di isi."),
-  rt: yup.string().required("rt wajib di isi."),
-  rw: yup.string().required("rw wajib di isi."),
-  dusun: yup.string().required("dusun wajib di isi."),
-  kelurahan: yup.string().required("kelurahan wajib di isi."),
-  kota: yup.string().required("kota wajib di isi."),
-  kode_pos: yup.string().required("kode pos wajib di isi."),
-  telepon_rumah: yup.string().required("telepon rumah wajib di isi."),
-  telepon_hp: yup.string().required("telepon hp wajib di isi."),
+  email: yup.string().required("email wajib diisi."),
+  alamat: yup.string().required("alamat wajib diisi."),
+  rt: yup.string().required("rt wajib diisi."),
+  rw: yup.string().required("rw wajib diisi."),
+  dusun: yup.string().required("dusun wajib diisi."),
+  kelurahan: yup.string().required("kelurahan wajib diisi."),
+  kota: yup.string().required("kota wajib diisi."),
+  kode_pos: yup.string().required("kode pos wajib diisi."),
+  telepon_rumah: yup.string().required("telepon rumah wajib diisi."),
+  telepon_hp: yup.string().required("telepon hp wajib diisi."),
 });
 
 const FormEditAlamat = () => {
@@ -148,7 +148,7 @@ const FormEditAlamat = () => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

@@ -4,10 +4,13 @@ import {
   MainLayout,
   Modal,
   MultipleUploadFile,
+  SelectWithSearch,
+  Selector,
   Table,
 } from "@/components";
 import List from "@/components/Selections/SelectWithSearch";
 import { fetchGolonganPangkat } from "@/helper/api/api";
+import { fetchBahanAjar } from "@/helper/api/apiSister";
 import useToggle from "@/helper/hooks/useToggle";
 import { useQuery } from "@tanstack/react-query";
 import { Field, FieldArray, Form, Formik } from "formik";
@@ -18,6 +21,7 @@ import React, { useState, useRef, useEffect } from "react";
 const Sidebar = () => {
   const router = useRouter();
   const path = router.asPath.split("/").filter((x) => x);
+  const ref = useRef(null);
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
   const data = [
@@ -267,16 +271,39 @@ const Sidebar = () => {
       </div> */}
 
       <Formik
-        initialValues={{ dokumen: [], id_golongan_pangkat: "" }}
+        initialValues={{ dokumen: [], bahan_ajar: "" }}
         onSubmit={() => null}
       >
-        {({ isSubmitting, values, setFieldValue }) => (
+        {({ isSubmitting, errors, touched, values, setFieldValue }) => (
           <Form className="flex flex-col gap-2">
             <Input label={"Input"} name={""} type={"text"} />
-            <GolonganPangkatSelection
+            {/* <GolonganPangkatSelection
               name={"id_golongan_pangkat"}
               value={values.id_golongan_pangkat}
               onChange={setFieldValue}
+            /> */}
+            {/* 
+            <SelectWithSearch
+              label={"search"}
+              name={"search"}
+              onChange={setFieldValue}
+              options={data}
+              labelKey={"name"}
+              valueKey={"name"}
+            /> */}
+            {JSON.stringify(values)}
+            <Selector
+              label={"Bahan Ajar"}
+              placeholder={"Pilih Bahan Ajar"}
+              name="bahan_ajar"
+              value={values.bahan_ajar}
+              onChange={setFieldValue}
+              queryKey={"bahan_ajar"}
+              queryFn={() => fetchBahanAjar()}
+              valueKey="id"
+              labelKey="nama"
+              errors={errors.bahan_ajar}
+              touched={touched.bahan_ajar}
             />
           </Form>
         )}

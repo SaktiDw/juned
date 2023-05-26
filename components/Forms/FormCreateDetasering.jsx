@@ -20,27 +20,27 @@ const schema = yup.object().shape({
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
+  kategori_kegiatan: yup.string().required("kategori kegiatan wajib diisi."),
   perguruan_tinggi_sasaran: yup
     .string()
-    .required("tingkat penghargaan wajib di isi."),
-  tanggal_mulai: yup.string().required("nama penghargaan wajib di isi."),
-  tanggal_selesai: yup.string().required("tanggal_selesai wajib di isi."),
-  bidang_tugas: yup.string().required("bidang tugas wajib di isi."),
-  deskripsi_kegiatan: yup.string().required("deskripsi kegiatan wajib di isi."),
-  metode_pelaksanaan: yup.string().required("metode pelaksanaan wajib di isi."),
-  sk_penugasan: yup.string().required("nomor sk penugasan wajib di isi."),
+    .required("tingkat penghargaan wajib diisi."),
+  tanggal_mulai: yup.string().required("nama penghargaan wajib diisi."),
+  tanggal_selesai: yup.string().required("tanggal_selesai wajib diisi."),
+  bidang_tugas: yup.string().required("bidang tugas wajib diisi."),
+  deskripsi_kegiatan: yup.string().required("deskripsi kegiatan wajib diisi."),
+  metode_pelaksanaan: yup.string().required("metode pelaksanaan wajib diisi."),
+  sk_penugasan: yup.string().required("nomor sk penugasan wajib diisi."),
   tanggal_sk_penugasan: yup
     .string()
-    .required("tanggal sk penugasan wajib di isi."),
+    .required("tanggal sk penugasan wajib diisi."),
 });
 
 const FormCreatePenghargaan = () => {
@@ -132,7 +132,7 @@ const FormCreatePenghargaan = () => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

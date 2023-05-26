@@ -19,42 +19,40 @@ const schema = yup.object().shape({
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
-  judul: yup.string().required("judul wajib di isi."),
-  afiliasi: yup.string().required("afiliasi wajib di isi."),
-  kelompok_bidang: yup.string().required("kelompok bidang wajib di isi."),
+  kategori_kegiatan: yup.string().required("kategori kegiatan wajib diisi."),
+  judul: yup.string().required("judul wajib diisi."),
+  afiliasi: yup.string().required("afiliasi wajib diisi."),
+  kelompok_bidang: yup.string().required("kelompok bidang wajib diisi."),
   litabmas_sebelumnya: yup
     .string()
-    .required("litabmas sebelumnya wajib di isi."),
-  jenis_skim: yup.string().required("jenis skim wajib di isi."),
-  lokasi: yup.string().required("lokasi kegiatan wajib di isi."),
-  tahun_usulan: yup.string().required("tahun usulan wajib di isi."),
-  tahun_kegiatan: yup.string().required("tahun kegiatan wajib di isi."),
-  lama_kegiatan: yup.string().required("lama kegiatan wajib di isi."),
-  tahun_pelaksanaan_ke: yup
-    .string()
-    .required("tahun pelaksanaan wajib di isi."),
-  dana_dikti: yup.string().required("dana dikti wajib di isi."),
+    .required("litabmas sebelumnya wajib diisi."),
+  jenis_skim: yup.string().required("jenis skim wajib diisi."),
+  lokasi: yup.string().required("lokasi kegiatan wajib diisi."),
+  tahun_usulan: yup.string().required("tahun usulan wajib diisi."),
+  tahun_kegiatan: yup.string().required("tahun kegiatan wajib diisi."),
+  lama_kegiatan: yup.string().required("lama kegiatan wajib diisi."),
+  tahun_pelaksanaan_ke: yup.string().required("tahun pelaksanaan wajib diisi."),
+  dana_dikti: yup.string().required("dana dikti wajib diisi."),
   dana_perguruan_tinggi: yup
     .string()
-    .required("dana perguruan tinggi wajib di isi."),
+    .required("dana perguruan tinggi wajib diisi."),
   dana_institusi_lain: yup
     .string()
-    .required("dana institusi lain wajib di isi."),
-  in_kind: yup.string().required("in kind wajib di isi."),
-  sk_penugasan: yup.string().required("sk penugasan wajib di isi."),
+    .required("dana institusi lain wajib diisi."),
+  in_kind: yup.string().required("in kind wajib diisi."),
+  sk_penugasan: yup.string().required("sk penugasan wajib diisi."),
   tanggal_sk_penugasan: yup
     .string()
-    .required("tanggal sk penugasan wajib di isi."),
-  mitra_litabmas: yup.string().required("mitra litabmas wajib di isi."),
+    .required("tanggal sk penugasan wajib diisi."),
+  mitra_litabmas: yup.string().required("mitra litabmas wajib diisi."),
 });
 
 const FormCreatePenelitian = ({ initialValues }) => {
@@ -282,7 +280,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

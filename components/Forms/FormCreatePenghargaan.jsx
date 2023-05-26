@@ -5,39 +5,33 @@ import {
   Input,
   KategoriKegiatanSelection,
   MultipleUploadFile,
-  NestedList,
-  PerguruanTinggiSelection,
   Select,
-  StackedTab,
-  Textarea,
 } from "..";
 import * as yup from "yup";
-import { createUser, fetchListInpassing } from "@/helper/api/api";
-import { useQuery } from "@tanstack/react-query";
 
 const schema = yup.object().shape({
   dokumen: yup.array().of(
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
+  kategori_kegiatan: yup.string().required("kategori kegiatan wajib diisi."),
   tingkat_penghargaan: yup
     .string()
-    .required("tingkat penghargaan wajib di isi."),
-  jenis_penghargaan: yup.string().required("jenis penghargaan wajib di isi."),
-  nama_penghargaan: yup.string().required("nama penghargaan wajib di isi."),
-  tahun: yup.string().required("tahun wajib di isi."),
+    .required("tingkat penghargaan wajib diisi."),
+  jenis_penghargaan: yup.string().required("jenis penghargaan wajib diisi."),
+  nama_penghargaan: yup.string().required("nama penghargaan wajib diisi."),
+  tahun: yup.string().required("tahun wajib diisi."),
   instansi_pemberi: yup
     .string()
-    .required("bidang ahli pembimbing wajib di isi."),
+    .required("bidang ahli pembimbing wajib diisi."),
 });
 
 const FormCreatePenghargaan = () => {
@@ -99,7 +93,7 @@ const FormCreatePenghargaan = () => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

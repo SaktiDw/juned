@@ -50,7 +50,7 @@ export default function List({
       >
         <input
           type="text"
-          placeholder="search"
+          placeholder="cari"
           className="w-full border border-primary px-2 py-1 rounded"
           onChange={(e) => setSearch(e.target.value)}
           onFocus={() => setToggle(true)}
@@ -64,11 +64,15 @@ export default function List({
                   .includes(search.toLocaleLowerCase())
               )
               .map((option) => (
-                <div className="flex bg-white odd:bg-slate-50 hover:bg-slate-100">
+                <div
+                  className="flex bg-white odd:bg-slate-50 hover:bg-slate-100"
+                  key={option}
+                >
                   <span
                     onClick={() => {
                       setSelected(option);
                       onChange(name, option[valueKey]);
+                      setSearch("");
                       return;
                     }}
                   >

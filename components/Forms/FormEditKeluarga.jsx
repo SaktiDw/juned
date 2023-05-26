@@ -11,18 +11,18 @@ const schema = yup.object().shape({
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  status_kawin: yup.string().required("status_kawin wajib di isi."),
-  nama_pasangan: yup.string().required("nama_pasangan wajib di isi."),
-  nip_pasangan: yup.string().required("nip_pasangan wajib di isi."),
-  jenispekerjaan: yup.string().required("jenispekerjaan wajib di isi."),
+  status_kawin: yup.string().required("status_kawin wajib diisi."),
+  nama_pasangan: yup.string().required("nama_pasangan wajib diisi."),
+  nip_pasangan: yup.string().required("nip_pasangan wajib diisi."),
+  jenispekerjaan: yup.string().required("jenispekerjaan wajib diisi."),
 });
 
 const FormEditKeluarga = () => {
@@ -88,7 +88,7 @@ const FormEditKeluarga = () => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

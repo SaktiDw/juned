@@ -19,34 +19,34 @@ const schema = yup.object().shape({
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
+  kategori_kegiatan: yup.string().required("kategori kegiatan wajib diisi."),
   jenis_tugas_tambahan: yup
     .string()
-    .required("jenis tugas tambahan wajib di isi."),
+    .required("jenis tugas tambahan wajib diisi."),
   ptn_tugas_tambahan: yup
     .string()
-    .required("perguruan tinggi penugasan wajib di isi."),
-  unit_kerja: yup.string().required("unit kerja wajib di isi."),
-  jumlah_jam_diakui: yup.string().required("jumlah jam diakui wajib di isi."),
-  sk: yup.string().required("sk wajib di isi."),
-  tanggal_sk: yup.string().required("kelebihan pengajaran sk wajib di isi."),
+    .required("perguruan tinggi penugasan wajib diisi."),
+  unit_kerja: yup.string().required("unit kerja wajib diisi."),
+  jumlah_jam_diakui: yup.string().required("jumlah jam diakui wajib diisi."),
+  sk: yup.string().required("sk wajib diisi."),
+  tanggal_sk: yup.string().required("kelebihan pengajaran sk wajib diisi."),
   terhitung_mulai_tanggal: yup
     .string()
-    .required("terhitung mulai tanggal wajib di isi."),
+    .required("terhitung mulai tanggal wajib diisi."),
   tanggal_berakhir_tugas: yup
     .string()
-    .required("kelebihan penelitian wajib di isi."),
+    .required("kelebihan penelitian wajib diisi."),
   jenis_tugas_tambahan: yup
     .string()
-    .required("kelebihan pengabdian masyarakat wajib di isi."),
+    .required("kelebihan pengabdian masyarakat wajib diisi."),
 });
 
 const FormCreateTugasTambahan = () => {
@@ -132,7 +132,7 @@ const FormCreateTugasTambahan = () => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

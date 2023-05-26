@@ -25,7 +25,7 @@ const PenngabdianEditBidangIlmu = () => {
     networkMode: "offlineFirst",
   });
   {
-    isLoading && <p>Loading...</p>;
+    isLoading && <p>Memuat...</p>;
   }
   {
     isError && <p>Error fetching data</p>;
@@ -33,9 +33,11 @@ const PenngabdianEditBidangIlmu = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-8">
-        <Nav title={"Edit Penngabdian"} />
+        <Nav title={"Ubah Penngabdian"} />
         <div className="flex flex-col gap-4 dark:text-white w-full h-full">
-          <h1 className="text-md font-bold uppercase">Form Edit Penngabdian</h1>
+          <h1 className="text-md font-bold capitalize">
+            Form Edit Penngabdian
+          </h1>
           <div className="grid grid-flow-row gap-4 bg-white dark:bg-slate-800 px-4 py-8 rounded-xl ">
             <h1 className="text-lg font-bold text-slate-600 dark:text-slate-500">
               {pengabdian?.judul}
@@ -46,7 +48,7 @@ const PenngabdianEditBidangIlmu = () => {
               </div>
               <KelompokBidangSelection />
               <div className="flex flex-col gap-2">
-                <span className="font-bold uppercase text-sm">Action</span>
+                <span className="font-bold uppercase text-sm">Aksi</span>
                 <Button text={"Simpan"} size={"small"} />
               </div>
             </div>

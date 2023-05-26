@@ -28,9 +28,9 @@ function List({
 
   return (
     <div className="flex flex-col gap-2 flex-wrap lg:flex-row lg:justify-between items-center">
-      <span>{`Showing ${
+      <span>{`Menampilkan ${
         data.length > 0 ? indexOfFirstItem + 1 : 0
-      } to ${lastItem} entries of ${data.length}`}</span>
+      } sampai ${lastItem} entri dari ${data.length}`}</span>
       <div>
         {currentItems?.map((item) => (
           <div key={item.id}>{item.title}</div>
@@ -41,7 +41,7 @@ function List({
             disabled={currentPage === 1}
             onClick={handlePrevClick}
           >
-            Prev
+            Sebelumnya
           </button>
           {pageNumbers?.map((item, index) => (
             <button
@@ -62,7 +62,7 @@ function List({
             disabled={currentPage === totalPages}
             onClick={handleNextClick}
           >
-            Next
+            Berikutnya
           </button>
         </div>
       </div>

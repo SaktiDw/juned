@@ -5,50 +5,54 @@ import {
   Input,
   KategoriKegiatanSelection,
   MultipleUploadFile,
-  NestedList,
-  PerguruanTinggiSelection,
   Select,
-  StackedTab,
+  Selector,
   Textarea,
 } from "..";
 import * as yup from "yup";
-import { createUser, fetchListInpassing } from "@/helper/api/api";
-import { useQuery } from "@tanstack/react-query";
+
+import {
+  fetchListInpassing,
+  fetchPerguruanTinggi,
+  fetchJabatanFungsional,
+  fetchListBimbinganDosen,
+} from "@/helper/api/apiSister";
+import { id } from "@/helper/constant";
 
 const schema = yup.object().shape({
   dokumen: yup.array().of(
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
-  program_studi: yup.string().required("program studi wajib di isi."),
-  tanggal_mulai: yup.string().required("tanggal mulai wajib di isi."),
-  tanggal_selesai: yup.string().required("tanggal selesai wajib di isi."),
-  jenis_bimbingan: yup.string().required("jenis bimbingan wajib di isi."),
+  kategori_kegiatan: yup.string().required("kategori kegiatan wajib diisi."),
+  program_studi: yup.string().required("program studi wajib diisi."),
+  tanggal_mulai: yup.string().required("tanggal mulai wajib diisi."),
+  tanggal_selesai: yup.string().required("tanggal selesai wajib diisi."),
+  jenis_bimbingan: yup.string().required("jenis bimbingan wajib diisi."),
   bidang_ahli_pembimbing: yup
     .string()
-    .required("bidang ahli pembimbing wajib di isi."),
+    .required("bidang ahli pembimbing wajib diisi."),
   jabatan_fungsional_pembimbing: yup
     .string()
-    .required("jabatan fungsional pembimbing wajib di isi."),
-  dosen_bimbingan: yup.string().required("dosen bimbingan wajib di isi."),
+    .required("jabatan fungsional pembimbing wajib diisi."),
+  dosen_bimbingan: yup.string().required("dosen bimbingan wajib diisi."),
   jabatan_fungsional_bimbingan: yup
     .string()
-    .required("jabatan fungsional bimbingan wajib di isi."),
+    .required("jabatan fungsional bimbingan wajib diisi."),
   bidang_ahli_bimbingan: yup
     .string()
-    .required("bidang ahli bimbingan wajib di isi."),
-  deskripsi_kegiatan: yup.string().required("deskripsi kegiatan wajib di isi."),
-  sk: yup.string().required("sk wajib di isi."),
-  tanggal_sk: yup.string().required("tanggal sk wajib di isi."),
+    .required("bidang ahli bimbingan wajib diisi."),
+  deskripsi_kegiatan: yup.string().required("deskripsi kegiatan wajib diisi."),
+  sk: yup.string().required("sk wajib diisi."),
+  tanggal_sk: yup.string().required("tanggal sk wajib diisi."),
 });
 
 const FormCreateBimbingDosen = () => {
@@ -75,7 +79,14 @@ const FormCreateBimbingDosen = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, values, isValid }) => (
+        {({
+          isSubmitting,
+          errors,
+          touched,
+          values,
+          isValid,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
               menu={"bimbing_dosen"}
@@ -83,10 +94,16 @@ const FormCreateBimbingDosen = () => {
               errors={errors.kategori_kegiatan}
               touched={touched.kategori_kegiatan}
             />
-            <Select
+            <Selector
               label="program studi"
               name="program_studi"
-              option={[]}
+              placeholder={"Pilih program studi"}
+              value={values.program_studi}
+              onChange={setFieldValue}
+              queryKey={"fetchPerguruanTinggi"}
+              queryFn={() => fetchPerguruanTinggi()}
+              valueKey="id"
+              labelKey="nama"
               errors={errors.program_studi}
               touched={touched.program_studi}
             />
@@ -107,37 +124,67 @@ const FormCreateBimbingDosen = () => {
             <Select
               label="jenis bimbingan"
               name="jenis_bimbingan"
-              option={[]}
+              option={[
+                { value: "reguler", label: "reguler" },
+                { value: "pencangkokan", label: "pencangkokan" },
+              ]}
+              labelKey={"label"}
+              valueKey={"value"}
               errors={errors.jenis_bimbingan}
               touched={touched.jenis_bimbingan}
             />
             <Input
               label="bidang ahli pembimbing"
               name="bidang_ahli_pembimbing"
-              type="date"
+              type="text"
               errors={errors.bidang_ahli_pembimbing}
               touched={touched.bidang_ahli_pembimbing}
             />
-            <Select
-              label="jabatan fungsional pembimbing"
+            <Selector
+              label="Jabatan Fungsional Pembimbing"
               name="jabatan_fungsional_pembimbing"
-              option={[]}
+              placeholder={"Pilih Jabatan Fungsional Pembimbing"}
+              value={values.jabatan_fungsional_pembimbing}
+              onChange={setFieldValue}
+              queryKey={"fetchJabatanFungsional"}
+              queryFn={() => fetchJabatanFungsional()}
+              valueKey="id"
+              labelKey="nama"
               errors={errors.jabatan_fungsional_pembimbing}
               touched={touched.jabatan_fungsional_pembimbing}
             />
-            <Select
+            <Selector
               label="dosen bimbingan"
               name="dosen_bimbingan"
-              option={[]}
+              placeholder={"Pilih Dosen Bimbingan"}
+              value={values.dosen_bimbingan}
+              onChange={setFieldValue}
+              queryKey={"fetchListBimbinganDosen"}
+              queryFn={() => fetchListBimbinganDosen(id)}
+              valueKey="id"
+              labelKey="nama"
               errors={errors.dosen_bimbingan}
               touched={touched.dosen_bimbingan}
             />
-            <Select
+            <Selector
               label="jabatan fungsional bimbingan"
               name="jabatan_fungsional_bimbingan"
-              option={[]}
+              placeholder={"Pilih Perguruan Tinggi"}
+              value={values.jabatan_fungsional_bimbingan}
+              onChange={setFieldValue}
+              queryKey={"fetchJabatanFungsional"}
+              queryFn={() => fetchJabatanFungsional()}
+              valueKey="id"
+              labelKey="nama"
               errors={errors.jabatan_fungsional_bimbingan}
               touched={touched.jabatan_fungsional_bimbingan}
+            />
+            <Input
+              label="bidang ahli bimbingan"
+              name="bidang_ahli_bimbingan"
+              type="text"
+              errors={errors.bidang_ahli_bimbingan}
+              touched={touched.bidang_ahli_bimbingan}
             />
             <Textarea
               label="deskripsi kegiatan"
@@ -167,7 +214,7 @@ const FormCreateBimbingDosen = () => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

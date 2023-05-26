@@ -27,7 +27,7 @@ const Kepangkatan = () => {
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"Kepangkatan"} />
-        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md capitalize font-bold drop-shadow-lg shadow-white">
           Detail Riwayat Golongan/Pangkat
         </h1>
         {JSON.stringify(Kepangkatan)}

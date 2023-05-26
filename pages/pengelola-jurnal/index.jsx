@@ -18,7 +18,7 @@ const PengelolaJurnal = () => {
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-full">
         <Nav title={"pengelola jurnal"} />
-        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md capitalize font-bold drop-shadow-lg shadow-white">
           Pengelola Jurnal
         </h1>
         <Table

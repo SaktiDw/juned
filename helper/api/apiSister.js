@@ -69,6 +69,9 @@ export const fetchListBahanAjar = async (id) => await apiSister.get(`/bahan_ajar
 export const fetchDetailBahanAjar = async (id) => await apiSister.get(`/bahan_ajar/${id}`).then(res=>res.data)
 export const fetchBidangIlmuBahanAjar = async (id) => await apiSister.get(`/bahan_ajar/${id}/bidang_ilmu`).then(res=>res.data)
 
+export const fetchListBimbinganDosen = async (id) => await apiSister.get(`/bimbing_dosen?id_sdm=${id}`).then(res=>res.data)
+export const fetchDetailBimbinganDosen = async (id) => await apiSister.get(`/bimbing_dosen/${id}`).then(res=>res.data)
+
 export const fetchListTugasTambahan = async (id) => await apiSister.get(`/tugas_tambahan?id_sdm=${id}`).then(res=>res.data)
 export const fetchDetailTugasTambahan = async (id) => await apiSister.get(`/tugas_tambahan/${id}`).then(res=>res.data)
 export const fetchBidangIlmuTugasTambahan = async (id) => await apiSister.get(`/tugas_tambahan/${id}/bidang_ilmu`).then(res=>res.data)
@@ -83,6 +86,7 @@ export const fetchJenisDokumen = async () => await apiSister.get(`/referensi/jen
 export const fetchKelompokBidang = async (iptek) => await apiSister.get(`/referensi/kelompok_bidang?iptek=${iptek}`).then(res=>res.data).catch(err=>err)
 export const fetchSemester = async (iptek) => await apiSister.get(`/referensi/semester`).then(res=>res.data).catch(err=>err)
 export const fetchGelarAkademik = async (iptek) => await apiSister.get(`/referensi/gelar_akademik`).then(res=>res.data).catch(err=>err)
+export const fetchBahanAjar = async (iptek) => await apiSister.get(`/referensi/jenis_bahan_ajar`).then(res=>res.data).catch(err=>err)
 
 export const fetchPendidikanFormal = async (id) => await apiSister.get(`/pendidikan_formal?id_sdm=${id}`).then(res=>res.data).catch(err=>err)
 export const fetchDetailPendidikanFormal = async (id) => await apiSister.get(`/pendidikan_formal/${id}`).then(res=>res.data).catch(err=>err)

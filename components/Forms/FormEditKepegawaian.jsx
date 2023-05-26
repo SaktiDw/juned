@@ -11,20 +11,20 @@ const schema = yup.object().shape({
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  nip: yup.string().required("nip wajib di isi."),
-  sumbergaji: yup.string().required("sumbergaji wajib di isi."),
-  sk_cpns: yup.string().required("sk cpns wajib di isi."),
-  tanggal_sk_cpns: yup.string().required("tanggal sk cpns wajib di isi."),
-  sk_tmmd: yup.string().required("sk tmmd wajib di isi."),
-  tmmd: yup.string().required("tmmd wajib di isi."),
+  nip: yup.string().required("nip wajib diisi."),
+  sumbergaji: yup.string().required("sumbergaji wajib diisi."),
+  sk_cpns: yup.string().required("sk cpns wajib diisi."),
+  tanggal_sk_cpns: yup.string().required("tanggal sk cpns wajib diisi."),
+  sk_tmmd: yup.string().required("sk tmmd wajib diisi."),
+  tmmd: yup.string().required("tmmd wajib diisi."),
 });
 
 const FormEditKepegawaian = () => {
@@ -114,7 +114,7 @@ const FormEditKepegawaian = () => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

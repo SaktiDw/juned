@@ -1,37 +1,30 @@
 import React from "react";
 import { Formik, Form } from "formik";
-import {
-  Button,
-  GolonganPangkatSelection,
-  Input,
-  MultipleUploadFile,
-  Select,
-} from "..";
+import { Button, Input, MultipleUploadFile, Select, Selector } from "..";
 import * as yup from "yup";
-import { createUser, fetchListInpassing } from "@/helper/api/api";
-import { useQuery } from "@tanstack/react-query";
+import { fetchGolonganPangkat } from "@/helper/api/apiSister";
 
 const schema = yup.object().shape({
   dokumen: yup.array().of(
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  pangkat_golongan: yup.string().required("golongan pangkat wajib di isi."),
-  sk: yup.string().required("sk wajib di isi."),
-  tanggal_sk: yup.string().required("kelebihan pengajaran sk wajib di isi."),
-  tanggal_mulai: yup.string().required("terhitung mulai tanggal wajib di isi."),
-  masa_kerja_tahun: yup.string().required("kelebihan penelitian wajib di isi."),
+  pangkat_golongan: yup.string().required("golongan pangkat wajib diisi."),
+  sk: yup.string().required("sk wajib diisi."),
+  tanggal_sk: yup.string().required("kelebihan pengajaran sk wajib diisi."),
+  tanggal_mulai: yup.string().required("terhitung mulai tanggal wajib diisi."),
+  masa_kerja_tahun: yup.string().required("kelebihan penelitian wajib diisi."),
   masa_kerja_bulan: yup
     .string()
-    .required("kelebihan pengabdian masyarakat wajib di isi."),
+    .required("kelebihan pengabdian masyarakat wajib diisi."),
 });
 
 const FormCreateKepangkatan = ({ initialValues }) => {
@@ -41,7 +34,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
         enableReinitialize
         initialValues={{
           dokumen: [],
-          pangkat_golongan: initialValues?.id_pangkat_golongan || "",
+          id_pangkat_golongan: initialValues?.id_pangkat_golongan || "",
           sk: initialValues?.sk || "",
           tanggal_sk: initialValues?.tanggal_sk || "",
           tanggal_mulai: initialValues?.tanggal_mulai || "",
@@ -51,14 +44,26 @@ const FormCreateKepangkatan = ({ initialValues }) => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, values, isValid }) => (
+        {({
+          isSubmitting,
+          errors,
+          touched,
+          values,
+          isValid,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col gap-4">
-            <GolonganPangkatSelection
-              label="jabatan fungsional"
-              name="pangkat_golongan"
-              // value={initialValues?.id_pangkat_golongan}
-              // errors={errors.pangkat_golongan}
-              // touched={touched.pangkat_golongan}
+            <Selector
+              label="Golongan/Pangkat"
+              placeholder={"Pilih Golongan/Pangkat"}
+              name={"id_pangkat_golongan"}
+              errors={errors.id_pangkat_golongan}
+              touched={touched.id_pangkat_golongan}
+              queryKey={"fetchGolonganPangkat"}
+              queryFn={() => fetchGolonganPangkat()}
+              onChange={setFieldValue}
+              labelKey={"nama"}
+              valueKey={"id"}
             />
             <Input
               label="nomor sk"
@@ -103,7 +108,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

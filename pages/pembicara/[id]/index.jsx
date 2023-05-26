@@ -21,7 +21,7 @@ const DetailPengelolaJurnal = () => {
     <MainLayout>
       <div className="flex flex-col gap-4 dark:text-white w-full h-max">
         <Nav title={"Detail Pengelola Jurnal"} />
-        <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+        <h1 className="text-md capitalize font-bold drop-shadow-lg shadow-white">
           Detail Pengelola Jurnal
         </h1>
         <div className="flex flex-col gap-2 justify-center bg-white dark:bg-slate-800 rounded-xl p-4 divide-y dark:divide-slate-500">

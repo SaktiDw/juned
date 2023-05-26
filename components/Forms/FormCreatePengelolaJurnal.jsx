@@ -19,21 +19,21 @@ const schema = yup.object().shape({
     yup
       .object()
       .shape({
-        id_jenis_dokumen: yup.string().required("jenis dokumen wajib di isi."),
-        file: yup.string().required("file wajib di isi."),
-        nama: yup.string().required("nama wajib di isi."),
-        tautan: yup.string().required("tautan wajib di isi."),
-        keterangan: yup.string().required("keterangan wajib di isi."),
+        id_jenis_dokumen: yup.string().required("jenis dokumen wajib diisi."),
+        file: yup.string().required("file wajib diisi."),
+        nama: yup.string().required("nama dokumen wajib diisi."),
+        tautan: yup.string().required("tautan wajib diisi."),
+        keterangan: yup.string().required("keterangan wajib diisi."),
       })
-      .required("dokumen wajib di isi.")
+      .required("dokumen wajib diisi.")
   ),
-  kategori_kegiatan: yup.string().required("kategori kegiatan wajib di isi."),
-  media_publikasi: yup.string().required("media_publikasi wajib di isi."),
-  peran: yup.string().required("peran wajib di isi."),
-  sk_penugasan: yup.string().required("kelompok bidang wajib di isi."),
-  tanggal_mulai: yup.string().required("litabmas sebelumnya wajib di isi."),
-  tanggal_selesai: yup.string().required("jenis skim wajib di isi."),
-  aktif: yup.string().required("aktif kegiatan wajib di isi."),
+  kategori_kegiatan: yup.string().required("kategori kegiatan wajib diisi."),
+  media_publikasi: yup.string().required("media_publikasi wajib diisi."),
+  peran: yup.string().required("peran wajib diisi."),
+  sk_penugasan: yup.string().required("kelompok bidang wajib diisi."),
+  tanggal_mulai: yup.string().required("litabmas sebelumnya wajib diisi."),
+  tanggal_selesai: yup.string().required("jenis skim wajib diisi."),
+  aktif: yup.string().required("aktif kegiatan wajib diisi."),
 });
 
 const FormCreatePengelolaJurnal = ({ initialValues }) => {
@@ -151,7 +151,7 @@ const FormCreatePengelolaJurnal = ({ initialValues }) => {
             <Button
               disabled={!isValid}
               type={"submit"}
-              text={isSubmitting ? "Loading..." : "Ajukan perubahan"}
+              text={isSubmitting ? "Memuat..." : "Ajukan perubahan"}
             />
           </Form>
         )}

@@ -73,6 +73,10 @@ export { default as JabatanFungsionalSelection } from "./Selections/JabatanFungs
 export { default as JenisDokumenSelection } from "./Selections/JenisDokumenSelection";
 export { default as BidangIlmuPenelitianSelection } from "./Selections/BidangIlmuPenelitianSelection";
 export { default as KelompokBidangSelection } from "./Selections/KelompokBidangSelection";
+export { default as BahanAjarSelection } from "./Selections/BahanAjarSelection";
+
+export { default as SelectWithSearch } from "./Selections/SelectWithSearch";
+export { default as Selector } from "./Selections/Selector";
 
 export { default as CardDataPribadi } from "./Card/CardDataPribadi";
 

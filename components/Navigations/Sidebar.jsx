@@ -492,7 +492,7 @@ const Sidebar = () => {
               className="flex gap-2 justify-center items-center"
             >
               <i className="fi-rr-sign-in-alt mt-1"></i>
-              Login
+              Masuk
             </Link>
           ) : (
             <button
@@ -504,7 +504,7 @@ const Sidebar = () => {
               className="flex gap-2 justify-center items-center"
             >
               <i className="fi-rr-sign-out-alt mt-1"></i>
-              {isNavOpen && <span>Logout</span>}
+              {isNavOpen && <span>Keluar</span>}
             </button>
           )}
           <button

@@ -13,6 +13,17 @@ const Action = ({
   return (
     <>
       <div className="flex items-center justify-center gap-2">
+        {action.includes("add-document") && (
+          <button
+            onClick={addDocumentFn}
+            className="relative flex justify-center p-1 text-primary rounded-xl text-lg group"
+          >
+            <i className="fi-rr-document"></i>
+            <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
+              Tambah dokumen
+            </span>
+          </button>
+        )}
         {action.includes("edit-bidang-ilmu") && (
           <Link
             href={`${baseUrl}/${param.id}/edit-bidang-ilmu`}
@@ -20,7 +31,7 @@ const Action = ({
           >
             <i className="fi-rr-edit"></i>
             <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
-              Edit Bidang Ilmu
+              Ubah Bidang Ilmu
             </span>
           </Link>
         )}
@@ -50,7 +61,7 @@ const Action = ({
           >
             <i className="fi-rr-trash"></i>
             <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
-              Delete
+              Hapus
             </span>
           </button>
         )}
@@ -61,7 +72,7 @@ const Action = ({
           >
             <i className="fi-rr-pencil"></i>
             <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
-              Edit
+              Ubah
             </span>
           </Link>
         )}
@@ -76,17 +87,7 @@ const Action = ({
             </span>
           </Link>
         )}
-        {action.includes("add-document") && (
-          <button
-            onClick={addDocumentFn}
-            className="relative flex justify-center p-1 text-primary rounded-xl text-lg group"
-          >
-            <i className="fi-rr-document"></i>
-            <span className="absolute bottom-full bg-white dark:bg-slate-900 font-bold w-max shadow-md px-4 text-xs rounded-xl hidden group-hover:flex">
-              Tambah dokumen
-            </span>
-          </button>
-        )}
+
         {/* <Link href={`/${param.id}`}>Link</Link> */}
       </div>
     </>
