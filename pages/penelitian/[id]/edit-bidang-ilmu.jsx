@@ -4,9 +4,14 @@ import {
   MainLayout,
   Nav,
   Button,
+  Selector,
 } from "@/components";
-import { fetchDetailPenelitian } from "@/helper/api/apiSister";
+import {
+  fetchDetailPenelitian,
+  fetchKelompokBidang,
+} from "@/helper/api/apiSister";
 import { useQuery } from "@tanstack/react-query";
+import { Form, Formik } from "formik";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
@@ -35,7 +40,9 @@ const PenelitianEditBidangIlmu = () => {
       <div className="flex flex-col gap-8">
         <Nav title={"Ubah Penelitian"} />
         <div className="flex flex-col gap-4 dark:text-white w-full h-full">
-          <h1 className="text-md font-bold capitalize">Form Edit Penelitian</h1>
+          <h1 className="text-md font-bold capitalize">
+            Formulir Ubah Penelitian
+          </h1>
           <div className="grid grid-flow-row gap-4 bg-white dark:bg-slate-800 px-4 py-8 rounded-xl ">
             <h1 className="text-lg font-bold text-slate-600 dark:text-slate-500">
               {penelitian?.judul}
@@ -44,7 +51,31 @@ const PenelitianEditBidangIlmu = () => {
               <div className="flex flex-col gap-2">
                 <span className="font-bold uppercase text-sm">urutan</span>
               </div>
-              <KelompokBidangSelection />
+              <Formik
+                initialValues={{
+                  bidang_ilmu: penelitian?.bidang_ilmu?.id,
+                }}
+                onSubmit={() => null}
+              >
+                {({ values, errors, touched, setFieldValue }) => (
+                  <Form>
+                    <Selector
+                      label="Bidang Ilmu"
+                      name="bidang_ilmu"
+                      placeholder={"Pilih Bidang Ilmu"}
+                      value={values.bidang_ilmu}
+                      onChange={setFieldValue}
+                      queryKey={"bahan_ajar"}
+                      queryFn={() => fetchKelompokBidang(true)}
+                      valueKey="id"
+                      labelKey="nama"
+                      errors={errors.bidang_ilmu}
+                      touched={touched.bidang_ilmu}
+                    />
+                  </Form>
+                )}
+              </Formik>
+
               <div className="flex flex-col gap-2">
                 <span className="font-bold uppercase text-sm">Aksi</span>
                 <Button text={"Simpan"} size={"small"} />

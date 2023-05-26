@@ -1,6 +1,6 @@
 import {
   KelompokBidangSelection,
-  FormCreatePenngabdian,
+  FormCreatePengabdian,
   MainLayout,
   Nav,
   Button,
@@ -10,7 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 
-const PenngabdianEditBidangIlmu = () => {
+const PengabdianEditBidangIlmu = () => {
   const router = useRouter();
   const { id } = router.query;
   useEffect(() => {}, [router.isReady]);
@@ -33,10 +33,10 @@ const PenngabdianEditBidangIlmu = () => {
   return (
     <MainLayout>
       <div className="flex flex-col gap-8">
-        <Nav title={"Ubah Penngabdian"} />
+        <Nav title={"Ubah Pengabdian"} />
         <div className="flex flex-col gap-4 dark:text-white w-full h-full">
           <h1 className="text-md font-bold capitalize">
-            Form Edit Penngabdian
+            Formulir Ubah Pengabdian
           </h1>
           <div className="grid grid-flow-row gap-4 bg-white dark:bg-slate-800 px-4 py-8 rounded-xl ">
             <h1 className="text-lg font-bold text-slate-600 dark:text-slate-500">
@@ -59,4 +59,4 @@ const PenngabdianEditBidangIlmu = () => {
   );
 };
 
-export default PenngabdianEditBidangIlmu;
+export default PengabdianEditBidangIlmu;

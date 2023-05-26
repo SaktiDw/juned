@@ -36,7 +36,7 @@ const BimbinganMahasiswaEditBidangIlmu = () => {
         <Nav title={"Ubah Bimbingan Mahasiswa"} />
         <div className="flex flex-col gap-4 dark:text-white w-full h-full">
           <h1 className="text-md font-bold capitalize">
-            Form Edit Bimbingan Mahasiswa
+            Formulir Ubah Bimbingan Mahasiswa
           </h1>
           <div className="grid grid-flow-row gap-4 bg-white dark:bg-slate-800 px-4 py-8 rounded-xl ">
             <h1 className="text-lg font-bold text-slate-600 dark:text-slate-500">

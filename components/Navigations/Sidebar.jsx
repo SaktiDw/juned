@@ -512,7 +512,7 @@ const Sidebar = () => {
             onClick={() => toggleDarkMode()}
           >
             <i className={`mt-1 ${darkMode ? "fi-rr-moon" : "fi-rr-sun"}`}></i>
-            {isNavOpen && <span>{darkMode ? "Dark" : "Light"}</span>}
+            {isNavOpen && <span>{darkMode ? "Gelap" : "Terang"}</span>}
           </button>
         </div>
       </aside>

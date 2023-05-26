@@ -39,7 +39,6 @@ const Login = () => {
       />
       <Formik
         initialValues={{
-          dokumen: [],
           username: "4PU03FXTjYYrMxACQLD5fvxwUOKc4B8OmXpNPU9MnkU=",
           password:
             "uCAYSxR7hlGK/63OzBFRQBWF60S7+n01nTbbxi822uHNKyscLAAiKAt40yNK/a0f",
