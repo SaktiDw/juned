@@ -31,7 +31,7 @@ const PenelitianEditBidangIlmu = () => {
     isLoading && <p>Memuat...</p>;
   }
   {
-    isError && <p>Error fetching data</p>;
+    isError && <p>Error Gagal mengambil data</p>;
   }
   return (
     <MainLayout>

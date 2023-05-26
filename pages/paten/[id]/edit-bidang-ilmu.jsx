@@ -13,11 +13,7 @@ const PublikasiEditBidangIlmu = () => {
   const { id } = router.query;
   useEffect(() => {}, [router.isReady]);
 
-  const {
-    data: publikasi,
-    isError,
-    isLoading,
-  } = useQuery({
+  const { data, isError, isLoading } = useQuery({
     queryKey: ["publikasi", id],
     queryFn: async () => await fetchDetailPublikasi(id),
     networkMode: "offlineFirst",
@@ -26,7 +22,7 @@ const PublikasiEditBidangIlmu = () => {
     isLoading && <p>Memuat...</p>;
   }
   {
-    isError && <p>Error fetching data</p>;
+    isError && <p>Error Gagal mengambil data</p>;
   }
   return (
     <MainLayout>
@@ -38,7 +34,7 @@ const PublikasiEditBidangIlmu = () => {
           </h1>
           <div className="grid grid-flow-row gap-4 bg-white dark:bg-slate-800 px-4 py-8 rounded-xl ">
             <h1 className="text-lg font-bold text-slate-600 dark:text-slate-500">
-              {publikasi?.judul}
+              {data?.judul}
             </h1>
             <div className="flex gap-8">
               <div className="flex flex-col gap-2">
@@ -46,7 +42,7 @@ const PublikasiEditBidangIlmu = () => {
               </div>
               <Formik
                 initialValues={{
-                  bidang_ilmu: penelitian?.bidang_ilmu?.id,
+                  bidang_ilmu: data?.bidang_ilmu?.id,
                 }}
                 onSubmit={() => null}
               >

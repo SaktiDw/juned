@@ -26,7 +26,7 @@ const PenelitianEditBidangIlmu = () => {
     isLoading && <p>Memuat...</p>;
   }
   {
-    isError && <p>Error fetching data</p>;
+    isError && <p>Error Gagal mengambil data</p>;
   }
   return (
     <MainLayout>
@@ -46,7 +46,7 @@ const PenelitianEditBidangIlmu = () => {
               </div>
               <Formik
                 initialValues={{
-                  bidang_ilmu: penelitian?.bidang_ilmu?.id,
+                  bidang_ilmu: data?.bidang_ilmu?.id,
                 }}
                 onSubmit={() => null}
               >
