@@ -38,7 +38,19 @@ const FormEditBiodata = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           nama: profil?.data[0]?.pegawai.nama_sdm,
           jenis_kelamin: profil?.data[0]?.jenis_kelamin,
           tempat_lahir: profil?.data[0]?.tempat_lahir,
@@ -48,7 +60,14 @@ const FormEditBiodata = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, values, isValid }) => (
+        {({
+          isSubmitting,
+          errors,
+          touched,
+          values,
+          isValid,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="nama"
@@ -100,6 +119,7 @@ const FormEditBiodata = () => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
             <Button
               disabled={!isValid}

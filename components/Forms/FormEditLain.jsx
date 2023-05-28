@@ -35,14 +35,33 @@ const FormEditLain = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           npwp: lain?.data?.npwp,
           nama_wp: lain?.data?.nama_wp,
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, values, isValid }) => (
+        {({
+          isSubmitting,
+          errors,
+          touched,
+          values,
+          isValid,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="npwp"
@@ -64,6 +83,7 @@ const FormEditLain = () => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
             <Button
               disabled={!isValid}

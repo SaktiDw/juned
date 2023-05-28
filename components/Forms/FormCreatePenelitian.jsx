@@ -63,7 +63,19 @@ const FormCreatePenelitian = ({ initialValues }) => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: initialValues?.dokumen || [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           kategori_kegiatan: initialValues?.id_kategori_kegiatan || "",
           judul: initialValues?.judul || "",
           afiliasi: initialValues?.afiliasi || "",
@@ -85,12 +97,18 @@ const FormCreatePenelitian = ({ initialValues }) => {
           sk_penugasan: initialValues?.sk_penugasan || "",
           tanggal_sk_penugasan: initialValues?.tanggal_sk_penugasan || "",
           mitra_litabmas: initialValues?.mitra_litabmas[0]?.nama || "",
-          dokumen: initialValues?.dokumen || "",
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, values, isValid }) => (
+        {({
+          isSubmitting,
+          errors,
+          touched,
+          values,
+          isValid,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
               type={"tree"}
@@ -248,6 +266,7 @@ const FormCreatePenelitian = ({ initialValues }) => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             >
               {router.pathname.includes("edit") && initialValues?.dokumen && (
                 <Table

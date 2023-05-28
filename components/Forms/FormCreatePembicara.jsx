@@ -56,7 +56,19 @@ const FormCreatePembicara = ({ initialValues }) => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           kategori_kegiatan: initialValues?.id_kategori_kegiatan || "",
           kategori_capaian_luaran:
             initialValues?.id_kategori_capaian_luaran || "",
@@ -72,7 +84,14 @@ const FormCreatePembicara = ({ initialValues }) => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, values, isValid }) => (
+        {({
+          isSubmitting,
+          errors,
+          touched,
+          values,
+          isValid,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
               type={"tree"}
@@ -161,6 +180,7 @@ const FormCreatePembicara = ({ initialValues }) => {
               touched={touched.tanggal_sk_penugasan}
             />
             <MultipleUploadFile
+              setFieldValue={setFieldValue}
               values={values}
               errors={errors}
               touched={touched}
@@ -173,10 +193,10 @@ const FormCreatePembicara = ({ initialValues }) => {
                     { key: "jenis_file", title: "jenis file" },
                     {
                       key: "tanggal_upload",
-                      title: "tanggal_upload",
-                      render: (val) => dateFormater(val.tanggal_upload),
+                      title: "tanggal upload",
+                      dataType: "date",
                     },
-                    { key: "jenis_dokumen", title: "jenis_dokumen" },
+                    { key: "jenis_dokumen", title: "jenis dokumen" },
                     {
                       key: "action",
                       title: "aksi",

@@ -13,6 +13,7 @@ import React, { useState } from "react";
 
 const Penelitian = () => {
   const [showModal, setShowModal] = useState(false);
+  const [selected, setSelected] = useState(null);
   const {
     data: penelitian,
     error,
@@ -26,6 +27,7 @@ const Penelitian = () => {
     <MainLayout
       modal={
         <ModalTambahDokumen
+          title={selected}
           showModal={showModal}
           setShowModal={() => setShowModal(!showModal)}
         />
@@ -75,7 +77,10 @@ const Penelitian = () => {
                     "edit-bidang-ilmu",
                     "add-document",
                   ]}
-                  addDocumentFn={() => setShowModal(!showModal)}
+                  addDocumentFn={() => {
+                    setShowModal(!showModal);
+                    setSelected(val.judul);
+                  }}
                 />
               ),
             },

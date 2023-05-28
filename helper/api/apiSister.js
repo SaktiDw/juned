@@ -84,9 +84,9 @@ export const fetchJabatanFungsional = async () => await apiSister.get(`/referens
 export const fetchDudi = async () => await apiSister.get(`/referensi/dudi`).then(res=>res.data).catch(err=>err)
 export const fetchJenisDokumen = async () => await apiSister.get(`/referensi/jenis_dokumen`).then(res=>res.data).catch(err=>err)
 export const fetchKelompokBidang = async (iptek) => await apiSister.get(`/referensi/kelompok_bidang?iptek=${iptek}`).then(res=>res.data).catch(err=>err)
-export const fetchSemester = async (iptek) => await apiSister.get(`/referensi/semester`).then(res=>res.data).catch(err=>err)
-export const fetchGelarAkademik = async (iptek) => await apiSister.get(`/referensi/gelar_akademik`).then(res=>res.data).catch(err=>err)
-export const fetchBahanAjar = async (iptek) => await apiSister.get(`/referensi/jenis_bahan_ajar`).then(res=>res.data).catch(err=>err)
+export const fetchSemester = async () => await apiSister.get(`/referensi/semester`).then(res=>res.data).catch(err=>err)
+export const fetchGelarAkademik = async () => await apiSister.get(`/referensi/gelar_akademik`).then(res=>res.data).catch(err=>err)
+export const fetchBahanAjar = async () => await apiSister.get(`/referensi/jenis_bahan_ajar`).then(res=>res.data).catch(err=>err)
 
 export const fetchPendidikanFormal = async (id) => await apiSister.get(`/pendidikan_formal?id_sdm=${id}`).then(res=>res.data).catch(err=>err)
 export const fetchDetailPendidikanFormal = async (id) => await apiSister.get(`/pendidikan_formal/${id}`).then(res=>res.data).catch(err=>err)

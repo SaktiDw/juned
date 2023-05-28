@@ -80,7 +80,7 @@ const DetailAnggotaProfesi = () => {
               {
                 key: "tanggal_upload",
                 title: "tanggal upload",
-                render: (val) => dateFormater(val.tanggal_upload),
+                dataType: "date",
               },
               {
                 key: "tautan",

@@ -41,7 +41,19 @@ const FormCreateBahanAjar = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           anggota_dosen: [],
           anggota_mahasiswa: [],
           anggota_lain: [],
@@ -87,6 +99,7 @@ const FormCreateBahanAjar = () => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
             <h1 className="uppercase">Anggota Kegiatan (Dosen)</h1>
             <FormAnggotaKegiatan

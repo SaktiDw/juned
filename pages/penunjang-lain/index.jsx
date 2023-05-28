@@ -15,7 +15,7 @@ import React, { useState } from "react";
 
 const AnggotaProfesi = () => {
   const [showModal, setShowModal] = useState(false);
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState(null);
   const {
     data: penunjang_lain,
     isLoading,

@@ -13,7 +13,7 @@ import React, { useState } from "react";
 
 const Pengabdian = () => {
   const [showModal, setShowModal] = useState(false);
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState(null);
   const {
     data: pengabdian,
     error,

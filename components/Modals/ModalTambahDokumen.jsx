@@ -12,16 +12,31 @@ const ModalTambahDokumen = ({ title = "modal", showModal, setShowModal }) => {
     >
       <Formik
         enableReinitialize
-        initialValues={{ dokumen: [] }}
+        initialValues={{
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
+        }}
         onSubmit={() => null}
       >
-        {({ isSubmitting, values, errors, touched }) => (
+        {({ isSubmitting, values, errors, touched, setFieldValue }) => (
           <Form className="flex flex-col gap-4 p-4">
             <MultipleUploadFile
               limit={1}
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
             <Button
               type={"submit"}

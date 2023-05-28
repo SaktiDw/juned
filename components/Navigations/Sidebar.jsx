@@ -114,7 +114,7 @@ const Sidebar = () => {
             "/penempatan/[id]",
             "/penempatan/[id]/edit",
           ].includes(router.pathname)}
-          title="Profile"
+          title="profil"
           href="/"
           icon={"fi-rr-user"}
           subItem={[

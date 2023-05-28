@@ -51,7 +51,19 @@ const FormCreateVisitingScientist = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           aktivitas_litabmas: "",
           kategori_capaian_luaran: "",
           ptn_pengundang: "",
@@ -145,6 +157,7 @@ const FormCreateVisitingScientist = () => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
             <Button
               disabled={!isValid}

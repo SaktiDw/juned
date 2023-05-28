@@ -1,14 +1,17 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import {
+  Action,
   Button,
   FormAnggotaKegiatan,
   Input,
   KategoriKegiatanSelection,
   MultipleUploadFile,
   Select,
+  Table,
 } from "..";
 import * as yup from "yup";
+import { useRouter } from "next/router";
 
 const schema = yup.object().shape({
   dokumen: yup.array().of(
@@ -39,12 +42,25 @@ const schema = yup.object().shape({
 });
 
 const FormCreatePenunjangLain = ({ initialValues }) => {
+  const router = useRouter();
   return (
     <>
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           kategori_kegiatan: initialValues?.id_kategori_kegiatan || "",
           nama: initialValues?.nama || "",
           jenis_kegiatan: initialValues?.jenis_kegiatan || "",
@@ -58,7 +74,14 @@ const FormCreatePenunjangLain = ({ initialValues }) => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, values, isValid }) => (
+        {({
+          isSubmitting,
+          errors,
+          touched,
+          values,
+          isValid,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col gap-4">
             <KategoriKegiatanSelection
               menu={"penunjang_lain"}
@@ -146,7 +169,37 @@ const FormCreatePenunjangLain = ({ initialValues }) => {
               values={values}
               errors={errors}
               touched={touched}
-            />
+              setFieldValue={setFieldValue}
+            >
+              {router.pathname.includes("edit") && initialValues?.dokumen && (
+                <Table
+                  columns={[
+                    { key: "id", title: "No.", dataType: "numbering" },
+                    { key: "nama_file", title: "nama file" },
+                    { key: "jenis_file", title: "jenis file" },
+                    {
+                      key: "tanggal_upload",
+                      title: "tanggal upload",
+                      dataType: "date",
+                    },
+                    { key: "jenis_dokumen", title: "jenis dokumen" },
+                    {
+                      key: "action",
+                      title: "aksi",
+                      align: "center",
+                      render: (val) => (
+                        <Action
+                          param={val}
+                          baseUrl={"/dokumen"}
+                          action={["detail", "edit", "delete"]}
+                        />
+                      ),
+                    },
+                  ]}
+                  data={initialValues?.dokumen}
+                />
+              )}
+            </MultipleUploadFile>
             <Button
               disabled={!isValid}
               type={"submit"}

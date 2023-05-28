@@ -1,6 +1,14 @@
 import React, { useState } from "react";
-import { Button, Input, JenisDokumenSelection, Textarea, UploadFile } from "..";
+import {
+  Button,
+  Input,
+  JenisDokumenSelection,
+  Selector,
+  Textarea,
+  UploadFile,
+} from "..";
 import { Field, FieldArray } from "formik";
+import { fetchJenisDokumen } from "@/helper/api/apiSister";
 
 const MultipleUploadFile = ({
   errors,
@@ -8,6 +16,7 @@ const MultipleUploadFile = ({
   children,
   limit = 5,
   values,
+  setFieldValue,
 }) => {
   const [isActive, setIsActive] = useState(0);
 
@@ -69,10 +78,32 @@ const MultipleUploadFile = ({
                           }
                           value={item.nama}
                         />
-                        <JenisDokumenSelection
+                        {/* <JenisDokumenSelection
                           key={`dokumen.${index}.id_jenis_dokumen`}
                           name={`dokumen.${index}.id_jenis_dokumen`}
                           value={item.id_jenis_dokumen}
+                        /> */}
+                        <Selector
+                          label={"Jenis Dokumen"}
+                          name={`dokumen.${index}.id_jenis_dokumen`}
+                          values={{
+                            id: item.id_jenis_dokumen,
+                            nama: item.jenis_dokumen,
+                          }}
+                          queryKey={"fetchJenisDokumen"}
+                          queryFn={() => fetchJenisDokumen()}
+                          errors={
+                            errors.dokumen &&
+                            errors.dokumen[index]?.id_jenis_dokumen
+                          }
+                          touched={
+                            touched.dokumen &&
+                            touched.dokumen[index]?.id_jenis_dokumen
+                          }
+                          valueKey={"id"}
+                          labelKey={"nama"}
+                          onChange={setFieldValue}
+                          placeholder={"Pilih Jenis Dokumen"}
                         />
                       </div>
                       <UploadFile />
@@ -101,17 +132,20 @@ const MultipleUploadFile = ({
                     </div>
                   </div>
                 ))}
-              {values.dokumen.length <= limit && (
+              {values.dokumen.length < limit && (
                 <Button
                   text={"Tambah Dokumen"}
                   onClick={() =>
                     arrayHelpers.push({
-                      id_sdm: "",
+                      id: "",
                       id_jenis_dokumen: "",
                       nama: "",
-                      tautan: "",
                       keterangan: "",
-                      file: "",
+                      tanggal_upload: "",
+                      tautan: "",
+                      jenis_file: "",
+                      nama_file: "",
+                      jenis_dokumen: "",
                     })
                   }
                   disabled={values.dokumen.length >= limit}

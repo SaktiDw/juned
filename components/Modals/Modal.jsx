@@ -6,7 +6,9 @@ const Modal = ({ isOpen, setIsOpen, title, children }) => {
   return (
     <div className="fixed inset-0 z-50 w-full min-h-screen  flex flex-col items-center justify-center">
       <div className="relative min-w-300 lg:w-1/2 min-h-300 bg-white dark:bg-slate-800 dark:text-white rounded-xl z-10 p-2 m-8 flex flex-col gap-4 overflow-auto">
-        <h1 className="text-lg font-semibold capitalize ">{title}</h1>
+        <h1 className="text-base font-semibold capitalize pl-2 pr-8 truncate">
+          {title}
+        </h1>
         <i
           className=" fi-rr-cross absolute top-4 right-4 text-red-500 cursor-pointer"
           onClick={setIsOpen}

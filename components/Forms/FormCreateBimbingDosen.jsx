@@ -61,7 +61,19 @@ const FormCreateBimbingDosen = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           kategori_kegiatan: "",
           program_studi: "",
           tanggal_mulai: "",
@@ -210,6 +222,7 @@ const FormCreateBimbingDosen = () => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
             <Button
               disabled={!isValid}

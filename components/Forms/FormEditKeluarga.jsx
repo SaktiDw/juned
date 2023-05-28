@@ -37,7 +37,19 @@ const FormEditKeluarga = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           status_kawin: keluarga?.data[0]?.status_kawin,
           nama_pasangan: keluarga?.data[0]?.nama_pasangan,
           nip_pasangan: keluarga?.data[0]?.nip_pasangan,
@@ -46,7 +58,14 @@ const FormEditKeluarga = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, values, isValid }) => (
+        {({
+          isSubmitting,
+          errors,
+          touched,
+          values,
+          isValid,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="status_kawin"
@@ -84,6 +103,7 @@ const FormEditKeluarga = () => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
             <Button
               disabled={!isValid}

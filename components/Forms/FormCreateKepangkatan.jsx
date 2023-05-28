@@ -33,7 +33,19 @@ const FormCreateKepangkatan = ({ initialValues }) => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           id_pangkat_golongan: initialValues?.id_pangkat_golongan || "",
           sk: initialValues?.sk || "",
           tanggal_sk: initialValues?.tanggal_sk || "",
@@ -104,6 +116,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
             <Button
               disabled={!isValid}

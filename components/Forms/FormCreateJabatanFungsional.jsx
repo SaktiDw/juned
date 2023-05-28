@@ -46,7 +46,19 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           id: initialValues?.id || "",
           jabatan_fungsional: initialValues?.id_jabatan_fungsional || "",
           sk: initialValues?.sk || "",
@@ -63,7 +75,14 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, values, isValid }) => (
+        {({
+          isSubmitting,
+          errors,
+          touched,
+          values,
+          isValid,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col gap-4">
             <JabatanFungsionalSelection
               name={"jabatan_fungsional"}
@@ -117,6 +136,7 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
             <Button
               disabled={!isValid}

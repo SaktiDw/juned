@@ -24,6 +24,7 @@ const Sidebar = () => {
   const ref = useRef(null);
   const [search, setSearch] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [selected, setSelected] = useState(null);
   const data = [
     { name: "John", age: 25, city: "New York" },
     { name: "Jane", age: 30, city: "Los Angeles" },
@@ -88,7 +89,22 @@ const Sidebar = () => {
     <MainLayout>
       <Formik
         enableReinitialize
-        initialValues={{ dokumen: [], friends: [{ name: "jared", age: 23 }] }}
+        initialValues={{
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
+          friends: [{ name: "jared", age: 23 }],
+        }}
         onSubmit={() => null}
       >
         {({ isSubmitting, values }) => (
@@ -146,7 +162,22 @@ const Sidebar = () => {
 
       <Formik
         enableReinitialize
-        initialValues={{ dokumen: [], friends: [{ name: "jared", age: 23 }] }}
+        initialValues={{
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
+          friends: [{ name: "jared", age: 23 }],
+        }}
         onSubmit={() => null}
       >
         {({ isSubmitting, values }) => (
@@ -243,6 +274,7 @@ const Sidebar = () => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
         </Formik>
       </Modal> */}
@@ -265,13 +297,29 @@ const Sidebar = () => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
           </Formik>
         </Modal>
       </div> */}
 
       <Formik
-        initialValues={{ dokumen: [], bahan_ajar: "" }}
+        initialValues={{
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
+          bahan_ajar: "",
+        }}
         onSubmit={() => null}
       >
         {({ isSubmitting, errors, touched, values, setFieldValue }) => (

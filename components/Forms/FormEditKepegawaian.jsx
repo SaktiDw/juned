@@ -39,7 +39,19 @@ const FormEditKepegawaian = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          dokumen: [],
+          dokumen: [
+            {
+              id: "",
+              id_jenis_dokumen: "",
+              nama: "",
+              keterangan: "",
+              tanggal_upload: "",
+              tautan: "",
+              jenis_file: "",
+              nama_file: "",
+              jenis_dokumen: "",
+            },
+          ],
           nip: kepegawaian?.data[0]?.pegawai.nip,
           sumbergaji: kepegawaian?.data[0]?.sumbergaji.nama,
           sk_cpns: kepegawaian?.data[0]?.sk_cpns,
@@ -50,7 +62,14 @@ const FormEditKepegawaian = () => {
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
       >
-        {({ isSubmitting, errors, touched, values, isValid }) => (
+        {({
+          isSubmitting,
+          errors,
+          touched,
+          values,
+          isValid,
+          setFieldValue,
+        }) => (
           <Form className="flex flex-col gap-4">
             <Input
               label="nip"
@@ -110,6 +129,7 @@ const FormEditKepegawaian = () => {
               values={values}
               errors={errors}
               touched={touched}
+              setFieldValue={setFieldValue}
             />
             <Button
               disabled={!isValid}

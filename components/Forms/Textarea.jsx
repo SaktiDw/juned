@@ -29,7 +29,7 @@ const Textarea = ({
           }`}
           name={name}
           id={name}
-          rows="5"
+          rows="2"
           placeholder={placeholder}
         ></Field>
         {errors && touched ? (

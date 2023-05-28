@@ -18,12 +18,7 @@ const PenelitianEditBidangIlmu = () => {
     queryFn: async () => await fetchDetailPenelitian(id),
     networkMode: "offlineFirst",
   });
-  {
-    isLoading && <p>Memuat...</p>;
-  }
-  {
-    isError && <p>Error Gagal mengambil data</p>;
-  }
+
   return (
     <MainLayout>
       <div className="flex flex-col gap-8">
@@ -34,7 +29,7 @@ const PenelitianEditBidangIlmu = () => {
           </h1>
           <div className="grid grid-flow-row gap-4 bg-white dark:bg-slate-800 px-4 py-8 rounded-xl ">
             <h1 className="text-lg font-bold text-slate-600 dark:text-slate-500">
-              {data?.judul}
+              {isLoading ? "Memuat..." : data?.judul}
             </h1>
             <div className="flex gap-8">
               <div className="flex flex-col gap-2">
