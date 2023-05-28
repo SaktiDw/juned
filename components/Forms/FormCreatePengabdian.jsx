@@ -9,11 +9,13 @@ import {
   KelompokBidangSelection,
   MultipleUploadFile,
   Select,
+  Selector,
   Table,
 } from "..";
 import * as yup from "yup";
 import { createUser } from "@/helper/api/api";
 import { useRouter } from "next/router";
+import { fetchKelompokBidang } from "@/helper/api/apiSister";
 
 const schema = yup.object().shape({
   dokumen: yup.array().of(
@@ -136,21 +138,31 @@ const FormCreatePengabdian = ({ initialValues }) => {
               errors={errors.afiliasi}
               touched={touched.afiliasi}
             />
-            <KelompokBidangSelection
-              name={"kelompok_bidang"}
-              iptek
-              errors={errors.kelompok_bidang}
-              touched={touched.kelompok_bidang}
+            <Selector
+              label="Kelompok Bidang"
+              name="kelompok_bidang"
+              placeholder={"Pilih Bidang Ilmu"}
+              values={{
+                id: values?.id_bidang_ilmu,
+                nama: values?.bidang_ilmu,
+              }}
+              onChange={setFieldValue}
+              queryKey={"bahan_ajar"}
+              queryFn={() => fetchKelompokBidang(true)}
+              valueKey="id"
+              labelKey="nama"
+              errors={errors.bidang_ilmu}
+              touched={touched.bidang_ilmu}
             />
             <Input
-              label="litabmas_sebelumnya"
+              label="litabmas sebelumnya"
               name="litabmas_sebelumnya"
               type="text"
               errors={errors.litabmas_sebelumnya}
               touched={touched.litabmas_sebelumnya}
             />
             <Input
-              label="jenis_skim"
+              label="jenis skim"
               name="jenis_skim"
               type="text"
               errors={errors.jenis_skim}
@@ -164,84 +176,84 @@ const FormCreatePengabdian = ({ initialValues }) => {
               touched={touched.lokasi}
             />
             <Input
-              label="tahun_usulan"
+              label="tahun usulan"
               name="tahun_usulan"
               type="number"
               errors={errors.tahun_usulan}
               touched={touched.tahun_usulan}
             />
             <Input
-              label="tahun_kegiatan"
+              label="tahun kegiatan"
               name="tahun_kegiatan"
               type="number"
               errors={errors.tahun_kegiatan}
               touched={touched.tahun_kegiatan}
             />
             <Input
-              label="tahun_pelaksanaan"
+              label="tahun pelaksanaan"
               name="tahun_pelaksanaan"
               type="number"
               errors={errors.tahun_pelaksanaan}
               touched={touched.tahun_pelaksanaan}
             />
             <Input
-              label="lama_kegiatan"
+              label="lama kegiatan"
               name="lama_kegiatan"
               type="number"
               errors={errors.lama_kegiatan}
               touched={touched.lama_kegiatan}
             />
             <Input
-              label="tahun_pelaksanaan_ke"
+              label="tahun pelaksanaan ke"
               name="tahun_pelaksanaan_ke"
               type="number"
               errors={errors.tahun_pelaksanaan_ke}
               touched={touched.tahun_pelaksanaan_ke}
             />
             <Input
-              label="dana_dikti"
+              label="dana dikti"
               name="dana_dikti"
               type="number"
               errors={errors.dana_dikti}
               touched={touched.dana_dikti}
             />
             <Input
-              label="dana_perguruan_tinggi"
+              label="dana perguruan tinggi"
               name="dana_perguruan_tinggi"
               type="number"
               errors={errors.dana_perguruan_tinggi}
               touched={touched.dana_perguruan_tinggi}
             />
             <Input
-              label="dana_institusi_lain"
+              label="dana institusi lain"
               name="dana_institusi_lain"
               type="number"
               errors={errors.dana_institusi_lain}
               touched={touched.dana_institusi_lain}
             />
             <Input
-              label="in_kind"
+              label="in kind"
               name="in_kind"
               type="text"
               errors={errors.in_kind}
               touched={touched.in_kind}
             />
             <Input
-              label="sk_penugasan"
+              label="sk penugasan"
               name="sk_penugasan"
               type="text"
               errors={errors.sk_penugasan}
               touched={touched.sk_penugasan}
             />
             <Input
-              label="tanggal_sk_penugasan"
+              label="tanggal sk penugasan"
               name="tanggal_sk_penugasan"
               type="date"
               errors={errors.tanggal_sk_penugasan}
               touched={touched.tanggal_sk_penugasan}
             />
             <Input
-              label="mitra_litabmas"
+              label="mitra litabmas"
               name="mitra_litabmas"
               type="text"
               errors={errors.mitra_litabmas}
