@@ -85,7 +85,9 @@ const PeriodeSelection = ({ onChange, withPendek = true }) => {
                 className={`p-2 text-sm hover:bg-sky-600 hover:text-white
               ${item.id === selected.id && "bg-sky-600 text-white"}
               ${
-                item.nama?.toLowerCase().includes(inputValue)
+                item.nama
+                  ?.toLowerCase()
+                  .includes(inputValue.toLocaleLowerCase())
                   ? "block"
                   : "hidden"
               }`}
