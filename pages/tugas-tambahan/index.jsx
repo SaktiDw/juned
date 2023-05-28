@@ -3,21 +3,32 @@ import {
   Breadcrumbs,
   Button,
   MainLayout,
+  ModalTambahDokumen,
   Nav,
   Table,
 } from "@/components";
 import { fetchListTugasTambahan } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useState } from "react";
 
 const TugasTambahan = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selected, setSelected] = useState(null);
   const { data, isLoading, error } = useQuery({
     queryKey: ["tugas-tambahan", id],
     queryFn: () => fetchListTugasTambahan(id),
   });
   return (
-    <MainLayout>
+    <MainLayout
+      modal={
+        <ModalTambahDokumen
+          title={selected}
+          showModal={showModal}
+          setShowModal={() => setShowModal(!showModal)}
+        />
+      }
+    >
       <div className="flex flex-col gap-4 w-full">
         <Nav title={"Tugas Tambahan"} />
         <h1 className="text-md capitalize font-bold drop-shadow-lg shadow-white">
@@ -51,7 +62,16 @@ const TugasTambahan = () => {
               key: "id",
               title: "aksi",
               align: "center",
-              render: (val) => <Action param={val} />,
+              render: (val) => (
+                <Action
+                  param={val}
+                  baseUrl={"/tugas-tambahan"}
+                  addDocumentFn={() => {
+                    setShowModal(!showModal);
+                    setSelected(val.judul);
+                  }}
+                />
+              ),
             },
           ]}
           data={data}

@@ -38,6 +38,7 @@ export { default as FormCreatePembinaanMahasiswa } from "./Forms/FormCreatePembi
 
 export { default as FormAnggotaKegiatan } from "./Forms/FormAnggotaKegiatan";
 export { default as Input } from "./Forms/Input";
+export { default as InputRadio } from "./Forms/InputRadio";
 export { default as Select } from "./Forms/Select";
 export { default as Textarea } from "./Forms/Textarea";
 export { default as UploadFile } from "./Forms/UploadFile";

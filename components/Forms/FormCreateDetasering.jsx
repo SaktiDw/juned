@@ -83,9 +83,13 @@ const FormCreatePenghargaan = () => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <KategoriKegiatanSelection
-              type="list"
+              type="tree"
+              menu={"detasering"}
               errors={errors.kategori_kegiatan}
               touched={touched.kategori_kegiatan}
             />

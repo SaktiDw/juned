@@ -82,7 +82,10 @@ const FormCreatePenunjangLain = ({ initialValues }) => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <KategoriKegiatanSelection
               menu={"penunjang_lain"}
               type={"tree"}

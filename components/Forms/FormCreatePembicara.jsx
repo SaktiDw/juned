@@ -92,7 +92,10 @@ const FormCreatePembicara = ({ initialValues }) => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <KategoriKegiatanSelection
               type={"tree"}
               menu={"pembicara"}
@@ -114,16 +117,26 @@ const FormCreatePembicara = ({ initialValues }) => {
               errors={errors.litabmas}
               touched={touched.litabmas}
             />
-            <Input
-              label="kategori_pembicara"
+            <Select
+              label="kategori pembicara"
               name="kategori_pembicara"
-              type="text"
+              option={[
+                { value: "1", label: "Pembicara pada pertemuan ilmiah" },
+                { value: "2", label: "Pembicara kunci" },
+                {
+                  value: "3",
+                  label:
+                    "Pembicara/Narasumber pada pelatihan/penyuluhan/cearamah",
+                },
+              ]}
+              labelKey={"label"}
+              valueKey={"value"}
               value={initialValues?.kategori_pembicara}
               errors={errors.kategori_pembicara}
               touched={touched.kategori_pembicara}
             />
             <Input
-              label="nama_pertemuan"
+              label="nama pertemuan"
               name="nama_pertemuan"
               type="text"
               value={initialValues?.nama_pertemuan}
@@ -131,7 +144,7 @@ const FormCreatePembicara = ({ initialValues }) => {
               touched={touched.nama_pertemuan}
             />
             <Input
-              label="tingkat_pertemuan"
+              label="tingkat pertemuan"
               name="tingkat_pertemuan"
               type="text"
               value={initialValues?.tingkat_pertemuan}

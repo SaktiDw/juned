@@ -66,7 +66,10 @@ const FormEditKeluarga = () => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <Input
               label="status_kawin"
               name="status_kawin"

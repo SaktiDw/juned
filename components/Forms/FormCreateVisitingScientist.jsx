@@ -85,7 +85,10 @@ const FormCreateVisitingScientist = () => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <Select
               label="aktivitas litabmas"
               name="aktivitas_litabmas"
@@ -101,7 +104,10 @@ const FormCreateVisitingScientist = () => {
               name="ptn_pengundang"
               placeholder={"Pilih perguruan tinggi pengundang"}
               label={"perguruan tinggi pengundang"}
-              value={values.ptn_pengundang}
+              values={{
+                id: "",
+                nama: "",
+              }}
               onChange={setFieldValue}
               queryKey={"fetchPerguruanTinggi"}
               queryFn={() => fetchPerguruanTinggi()}

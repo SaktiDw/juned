@@ -45,7 +45,10 @@ const FormEditBidangKeilmuan = () => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <Table
               columns={[
                 { key: "urutan", title: "Urutan" },

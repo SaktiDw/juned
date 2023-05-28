@@ -42,7 +42,7 @@ const Selector = ({
   if (error) return <p>Error</p>;
 
   return (
-    <div className="flex flex-col gap-2" ref={ref}>
+    <div className="flex flex-col gap-2 w-full" ref={ref}>
       <label
         htmlFor={name}
         className="uppercase leading-tight font-bold text-sm"

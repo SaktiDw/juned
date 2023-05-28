@@ -65,7 +65,10 @@ const DokumenEdit = () => {
               onSubmit={() => null}
             >
               {({ values, errors, touched, isSubmitting, setFieldValue }) => (
-                <Form className="flex flex-col gap-4">
+                <Form
+                  className="flex flex-col gap-4"
+                  onClick={(e) => e.preventDefault}
+                >
                   <MultipleUploadFile
                     limit={1}
                     values={values}

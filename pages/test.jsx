@@ -344,7 +344,10 @@ const Sidebar = () => {
               label={"Bahan Ajar"}
               placeholder={"Pilih Bahan Ajar"}
               name="bahan_ajar"
-              value={values.bahan_ajar}
+              values={{
+                id: "",
+                nama: "",
+              }}
               onChange={setFieldValue}
               queryKey={"bahan_ajar"}
               queryFn={() => fetchBahanAjar()}

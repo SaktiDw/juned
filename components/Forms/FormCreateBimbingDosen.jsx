@@ -99,7 +99,10 @@ const FormCreateBimbingDosen = () => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <KategoriKegiatanSelection
               menu={"bimbing_dosen"}
               type={"tree"}
@@ -110,7 +113,10 @@ const FormCreateBimbingDosen = () => {
               label="program studi"
               name="program_studi"
               placeholder={"Pilih program studi"}
-              value={values.program_studi}
+              values={{
+                id: "",
+                nama: "",
+              }}
               onChange={setFieldValue}
               queryKey={"fetchPerguruanTinggi"}
               queryFn={() => fetchPerguruanTinggi()}
@@ -156,7 +162,7 @@ const FormCreateBimbingDosen = () => {
               label="Jabatan Fungsional Pembimbing"
               name="jabatan_fungsional_pembimbing"
               placeholder={"Pilih Jabatan Fungsional Pembimbing"}
-              value={values.jabatan_fungsional_pembimbing}
+              values={{ id: "", nama: "" }}
               onChange={setFieldValue}
               queryKey={"fetchJabatanFungsional"}
               queryFn={() => fetchJabatanFungsional()}
@@ -169,7 +175,7 @@ const FormCreateBimbingDosen = () => {
               label="dosen bimbingan"
               name="dosen_bimbingan"
               placeholder={"Pilih Dosen Bimbingan"}
-              value={values.dosen_bimbingan}
+              values={{ id: "", nama: "" }}
               onChange={setFieldValue}
               queryKey={"fetchListBimbinganDosen"}
               queryFn={() => fetchListBimbinganDosen(id)}
@@ -182,7 +188,7 @@ const FormCreateBimbingDosen = () => {
               label="jabatan fungsional bimbingan"
               name="jabatan_fungsional_bimbingan"
               placeholder={"Pilih Perguruan Tinggi"}
-              value={values.jabatan_fungsional_bimbingan}
+              values={{ id: "", nama: "" }}
               onChange={setFieldValue}
               queryKey={"fetchJabatanFungsional"}
               queryFn={() => fetchJabatanFungsional()}

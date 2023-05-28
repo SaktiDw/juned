@@ -75,7 +75,10 @@ const FormCreateBahanAjar = () => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <KategoriKegiatanSelection
               menu={"bahan_ajar"}
               type={"tree"}
@@ -86,7 +89,10 @@ const FormCreateBahanAjar = () => {
               label="jenis bahan ajar"
               name="jenis_bahan_ajar"
               placeholder={"Pilih Bahan Ajar"}
-              value={values.jenis_bahan_ajar}
+              values={{
+                id: values.jenis_bahan_ajar,
+                nama: values.jenis_bahan_ajar,
+              }}
               onChange={setFieldValue}
               queryKey={"bahan_ajar"}
               queryFn={() => fetchBahanAjar()}

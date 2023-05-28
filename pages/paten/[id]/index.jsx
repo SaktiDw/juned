@@ -10,11 +10,11 @@ const DetailPaten = () => {
   const router = useRouter();
   const { id } = router.query;
   const {
-    data: publikasi,
+    data: paten,
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["publikasi", id],
+    queryKey: ["paten", id],
     queryFn: () => fetchDetailKekayaanIntelektual(id),
   });
   return (
@@ -28,74 +28,44 @@ const DetailPaten = () => {
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Judul Karya/Kegiatan</h1>
             <span className="flex-1">
-              {publikasi?.judul || "( tidak ada data )"}
+              {paten?.judul || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Jenis</h1>
             <span className="flex-1">
-              {publikasi?.jenis_publikasi || "( tidak ada data )"}
+              {paten?.jenis_publikasi || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Kategori Capaian</h1>
             <span className="flex-1">
-              {publikasi?.kategori_capaian_luaran || "( tidak ada data )"}
+              {paten?.kategori_capaian_luaran || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Aktivitas Litabmas</h1>
             <span className="flex-1">
-              {publikasi?.judul_litabmas || "( tidak ada data )"}
+              {paten?.judul_litabmas || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Tanggal</h1>
             <span className="flex-1">
-              {dateFormater(publikasi?.tanggal) || "( tidak ada data )"}
+              {dateFormater(paten?.tanggal) || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
-            <h1 className="w-[300px] text-slate-500">Nama Jurnal</h1>
+            <h1 className="w-[300px] text-slate-500">Penyelenggara</h1>
             <span className="flex-1">
-              {publikasi?.nama_jurnal || "( tidak ada data )"}
-            </span>
-          </div>
-          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
-            <h1 className="w-[300px] text-slate-500">Tautan Laman Jurnal</h1>
-            <span className="flex-1">
-              {publikasi?.tautan || "( tidak ada data )"}
-            </span>
-          </div>
-          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
-            <h1 className="w-[300px] text-slate-500">Volume</h1>
-            <span className="flex-1">
-              {publikasi?.volume || "( tidak ada data )"}
-            </span>
-          </div>
-          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
-            <h1 className="w-[300px] text-slate-500">Nomor</h1>
-            <span className="flex-1">
-              {publikasi?.nomor || "( tidak ada data )"}
-            </span>
-          </div>
-          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
-            <h1 className="w-[300px] text-slate-500">Halaman</h1>
-            <span className="flex-1">
-              {publikasi?.halaman || "( tidak ada data )"}
-            </span>
-          </div>
-          <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
-            <h1 className="w-[300px] text-slate-500">Penerbit/Penyelenggara</h1>
-            <span className="flex-1">
-              {publikasi?.penerbit || "( tidak ada data )"}
+              {paten?.penerbit || "( tidak ada data )"}
             </span>
           </div>
 
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Tahun External</h1>
             <span className="flex-1">
-              {publikasi?.tahun_external || "( tidak ada data )"}
+              {paten?.tahun_external || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
@@ -103,7 +73,7 @@ const DetailPaten = () => {
               Keterangan/Petunjuk Akses
             </h1>
             <span className="flex-1">
-              {publikasi?.akses || "( tidak ada data )"}
+              {paten?.keterangan || "( tidak ada data )"}
             </span>
           </div>
         </div>
@@ -126,7 +96,7 @@ const DetailPaten = () => {
                 render: (val) => (val.corresponding_author ? "Ya" : "Tidak"),
               },
             ]}
-            data={publikasi?.penulis.filter((item) => item.jenis === "Dosen")}
+            data={paten?.penulis.filter((item) => item.jenis === "Dosen")}
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -147,9 +117,7 @@ const DetailPaten = () => {
                 render: (val) => (val.corresponding_author ? "Ya" : "Tidak"),
               },
             ]}
-            data={publikasi?.penulis.filter(
-              (item) => item.jenis === "Mahasiswa"
-            )}
+            data={paten?.penulis.filter((item) => item.jenis === "Mahasiswa")}
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -169,7 +137,7 @@ const DetailPaten = () => {
                 render: (val) => (val.corresponding_author ? "Ya" : "Tidak"),
               },
             ]}
-            data={publikasi?.penulis.filter((item) => item.jenis === "Other")}
+            data={paten?.penulis.filter((item) => item.jenis === "Other")}
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -210,22 +178,22 @@ const DetailPaten = () => {
                 ),
               },
             ]}
-            data={publikasi?.dokumen}
+            data={paten?.dokumen}
           />
         </div>
         <div className="flex justify-between items-center">
           <Link
-            href={`/publikasi/${id}/edit`}
+            href={`/paten/${id}/edit`}
             className="bg-primary rounded-xl py-2 px-4 text-white text-sm"
           >
             <i className="fi-rr-pencil"></i> Ubah Data
           </Link>
-          <Link
-            href={`/publikasi/${id}/edit`}
+          {/* <Link
+            href={`/paten/${id}/edit`}
             className="bg-primary rounded-xl py-2 px-4 text-white text-sm"
           >
             <i className="fi-rr-pencil"></i> Laporkan Kesalahan
-          </Link>
+          </Link> */}
         </div>
       </div>
     </MainLayout>

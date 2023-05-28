@@ -89,7 +89,10 @@ const FormCreatePendidikanFormal = ({ initialValues }) => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <Input
               label="perguruan tinggi"
               name="nama_perguruan_tinggi"

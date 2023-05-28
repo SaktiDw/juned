@@ -5,16 +5,17 @@ import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import Swal from "sweetalert2";
 
 const DetailPengabdian = () => {
   const router = useRouter();
   const { id } = router.query;
   const {
-    data: penelitian,
+    data: pengabdian,
     error,
     isLoading,
   } = useQuery({
-    queryKey: ["penelitian", id],
+    queryKey: ["pengabdian", id],
     queryFn: () => fetchDetailPengabdian(id),
   });
   return (
@@ -28,74 +29,74 @@ const DetailPengabdian = () => {
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Skim Kegiatan</h1>
             <span className="flex-1">
-              {penelitian?.jenis_skim || "( tidak ada data )"}
+              {pengabdian?.jenis_skim || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Tahun Anggaran</h1>
             <span className="flex-1">
-              {penelitian?.tahun_kegiatan || "( tidak ada data )"}
+              {pengabdian?.tahun_kegiatan || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Litabmas Sebelumnya</h1>
             <span className="flex-1">
-              {penelitian?.litabmas_sebelumnya || "( tidak ada data )"}
+              {pengabdian?.litabmas_sebelumnya || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Afiliasi</h1>
             <span className="flex-1">
-              {penelitian?.afiliasi || "( tidak ada data )"}
+              {pengabdian?.afiliasi || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Kelompok Bidang</h1>
             <span className="flex-1">
-              {penelitian?.kelompok_bidang || "( tidak ada data )"}
+              {pengabdian?.kelompok_bidang || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Nomor SK Penugasan</h1>
             <span className="flex-1">
-              {penelitian?.sk_penugasan || "( tidak ada data )"}
+              {pengabdian?.sk_penugasan || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Tanggal SK Penugasan</h1>
             <span className="flex-1">
-              {dateFormater(penelitian?.tanggal_sk_penugasan) ||
+              {dateFormater(pengabdian?.tanggal_sk_penugasan) ||
                 "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Lama Kegiatan (tahun)</h1>
             <span className="flex-1">
-              {penelitian?.lama_kegiatan || "( tidak ada data )"}
+              {pengabdian?.lama_kegiatan || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Judul Kegiatan</h1>
             <span className="flex-1">
-              {penelitian?.judul || "( tidak ada data )"}
+              {pengabdian?.judul || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Lokasi Kegiatan</h1>
             <span className="flex-1">
-              {penelitian?.lokasi || "( tidak ada data )"}
+              {pengabdian?.lokasi || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Tahun Pelaksanaan Ke</h1>
             <span className="flex-1">
-              {penelitian?.tahun_pelaksanaan_ke || "( tidak ada data )"}
+              {pengabdian?.tahun_pelaksanaan_ke || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">Dana Dari Dikti (Rp.)</h1>
             <span className="flex-1">
-              {penelitian?.dana_dikti.toLocaleString() || "( tidak ada data )"}
+              {pengabdian?.dana_dikti.toLocaleString() || "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
@@ -103,7 +104,7 @@ const DetailPengabdian = () => {
               Dana Dari Perguruan Tinggi (Rp.)
             </h1>
             <span className="flex-1">
-              {penelitian?.dana_perguruan_tinggi.toLocaleString() ||
+              {pengabdian?.dana_perguruan_tinggi.toLocaleString() ||
                 "( tidak ada data )"}
             </span>
           </div>
@@ -112,14 +113,14 @@ const DetailPengabdian = () => {
               Dana Dari Institusi Lain (Rp.)
             </h1>
             <span className="flex-1">
-              {penelitian?.dana_institusi_lain.toLocaleString() ||
+              {pengabdian?.dana_institusi_lain.toLocaleString() ||
                 "( tidak ada data )"}
             </span>
           </div>
           <div className="flex flex-col lg:flex-row p-2 hover:bg-blue-50 dark:hover:bg-slate-500">
             <h1 className="w-[300px] text-slate-500">In Kind</h1>
             <span className="flex-1">
-              {penelitian?.in_kind || "( tidak ada data )"}
+              {pengabdian?.in_kind || "( tidak ada data )"}
             </span>
           </div>
         </div>
@@ -140,7 +141,7 @@ const DetailPengabdian = () => {
                 render: (val) => (val.stat_aktif ? "Aktif" : "Tidak Aktif"),
               },
             ]}
-            data={penelitian?.anggota.filter((item) => item.jenis === "Dosen")}
+            data={pengabdian?.anggota.filter((item) => item.jenis === "Dosen")}
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -159,7 +160,7 @@ const DetailPengabdian = () => {
                 render: (val) => (val.stat_aktif ? "Aktif" : "Tidak Aktif"),
               },
             ]}
-            data={penelitian?.anggota.filter(
+            data={pengabdian?.anggota.filter(
               (item) => item.jenis === "Mahasiswa"
             )}
           />
@@ -179,7 +180,7 @@ const DetailPengabdian = () => {
                 render: (val) => (val.aktif ? "Aktif" : "Tidak Aktif"),
               },
             ]}
-            data={penelitian?.anggota.filter((item) => item.jenis === "Other")}
+            data={pengabdian?.anggota.filter((item) => item.jenis === "Other")}
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -220,22 +221,29 @@ const DetailPengabdian = () => {
                 ),
               },
             ]}
-            data={penelitian?.dokumen}
+            data={pengabdian?.dokumen}
           />
         </div>
         <div className="flex justify-between items-center">
           <Link
-            href={`/penelitian/${id}/edit`}
+            href={`/pengabdian/${id}/edit`}
             className="bg-primary rounded-xl py-2 px-4 text-white text-sm"
           >
             <i className="fi-rr-pencil"></i> Ubah Data
           </Link>
-          <Link
-            href={`/penelitian/${id}/edit`}
+          <button
+            onClick={() =>
+              Swal.fire({
+                title:
+                  "Maaf, Anda tidak mempunyai akses untuk membuka halaman tersebut",
+                icon: "warning",
+                confirmButtonText: "Tutup",
+              })
+            }
             className="bg-primary rounded-xl py-2 px-4 text-white text-sm"
           >
             <i className="fi-rr-pencil"></i> Laporkan Kesalahan
-          </Link>
+          </button>
         </div>
       </div>
     </MainLayout>

@@ -29,9 +29,7 @@ const schema = yup.object().shape({
   jenis_penghargaan: yup.string().required("jenis penghargaan wajib diisi."),
   nama_penghargaan: yup.string().required("nama penghargaan wajib diisi."),
   tahun: yup.string().required("tahun wajib diisi."),
-  instansi_pemberi: yup
-    .string()
-    .required("bidang ahli pembimbing wajib diisi."),
+  instansi_pemberi: yup.string().required("instansi pemberi wajib diisi."),
 });
 
 const FormCreatePenghargaan = () => {
@@ -71,8 +69,14 @@ const FormCreatePenghargaan = () => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <KategoriKegiatanSelection
+              menu={"penghargaan"}
+              type={"tree"}
+              value={values.kategori_kegiatan}
               errors={errors.kategori_kegiatan}
               touched={touched.kategori_kegiatan}
             />
@@ -103,6 +107,13 @@ const FormCreatePenghargaan = () => {
               type="number"
               errors={errors.tahun}
               touched={touched.tahun}
+            />
+            <Input
+              label="Instansi Pemberi"
+              name="instansi_pemberi"
+              type="number"
+              errors={errors.instansi_pemberi}
+              touched={touched.instansi_pemberi}
             />
             <MultipleUploadFile
               values={values}

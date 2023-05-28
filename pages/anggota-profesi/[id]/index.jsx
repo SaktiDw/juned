@@ -112,7 +112,7 @@ const DetailAnggotaProfesi = () => {
         </div>
         <div className="flex justify-between items-center">
           <Link
-            href={`/anggota_profesi/${id}/edit`}
+            href={`/anggota-profesi/${id}/edit`}
             className="bg-primary rounded-xl py-2 px-4 text-white text-sm"
           >
             <i className="fi-rr-pencil"></i> Ubah Data

@@ -83,7 +83,10 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <JabatanFungsionalSelection
               name={"jabatan_fungsional"}
               value={initialValues?.id_jabatan_fungsional}

@@ -64,7 +64,10 @@ const FormCreateKepangkatan = ({ initialValues }) => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <Selector
               label="Golongan/Pangkat"
               placeholder={"Pilih Golongan/Pangkat"}
@@ -76,6 +79,10 @@ const FormCreateKepangkatan = ({ initialValues }) => {
               onChange={setFieldValue}
               labelKey={"nama"}
               valueKey={"id"}
+              values={{
+                id: "",
+                nama: "",
+              }}
             />
             <Input
               label="nomor sk"

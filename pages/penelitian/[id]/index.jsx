@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import Swal from "sweetalert2";
 
 const DetailPenelitian = () => {
   const router = useRouter();
@@ -228,12 +229,19 @@ const DetailPenelitian = () => {
           >
             <i className="fi-rr-pencil"></i> Ubah Data
           </Link>
-          <Link
-            href={`/penelitian/${id}/edit`}
+          <button
+            onClick={() =>
+              Swal.fire({
+                title:
+                  "Maaf, Anda tidak mempunyai akses untuk membuka halaman tersebut",
+                icon: "warning",
+                confirmButtonText: "Tutup",
+              })
+            }
             className="bg-primary rounded-xl py-2 px-4 text-white text-sm"
           >
             <i className="fi-rr-pencil"></i> Laporkan Kesalahan
-          </Link>
+          </button>
         </div>
       </div>
     </MainLayout>

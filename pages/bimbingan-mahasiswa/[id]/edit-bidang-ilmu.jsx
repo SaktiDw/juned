@@ -32,22 +32,26 @@ const BimbinganMahasiswaEditBidangIlmu = () => {
               {isLoading ? "Memuat..." : data?.judul}
             </h1>
             <div className="flex gap-8">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 basis-1/4">
                 <span className="font-bold uppercase text-sm">urutan</span>
               </div>
               <Formik
                 initialValues={{
-                  bidang_ilmu: data?.bidang_ilmu?.id,
+                  id_bidang_ilmu: data?.bidang_ilmu?.id || "",
+                  bidang_ilmu: data?.bidang_ilmu?.nama || "",
                 }}
                 onSubmit={() => null}
               >
                 {({ values, errors, touched, setFieldValue }) => (
-                  <Form>
+                  <Form className="basis-2/4">
                     <Selector
                       label="Bidang Ilmu"
                       name="bidang_ilmu"
                       placeholder={"Pilih Bidang Ilmu"}
-                      value={values.bidang_ilmu}
+                      values={{
+                        id: data?.id_bidang_ilmu,
+                        nama: data?.bidang_ilmu,
+                      }}
                       onChange={setFieldValue}
                       queryKey={"bahan_ajar"}
                       queryFn={() => fetchKelompokBidang(true)}
@@ -60,7 +64,7 @@ const BimbinganMahasiswaEditBidangIlmu = () => {
                 )}
               </Formik>
 
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 basis-1/4">
                 <span className="font-bold uppercase text-sm">Aksi</span>
                 <Button text={"Simpan"} size={"small"} />
               </div>

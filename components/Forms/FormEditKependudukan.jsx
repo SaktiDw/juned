@@ -64,7 +64,10 @@ const FormEditKependudukan = () => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <Input
               label="nik"
               name="nik"

@@ -231,12 +231,12 @@ const DetailPublikasi = () => {
           >
             <i className="fi-rr-pencil"></i> Ubah Data
           </Link>
-          <Link
+          {/* <Link
             href={`/publikasi/${id}/edit`}
             className="bg-primary rounded-xl py-2 px-4 text-white text-sm"
           >
             <i className="fi-rr-pencil"></i> Laporkan Kesalahan
-          </Link>
+          </Link> */}
         </div>
       </div>
     </MainLayout>

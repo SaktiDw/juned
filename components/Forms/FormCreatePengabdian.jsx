@@ -110,7 +110,10 @@ const FormCreatePengabdian = ({ initialValues }) => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <KategoriKegiatanSelection
               type={"tree"}
               menu={"pengabdian"}

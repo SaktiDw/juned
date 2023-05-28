@@ -4,15 +4,18 @@ import {
   Action,
   Button,
   Input,
+  InputRadio,
   JabatanFungsionalSelection,
   KategoriKegiatanSelection,
   MultipleUploadFile,
   Select,
+  Selector,
   Table,
 } from "..";
 import * as yup from "yup";
 import { createUser } from "@/helper/api/api";
 import { useRouter } from "next/router";
+import { fetchMediaPublikasi } from "@/helper/api/apiSister";
 
 const schema = yup.object().shape({
   dokumen: yup.array().of(
@@ -76,7 +79,10 @@ const FormCreatePengelolaJurnal = ({ initialValues }) => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <KategoriKegiatanSelection
               type={"tree"}
               menu={"pengelola_jurnal"}
@@ -85,13 +91,21 @@ const FormCreatePengelolaJurnal = ({ initialValues }) => {
               errors={errors.kategori_kegiatan}
               touched={touched.kategori_kegiatan}
             />
-            <Input
+            <Selector
               label="Media Publikasi"
               name="media_publikasi"
-              type="text"
-              value={initialValues?.media_publikasi}
+              values={{
+                id: "",
+                nama: "",
+              }}
               errors={errors.media_publikasi}
               touched={touched.media_publikasi}
+              queryKey={"media_publikasi"}
+              queryFn={() => fetchMediaPublikasi("")}
+              labelKey={"nama"}
+              valueKey={"id"}
+              onChange={setFieldValue}
+              placeholder={"Pilih Media Publikasi"}
             />
             <Input
               label="No SK Penugasan"
@@ -125,14 +139,21 @@ const FormCreatePengelolaJurnal = ({ initialValues }) => {
               errors={errors.tanggal_selesai}
               touched={touched.tanggal_selesai}
             />
-            <Input
+
+            <Select
               label="status aktif"
               name="aktif"
-              type="text"
-              value={initialValues?.aktif}
+              option={[
+                { value: "1", label: "Aktif" },
+                { value: "0", label: "Tidak aktif" },
+              ]}
+              labelKey={"label"}
+              valueKey={"value"}
+              value={values?.aktif}
               errors={errors.aktif}
               touched={touched.aktif}
             />
+
             <MultipleUploadFile
               setFieldValue={setFieldValue}
               values={values}

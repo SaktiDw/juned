@@ -89,7 +89,10 @@ const FormCreateTugasTambahan = () => {
           isValid,
           setFieldValue,
         }) => (
-          <Form className="flex flex-col gap-4">
+          <Form
+            className="flex flex-col gap-4"
+            onClick={(e) => e.preventDefault()}
+          >
             <KategoriKegiatanSelection
               menu={"tugas_tambahan"}
               type={"tree"}
