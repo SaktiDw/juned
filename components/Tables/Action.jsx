@@ -40,13 +40,13 @@ const Action = ({
             onClick={() =>
               Swal.fire({
                 title: "Anda yakin?",
-                text: "Anda tidak bakalan bisa mengembalikan data yang sudah terhapus lho!",
+                text: "Anda tidak bisa mengembalikan data yang sudah terhapus!",
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
                 cancelButtonText: "Batal",
-                confirmButtonText: "Ya, hapus saja!",
+                confirmButtonText: "Hapus",
               }).then((result) => {
                 if (result.isConfirmed) {
                   deleteFn;
