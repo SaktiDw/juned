@@ -64,7 +64,7 @@ const Table = ({
         {createLink && (
           <Link
             href={createLink}
-            className="ml-auto flex items-center justify-center gap-2 py-2 px-4 w-full sm:w-min bg-primary rounded-lg text-white text-sm"
+            className="ml-auto flex items-center justify-center gap-2 py-2 px-4 w-full sm:w-min bg-primary rounded-lg text-white text-sm font-semibold"
           >
             <i className="fi-rr-plus"></i>
             Tambah
