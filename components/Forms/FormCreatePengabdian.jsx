@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import {
   Action,
   Button,
+  FormAnggotaPengabdian,
   Input,
   JabatanFungsionalSelection,
   KategoriKegiatanSelection,
@@ -100,6 +101,48 @@ const FormCreatePengabdian = ({ initialValues }) => {
           sk_penugasan: initialValues?.sk_penugasan || "",
           tanggal_sk_penugasan: initialValues?.tanggal_sk_penugasan || "",
           mitra_litabmas: initialValues?.mitra_litabmas || "",
+          anggota_dosen: initialValues?.anggota.filter(
+            (item) => item.jenis === "Dosen"
+          ) || [
+            {
+              nama: "",
+              jenis: "",
+              id_sdm: "",
+              id_peserta_didik: "",
+              nomor_induk_peserta_didik: "",
+              id_orang: "",
+              aktif: "",
+              peran: "",
+            },
+          ],
+          anggota_mahasiswa: initialValues?.anggota.filter(
+            (item) => item.jenis === "Mahasiswa"
+          ) || [
+            {
+              nama: "",
+              jenis: "",
+              id_sdm: "",
+              id_peserta_didik: "",
+              nomor_induk_peserta_didik: "",
+              id_orang: "",
+              aktif: "",
+              peran: "",
+            },
+          ],
+          anggota_lain: initialValues?.anggota.filter(
+            (item) => item.jenis === "Lain"
+          ) || [
+            {
+              nama: "",
+              jenis: "",
+              id_sdm: "",
+              id_peserta_didik: "",
+              nomor_induk_peserta_didik: "",
+              id_orang: "",
+              aktif: "",
+              peran: "",
+            },
+          ],
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
@@ -294,12 +337,63 @@ const FormCreatePengabdian = ({ initialValues }) => {
                 />
               )}
             </MultipleUploadFile>
-            {router.pathname.includes("edit") && initialValues?.anggota && (
+            <span className="uppercase leading-tight font-bold text-sm">
+              Anggota Kegiatan (Dosen)
+            </span>
+            <FormAnggotaPengabdian
+              name={"anggota_dosen"}
+              values={values.anggota_dosen}
+              defaultValue={{
+                nama: "",
+                jenis: "",
+                id_sdm: "",
+                id_peserta_didik: "",
+                nomor_induk_peserta_didik: "",
+                id_orang: "",
+                aktif: "",
+                peran: "",
+              }}
+            />
+            <span className="uppercase leading-tight font-bold text-sm">
+              Anggota Kegiatan (Mahasiswa)
+            </span>
+            <FormAnggotaPengabdian
+              name={"anggota_mahasiswa"}
+              values={values.anggota_mahasiswa}
+              defaultValue={{
+                nama: "",
+                jenis: "",
+                id_sdm: "",
+                id_peserta_didik: "",
+                nomor_induk_peserta_didik: "",
+                id_orang: "",
+                aktif: "",
+                peran: "",
+              }}
+            />
+            <span className="uppercase leading-tight font-bold text-sm">
+              Anggota Kegiatan (Kolaborator Eksternal)
+            </span>
+            <FormAnggotaPengabdian
+              name={"anggota_lain"}
+              values={values?.anggota_lain}
+              defaultValue={{
+                nama: "",
+                jenis: "",
+                id_sdm: "",
+                id_peserta_didik: "",
+                nomor_induk_peserta_didik: "",
+                id_orang: "",
+                aktif: "",
+                peran: "",
+              }}
+            />
+            {/* {router.pathname.includes("edit") && initialValues?.anggota && (
               <>
                 <div>
-                  <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+                  <span className="uppercase leading-tight font-bold text-sm">
                     Anggota Dosen
-                  </h1>
+                  </span>
                   <Table
                     columns={[
                       { key: "id", title: "No", dataType: "numbering" },
@@ -366,7 +460,7 @@ const FormCreatePengabdian = ({ initialValues }) => {
                   />
                 </div>
               </>
-            )}
+            )} */}
             <Button
               disabled={!isValid}
               type={"submit"}

@@ -35,8 +35,12 @@ export { default as FormCreateJabatanStruktural } from "./Forms/FormCreateJabata
 export { default as FormCreatePendidikanFormal } from "./Forms/FormCreatePendidikanFormal";
 export { default as FormCreateDetasering } from "./Forms/FormCreateDetasering";
 export { default as FormCreatePembinaanMahasiswa } from "./Forms/FormCreatePembinaanMahasiswa";
+export { default as FormCreateOrasiIlmiah } from "./Forms/FormCreateOrasiIlmiah";
 
 export { default as FormAnggotaKegiatan } from "./Forms/FormAnggotaKegiatan";
+export { default as FormAnggotaPengabdian } from "./Forms/FormAnggotaPengabdian";
+export { default as FormAnggotaPaten } from "./Forms/FormAnggotaPaten";
+
 export { default as Input } from "./Forms/Input";
 export { default as InputRadio } from "./Forms/InputRadio";
 export { default as Select } from "./Forms/Select";

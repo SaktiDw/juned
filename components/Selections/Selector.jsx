@@ -68,7 +68,7 @@ const Selector = ({
           <BiChevronDown size={20} className={`${open && "rotate-180"}`} />
         </div>
         <ul
-          className={`bg-white dark:bg-slate-800 mt-2 overflow-y-auto rounded-lg shadow absolute w-full border border-primary ${
+          className={`bg-white dark:bg-slate-800 mt-2 overflow-y-auto rounded-lg shadow absolute z-50 w-full border border-primary ${
             open ? "max-h-60" : "max-h-0 hidden"
           } `}
         >

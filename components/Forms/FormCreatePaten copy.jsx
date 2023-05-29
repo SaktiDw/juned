@@ -2,7 +2,6 @@ import React from "react";
 import { Formik, Form } from "formik";
 import {
   Button,
-  FormAnggotaPaten,
   Input,
   JabatanFungsionalSelection,
   KategoriKegiatanSelection,
@@ -75,48 +74,6 @@ const FormCreatePaten = ({ initialValues }) => {
             },
           ],
           kategori_kegiatan: initialValues?.id_jabatan_fungsional || "",
-          penulis_dosen: initialValues?.penulis.filter(
-            (item) => item.jenis === "Dosen"
-          ) || [
-            {
-              nama: "",
-              jenis: "",
-              id_sdm: "",
-              id_peserta_didik: "",
-              nomor_induk_peserta_didik: "",
-              id_orang: "",
-              aktif: "",
-              peran: "",
-            },
-          ],
-          penulis_mahasiswa: initialValues?.penulis.filter(
-            (item) => item.jenis === "Mahasiswa"
-          ) || [
-            {
-              nama: "",
-              jenis: "",
-              id_sdm: "",
-              id_peserta_didik: "",
-              nomor_induk_peserta_didik: "",
-              id_orang: "",
-              aktif: "",
-              peran: "",
-            },
-          ],
-          penulis_lain: initialValues?.penulis.filter(
-            (item) => item.jenis === "Lain"
-          ) || [
-            {
-              nama: "",
-              jenis: "",
-              id_sdm: "",
-              id_peserta_didik: "",
-              nomor_induk_peserta_didik: "",
-              id_orang: "",
-              aktif: "",
-              peran: "",
-            },
-          ],
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
@@ -149,57 +106,79 @@ const FormCreatePaten = ({ initialValues }) => {
               setFieldValue={setFieldValue}
             />
 
-            <span className="uppercase leading-tight font-bold text-sm">
-              Anggota Kegiatan (Dosen)
-            </span>
-            <FormAnggotaPaten
-              name={"penulis_dosen"}
-              values={values.penulis_dosen}
-              defaultValue={{
-                nama: "",
-                jenis: "",
-                id_sdm: "",
-                id_peserta_didik: "",
-                nomor_induk_peserta_didik: "",
-                id_orang: "",
-                aktif: "",
-                peran: "",
-              }}
-            />
-            <span className="uppercase leading-tight font-bold text-sm">
-              Anggota Kegiatan (Mahasiswa)
-            </span>
-            <FormAnggotaPaten
-              name={"penulis_mahasiswa"}
-              values={values.penulis_mahasiswa}
-              defaultValue={{
-                nama: "",
-                jenis: "",
-                id_sdm: "",
-                id_peserta_didik: "",
-                nomor_induk_peserta_didik: "",
-                id_orang: "",
-                aktif: "",
-                peran: "",
-              }}
-            />
-            <span className="uppercase leading-tight font-bold text-sm">
-              Anggota Kegiatan (Kolaborator Eksternal)
-            </span>
-            <FormAnggotaPaten
-              name={"penulis_lain"}
-              values={values?.penulis_lain}
-              defaultValue={{
-                nama: "",
-                jenis: "",
-                id_sdm: "",
-                id_peserta_didik: "",
-                nomor_induk_peserta_didik: "",
-                id_orang: "",
-                aktif: "",
-                peran: "",
-              }}
-            />
+            {router.pathname.includes("edit") && initialValues?.penulis && (
+              <>
+                <div>
+                  <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+                    Anggota Dosen
+                  </h1>
+                  <Table
+                    columns={[
+                      { key: "id", title: "No", dataType: "numbering" },
+                      { key: "nama", title: "nama" },
+                      { key: "urutan", title: "urutan" },
+                      { key: "afiliasi", title: "afiliasi" },
+                      { key: "peran", title: "peran" },
+                      {
+                        key: "corresponding_author",
+                        title: "corresponding author",
+                        render: (val) =>
+                          val.corresponding_author ? "Ya" : "Tidak",
+                      },
+                    ]}
+                    data={initialValues?.penulis.filter(
+                      (item) => item.jenis === "Dosen"
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+                    Anggota Mahasiswa
+                  </h1>
+                  <Table
+                    columns={[
+                      { key: "id", title: "No", dataType: "numbering" },
+                      { key: "nama", title: "nama" },
+                      { key: "urutan", title: "urutan" },
+                      { key: "afiliasi", title: "afiliasi" },
+                      { key: "peran", title: "peran" },
+                      {
+                        key: "corresponding_author",
+                        title: "corresponding author",
+                        render: (val) =>
+                          val.corresponding_author ? "Ya" : "Tidak",
+                      },
+                    ]}
+                    data={initialValues?.penulis.filter(
+                      (item) => item.jenis === "Mahasiswa"
+                    )}
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
+                    Anggota Non Civitas Akademika
+                  </h1>
+                  <Table
+                    columns={[
+                      { key: "id", title: "No", dataType: "numbering" },
+                      { key: "nama", title: "nama" },
+                      { key: "urutan", title: "urutan" },
+                      { key: "afiliasi", title: "afiliasi" },
+                      { key: "peran", title: "peran" },
+                      {
+                        key: "corresponding_author",
+                        title: "corresponding author",
+                        render: (val) =>
+                          val.corresponding_author ? "Ya" : "Tidak",
+                      },
+                    ]}
+                    data={initialValues?.penulis.filter(
+                      (item) => item.jenis === "Other"
+                    )}
+                  />
+                </div>
+              </>
+            )}
             <Button
               disabled={!isValid}
               type={"submit"}

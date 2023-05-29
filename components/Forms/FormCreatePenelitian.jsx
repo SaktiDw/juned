@@ -3,6 +3,7 @@ import { Formik, Form } from "formik";
 import {
   Action,
   Button,
+  FormAnggotaPengabdian,
   Input,
   JabatanFungsionalSelection,
   KategoriKegiatanSelection,
@@ -97,6 +98,48 @@ const FormCreatePenelitian = ({ initialValues }) => {
           sk_penugasan: initialValues?.sk_penugasan || "",
           tanggal_sk_penugasan: initialValues?.tanggal_sk_penugasan || "",
           mitra_litabmas: initialValues?.mitra_litabmas[0]?.nama || "",
+          anggota_dosen: initialValues?.anggota.filter(
+            (item) => item.jenis === "Dosen"
+          ) || [
+            {
+              nama: "",
+              jenis: "",
+              id_sdm: "",
+              id_peserta_didik: "",
+              nomor_induk_peserta_didik: "",
+              id_orang: "",
+              aktif: "",
+              peran: "",
+            },
+          ],
+          anggota_mahasiswa: initialValues?.anggota.filter(
+            (item) => item.jenis === "Mahasiswa"
+          ) || [
+            {
+              nama: "",
+              jenis: "",
+              id_sdm: "",
+              id_peserta_didik: "",
+              nomor_induk_peserta_didik: "",
+              id_orang: "",
+              aktif: "",
+              peran: "",
+            },
+          ],
+          anggota_lain: initialValues?.anggota.filter(
+            (item) => item.jenis === "Lain"
+          ) || [
+            {
+              nama: "",
+              jenis: "",
+              id_sdm: "",
+              id_peserta_didik: "",
+              nomor_induk_peserta_didik: "",
+              id_orang: "",
+              aktif: "",
+              peran: "",
+            },
+          ],
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
@@ -299,6 +342,57 @@ const FormCreatePenelitian = ({ initialValues }) => {
                 />
               )}
             </MultipleUploadFile>
+            <span className="uppercase leading-tight font-bold text-sm">
+              Anggota Kegiatan (Dosen)
+            </span>
+            <FormAnggotaPengabdian
+              name={"anggota_dosen"}
+              values={values.anggota_dosen}
+              defaultValue={{
+                nama: "",
+                jenis: "",
+                id_sdm: "",
+                id_peserta_didik: "",
+                nomor_induk_peserta_didik: "",
+                id_orang: "",
+                aktif: "",
+                peran: "",
+              }}
+            />
+            <span className="uppercase leading-tight font-bold text-sm">
+              Anggota Kegiatan (Mahasiswa)
+            </span>
+            <FormAnggotaPengabdian
+              name={"anggota_mahasiswa"}
+              values={values.anggota_mahasiswa}
+              defaultValue={{
+                nama: "",
+                jenis: "",
+                id_sdm: "",
+                id_peserta_didik: "",
+                nomor_induk_peserta_didik: "",
+                id_orang: "",
+                aktif: "",
+                peran: "",
+              }}
+            />
+            <span className="uppercase leading-tight font-bold text-sm">
+              Anggota Kegiatan (Kolaborator Eksternal)
+            </span>
+            <FormAnggotaPengabdian
+              name={"anggota_lain"}
+              values={values?.anggota_lain}
+              defaultValue={{
+                nama: "",
+                jenis: "",
+                id_sdm: "",
+                id_peserta_didik: "",
+                nomor_induk_peserta_didik: "",
+                id_orang: "",
+                aktif: "",
+                peran: "",
+              }}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

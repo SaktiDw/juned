@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Form } from "formik";
 import {
+  Action,
   Button,
   Input,
   KategoriKegiatanSelection,
@@ -8,11 +9,15 @@ import {
   NestedList,
   PerguruanTinggiSelection,
   Select,
+  Selector,
   StackedTab,
+  Table,
 } from "..";
 import * as yup from "yup";
 import { createUser, fetchListInpassing } from "@/helper/api/api";
 import { useQuery } from "@tanstack/react-query";
+import { fetchPerguruanTinggi } from "@/helper/api/apiSister";
+import { useRouter } from "next/router";
 
 const schema = yup.object().shape({
   dokumen: yup.array().of(
@@ -49,7 +54,8 @@ const schema = yup.object().shape({
     .required("kelebihan pengabdian masyarakat wajib diisi."),
 });
 
-const FormCreateTugasTambahan = () => {
+const FormCreateTugasTambahan = ({ initialValues }) => {
+  const router = useRouter();
   return (
     <>
       <Formik
@@ -106,10 +112,21 @@ const FormCreateTugasTambahan = () => {
               errors={errors.jenis_tugas_tambahan}
               touched={touched.jenis_tugas_tambahan}
             />
-            <PerguruanTinggiSelection
+            <Selector
+              name={"ptn_tugas_tambahan"}
               label="perguruan tinggi penugasan"
               errors={errors.ptn_tugas_tambahan}
               touched={touched.ptn_tugas_tambahan}
+              onChange={setFieldValue}
+              queryKey={"ptn_tugas_tambahan"}
+              queryFn={() => fetchPerguruanTinggi()}
+              labelKey={"nama"}
+              valueKey={"id"}
+              placeholder={"Pilih perguruan tinggi"}
+              values={{
+                nama: "",
+                id: "",
+              }}
             />
             <Select
               label="Unit Kerja"
@@ -151,7 +168,36 @@ const FormCreateTugasTambahan = () => {
               errors={errors}
               touched={touched}
               setFieldValue={setFieldValue}
-            />
+            >
+              {router.pathname.includes("edit") && initialValues?.dokumen && (
+                <Table
+                  columns={[
+                    { key: "id", title: "No.", dataType: "numbering" },
+                    { key: "nama_file", title: "nama file" },
+                    { key: "jenis_file", title: "jenis file" },
+                    {
+                      key: "tanggal_upload",
+                      title: "tanggal upload",
+                      dataType: "date",
+                    },
+                    { key: "jenis_dokumen", title: "jenis dokumen" },
+                    {
+                      key: "action",
+                      title: "aksi",
+                      align: "center",
+                      render: (val) => (
+                        <Action
+                          param={val}
+                          baseUrl={"/dokumen"}
+                          action={["detail", "edit", "delete"]}
+                        />
+                      ),
+                    },
+                  ]}
+                  data={initialValues?.dokumen}
+                />
+              )}
+            </MultipleUploadFile>
             <Button
               disabled={!isValid}
               type={"submit"}

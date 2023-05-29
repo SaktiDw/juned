@@ -2,16 +2,18 @@ import React from "react";
 import { Formik, Form } from "formik";
 import {
   Button,
+  FormAnggotaPaten,
   Input,
-  JabatanFungsionalSelection,
   KategoriKegiatanSelection,
   MultipleUploadFile,
   Select,
+  Selector,
   Table,
+  Textarea,
 } from "..";
 import * as yup from "yup";
-import { createUser } from "@/helper/api/api";
 import { useRouter } from "next/router";
+import { fetchListKateogriCapaianLuaran } from "@/helper/api/apiSister";
 
 const schema = yup.object().shape({
   dokumen: yup.array().of(
@@ -86,7 +88,62 @@ const FormCreatePublikasi = ({ initialValues }) => {
             },
           ],
           kategori_kegiatan: initialValues?.id_jabatan_fungsional || "",
-          dokumen: initialValues?.dokumen || [],
+          id_kategori_kegiatan: initialValues?.id_kategori_kegiatan || "",
+          id_jenis_publikasi: initialValues?.id_jenis_publikasi || "",
+          id_kategori_capaian_luaran:
+            initialValues?.id_kategori_capaian_luaran || "",
+          id_litabmas: initialValues?.id_litabmas || "",
+          judul: initialValues?.judul || "",
+          tanggal: initialValues?.tanggal || "",
+          nomor_paten: initialValues?.nomor_paten || "",
+          pemberi_paten: initialValues?.pemberi_paten || "",
+          penerbit: initialValues?.penerbit || "",
+          isbn: initialValues?.isbn || "",
+          jumlah_halaman: initialValues?.jumlah_halaman || "",
+          tautan: initialValues?.tautan || "",
+          keterangan: initialValues?.keterangan || "",
+          penulis_dosen: initialValues?.penulis.filter(
+            (item) => item.jenis === "Dosen"
+          ) || [
+            {
+              nama: "",
+              jenis: "",
+              id_sdm: "",
+              id_peserta_didik: "",
+              nomor_induk_peserta_didik: "",
+              id_orang: "",
+              aktif: "",
+              peran: "",
+            },
+          ],
+          penulis_mahasiswa: initialValues?.penulis.filter(
+            (item) => item.jenis === "Mahasiswa"
+          ) || [
+            {
+              nama: "",
+              jenis: "",
+              id_sdm: "",
+              id_peserta_didik: "",
+              nomor_induk_peserta_didik: "",
+              id_orang: "",
+              aktif: "",
+              peran: "",
+            },
+          ],
+          penulis_lain: initialValues?.penulis.filter(
+            (item) => item.jenis === "Lain"
+          ) || [
+            {
+              nama: "",
+              jenis: "",
+              id_sdm: "",
+              id_peserta_didik: "",
+              nomor_induk_peserta_didik: "",
+              id_orang: "",
+              aktif: "",
+              peran: "",
+            },
+          ],
         }}
         validationSchema={schema}
         onSubmit={(values, { setErrors, setStatus }) => null}
@@ -111,92 +168,193 @@ const FormCreatePublikasi = ({ initialValues }) => {
               errors={errors.kategori_kegiatan}
               touched={touched.kategori_kegiatan}
             />
-            <Input
-              label="Judul Kegiatan"
-              name="judul"
-              type="text"
-              errors={errors.judul}
-              touched={touched.judul}
-            />
+
+            {router.pathname.includes("edit") && initialValues?.penulis && (
+              <>
+                <Select
+                  label={"Jenis"}
+                  name={"id_jenis_publikasi"}
+                  option={[
+                    { value: 21, label: "Jurnal nasional" },
+                    {
+                      value: 22,
+                      label: "Jurnal nasional terakreditasi",
+                    },
+                  ]}
+                  labelKey={"label"}
+                  valueKey={"value"}
+                  errors={errors.id_jenis_publikasi}
+                  touched={touched.id_jenis_publikasi}
+                />
+                <Selector
+                  placeholder={"Pilih Kategori Capaian"}
+                  label={"Kategori Capaian"}
+                  name={"kategori_capaian"}
+                  onChange={setFieldValue}
+                  values={{
+                    id: initialValues?.id_kategori_capaian_luaran || "",
+                    name: initialValues?.kategori_capaian_luaran || "",
+                  }}
+                  errors={errors.kategori_capaian}
+                  touched={touched.kategori_capaian}
+                  labelKey={"nama"}
+                  valueKey={"id"}
+                  queryKey={"list-kategori-capaian-luaran"}
+                  queryFn={() => fetchListKateogriCapaianLuaran()}
+                />
+                <Select
+                  label={"Aktivitas Litabmas"}
+                  name={"aktivitas_litabmas"}
+                  option={[]}
+                  labelKey={"label"}
+                  valueKey={"value"}
+                  errors={errors.aktivitas_litabmas}
+                  touched={touched.aktivitas_litabmas}
+                />
+                <Input
+                  label="Judul Artikel"
+                  name="judul"
+                  type="text"
+                  errors={errors.judul}
+                  touched={touched.judul}
+                />
+                <Input
+                  label="Nama Jurnal"
+                  name="nama_jurnal"
+                  type="text"
+                  errors={errors.nama_jurnal}
+                  touched={touched.nama_jurnal}
+                />
+                <Input
+                  label="Tautan Laman Jurnal"
+                  name="tautan_laman_jurnal"
+                  type="text"
+                  errors={errors.tautan_laman_jurnal}
+                  touched={touched.tautan_laman_jurnal}
+                />
+                <Input
+                  label="Tanggal Terbit"
+                  name="tanggal_terbit"
+                  type="date"
+                  errors={errors.tanggal_terbit}
+                  touched={touched.tanggal_terbit}
+                />
+                <Input
+                  label="Volume"
+                  name="volume"
+                  type="number"
+                  errors={errors.volume}
+                  touched={touched.volume}
+                />
+                <Input
+                  label="nomor"
+                  name="nomor"
+                  type="number"
+                  errors={errors.nomor}
+                  touched={touched.nomor}
+                />
+                <Input
+                  label="halaman"
+                  name="halaman"
+                  type="text"
+                  errors={errors.halaman}
+                  touched={touched.halaman}
+                />
+                <Input
+                  label="Penerbit/Penyelenggara"
+                  name="penerbit"
+                  type="text"
+                  errors={errors.penerbit}
+                  touched={touched.penerbit}
+                />
+                <Input
+                  label="DOI"
+                  name="doi"
+                  type="text"
+                  errors={errors.doi}
+                  touched={touched.doi}
+                />
+                <Input
+                  label="ISSN"
+                  name="issn"
+                  type="text"
+                  errors={errors.issn}
+                  touched={touched.issn}
+                />
+                <Input
+                  label="Tautan External"
+                  name="tautan_external"
+                  type="text"
+                  errors={errors.tautan_external}
+                  touched={touched.tautan_external}
+                />
+                <Textarea
+                  label="Keterangan/Petunjuk Akses"
+                  name="keterangan"
+                  placeholder={"Keterangan/Petunjuk Akses"}
+                  errors={errors.keterangan}
+                  touched={touched.keterangan}
+                />{" "}
+              </>
+            )}
+
             <MultipleUploadFile
               values={values}
               errors={errors}
               touched={touched}
               setFieldValue={setFieldValue}
             />
-            {router.pathname.includes("edit") && initialValues?.penulis && (
-              <>
-                <div>
-                  <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-                    Anggota Dosen
-                  </h1>
-                  <Table
-                    columns={[
-                      { key: "id", title: "No", dataType: "numbering" },
-                      { key: "nama", title: "nama" },
-                      { key: "urutan", title: "urutan" },
-                      { key: "afiliasi", title: "afiliasi" },
-                      { key: "peran", title: "peran" },
-                      {
-                        key: "corresponding_author",
-                        title: "corresponding author",
-                        render: (val) =>
-                          val.corresponding_author ? "Ya" : "Tidak",
-                      },
-                    ]}
-                    data={initialValues?.penulis.filter(
-                      (item) => item.jenis === "Dosen"
-                    )}
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-                    Anggota Mahasiswa
-                  </h1>
-                  <Table
-                    columns={[
-                      { key: "id", title: "No", dataType: "numbering" },
-                      { key: "nama", title: "nama" },
-                      { key: "urutan", title: "urutan" },
-                      { key: "afiliasi", title: "afiliasi" },
-                      { key: "peran", title: "peran" },
-                      {
-                        key: "corresponding_author",
-                        title: "corresponding author",
-                        render: (val) =>
-                          val.corresponding_author ? "Ya" : "Tidak",
-                      },
-                    ]}
-                    data={initialValues?.penulis.filter(
-                      (item) => item.jenis === "Mahasiswa"
-                    )}
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <h1 className="text-md uppercase font-bold drop-shadow-lg shadow-white">
-                    Anggota Non Civitas Akademika
-                  </h1>
-                  <Table
-                    columns={[
-                      { key: "id", title: "No", dataType: "numbering" },
-                      { key: "nama", title: "nama" },
-                      { key: "urutan", title: "urutan" },
-                      { key: "afiliasi", title: "afiliasi" },
-                      { key: "peran", title: "peran" },
-                      {
-                        key: "corresponding_author",
-                        title: "corresponding author",
-                        render: (val) =>
-                          val.corresponding_author ? "Ya" : "Tidak",
-                      },
-                    ]}
-                    data={initialValues?.penulis.filter(
-                      (item) => item.jenis === "Other"
-                    )}
-                  />
-                </div>
-              </>
-            )}
+            <span className="uppercase leading-tight font-bold text-sm">
+              Anggota Kegiatan (Dosen)
+            </span>
+            <FormAnggotaPaten
+              name={"penulis_dosen"}
+              values={values.penulis_dosen}
+              defaultValue={{
+                nama: "",
+                jenis: "",
+                id_sdm: "",
+                id_peserta_didik: "",
+                nomor_induk_peserta_didik: "",
+                id_orang: "",
+                aktif: "",
+                peran: "",
+              }}
+            />
+            <span className="uppercase leading-tight font-bold text-sm">
+              Anggota Kegiatan (Mahasiswa)
+            </span>
+            <FormAnggotaPaten
+              name={"penulis_mahasiswa"}
+              values={values.penulis_mahasiswa}
+              defaultValue={{
+                nama: "",
+                jenis: "",
+                id_sdm: "",
+                id_peserta_didik: "",
+                nomor_induk_peserta_didik: "",
+                id_orang: "",
+                aktif: "",
+                peran: "",
+              }}
+            />
+            <span className="uppercase leading-tight font-bold text-sm">
+              Anggota Kegiatan (Kolaborator Eksternal)
+            </span>
+            <FormAnggotaPaten
+              name={"penulis_lain"}
+              values={values?.penulis_lain}
+              defaultValue={{
+                nama: "",
+                jenis: "",
+                id_sdm: "",
+                id_peserta_didik: "",
+                nomor_induk_peserta_didik: "",
+                id_orang: "",
+                aktif: "",
+                peran: "",
+              }}
+            />
             <Button
               disabled={!isValid}
               type={"submit"}

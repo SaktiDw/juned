@@ -49,7 +49,7 @@ const Login = () => {
             setData(res.data);
             localStorage.setItem("role", res.data.role);
             localStorage.setItem("token", res.data.token);
-            router.push("/");
+            router.replace("/");
           })
         }
         validationSchema={schema}

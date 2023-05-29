@@ -68,7 +68,7 @@ const TugasTambahan = () => {
                   baseUrl={"/tugas-tambahan"}
                   addDocumentFn={() => {
                     setShowModal(!showModal);
-                    setSelected(val.judul);
+                    setSelected(val.jenis_tugas);
                   }}
                 />
               ),
