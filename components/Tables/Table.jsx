@@ -120,7 +120,8 @@ const Table = ({
                           toShown = (selectedPage - 1) * perPage + index + 1;
                         }
                         if (column.dataType === "date") {
-                          toShown = dateFormater(item[column.key]);
+                          toShown =
+                            item[column.key] && dateFormater(item[column.key]);
                         }
                         if (
                           column.dataType === "number" ||
