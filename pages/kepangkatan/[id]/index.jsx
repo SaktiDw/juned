@@ -1,11 +1,4 @@
-import {
-  Action,
-  Button,
-  MainLayout,
-  Nav,
-  Table,
-  TabRiwayatAjuanPerubahanData,
-} from "@/components";
+import { MainLayout, Nav } from "@/components";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import { fetchDetailKepangkatan } from "@/helper/api/apiSister";

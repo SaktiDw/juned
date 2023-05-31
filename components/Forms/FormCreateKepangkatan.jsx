@@ -46,6 +46,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
               jenis_dokumen: "",
             },
           ],
+          pangkat_golongan: initialValues?.pangkat_golongan || "",
           id_pangkat_golongan: initialValues?.id_pangkat_golongan || "",
           sk: initialValues?.sk || "",
           tanggal_sk: initialValues?.tanggal_sk || "",
@@ -80,8 +81,8 @@ const FormCreateKepangkatan = ({ initialValues }) => {
               labelKey={"nama"}
               valueKey={"id"}
               values={{
-                id: "",
-                nama: "",
+                id: values.id_pangkat_golongan || "",
+                nama: values.pangkat_golongan || "",
               }}
             />
             <Input
@@ -90,6 +91,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
               type="text"
               errors={errors.sk}
               touched={touched.sk}
+              value={values.sk}
             />
             <Input
               label="terhitung mulai tanggal"
@@ -97,6 +99,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
               type="date"
               errors={errors.tanggal_mulai}
               touched={touched.tanggal_mulai}
+              value={values.tanggal_mulai}
             />
             <Input
               label="tanggal sk"
@@ -104,6 +107,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
               type="date"
               errors={errors.tanggal_sk}
               touched={touched.tanggal_sk}
+              value={values.tanggal_sk}
             />
             <Input
               label="masa kerja (tahun)"
@@ -111,6 +115,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
               type="number"
               errors={errors.masa_kerja_tahun}
               touched={touched.masa_kerja_tahun}
+              value={values.masa_kerja_tahun}
             />
             <Input
               label="masa kerja (bulan)"
@@ -118,6 +123,7 @@ const FormCreateKepangkatan = ({ initialValues }) => {
               type="number"
               errors={errors.masa_kerja_bulan}
               touched={touched.masa_kerja_bulan}
+              value={values.masa_kerja_bulan}
             />
             <MultipleUploadFile
               values={values}

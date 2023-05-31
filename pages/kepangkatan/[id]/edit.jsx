@@ -1,10 +1,5 @@
-import {
-  FormCreateKepangkatan,
-  MainLayout,
-  Nav,
-  TabRiwayatAjuanPerubahanData,
-} from "@/components";
-import { fetchDetailKepangkatan } from "@/helper/api/api";
+import { FormCreateKepangkatan, MainLayout, Nav } from "@/components";
+import { fetchDetailKepangkatan } from "@/helper/api/apiSister";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import React from "react";
@@ -13,7 +8,7 @@ const KepangkatanEdit = () => {
   const router = useRouter();
   const { id } = router.query;
   const {
-    data: Kepangkatan,
+    data: kepangkatan,
     error,
     isLoading,
   } = useQuery({
@@ -33,7 +28,7 @@ const KepangkatanEdit = () => {
             {isLoading ? (
               "Memuat..."
             ) : (
-              <FormCreateKepangkatan key={1} initialValues={Kepangkatan.data} />
+              <FormCreateKepangkatan initialValues={kepangkatan} />
             )}
           </div>
         </div>
