@@ -12,8 +12,8 @@ export const fetchListInpassing = async (id) => await apiSister.get(`/inpassing?
 export const fetchDetailInpassing = async (id) => await apiSister.get(`/inpassing/detail_inpassing/${id}`).then(res=>res.data) 
 export const fetchListJabatanFungsional = async (id) => await apiSister.get(`/jabatan_fungsional?id_sdm=${id}`).then(res=>res.data) 
 export const fetchDetailJabatanFungsional = async (id) => await apiSister.get(`/jabatan_fungsional/${id}`).then(res=>res.data) 
-export const fetchListKepangkatan = async (id) => await apiSister.get(`/kepangkatan/list_kepangkatan/${id}`).then(res=>res.data) 
-export const fetchDetailKepangkatan = async (id) => await apiSister.get(`/kepangkatan/detail_kepangkatan/${id}`).then(res=>res.data) 
+export const fetchListKepangkatan = async (id) => await apiSister.get(`/kepangkatan?id_sdm=${id}`).then(res=>res.data) 
+export const fetchDetailKepangkatan = async (id) => await apiSister.get(`/kepangkatan/${id}`).then(res=>res.data) 
 export const fetchListPenempatan = async (id) => await apiSister.get(`/penugasan?id_sdm=${id}`).then(res=>res.data) 
 export const fetchDetailPenempatan = async (id) => await apiSister.get(`/penugasan/${id}`).then(res=>res.data) 
 

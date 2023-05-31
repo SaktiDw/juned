@@ -1,5 +1,5 @@
 import { Action, Button, MainLayout, Nav, Table } from "@/components";
-import { fetchListKepangkatan } from "@/helper/api/api";
+import { fetchListKepangkatan } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
@@ -59,7 +59,7 @@ const Kepangkatan = () => {
               ),
             },
           ]}
-          data={Kepangkatan?.data}
+          data={Kepangkatan}
         />
       </div>
     </MainLayout>
