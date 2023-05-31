@@ -99,6 +99,7 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
               type="text"
               errors={errors.sk}
               touched={touched.sk}
+              value={values.sk}
             />
             <Input
               label="terhitung mulai tanggal"
@@ -106,6 +107,7 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
               type="date"
               errors={errors.tanggal_mulai}
               touched={touched.tanggal_mulai}
+              value={values.tanggal_mulai}
             />
             <Input
               label="kelebihan pengajaran"
@@ -113,6 +115,7 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
               type="number"
               errors={errors.kelebihan_pengajaran}
               touched={touched.kelebihan_pengajaran}
+              value={values.kelebihan_pengajaran}
             />
             <Input
               label="kelebihan penelitian"
@@ -120,6 +123,7 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
               type="number"
               errors={errors.kelebihan_penelitian}
               touched={touched.kelebihan_penelitian}
+              value={values.kelebihan_penelitian}
             />
             <Input
               label="kelebihan pengabdian masyarakat"
@@ -127,6 +131,7 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
               type="number"
               errors={errors.kelebihan_pengabdian}
               touched={touched.kelebihan_pengabdian}
+              value={values.kelebihan_pengabdian}
             />
             <Input
               label="kelebihan kegiatan penunjang"
@@ -134,6 +139,7 @@ const FormCreateJabatanFungsional = ({ initialValues }) => {
               type="number"
               errors={errors.kelebihan_penunjang}
               touched={touched.kelebihan_penunjang}
+              value={values.kelebihan_penunjang}
             />
             <MultipleUploadFile
               values={values}

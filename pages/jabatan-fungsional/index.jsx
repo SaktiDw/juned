@@ -6,9 +6,10 @@ import {
   Table,
   TabRiwayatAjuanPerubahanData,
 } from "@/components";
-import { fetchListJabatanFungsional } from "@/helper/api/api";
+import { fetchListJabatanFungsional } from "@/helper/api/apiSister";
 import { id } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -64,7 +65,7 @@ const JabatanFungsional = () => {
               ),
             },
           ]}
-          data={jabatan_fungsional?.data}
+          data={jabatan_fungsional}
         />
       </div>
     </MainLayout>

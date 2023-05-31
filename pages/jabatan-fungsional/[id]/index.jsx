@@ -2,6 +2,7 @@ import { Action, MainLayout, Nav, Table } from "@/components";
 import { fetchDetailJabatanFungsional } from "@/helper/api/api";
 import { dateFormater } from "@/helper/constant";
 import { useQuery } from "@tanstack/react-query";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
 
@@ -77,6 +78,14 @@ const DetailJabatanFungsional = () => {
             </span>
           </div>
         </div>
+      </div>
+      <div className="flex justify-end items-center">
+        <Link
+          href={`/jabatan-fungsional/${id}/edit`}
+          className="bg-primary rounded-xl py-2 px-4 text-white text-sm"
+        >
+          <i className="fi-rr-pencil"></i> Ajukan Perubahan Data
+        </Link>
       </div>
     </MainLayout>
   );
